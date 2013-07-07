@@ -11,7 +11,7 @@
 </div>
 <h2>All Recipes</h2>
 
-<% @recipes.each do |recipe| %>
+
 <table class="table table-hover">
   <th>
     <tr>
@@ -19,24 +19,19 @@
       <td><%= link_to 'Delete Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   </th>
-  <th>
-    <tr>
-      <td>Name</td>
-      <td>Category</td>
-      <td>Difficulty</td>
-      <td>Ingredients</td>
-      <td>Pictures</td>
-    </tr>
-  </th>
-    <td>
-           <tr>
-            <td><%= recipe.name %></td>
-            <td><%= recipe.steps %></td>
-            <td><%= recipe.food_type %></td>
-            <td><%= recipe.ingredients.ingredients if recipe.ingredients %></td>
-            <td><%= recipe.pictures.pictures if recipe.pictures %></td>
-            </tr>
-    </td>
-</table>
-    <% end %>
+
+    <ul>
+        <% @recipes.each do |recipe| %>
+      <li>Name</li>
+      <li><%= recipe.name %></li>
+      <li>Type Recipe</li>
+      <li><%= recipe.food_type %></li>
+      <li>Steps To Prepare</li>
+      <li><%= recipe.steps %></li>
+        <% end %>
+        <% @ingredients.each do |ingredients| %>
+      <li>Ingredients</li>
+      <li><%= ingredients.ingredients %></li>
+        <% end %>
+    </ul>
 
