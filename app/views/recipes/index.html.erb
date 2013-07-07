@@ -1,3 +1,14 @@
+<h1>My Recipe Folder</h1>
+<h2>Yum, Yum, Yum!</h2>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= link_to 'Enter New Recipe', new_recipe_path(method: :create) %>
+
+    </ul>
+  </div>
+</div>
 <h2>All Recipes</h2>
 
 <% @recipes.each do |recipe| %>
@@ -28,3 +39,4 @@
     </td>
 </table>
     <% end %>
+
