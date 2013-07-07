@@ -9,12 +9,14 @@ Steps:
 Food Type:
  <%= f.text_field :food_type %>
   <br>
-Ingredients:
-  <%= f.text_field :ingredients %>
-  <br>
- Pictures:
-  <%= f.text_field :pictures %>
-  <br>
-  <%= f.submit 'Submit' %>
+<%= f.submit 'Submit' %>
 <% end %>
+<br>
+<%= form_for(@ingredients) do |f| %>
+Ingredients:
+<%= f.text_field :ingredients %>
+<br>
+<%= f.submit 'Submit' %>
+<% end %>
+<br>
 </form>
