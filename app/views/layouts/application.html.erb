@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookin' on Rails</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if current_user %>
+  <p>hello, <%= current_user.email %></p>
+  <br>
+  <%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %>
+  <% else %>
+  <%= link_to 'Please Login', login_path %>
+  <%= link_to 'Sign Up Here', new_user_path %>
+  <% end %>
+
+
+
+<% flash.each do |name, message| %>
+<div class='flash-message flash-message-<%=name%>'>
+  <%= message %>
+</div>
+<% end %>
+
+<%= link_to "Recipes", recipes_path %>
+<%= link_to "Ingredients", ingredients_path %>
+<%= link_to "Home", root_path %>
+<%= yield %>
+
+</body>
+</html>
