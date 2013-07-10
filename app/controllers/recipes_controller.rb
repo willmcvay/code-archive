@@ -2,15 +2,19 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   before_filter :authenticate
-  def index
-    @recipes = Recipe.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @recipes }
-    end
+  def index
+    @q = Recipe.search(params[:q])
+    @recipes = @q.result(distinct: true)
+
+
   end
 
+
+def search
+  index
+  render :index
+end
   # GET /recipes/1
   # GET /recipes/1.json
   def show

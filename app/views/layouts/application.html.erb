@@ -8,26 +8,28 @@
 </head>
 <body>
   <div class="container">
-<ul class="nav nav-tabs">
-  <li class="active">
-    <% if current_user %>
-  <li>Hello, <%= current_user.email %></li>
-  <li><%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %></li>
-    <% else %>
-  <li><%= link_to 'Please Login', login_path %></li>
-  <li><%= link_to 'Sign Up Here', new_user_path %></li>
-    <% end %>
-</ul>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <% if current_user %>
+      <li>Hello, <%= current_user.email %></li>
+      <li><%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %></li>
+        <% else %>
+      <li><%= link_to 'Please Login', login_path %></li>
+      <li><%= link_to 'Sign Up Here', new_user_path %></li>
+        <% end %>
+      <li><%= link_to "Recipes", recipes_path %></li>
+      <li><%= link_to "Ingredients", ingredients_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+        <%= search_form_for @q, url: search_recipes_path, html: {method: :post} do |f| %>
+      <li><%= f.label :name_cont, 'Search Recipes' %><%= f.text_field :name_cont %><%= f.submit %></li>
+      <% end %>
+    </ul>
 
-    <% flash.each do |name, message| %>
+      <% flash.each do |name, message| %>
     <div class='flash-message flash-message-<%=name%>'>
       <%= message %>
     </div>
     <% end %>
-
-    <%= link_to "Recipes", recipes_path %>
-    <%= link_to "Ingredients", ingredients_path %>
-    <%= link_to "Home", root_path %>
     <%= yield %>
   </div>
 </body>
