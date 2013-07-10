@@ -7,28 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+<ul class="nav nav-tabs">
+  <li class="active">
+    <% if current_user %>
+  <li>Hello, <%= current_user.email %></li>
+  <li><%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %></li>
+    <% else %>
+  <li><%= link_to 'Please Login', login_path %></li>
+  <li><%= link_to 'Sign Up Here', new_user_path %></li>
+    <% end %>
+</ul>
 
-  <% if current_user %>
-  <p>hello, <%= current_user.email %></p>
-  <br>
-  <%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %>
-  <% else %>
-  <%= link_to 'Please Login', login_path %>
-  <%= link_to 'Sign Up Here', new_user_path %>
-  <% end %>
+    <% flash.each do |name, message| %>
+    <div class='flash-message flash-message-<%=name%>'>
+      <%= message %>
+    </div>
+    <% end %>
 
-
-
-<% flash.each do |name, message| %>
-<div class='flash-message flash-message-<%=name%>'>
-  <%= message %>
-</div>
-<% end %>
-
-<%= link_to "Recipes", recipes_path %>
-<%= link_to "Ingredients", ingredients_path %>
-<%= link_to "Home", root_path %>
-<%= yield %>
-
+    <%= link_to "Recipes", recipes_path %>
+    <%= link_to "Ingredients", ingredients_path %>
+    <%= link_to "Home", root_path %>
+    <%= yield %>
+  </div>
 </body>
 </html>
