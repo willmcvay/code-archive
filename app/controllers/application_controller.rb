@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :setup_ransack_search
   helper_method :current_user
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -22,4 +22,9 @@ def authenticate
     redirect_to login_url
   end
 end
+
+def setup_ransack_search
+@q = Recipe.search(params[:q])
+end
+
 end
