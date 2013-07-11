@@ -26,11 +26,10 @@
 
 <p>
   <b>Ingredients:</b>
-  <% @recipe.ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
+  <% @recipe.ingredients_recipes.each do |ingredients_recipe| %>
+    <%= ingredients_recipe.quantity %> of <%= ingredients_recipe.ingredient.name %>
   <% end %>
 </p>
-
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
 

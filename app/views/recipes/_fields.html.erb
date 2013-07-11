@@ -1,0 +1,8 @@
+<%= f.fields_for :ingredients_recipes do |ingredients_recipe_form| %>
+  <%= ingredients_recipe_form.label :quantity %>
+  <%= ingredients_recipe_form.text_field :quantity %>
+  <%= ingredients_recipe_form.collection_select  :ingredient_id, Ingredient.all, :id, :name %>
+  <%= ingredients_recipe_form.link_to_remove 'Remove!' %>
+
+  <% end %>
+  <%= f.link_to_add 'Add an ingredient', :ingredients_recipes %>

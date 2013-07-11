@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(:version => 20130710101507) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "ingredients_recipes", :id => false, :force => true do |t|
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
+  create_table "ingredients_recipes", :force => true do |t|
+    t.integer  "ingredient_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "quantity"
   end
 
   create_table "recipes", :force => true do |t|
