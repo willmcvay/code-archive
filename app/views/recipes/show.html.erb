@@ -20,11 +20,6 @@
 </p>
 
 <p>
-  <b>Image:</b>
-  <%= @recipe.image %>
-</p>
-
-<p>
   <b>Ingredients:</b>
   <% @recipe.ingredients_recipes.each do |ingredients_recipe| %>
     <%= ingredients_recipe.quantity %> of <%= ingredients_recipe.ingredient.name %>
