@@ -20,8 +20,9 @@
       <li><%= link_to "Recipes", recipes_path %></li>
       <li><%= link_to "Ingredients", ingredients_path %></li>
       <li><%= link_to "Home", root_path %></li>
+      <li>Search Recipes</li>
         <%= search_form_for @q, url: search_recipes_path, html: {method: :post} do |f| %>
-      <li><%= f.label :name_cont, 'Search Recipes' %><%= f.text_field :name_cont %><%= f.submit %></li>
+      <li><%= f.text_field :name_cont %><%= f.submit %></li>
       <% end %>
     </ul>
 

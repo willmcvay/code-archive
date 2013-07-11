@@ -6,6 +6,8 @@ gem 'pg'
 gem 'sqlite3'
 gem 'ransack'
 gem 'carrierwave'
+gem 'nested_form'
+gem 'railroady'
 
 group :development do
   gem 'pry-rails'
