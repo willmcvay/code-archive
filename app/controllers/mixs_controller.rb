@@ -1,5 +1,6 @@
 class MixsController < ApplicationController
 
+before_filter :authenticate
   def index
     @mixs = Mix.all
   end

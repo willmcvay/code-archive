@@ -1,0 +1,7 @@
+<h1> Login </h1>
+  <div>
+    <% @users.each do |user|%>
+     <%= user.djname %>
+     <%= user.password_digest %>
+    <% end %>
+  </div>

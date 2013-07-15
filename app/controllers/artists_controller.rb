@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
 
+before_filter :authenticate
+
   def index
     @artists = Artist.all
   end
