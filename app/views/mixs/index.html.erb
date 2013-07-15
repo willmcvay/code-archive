@@ -23,15 +23,18 @@
     </ul>
   </div>
 </div>
+<% @mixs.each do |mixs| %>
+<h2>DJ<%= @artist.djname %>'s Mixes</h2>
 <div>
-  <%= mixes.image %>
+  <%= @mixs.image %>
 </div>
 <div>
   <ul>
-    <li><%= mixes.djname %></li>
-    <li><%= mixes.mix %></li>
-    <li><%= mixes.genre %></li>
-    <li><%= mixes.description %></li>
+    <li><%= @mixs.djname %></li>
+    <li><%= @mixs.mix %></li>
+    <li><%= @mixs.genre %></li>
+    <li><%= @mixs.description %></li>
   </ul>
 </div>
+<%end %>
 

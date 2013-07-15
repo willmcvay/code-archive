@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    load_and_authorize_resource
 
   def index
     @users = User.all
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path
+      redirect_to artists_path
     else
       render 'new'
     end
