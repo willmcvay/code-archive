@@ -8,6 +8,7 @@ gem 'ransack'
 gem 'carrierwave'
 gem 'nested_form'
 gem 'railroady'
+gem 'bcrypt-ruby','~>3.0.0'
 
 group :development do
   gem 'pry-rails'
