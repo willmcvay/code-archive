@@ -19,28 +19,28 @@
  <div class="navbar-inner">
     <ul class="nav">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Explore Mixes", mixs_path %></li>
+      <li><%= link_to "Explore Mixes", mixes_path %></li>
       <li><%= link_to "My Profile", artists_path %></li>
       <li><%= link_to 'Logout', root_path %></li>
     </ul>
   </div>
 </div>
-<% @artists.each do |artists| %>
-<h2>DJ<%= @artist.djname %>'s Profile</h2>
+<% @artists.each do |artist| %>
+<h2>DJ<%= artist.djname %>'s Profile</h2>
 <div>
-  <%= @artist.image %>
+  <%= artist.image %>
 </div>
 <div>
   <ul>
-    <li><%= @artist.djname %></li>
-    <li><%= @artist.location %></li>
-    <li><%= @artist.biog %></li>
+    <li><%= artist.djname %></li>
+    <li><%= artist.location %></li>
+    <li><%= artist.biog %></li>
   </ul>
 </div>
 <div>
-    <li><%= @artist.twitter %></li>
-    <li><%= @artist.facebook %></li>
-    <li><%= @artist.soundcloud %></li>
+    <li><%= artist.twitter %></li>
+    <li><%= artist.facebook %></li>
+    <li><%= artist.soundcloud %></li>
 </div>
 <%end %>
 <div>

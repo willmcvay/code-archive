@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130715092449) do
   end
 
   create_table "mixes", :force => true do |t|
-    t.string   "djname"
+    t.integer  "artist_id"
     t.string   "mix"
     t.string   "genre"
     t.string   "description"

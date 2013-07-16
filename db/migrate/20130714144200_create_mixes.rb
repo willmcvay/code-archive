@@ -1,7 +1,7 @@
 class CreateMixes < ActiveRecord::Migration
   def change
     create_table :mixes do |t|
-      t.string :djname
+      t.references :artist
       t.string :mix
       t.string :genre
       t.string :description
