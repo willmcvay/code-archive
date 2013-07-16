@@ -1,11 +1,10 @@
 <%= form_for(@mix) do |f| %>
 
 <div class="field">
-  <ul>Image<%= f.file_field :image %><%= f.label :image %></ul>
-  <ul>Upload Mix<%= f.file_field :mix %> <%= f.label :mix %></ul>
-
-  <ul>Genre<%= f.label :genre %><%= f.text_field :genre %></ul>
-  <ul>Description<%= f.label :description %><%= f.text_field :description %></ul>
+  <ul><%= f.label :image %><%= f.file_field :image %></ul>
+  <ul><%= f.label :mix %><%= f.file_field :mix %> </ul>
+  <ul><%= f.label :genre %><%= f.text_field :genre %></ul>
+  <ul><%= f.label :description %><%= f.text_field :description %></ul>
   <div class="actions">
     <%= f.submit %>
   </div>

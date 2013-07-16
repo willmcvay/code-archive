@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to artists_path
+      redirect_to new_artist_path
     else
       render 'new'
     end
