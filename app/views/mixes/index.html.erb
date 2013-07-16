@@ -1,0 +1,47 @@
+  <% flash.each do | name, message | %>
+<divclass="flash-message flash-message-<%=djname%>">
+  <%=message%>
+</div>
+  <%end%>
+<div>
+  <ul>
+    <% if current_user %>
+      <li>Hello, <%= current_user.djname %></li>
+      <li><%= link_to 'Logout', session_path(session), method: :delete, data: { confirm: 'Are you sure?'} %></li>
+        <% else %>
+      <li><%= link_to 'Please Login', login_path %></li>
+        <% end %>
+    </ul>
+</div>
+<div class="navbar">
+ <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= link_to "Upload Mix", new_mix_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Explore DJs", artists_path %></li>
+      <li><%= link_to "My Profile", artists_path %></li>
+      <li><%= link_to 'Logout', root_path %></li>
+    </ul>
+  </div>
+</div>
+<h2>Mixes</h2>
+<% @mixes.each do |mix| %>
+
+<div>
+  <%= mix.image %>
+</div>
+<div>
+  <ul>
+    <li><%= mix.artist_id %></li>
+    <li><%= mix.mix.url %>
+        <audio controls="controls">
+          Your browser does not support the <code>audio</code> element.
+          <source src="<%= mix.mix.url %>" >
+        </audio>
+    </li>
+    <li><%= mix.genre %></li>
+    <li><%= mix.description %></li>
+  </ul>
+</div>
+<%end %>
+
