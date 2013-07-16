@@ -1,3 +1,123 @@
 /*
 //= require_tree .
 */
+
+body {
+font-family: 'Pathway Gothic One', sans-serif;
+background: image-url('app/assets/images/background.jpg') repeat;
+}
+
+ul {
+ list-style-type: none;
+ }
+
+ .list {
+  float: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ }
+
+h2 {
+  padding-left: 20px;
+}
+
+ .thumb {
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+ }
+
+.welcome {
+  text-decoration: none;
+  display: block;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.homepage {
+
+}
+
+.header {
+  padding-bottom: 50px;
+  padding-top: 100px;
+  font-size: 75px;
+}
+
+ .home1 {
+  width: 320px;
+  height: 320px;
+  padding-left: 75px;
+  padding-right: 50px;
+  padding-top: 75px;
+  padding-bottom: 50px;
+  float: left;
+  background: #fff;
+  font-size: 50px;
+  text-align: center;
+}
+
+ .home2 {
+  width: 320px;
+  height: 320px;
+  padding-left: 50px;
+  padding-right: 75px;
+  padding-top: 75px;
+  padding-bottom: 50px;
+  float: right;
+  background: #fff;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  color: #000000;
+}
+
+ .home3 {
+  width: 320px;
+  height: 320px;
+  padding-left: 75px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 75px;
+  float: left;
+  background: #fff;
+  font-size: 50px;
+  text-align: center;
+}
+
+  .home4 {
+  width: 320px;
+  height: 320px;
+  padding-left: 50px;
+  padding-right: 75px;
+  padding-top: 50px;
+  padding-bottom: 75px;
+  float: right;
+  background: #fff;
+  font-size: 50px;
+  text-align: center;
+}
+
+ul.nav {
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+    padding: 5px;
+    background: #F0F8FF;
+    color: #fff;
+    border-radius: 2px;
+    width: 940px;
+  }
+
+.navbar {
+  padding-bottom: 20px;
+}
+
+  li.dj {
+    font-size: 20px
+  }
+

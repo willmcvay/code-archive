@@ -1,0 +1,16 @@
+<%= form_for(@artist) do |f| %>
+
+<div class="field">
+  <ul><%= f.label :image %><%= f.file_field :image %></ul>
+  <ul><%= f.label :wallpaper %><%= f.file_field :wallpaper %></ul>
+  <ul><%= f.label :djname %><%= f.text_field :djname %></ul>
+  <ul><%= f.label :biog %><%= f.text_field :biog %></ul>
+  <ul><%= f.label :location %><%= f.text_field :location %></ul>
+  <ul><%= f.label :twitter %><%= f.text_field :twitter %></ul>
+  <ul><%= f.label :facebook %><%= f.text_field :facebook %></ul>
+  <ul><%= f.label :soundcloud %><%= f.text_field :soundcloud %></ul>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>
