@@ -1,12 +1,15 @@
 <%= form_for(@mix) do |f| %>
-
-<div class="field">
-  <ul><%= f.label :image %><%= f.file_field :image %></ul>
-  <ul><%= f.label :mix %><%= f.file_field :mix %> </ul>
-  <ul><%= f.label :genre %><%= f.text_field :genre %></ul>
-  <ul><%= f.label :description %><%= f.text_field :description %></ul>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+      <ul>
+        <li><%= f.label :artist %><%= f.select(:artist_id, Artist.all.map {|djname| [djname.djname, djname.id]} ) %></li>
+        <li><%= f.label :genre %><%= f.select(:artist_id, Artist.all.map {|genre| [genre.genre, genre.id]} ) %></li>
+        <li><%= f.label :mixname %><%= f.text_field :mixname %></li>
+        <li><%= f.label :image %><%= f.file_field :image %></li>
+        <li><%= f.label :mix %><%= f.file_field :mix %></li>
+        <li><%= f.label :description %><%= f.text_field :description %></li>
+      <div class="actions">
+      <li><%= f.submit %></li>
+    </ul>
   </div>
 </div>
 <% end %>
