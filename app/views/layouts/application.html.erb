@@ -10,7 +10,7 @@
     <body>
 
         <% flash.each do | name, message | %>
-      <divclass="flash-message flash-message-<%=djname%>">
+      <divclass="flash-message flash-message-<%=@djname%>">
         <%=message%>
       </div>
         <%end%>
@@ -26,6 +26,17 @@
       </div>
     </div>
       <div class="container">
+        <div class='header'>FourFourForum</div>
+          <div class="navbar">
+            <ul class="nav">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Explore DJs", artists_path %></li>
+              <li><%= link_to "Explore Mixes", mixes_path %></li>
+              <li><%= link_to "My Profile", artists_path %></li>
+              <li><%= link_to "New DJ Profile", new_artist_path %></li>
+              <li><%= link_to "Upload Mix", new_mix_path %></li>
+            </ul>
+          </div>
             <%= yield %>
       </div>
     </body>

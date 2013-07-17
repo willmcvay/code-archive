@@ -1,29 +1,10 @@
-<div class="navbar">
-    <ul class="nav">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Explore Mixes", mixes_path %></li>
-      <li><%= link_to "My Profile", artists_path %></li>
-      <li><%= link_to "New DJ Profile", new_artist_path %></li>
-    </ul>
-</div>
-
 <h2>DJ Profiles</h2>
     <% @artists.each do |artist| %>
   <div class="span10 list">
     <ul>
-      <li class='dj'><%= link_to artist.djname, artist %> Profile</li>
-      <li><%= artist.djname %></li>
-      <li><%= artist.location %></li>
-      <li><%= artist.biog %></li>
-      <li><%= artist.twitter %></li>
-      <li><%= artist.facebook %></li>
-      <li><%= artist.soundcloud %></li>
-      <li>
-          <% artist.comments.each do |comment| %>
-            <%= comment.djname %> said
-            <%= comment.comment %> <br>
-          <% end %>
-      </li>
+      <li class='dj'><%= link_to artist.djname, artist %></li>
+      <li>location: <%= artist.location %></li>
+      <li>Genre: <%= artist.genre %></li>
       <li><%= link_to 'View Profile', artist %></li>
     </ul>
   </div>
