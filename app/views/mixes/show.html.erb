@@ -1,2 +1,14 @@
 <h1>Mixs#show</h1>
 <p>Find me in app/views/mixs/show.html.erb</p>
+<% @mix.comments.each do |comment| %>
+  <li><%= comment.comment %> by <%= comment.djname %></li>
+<% end %>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :djname %>
+  <%= f.text_field :djname %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.hidden_field :mix_id, value: @mix.id %>
+  <%= f.submit %>
+<% end %>

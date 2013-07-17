@@ -9,9 +9,12 @@ before_filter :authenticate
     @comment = Comment.find(params[:id])
   end
 
-  def new
-    @comment = Comment.new
-  end
+  # def new
+  #   @comment = Comment.new
+  #   @artist = Artist.find params[:artist_id]
+  #   @mix = Mix.find params[:mix_id]
+
+  # end
 
   def edit
     @comment = Comment.find(params[:id])
@@ -20,7 +23,14 @@ before_filter :authenticate
   def create
     @comment = Comment.new(params[:comment])
     @comment.save
-    redirect_to comments_path
+
+    if @comment.artist_id
+      redirect_to artist_path(@comment.artist)
+    elsif @comment.mix_id
+      redirect_to mix_path(@comment.mix)
+    else
+      redirect_to root_url, notice: "This shouldn't happen!"
+    end
   end
 
   def update

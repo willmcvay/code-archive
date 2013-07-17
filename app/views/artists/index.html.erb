@@ -11,7 +11,7 @@
     <% @artists.each do |artist| %>
   <div class="span10 list">
     <ul>
-      <li class='dj'><%= artist.djname %> Profile</li>
+      <li class='dj'><%= link_to artist.djname, artist %> Profile</li>
       <li><%= artist.djname %></li>
       <li><%= artist.location %></li>
       <li><%= artist.biog %></li>
@@ -20,12 +20,11 @@
       <li><%= artist.soundcloud %></li>
       <li>
           <% artist.comments.each do |comment| %>
-            <%= artist.comment.comment %>
-            <%= comment.comment %>
+            <%= comment.djname %> said
+            <%= comment.comment %> <br>
           <% end %>
       </li>
-      <li><%= link_to 'Comment On This DJ', new_comment_path %></li>
-      <li><%= link_to 'Listen To Mixes', mixes_path %></li>
+      <li><%= link_to 'View Profile', artist %></li>
     </ul>
   </div>
   <div class="span2 thumb">
