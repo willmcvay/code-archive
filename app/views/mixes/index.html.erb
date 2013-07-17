@@ -20,6 +20,13 @@
           <source src="<%= mix.mix.url %>">
           </audio>
         </li>
+         <li>
+          <% mix.comments.each do |comment| %>
+            <%= comment.djname %> said
+            <%= comment.comment %>
+          <% end %>
+        </li>
+        <li><%= link_to "View Mix", mix %></li>
       </ul>
     </div>
      <div class="span2 thumb">

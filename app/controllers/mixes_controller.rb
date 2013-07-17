@@ -7,6 +7,7 @@ before_filter :authenticate
 
   def show
     @mix = Mix.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

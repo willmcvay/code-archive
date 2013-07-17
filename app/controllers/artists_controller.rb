@@ -8,6 +8,7 @@ before_filter :authenticate
 
   def show
     @artist = Artist.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

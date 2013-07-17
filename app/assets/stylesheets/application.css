@@ -15,6 +15,7 @@ ul {
   float: right;
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 210px
  }
 
 h2 {
@@ -26,6 +27,7 @@ h2 {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
+  height: 210px;
  }
 
 .welcome {
