@@ -32,7 +32,7 @@
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Explore DJs", artists_path %></li>
               <li><%= link_to "Explore Mixes", mixes_path %></li>
-              <li><%= link_to "My Profile", artists_path %></li>
+              <li><%= link_to "My Profile", current_user.artist %></li>
               <li><%= link_to "New DJ Profile", new_artist_path %></li>
               <li><%= link_to "Upload Mix", new_mix_path %></li>
             </ul>
