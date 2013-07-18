@@ -8,7 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
     <body>
-
         <% flash.each do | name, message | %>
       <divclass="flash-message flash-message-<%=@djname%>">
         <%=message%>
@@ -32,8 +31,13 @@
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Explore DJs", artists_path %></li>
               <li><%= link_to "Explore Mixes", mixes_path %></li>
-              <li><%= link_to "My Profile", current_user.artist %></li>
+              <% if  current_user %>
+               <% if current_user.artist %>
+              <li><%= link_to("My Profile", current_user.artist)  %></li>
+              <%else%>
               <li><%= link_to "New DJ Profile", new_artist_path %></li>
+              <%end%>
+              <%end%>
               <li><%= link_to "Upload Mix", new_mix_path %></li>
             </ul>
           </div>

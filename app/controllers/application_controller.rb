@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
 rescue_from CanCan::AccessDenied do |exception|
- redirect_to root_url , alert: "Permission denied by 'The Man.' Rave Safe Kids"
+ redirect_to warning_path , alert: "Permission denied by 'The Man.' Rave Safe Kids"
 end
 
   def current_user

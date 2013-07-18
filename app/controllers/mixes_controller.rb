@@ -22,6 +22,7 @@ before_filter :authenticate
 
   def create
     @mix = Mix.new(params[:mix])
+    @mix.artist = current_user.artist
     @mix.save
     redirect_to mixes_path
   end
