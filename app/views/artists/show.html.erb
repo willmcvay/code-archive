@@ -1,33 +1,33 @@
 <h2><%= @artist.djname %></h2>
-  <div class="span10 list">
-    <ul>
-      <li class='dj'><%= link_to @artist.djname, @artist %> Profile</li>
-      <li>Location: <%= @artist.location %></li>
-      <li>Biog: <%= @artist.biog %></li>
-      <li>@Twitter: <%= @artist.twitter %></li>
-      <li>Facebook: <%= @artist.facebook %></li>
-      <li>Soundcloud: <%= @artist.soundcloud %></li>
-      <li><%= link_to "Delete Profile", @artist, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Edit Profile Details", edit_artist_path(@artist) %></li></li>
-    </ul>
+<div class="row">
+    <div class="span7 list">
+      <ul>
+        <li class='dj'><%= link_to @artist.djname, @artist %> Profile</li>
+        <li>Location: <%= @artist.location %></li>
+        <li>Biog: <%= @artist.biog %></li>
+        <li>@Twitter: <%= @artist.twitter %></li>
+        <li>Facebook: <%= @artist.facebook %></li>
+        <li>Soundcloud: <%= @artist.soundcloud %></li>
+        <li><%= link_to "Delete Profile", @artist, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Edit Profile Details", edit_artist_path(@artist) %></li></li>
+      </ul>
+    </div>
+
+    <div class="span5 thumb">
+      <a><%= image_tag @artist.image.url %></a>
+      <a><%=image_tag @artist.wallpaper.url %></a>
+    </div>
   </div>
-
-  <div><%=image_tag @artist.wallpaper.url %></div>
-
-  <div class="span2 thumb">
-    <a><%= image_tag @artist.image.url  %></a>
-  </div>
-
-      <div>
-          <% @artist.mixes.each do |mix| %>
-           <li>
-              <audio controls="controls">
-                Your browser does not support the <code>audio</code> element.
-              <source src="<%= mix.mix.url %>">
-            </audio>
-          </li>
-          <% end %>
-      </div>
-
+        <div>
+            <% @artist.mixes.each do |mix| %>
+             <li>
+                <audio controls="controls">
+                  Your browser does not support the <code>audio</code> element.
+                <source src="<%= mix.mix.url %>">
+              </audio>
+            </li>
+            <% end %>
+        </div>
+  <div class="wallpaper"></div>
 <div>
   <h3>Comments</h3>
     <p>
