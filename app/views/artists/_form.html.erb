@@ -9,6 +9,7 @@
   <ul><%= f.label :twitter %><%= f.text_field :twitter %></ul>
   <ul><%= f.label :facebook %><%= f.text_field :facebook %></ul>
   <ul><%= f.label :soundcloud %><%= f.text_field :soundcloud %></ul>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
