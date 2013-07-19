@@ -1,0 +1,45 @@
+<h2><%= @mix.mixname %></h2>
+  <h3><%= link_to @mix.artist.djname, @artist %> </h3>
+    <div class="row">
+      <div class="span7 list">
+            <ul>
+              <li><%= @mix.mixname %> by <%= link_to @mix.artist.djname, @artist %></li>
+              <li>Genre: <%= @mix.genre %></li>
+              <li>Description: <%= @mix.description %></li>
+              <li>
+                <audio controls="controls">
+                  Your browser does not support the <code>audio</code> element.
+                <source src="<%= @mix.mix.url %>">
+                </audio>
+              </li>
+              <li><%= link_to "Delete Mix", @mix, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Edit Mix Details", edit_mix_path(@mix) %></li>
+            </ul>
+          </div>
+
+      <div class="span5 thumb">
+        <%= image_tag @mix.image.url  %>
+      </div>
+    </div>
+
+<div>
+  <h3>Comments</h3>
+    <p>
+      <% @mix.comments.each do |comment| %>
+        <%= comment.djname %> said |
+        <%= comment.comment %> <%= link_to "| Delete Comment", comment, method: :delete %><br>
+      <% end %>
+    </p>
+</div>
+
+  <div class="comment_form">
+    <%= form_for @comment do |f| %>
+      <li><%= f.label :djname %></li>
+      <li><%= f.text_field :djname %></li>
+      <li><%= f.label :comment %></li>
+      <li><%= f.text_area :comment %></li>
+      <li><%= f.submit %></li>
+      <%= f.hidden_field :mix_id, value: @mix.id %>
+    <% end %>
+</div>
+
+
