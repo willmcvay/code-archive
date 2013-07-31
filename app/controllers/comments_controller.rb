@@ -38,10 +38,10 @@ load_and_authorize_resource
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-       if @comment.artist_id
-      redirect_to artist_path(@comment.artist)
-    elsif @comment.mix_id
-      redirect_to mix_path(@comment.mix)
+      if @comment.artist_id
+        redirect_to artist_path(@comment.artist)
+      elsif @comment.mix_id
+        redirect_to mix_path(@comment.mix)
+      end
     end
-  end
 end
