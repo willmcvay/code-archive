@@ -13,7 +13,7 @@ font-size: 16px;
 }
 
 .container {
- background-color: #FFFFF0;
+ background-color: rgba(255, 255, 240, 0.7);
  border-radius: 5px;
  padding: 10px;
 }
