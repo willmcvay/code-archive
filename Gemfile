@@ -7,6 +7,26 @@ gem 'rails', '3.2.14'
 
 gem 'pg'
 
+gem 'cancan'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'ransack'
+gem 'devise'
+gem 'haml-rails'
+gem 'jquery-rails', '~> 2.0'
+gem 'acts_as_list'
+gem 'nokogiri'
+
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'railroady'
+  gem 'rspec-rails'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,8 +39,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
