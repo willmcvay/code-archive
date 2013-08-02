@@ -5,7 +5,7 @@ class Feed < ActiveRecord::Base
   validates_uniqueness_of :feed_url
   attr_accessible :etag, :feed_url, :last_modified, :title, :url
 
-  def create_feed(url)
+  def self.create_feed(url)
     return RSSReader.new.create_rss_feed(url)
   end
 end

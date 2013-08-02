@@ -32,22 +32,22 @@ class RSSReader
                     title: feed_stream.title.content,
                     feed_url: feed_stream.link.href,
                     url: url,
-                    last_modified: feed_stream.updated.content,
-                    etag: ""}
+                    last_modified: feed_stream.updated.content
+                }
                 @feed = Feed.create(attributes)
 
                 # call method to get entries or feed
                 atom_create_entries(feed_stream, @feed)
                 # do atom protocols
             elsif(@type == "rss")
-                binding.pry
+
                 # do rss protocols
                 attributes = {
                     title: feed_stream.channel.title,
                     feed_url: url,
                     url: feed_stream.channel.link,
-                    last_modified: feed_stream.channel.lastBuildDate,
-                    etag: ""}
+                    last_modified: feed_stream.channel.lastBuildDate
+                }
 
                     @feed = Feed.create(attributes)
                 rss_create_entries(feed_stream, @feed)
@@ -113,9 +113,8 @@ class RSSReader
 
  # TODO: Add categories, perhaps a relation database
     def rss_create_entries(feed_stream, feed_record)
-        binding.pry
+        # binding.pry
         feed_stream.channel.items.each do |item|
-            binding.pry
              attributes = {
                title: item.title,
                 url:  item.link,
