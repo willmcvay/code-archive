@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
+# added this shtuff to parse xml
+gem 'htmlentities'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
 gem 'cancan'
 gem 'carrierwave'
 gem 'rmagick'
@@ -16,7 +18,7 @@ gem 'haml-rails'
 gem 'jquery-rails', '~> 2.0'
 gem 'acts_as_list'
 gem 'nokogiri'
-
+gem 'feedzirra'
 
 group :development, :test do
   gem 'pry-rails'
