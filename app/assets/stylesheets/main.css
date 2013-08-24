@@ -1,0 +1,56 @@
+/*Document*/
+
+body {
+background: url('/assets/shutterstock_126980567.jpg') no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.header-text {
+font-family: 'IM Fell DW Pica', serif;
+text-shadow: 1px 1px #D8D8D8;
+}
+
+.header-text h1 {
+font-size: 5em;
+padding-top: 0.5em;
+padding-left: 0.25em;
+padding-bottom: 0.2;
+}
+
+.header-text h3 {
+  padding-left: 6.5em;
+  padding-top: 0.1em;
+}
+
+/*.body {
+  background: #EFFBFB;
+}*/
+/*homepage*/
+
+.carousel .item {
+  -webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;
+}
+.carousel .active.left {
+  left:0;opacity:0;z-index:2;
+}
+.carousel .next {
+  left:0;opacity:1;z-index:1;
+}
+
+.carousel-caption h3 {
+text-align: right;
+color: #fff;
+font-family: 'IM Fell DW Pica', serif;
+
+}
+
+.carousel-inner {
+
+-webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+-moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+
+}
