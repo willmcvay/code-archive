@@ -23,13 +23,23 @@ padding-bottom: 0.2;
 .header-text h3 {
   padding-left: 6.5em;
   padding-top: 0.1em;
+  text-decoration: none;
+  text-color: #fff; 
 }
 
-/*.body {
-  background: #EFFBFB;
-}*/
-/*homepage*/
+a {
+  color: #000000;
+  text-decoration: none;
+}
 
+a:hover,
+a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/*homepage*/
 .carousel .item {
   -webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;
 }
@@ -53,4 +63,23 @@ font-family: 'IM Fell DW Pica', serif;
 -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
 box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 
+}
+
+/*Blog*/
+
+.container-blog {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5em;
+  padding: 2em;
+  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+
+}
+
+.container-blog h2 {
+  font-family: 'IM Fell DW Pica', serif;
+}
+.container-blog p {
+  font-family: 'Lora', serif;
 }

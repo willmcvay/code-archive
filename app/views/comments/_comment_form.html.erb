@@ -1,0 +1,17 @@
+<div class="comment_form">
+    <%= form_for @comment do |f| %>
+      <%= f.text_field :name, placeholder="Your Name" %>
+      <%= f.text_area :comment, placeholder="Your Name" %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit %>
+    <% end %>
+</div>
+
+<div class="comment_form">
+    <%= form_for @comment do |f| %>
+      <%= f.text_field :name, placeholder="Your Name" %>
+      <%= f.text_area :comment, placeholder="Your Name" %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit %>
+    <% end %>
+</div>

@@ -8,9 +8,9 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'rails_admin'
 gem 'cancan'
-gem 'rmagick'
+gem 'mini_magick'
 gem 'devise'
-gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 
 group :development do
