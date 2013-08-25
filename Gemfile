@@ -12,6 +12,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'carrierwave'
 
+
 group :development do
   gem 'guard-livereload'
   gem 'pry-rails'
