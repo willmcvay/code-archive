@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //=require bootstrap.js
+//=require jquery.isotope.min.js
+
+//= require_tree .
 
