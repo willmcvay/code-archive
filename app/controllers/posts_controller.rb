@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
 
 def index
-    #@posts = Post.all
     @posts = Post.asc(:created_at).page params[:page]
     respond_to do |format|
       format.html # index.html.erb

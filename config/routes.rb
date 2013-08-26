@@ -10,6 +10,13 @@ Bandsite::Application.routes.draw do
     get :photo, on: :member
   end
 
+  get 'music', to: 'musics#show'
+  get 'press', to: 'press#show'
+  get 'dates', to: 'tour#show'
+  get 'friends', to: 'friends#index'
+  get 'treasure_chest', to: 'rewards#index'
+  get 'contact', to: 'contacts#index'
+
   resources :photos
   resources :comments
   end

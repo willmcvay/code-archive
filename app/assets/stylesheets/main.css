@@ -20,8 +20,8 @@ padding-left: 0.25em;
 padding-bottom: 0.2;
 }
 
-.header-text h3 {
-  padding-left: 6.5em;
+.header-text h2 {
+  padding-left: 5em;
   padding-top: 0.1em;
   text-decoration: none;
   text-color: #fff; 
@@ -67,6 +67,13 @@ font-family: 'IM Fell DW Pica', serif;
 -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
 box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 
+}
+
+/*Menu*/
+
+ .menu {
+  font-family: 'IM Fell DW Pica', serif;
+  text-shadow: 1px 1px #D8D8D8;
 }
 
 /*Blog*/
