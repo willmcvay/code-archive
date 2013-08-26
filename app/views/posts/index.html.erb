@@ -2,15 +2,25 @@
     <h1>Gwyneth Herbert</h1>
     <h3>Captain's Blog</h3>
   </div>
-  <div class="container">  
+  <div class="container">        
     <div class="span9">
-      <div class="container-blog">
-        <% @posts.each do |post| %>
-          <h2><%= post.title %></h2>
-          <%= post.photo %>
-            <p><%= post.created_at %></p>
-            <p><%= post.content %></p>
-          <% end %>
+        <div class="container-blog">
+          <% @posts.each do |post| %>
+            <h2><%= post.title %></h2>
+            <%= image_tag post.photo %>
+              <p><%= post.created_at %></p>
+              <p><%= post.content %></p>
+            <% end %>
+            <%= paginate @posts, :theme => 'twitter-bootstrap' %>
+        </div>
       </div>
-    </div>
-  </div>
+        <div class="span3">
+          <ul>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+          </ul>
+        </div>
+</div>

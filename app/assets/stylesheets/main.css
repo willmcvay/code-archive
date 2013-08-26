@@ -38,6 +38,10 @@ a:focus {
   text-decoration: none;
 }
 
+.span9 {
+  margin-left:0 !important;
+}
+
 
 /*homepage*/
 .carousel .item {

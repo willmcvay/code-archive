@@ -10,6 +10,7 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'mini_magick'
 gem 'devise'
+gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 
