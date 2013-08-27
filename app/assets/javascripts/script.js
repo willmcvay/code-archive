@@ -10,13 +10,8 @@ $(document).ready(function(){
 
 
 
-    $('.isotopecontainer').isotope({
-    itemSelector: '.item',
-    layoutMode: 'fitRows',
-    masonryHorizontal: {
-      columnWidth: 300,
-      gutterWidth: 20
-    }
+  $('#isotopecontainer').isotope({
+    itemSelector: '.item-isotope',
 });
 
 
