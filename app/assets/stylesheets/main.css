@@ -27,6 +27,7 @@ padding-bottom: 0.2;
   text-color: #fff; 
 }
 
+
 a {
   color: #000000;
   text-decoration: none;
@@ -95,6 +96,12 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
   font-family: 'Lora', serif;
 }
 
+/*Photo Gallery*/
+
+.header-text li {
+  display: inline-block;
+}
+
 /*Isotope*/
 
 .isotopepage {
@@ -104,8 +111,14 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 }
 
 .item-isotope{
-  height: 133px;
-  width: 200px;
+  height: 9.2em;
+  width: 33.3%;
+  padding: 
+}
+
+.item-isotope.large{
+  height: auto;
+  width: 100%;
 }
 
 .isotopeleft {
