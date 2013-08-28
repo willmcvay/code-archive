@@ -2,20 +2,15 @@ class PostsController < ApplicationController
 
 def index
     @posts = Post.asc(:created_at).page params[:page]
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
-    end
+    @comment = Comment.new
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
     end
-  end
+  
 
   def photo
     content = @post.photo.read
@@ -28,7 +23,7 @@ def index
 
   def new
     @post = Post.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }

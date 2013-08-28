@@ -4,16 +4,25 @@
     <div class="container">        
       <div class="span9">
           <div class="container-blog">
+
             <% @posts.each do |post| %>
               <h2><%= post.title %></h2>
                 <p><%= image_tag post.photo %></p>
                 <p><%= post.created_at %></p>
                 <p><%= post.content %></p>
+                <%= form_for post.comments.build do |f| %>
+                  <%= f.hidden_field :post_id, value: post.id %>
+                  <p><%= f.text_field :content %></p>
+                  <%= f.submit "Submit" %>
+                <% end %>
               <% end %>
-              <%= paginate @posts, :theme => 'twitter-bootstrap' %>
+                <p><%= paginate @posts, :theme => 'twitter-bootstrap' %></p>
+              </div>    
           </div>
-        </div>
+
           <div class="span3">
             <%= render 'layouts/menu' %>
           </div>
+
+      </div>
   </div>

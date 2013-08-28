@@ -44,6 +44,18 @@ a:focus {
 }
 
 
+input,
+textarea,
+.uneditable-input {
+  width: 44.7em;
+
+}
+
+textarea {
+  height: 2em;
+}
+
+
 /*homepage*/
 .carousel .item {
   -webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;
@@ -113,7 +125,7 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 .item-isotope{
   height: 9.2em;
   width: 33.3%;
-  padding: 
+
 }
 
 .item-isotope.large{

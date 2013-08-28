@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = comment.new
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,18 +32,19 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @comment = comment.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   # comment /comments
   # comment /comments.json
   def create
-    @comment = comment.new(params[:comment])
+    @comment = Comment.new params[:comment]
+    @post = Post.find params[:comment][:post_id]
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+      if @post.comments << @comment
+        format.html { redirect_to @post, notice: 'comment was successfully created.' }
+        format.json { render json: @comment, status: :created, location: @post }
       else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
