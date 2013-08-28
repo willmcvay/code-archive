@@ -8,7 +8,7 @@
             <% @posts.each do |post| %>
               <h2><%= post.title %></h2>
                 <p><%= image_tag post.photo %></p>
-                <p><%= post.created_at %></p>
+                <p><%= post.created_at.strftime("%d-%m-%y") %></p>
                 <p><%= post.content %></p>
                 <h4><%= link_to "Read More", post %></h4>
                 <% end %>

@@ -6,28 +6,25 @@
       <div class="container-blog-post">
           <h2><%= @post.title %></h2>
             <p><%= image_tag @post.photo %></p>
-            <p><%= @post.created_at %></p>
+            <p><%= @post.created_at.strftime("%d-%m-%y") %></p>
             <p><%= @post.content %></p>
             <p class="backpage"><script>document.write('<a href="' + document.referrer + '">Back To Blog</a>')</script></p>
-            
             <h4>Comments (be nice!)</h4>
             <% @post.comments.each do |comment| %>
-            <ul class="comments">
-              <li><%= comment.content %></li>
-            </ul>
+              <p><%= comment.content %></p>
             <% end %>             
             <%= form_for [ @post, @comment] do |f| %>
               <%= f.hidden_field :post_id, value: @post.id %>
-            <p class="blog-footer"><%= f.text_field :content %><%= f.submit "Submit Comment", :class => "btn btn-link" %></p>
-            <% end %>       
+            <p class="blog-footer"><%= f.text_field :content, :placeholder => "Leave your comment here - hit return to submit" %><%= f.submit %></p>
+            <% end %>
+            <%=render 'layouts/social' %>
       </div>    
-    </div>
+  </div>
 
     <div class="span3">
       <%= render 'layouts/menu' %>
     </div>
-  </div>
-</div>              
+  </div>             
 <br>
 <br>
               
