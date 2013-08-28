@@ -8,6 +8,7 @@ Bandsite::Application.routes.draw do
   resources :posts do 
     get 'page/:page', action: :index, on: :collection
     get :photo, on: :member
+    resources :post_comments
   end
 
   get 'music', to: 'musics#show'

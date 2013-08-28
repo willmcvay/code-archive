@@ -8,6 +8,7 @@ background: url('/assets/shutterstock_126980567.jpg') no-repeat center center fi
 background-size: cover;
 }
 
+
 .header-text {
 font-family: 'IM Fell DW Pica', serif;
 text-shadow: 1px 1px #D8D8D8;
@@ -57,6 +58,7 @@ textarea {
 
 
 /*homepage*/
+
 .carousel .item {
   -webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;
 }
@@ -104,8 +106,71 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 .container-blog h2 {
   font-family: 'IM Fell DW Pica', serif;
 }
+
+.container-blog h4 {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
 .container-blog p {
   font-family: 'Lora', serif;
+  max-height: 50em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+   -webkit-line-clamp: 3; 
+   -webkit-box-orient: vertical;
+}
+
+
+
+.container-blog-post {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5em;
+  padding: 2em;
+  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+}
+
+.container-blog-post h2 {
+  font-family: 'IM Fell DW Pica', serif;
+  text-shadow: 1px 1px #D8D8D8;
+}
+
+.container-blog-post h4 {
+  font-family: 'IM Fell DW Pica', serif;
+  text-shadow: 1px 1px #D8D8D8;
+}
+
+
+.container-blog-post p {
+  font-family: 'Lora', serif;
+}
+
+.container-blog-post .blog-footer li {
+  font-family: 'IM Fell DW Pica', serif;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+nav.pagination {
+   font-family: 'IM Fell DW Pica', serif;
+   text-shadow: 1px 1px #D8D8D8;
+}
+
+.container-blog-post, .backpage p {
+  font-family: 'IM Fell DW Pica', serif;
+  text-shadow: 1px 1px #D8D8D8;
+}
+
+.container-blog-post ul {
+  list-style: none;
+  margin-top: 10px #D8D8D8;
+  font-family: 'Lora', serif;
+  padding-left: none;
+  margin-left: none;
 }
 
 /*Photo Gallery*/
@@ -142,10 +207,6 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
   -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
   -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
   box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
-}
-
-#isotopecontainer{
-
 }
 
 .isotopesidebar {

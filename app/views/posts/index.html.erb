@@ -10,13 +10,10 @@
                 <p><%= image_tag post.photo %></p>
                 <p><%= post.created_at %></p>
                 <p><%= post.content %></p>
-                <%= form_for post.comments.build do |f| %>
-                  <%= f.hidden_field :post_id, value: post.id %>
-                  <p><%= f.text_field :content %></p>
-                  <%= f.submit "Submit" %>
+                <h4><%= link_to "Read More", post %></h4>
                 <% end %>
-              <% end %>
-                <p><%= paginate @posts, :theme => 'twitter-bootstrap' %></p>
+
+                <h4 class="paginate"><%= paginate @posts %></h4>
               </div>    
           </div>
 
@@ -26,3 +23,5 @@
 
       </div>
   </div>
+  <br>
+  <br>
