@@ -41,7 +41,7 @@ a:focus {
 }
 
 .span9 {
-  margin-left:0 !important;
+  margin-left: 0 !important;
 }
 
 
@@ -56,6 +56,11 @@ textarea {
   height: 2em;
 }
 
+ul,
+ol {
+  padding top: 0.1em;
+  margin: 0.1em #D8D8D8;
+}
 
 /*homepage*/
 
@@ -143,11 +148,6 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
   text-shadow: 1px 1px #D8D8D8;
 }
 
-
-.container-blog-post p {
-  font-family: 'Lora', serif;
-}
-
 .container-blog-post .blog-footer li {
   font-family: 'IM Fell DW Pica', serif;
   display: inline-block;
@@ -160,18 +160,48 @@ nav.pagination {
    text-shadow: 1px 1px #D8D8D8;
 }
 
-.container-blog-post, .backpage p {
-  font-family: 'IM Fell DW Pica', serif;
-  text-shadow: 1px 1px #D8D8D8;
-}
-
-.container-blog-post ul {
+.container-blog-post p {
   list-style: none;
   margin-top: 10px #D8D8D8;
   font-family: 'Lora', serif;
   padding-left: none;
   margin-left: none;
+  margin-bottom: 0.2em #D8D8D8; 
 }
+
+/*Social*/
+
+.social {
+  display: inline-block;
+  list-style: none;
+}
+
+.social, .twitter {
+  background: url('/assets/twitter.png') no-repeat;
+  width: 5em; 
+  height: 5em;
+}
+
+.social, .facebook {
+  background: url('/assets/facebook.png') no-repeat;
+  width: 5em; 
+  height: 5em; 
+}
+
+.social, .google {
+  background: url('/assets/google+.png') no-repeat;
+  width: 5em; 
+  height: 5em;
+}
+
+.social, .email {
+  background: url('/assets/gmail.png') no-repeat;
+  width: 5em; 
+  height: 5em; 
+
+}
+
+
 
 /*Photo Gallery*/
 
