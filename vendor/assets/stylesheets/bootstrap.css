@@ -1,3 +1,5 @@
+
+
 /*!
  * Bootstrap v2.3.2
  *
@@ -1093,7 +1095,15 @@ input[type="color"],
           border-radius: 4px;
 }
 
+input,
+textarea,
+.uneditable-input {
+  width: 206px;
+}
 
+textarea {
+  height: auto;
+}
 
 textarea,
 input[type="text"],
@@ -6147,3 +6157,4 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+Status API Training Shop Blog About © 2013 GitHub, Inc. Terms Privacy Security Contact 

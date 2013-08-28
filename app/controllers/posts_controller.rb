@@ -3,13 +3,14 @@ class PostsController < ApplicationController
 def index
     @posts = Post.asc(:created_at).page params[:page]
     @comment = Comment.new
+
   end
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
-
-    end
+    @comment = PostComment.new
+  
+  end
   
 
   def photo
@@ -32,6 +33,7 @@ def index
 
   def edit
     @post = Post.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def create
@@ -39,8 +41,8 @@ def index
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+        format.html { redirect_to :back }
+  
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -65,6 +67,8 @@ def index
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
 
     respond_to do |format|
       format.html { redirect_to posts_url }
