@@ -8,6 +8,5 @@ class Post
   mount_uploader :photo, PhotoUploader
   embeds_many :comments
   accepts_nested_attributes_for :comments
-  
-
+  validates_associated :comments
 end

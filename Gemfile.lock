@@ -239,6 +239,7 @@ DEPENDENCIES
   kaminari
   mini_magick
   mongoid
+  nested_form
   pry-debugger
   pry-rails
   pry-stack_explorer
