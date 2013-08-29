@@ -12,7 +12,6 @@ gem 'mini_magick'
 gem 'devise'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'nested_form'
 
 
 group :development do

@@ -1,10 +1,10 @@
 # encoding: utf-8
 
-class PhotoUploader < CarrierWave::Uploader::Base
+class TrackUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -16,12 +16,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-
-# CarrierWave.configure do |config|
-#   config.storage = :grid_fs
-#   config.root = Rails.root.join('tmp')
-#   config.cache_dir = "uploads"
-# end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -45,7 +39,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(mp3 m4a acc)
   end
 
   # Override the filename of the uploaded files:
