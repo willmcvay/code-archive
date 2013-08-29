@@ -3,7 +3,7 @@
 
 RailsAdmin.config do |config|
 
-
+  Fan::ROLES
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
