@@ -171,36 +171,18 @@ nav.pagination {
 
 /*Social*/
 
-.social {
-  display: inline-block;
+.social li {
+  display: inline;
   list-style: none;
 }
 
-.social, .twitter {
-  background: url('/assets/twitter.png') no-repeat;
-  width: 5em; 
-  height: 5em;
+.social li:first-child {
+padding-left: 9em;
 }
 
-.social, .facebook {
-  background: url('/assets/facebook.png') no-repeat;
-  width: 5em; 
-  height: 5em; 
+.social li:last-child {
+  padding-right: 9em;
 }
-
-.social, .google {
-  background: url('/assets/google+.png') no-repeat;
-  width: 5em; 
-  height: 5em;
-}
-
-.social, .email {
-  background: url('/assets/gmail.png') no-repeat;
-  width: 5em; 
-  height: 5em; 
-
-}
-
 
 
 /*Photo Gallery*/
