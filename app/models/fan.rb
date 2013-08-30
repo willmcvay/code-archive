@@ -1,3 +1,4 @@
+require 'carrierwave/mongoid'
 class Fan
   include Mongoid::Document
   # Include default devise modules. Others available are:
@@ -51,5 +52,6 @@ class Fan
   has_many :comments, class_name: "FanComment"
   accepts_nested_attributes_for :comments
   validates_associated :comments
+  mount_uploader :song, TrackUploader
 end
 
