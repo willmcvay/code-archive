@@ -8,13 +8,14 @@ background: url('/assets/shutterstock_126980567.jpg') no-repeat center center fi
 background-size: cover;
 }
 
-invisiblebtn {
+.invisiblebtn, input[type="submit"] {
     width: 0px;
   height: 0px;
   padding: 0px;
   margin: 0px;
   border: 0px;
 }
+
 input[type="file"],
 input[type="image"],
 input[type="submit"],

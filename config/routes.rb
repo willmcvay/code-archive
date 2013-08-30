@@ -2,9 +2,6 @@ Bandsite::Application.routes.draw do
   devise_for :users
   devise_for :fans
 
-as :fan do
-  get "/login" => "fans#index"
-end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

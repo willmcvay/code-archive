@@ -4,6 +4,11 @@
 <div class="container">
   <div class="span9">
     <div class="container-blog">
+      
+      <% @tracks.each do |track| %>
+      <h4><%= link_to "Download Track", track.song.url %></h4>
+        <% end %>
+      <%=render 'layouts/social' %>
     </div>
   </div>
   <div class="span3">
