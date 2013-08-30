@@ -1,0 +1,9 @@
+<div class='login'> 
+  <% if current_fan %>
+    <%= current_fan.email %>
+    <%= link_to "Logout", destroy_fan_session_path, method: :delete %> 
+  <% else %>
+    <%= link_to "Sign In", new_fan_session_path %>
+    <%= link_to"Register",new_fan_registration_path %> 
+  <% end %>
+</div>
