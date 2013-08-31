@@ -4,24 +4,22 @@
     <li><h4>(...click to see me grow and shrink!)</h4></li>
   </ul>
 </div>
-<div class="isotopepage">
-  <div class="isotopeleft">
-    <div id="isotopecontainer">
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/1.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/2.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/3.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/5.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/1.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/2.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/3.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/5.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/1.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/2.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/3.jpg"></div>
-      <div class="item-isotope"><img class="isotopeimage" src="/assets/5.jpg"></div>
+<div class="container">
+  <div class="span9">
+    <div class="container-blog">
+      <div class="photo-container">
+        <ul>
+          <% @photos.each do |photo| %>
+          <li class="darken">
+            <%= link_to image_tag(photo.photo.url), photo.photo.url, class: 'fancybox', rel: 'group', alt: 'Photo' %>
+          </li>
+            <% end %>
+
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="isotopesidebar">
+  <div class="span3">
     <%= render 'layouts/menu' %>
   </div>
 </div>

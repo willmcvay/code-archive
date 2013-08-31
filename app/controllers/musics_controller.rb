@@ -2,10 +2,12 @@ class MusicsController < ApplicationController
 
   def index
     @albums = Album.all
+    @tracks = Track.all
   end
 
   def show
     @album = Album.find(params[:id])
+    @track = Track.find(params[:id])
     @comment = AlbumComment.new 
   end
 

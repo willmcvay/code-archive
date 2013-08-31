@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //=require bootstrap.js
 //=require jquery.isotope.min.js
-//= require jquery_nested_form
+//=require jquery.fancybox.pack.js
 
 //= require_tree .
 
