@@ -6,6 +6,7 @@ background: url('/assets/shutterstock_126980567.jpg') no-repeat center center fi
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+
 }
 
 .invisiblebtn, input[type="submit"] {
@@ -16,13 +17,24 @@ background-size: cover;
   border: 0px;
 }
 
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
+
+
+h1 {
+  margin-bottom: 0;
+  margin-top: 0.2em;
+  color: #191970;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+  color: #191970;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: #191970;
 }
 
 .header-text {
@@ -44,15 +56,24 @@ padding-bottom: 0.2;
   text-color: #fff; 
 }
 
+h4 {
+  color: #191970;
+}
+
+.header-text li {
+  list-style: none;
+  display: inline-block;
+}
 
 a {
   color: #000000;
   text-decoration: none;
+  color: #191970;
 }
 
 a:hover,
 a:focus {
-  color: #fff;
+  color: #FFF68F;
   text-decoration: none;
 }
 
@@ -171,6 +192,10 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
   font-size: 1.2em;
 }
 
+input#post-comment-content {
+  width: 100%;
+}
+
 nav.pagination {
    font-family: 'IM Fell DW Pica', serif;
    text-shadow: 1px 1px #D8D8D8;
@@ -203,9 +228,29 @@ padding-left: 9em;
 
 /*Photo Gallery*/
 
-.header-text li {
-  display: inline-block;
+.photo-container ul {
+-webkit-padding-start: 0em;
+
 }
+
+.photo-container li {
+  width: 10em;
+  height: auto;
+  list-style: none;
+  display: inline-block;
+  padding: 0.8em;
+  background: #FFF68F;
+  overflow:hidden;
+  margin: 0.4em;
+  border-radius: 0.3em;
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
+ 
+}
+
+
+
 
 /*Isotope*/
 
