@@ -13,8 +13,9 @@
         <div>
           <h3><%= album.name %></h3>
         </div>
-        <div>
+        <div class="accoridion-divs">
             <p><%= image_tag album.photo.url %></p>
+            <div></div>
             <p>Year: <%= album.year %></p>
             <p>Tracklisting: <%= album.tracklisting %></p>
             <h4><%= link_to "Listen Here", album %></h4>
