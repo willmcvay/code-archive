@@ -1,0 +1,34 @@
+<div class="header-text">
+  <h2>My Music</h2>
+</div>
+<div class="container">
+  <div class="span9">
+    <div class="container-blog">
+      
+      <div>
+        <h3><%= @album.name %></h3>
+      </div>
+      
+      <div id="accordion">
+          <% @album.tracks.each do |album| %> 
+        <div>     
+            <h4><%=album.name %></h4>
+         </div>
+          <div>
+            <p>
+              <audio controls="controls">Your browser does not support the <code>audio</code> element.
+                  <source src="<%= album.song %>">
+              </audio>
+            </p>
+            <p><b>Lyrics</b> | <%=album.lyrics %></p>
+          </div>
+            <% end %>
+        </div>
+
+    </div>
+  </div>
+  
+  <div class="span3">
+    <%= render 'layouts/menu' %>
+  </div>
+</div>

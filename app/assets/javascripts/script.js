@@ -6,6 +6,10 @@ $(document).ready(function(){
       interval: 3000
     });
   
+// accordion
+
+    $("#accordion").accordion()
+
 // isotope
 
  $(function(){
@@ -50,6 +54,8 @@ $(".fancybox").fancybox({
         }, function() {
       $(this).find('img').fadeTo(500, 1);
     });
+
+
 
 });
 

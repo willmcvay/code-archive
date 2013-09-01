@@ -6,6 +6,7 @@ class Track
 
   field :song, type: String
   field :name, type: String
+  field :lyrics, type: String
 
   has_many :fans
   accepts_nested_attributes_for :fans
