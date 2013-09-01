@@ -228,6 +228,47 @@ nav.pagination {
   margin-bottom: 0.2em #D8D8D8; 
 }
 
+/*Music Pages*/
+
+.container-album {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5em;
+  padding: 2em;
+  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+
+}
+
+.container-album p {
+  font-family: 'Lora', serif;
+}
+
+.container-album img {
+  height: 12em;
+}
+
+#accordion h3 {
+ -webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+}
+
+#accordion h4 {
+ -webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+}
+
+/*Treasure Chest*/
+
+.container-treasure {
+background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5em;
+  padding: 2em;
+  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+}
+
 /*Social*/
 
 ul {
