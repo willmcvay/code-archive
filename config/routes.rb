@@ -35,7 +35,6 @@ Bandsite::Application.routes.draw do
     resources :review_comments
   end
 
-  get 'musics', to: 'musics#index'
   get 'reviews', to: 'reviews#index'
   get 'gigs', to: 'gigs#index'
   get 'friends', to: 'friends#index'

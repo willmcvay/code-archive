@@ -35,7 +35,21 @@ h2 {
 h3 {
   font-size: 1.8em;
   color: #191970;
+  font-family: 'IM Fell DW Pica', serif;
 }
+
+h4 {
+  font-size: 1.4em;
+  color: #191970;
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+h5 {
+  font-size: 0.95em;
+  color: #191970;
+  font-family: 'IM Fell DW Pica', serif;
+}
+
 
 .header-text {
 font-family: 'IM Fell DW Pica', serif;
@@ -81,6 +95,9 @@ a:focus {
   margin-left: 0 !important;
 }
 
+.span5 {
+  margin-left: 0 !important;
+}
 
 input,
 textarea,
@@ -98,6 +115,7 @@ ol {
   padding top: 0.1em;
   margin: 0.1em #D8D8D8;
 }
+
 
 /*homepage*/
 
@@ -212,17 +230,13 @@ nav.pagination {
 
 /*Social*/
 
+ul {
+  -webkit-padding-start: 0;
+}
+
 .social li {
   display: inline;
   list-style: none;
-}
-
-.social li:first-child {
-padding-left: 9em;
-}
-
-.social li:last-child {
-  padding-right: 9em;
 }
 
 
@@ -249,7 +263,34 @@ padding-left: 9em;
  
 }
 
+/*gigs*/
 
+.gigs li {
+  font-family: 'Lora', serif;
+  list-style: none;
+  display: inline-block;
+}
+
+.gigs h4 {
+  margin: 0
+}
+
+/*contacts*/
+
+
+
+.management {
+-webkit-margin-before: 0;
+-webkit-margin-after: 0.2;
+ list-style: none;
+   background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5em;
+  padding: 1em;
+  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+  
+}
 
 /*Isotope*/
 
@@ -335,3 +376,7 @@ width: 23.404255319%;
        -o-transition-property:      -o-transform, opacity;
           transition-property:         transform, opacity;
 }
+
+/*accordion*/
+
+

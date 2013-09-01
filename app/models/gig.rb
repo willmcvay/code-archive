@@ -1,8 +1,9 @@
 class Gig
   include Mongoid::Document
-  field :title, type: String
-  field :gigdate, type: Time
+  field :town, type: String
+  field :gigdate, type: String
   field :venue, type: String
   field :address, type: String
   field :price, type: String
+  field :contactvenue, type: String
 end

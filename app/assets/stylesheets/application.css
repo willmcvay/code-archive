@@ -12,6 +12,7 @@
  *= require_tree .
   *= require bootstrap
   *=require jquery.fancybox.css
+  *= require jquery-ui-1.10.3.custom.css
 
  */
 

@@ -6,6 +6,8 @@ class Album
  
   field :name, type: String
   field :photo, type: String
+  field :year, type: String
+  field :tracklisting, type: String
   
   has_many :fans
   accepts_nested_attributes_for :fans
