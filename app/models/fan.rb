@@ -5,10 +5,13 @@ class Fan
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :validatable, :confirmable
+
+  # :rememberable, :trackable,
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation
+  # :remember_me
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -19,19 +22,19 @@ class Fan
   field :reset_password_sent_at, :type => Time
 
   ## Rememberable
-  field :remember_created_at, :type => Time
+  # field :remember_created_at, :type => Time
 
   ## Trackable
-  field :sign_in_count,      :type => Integer, :default => 0
-  field :current_sign_in_at, :type => Time
-  field :last_sign_in_at,    :type => Time
-  field :current_sign_in_ip, :type => String
-  field :last_sign_in_ip,    :type => String
+  # field :sign_in_count,      :type => Integer, :default => 0
+  # field :current_sign_in_at, :type => Time
+  # field :last_sign_in_at,    :type => Time
+  # field :current_sign_in_ip, :type => String
+  # field :last_sign_in_ip,    :type => String
 
   ## Confirmable
-  # field :confirmation_token,   :type => String
-  # field :confirmed_at,         :type => Time
-  # field :confirmation_sent_at, :type => Time
+  field :confirmation_token,   :type => String
+  field :confirmed_at,         :type => Time
+  field :confirmation_sent_at, :type => Time
   # field :unconfirmed_email,    :type => String # Only if using reconfirmable
 
   ## Lockable
@@ -53,5 +56,23 @@ class Fan
   accepts_nested_attributes_for :comments
   validates_associated :comments
   mount_uploader :song, TrackUploader
+
+  before_validation :set_default_role
+
+
+  def password_required? 
+    false 
+  end 
+
+
+private
+def set_default_role
+  self.role ||= "standard"
+end
+
+
+
+
+
 end
 
