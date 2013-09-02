@@ -84,7 +84,7 @@ CarrierWave.configure do |config|
   config.fog_directory ='sillybluebucket' 
 
   config.assets.initialize_on_precompile = false
-
+end
 end
 
 end
