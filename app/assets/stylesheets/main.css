@@ -342,14 +342,21 @@ ul {
 }
 
 .item-isotope{
-  height: 9.2em;
+  font-family: 'Lora', serif;
+  height: 12em;
   width: 33.3%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+   -webkit-line-clamp: 3; 
+   -webkit-box-orient: vertical;
 
 }
 
 .item-isotope.large{
-  height: auto;
+  font-family: 'Lora', serif;
   width: 100%;
+  height: auto;
 }
 
 .isotopeleft {
