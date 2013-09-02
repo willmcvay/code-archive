@@ -81,10 +81,10 @@ CarrierWave.configure do |config|
           :aws_access_key_id =>ENV['AKIAI6YGE7LPBOVDYYUA'], 
           :aws_secret_access_key =>ENV['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']
 } 
+
+end
   config.fog_directory ='sillybluebucket' 
 
   config.assets.initialize_on_precompile = false
-end
-end
 
 end
