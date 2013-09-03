@@ -72,12 +72,12 @@ Bandsite::Application.configure do
     :address =>"smtp.mandrillapp.com", 
     :port => 25, 
     :user_name => "willmcvay@gmail.com", 
-    :password => "rb1IgkkjFH9oRwfQ5_YttQ"
+    :password => ENV["mandrill_password"]
 }
 
 CarrierWave.configure do |config| 
   config.storage = :fog 
-  config.fog_credentials = {:provider =>'AWS', :aws_access_key_id => ENV['AKIAI6YGE7LPBOVDYYUA'], :aws_secret_access_key => ENV['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']} 
+  config.fog_credentials = {:provider =>'AWS', :aws_access_key_id => ENV['aws_access_key_id'], :aws_secret_access_key => ENV['aws_secret_access_key']} 
 end
 
   config.fog_directory ='sillybluebucket' 
