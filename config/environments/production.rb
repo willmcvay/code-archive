@@ -1,3 +1,4 @@
+
 Bandsite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -70,10 +71,14 @@ Bandsite::Application.configure do
   config.action_mailer.default:charset => "utf-8"
   config.action_mailer.smtp_settings = { 
     :address =>"smtp.mandrillapp.com", 
-    :port => 25, 
-    :user_name => "willmcvay@gmail.com", 
+    :port => 587, 
+    :user_name => ENV["MANDRILL_USERNAME"], 
     :password => ENV["MANDRILL_PASSWORD"]
+    :domain => 'heroku.com',
+    :authentication => :plain
 }
+
+ActionMailer::Base.delivery_method = :smtp
 
 CarrierWave.configure do |config| 
   config.storage = :fog 
