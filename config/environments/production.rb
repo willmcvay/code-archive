@@ -73,7 +73,7 @@ Bandsite::Application.configure do
     :address =>"smtp.mandrillapp.com", 
     :port => 587, 
     :user_name => ENV["MANDRILL_USERNAME"], 
-    :password => ENV["MANDRILL_PASSWORD"]
+    :password => ENV["MANDRILL_PASSWORD"],
     :domain => 'heroku.com',
     :authentication => :plain
 }
