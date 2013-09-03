@@ -70,10 +70,11 @@ Bandsite::Application.configure do
   config.action_mailer.raise_delivery_errors = false 
   config.action_mailer.default:charset => "utf-8"
   config.action_mailer.smtp_settings = { 
-    :address =>"smtp.mandrillapp.com", 
+    :address => "smtp.mandrillapp.com", 
     :port => 587, 
     :user_name => "MANDRILL_USERNAME", 
     :password => "MANDRILL_PASSWORD",
+    :enable_starttls_auto => true, 
     :domain => 'heroku.com',
     :authentication => :login
 }
