@@ -4,17 +4,7 @@
 <div class="container">
   <div class="span9">
     <div class="container-blog">
-        <% if @fan.role = "standard" %>
-          <%= render 'standard' %>
-        <% elsif @fan.role = "premium" %>
-          <%= render 'premium' %>
-        <% elsif @fan.role = "turbo" %>
-          <%= render 'turbo' %>
-        <% elsif @fan.role = "mega" %>
-          <%= render 'mega' %>
-        <% else @fan.role = "daddy" %>
-          <%= render 'daddy' %>
-        <% end %>
+
       <%=render 'layouts/social' %>
     </div>
   </div>
