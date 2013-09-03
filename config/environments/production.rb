@@ -62,11 +62,7 @@ Bandsite::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Default URL with actionmailer
-  config.action_mailer.default_url_options = {
-    host: "gwynethherbert.herokuapp.com"
-  } 
-
+  config.action_mailer.default_url_options = {:host => 'heroku.com'} 
   #ActionMailerConfig 
   #Setupforproduction-deliveries,noerrorsraised 
   config.action_mailer.delivery_method = :smtp 
@@ -79,7 +75,7 @@ Bandsite::Application.configure do
     :user_name => ENV["MANDRILL_USERNAME"], 
     :password => ENV["MANDRILL_APIKEY"],
     :enable_starttls_auto => true, 
-    :domain => "heroku.com"
+    :domain => "gwynethherbert.herokuapp.com"
 }
 
 ActionMailer::Base.delivery_method = :smtp
