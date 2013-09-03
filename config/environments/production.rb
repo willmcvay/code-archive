@@ -75,7 +75,7 @@ Bandsite::Application.configure do
     :user_name => ENV["MANDRILL_USERNAME"], 
     :password => ENV["MANDRILL_APIKEY"],
     :enable_starttls_auto => true, 
-    :domain => "gwynethherbert.herokuapp.com"
+    :domain => "heroku.com"
 }
 
 ActionMailer::Base.delivery_method = :smtp
