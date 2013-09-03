@@ -72,10 +72,10 @@ Bandsite::Application.configure do
   config.action_mailer.smtp_settings = { 
     :address =>"smtp.mandrillapp.com", 
     :port => 587, 
-    :user_name => ENV["MANDRILL_USERNAME"], 
-    :password => ENV["MANDRILL_PASSWORD"],
+    :user_name => "MANDRILL_USERNAME", 
+    :password => "MANDRILL_PASSWORD",
     :domain => 'heroku.com',
-    :authentication => :plain
+    :authentication => :login
 }
 
 ActionMailer::Base.delivery_method = :smtp
