@@ -69,14 +69,16 @@ Bandsite::Application.configure do
   #ActionMailerConfig 
   #Setupforproduction-deliveries,noerrorsraised 
 
-  config.action_mailer.smtp_settings = { 
-    :address => "smtp.mandrillapp.com", 
-    :port => 587, 
-    :user_name => ENV["MANDRILL_USERNAME"], 
-    :password => ENV["MANDRILL_APIKEY"],
-    :enable_starttls_auto => true, 
-    :domain => 'heroku.com'
-  }
+  # config.action_mailer.smtp_settings = { 
+  #   :address => "smtp.mandrillapp.com", 
+  #   :port => 587, 
+  #   :user_name => ENV["MANDRILL_USERNAME"], 
+  #   :password => ENV["MANDRILL_APIKEY"],
+  #   :enable_starttls_auto => true, 
+  #   :domain => 'heroku.com'
+  # }
+
+
 
   config.action_mailer.delivery_method = :smtp 
   config.action_mailer.perform_deliveries = true 
