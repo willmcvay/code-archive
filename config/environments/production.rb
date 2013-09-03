@@ -62,13 +62,13 @@ Bandsite::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = {:host => 'heroku.com'} 
+  config.action_mailer.default_url_options = {
+    host: "gwynethherbert.herokuapp.com"
+  }
+
   #ActionMailerConfig 
   #Setupforproduction-deliveries,noerrorsraised 
-  config.action_mailer.delivery_method = :smtp 
-  config.action_mailer.perform_deliveries = true 
-  config.action_mailer.raise_delivery_errors = false 
-  config.action_mailer.default:charset => "utf-8"
+
   config.action_mailer.smtp_settings = { 
     :address => "smtp.mandrillapp.com", 
     :port => 587, 
@@ -76,21 +76,23 @@ Bandsite::Application.configure do
     :password => ENV["MANDRILL_APIKEY"],
     :enable_starttls_auto => true,  
     :authentication => 'login',
-    :domain => 'gwynethherbert.herokuapp.com'
+    :domain => 'heroku.com'
+  }
 
-}
+  config.action_mailer.delivery_method = :smtp 
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.default:charset => "utf-8"
 
-ActionMailer::Base.delivery_method = :smtp
-
-CarrierWave.configure do |config| 
-  config.storage = :fog 
-  config.fog_credentials = {
-    :provider =>'AWS', 
-    :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'], 
-    :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  } 
-  config.fog_directory ='sillybluebucket' 
-end
+  CarrierWave.configure do |config| 
+    config.storage = :fog 
+    config.fog_credentials = {
+      :provider =>'AWS', 
+      :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'], 
+      :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    } 
+    config.fog_directory ='sillybluebucket' 
+  end
 
 config.assets.initialize_on_precompile = false
 
