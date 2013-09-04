@@ -1,8 +1,8 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
-    @tracks = Track.all
+    @albums = Album.desc(:created_at)
+    @tracks = Track.all.desc(:created_at)
   end
 
   def show

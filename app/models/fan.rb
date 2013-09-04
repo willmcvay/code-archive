@@ -10,7 +10,7 @@ class Fan
   # :rememberable, :trackable,
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :documents_attributes, :photo_id, :song, :album_id, :track_id, :comments_attributes, :role
   # :remember_me
 
   ## Database authenticatable
@@ -48,7 +48,9 @@ class Fan
   field :password, type: String
   field :role, type: String
   ROLES = ["standard", "premium", "turbo", "mega", "daddy"]
-  belongs_to :document
+  has_and_belongs_to_many :documents
+  accepts_nested_attributes_for :documents
+  validates_associated :documents
   belongs_to :photo
   belongs_to :track
   belongs_to :album
