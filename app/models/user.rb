@@ -40,9 +40,5 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-   field :role, type: String
 
-   def role?(role) 
-    self.role == role
-  end
 end

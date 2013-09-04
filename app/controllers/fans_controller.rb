@@ -5,8 +5,7 @@ before_filter :authenticate_fan!
 
 
   def index
-    # @current_fan = current_fan.params[:id]
-    @fans = Fan.all
+  @fans = Fan.all
    @albums = Album.all
    @tracks = Track.all
   end
