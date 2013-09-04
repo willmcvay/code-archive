@@ -6,4 +6,5 @@ class Gig
   field :address, type: String
   field :price, type: String
   field :contactvenue, type: String
+  field :boxoffice, type: String
 end

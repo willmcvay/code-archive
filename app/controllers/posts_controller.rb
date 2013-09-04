@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.asc(:created_at).page params[:page]
+    @posts = Post.desc(:created_at).page params[:page]
     @comment = Comment.new
   end
 
