@@ -9,6 +9,7 @@ background-size: cover;
 
 }
 
+
 .invisiblebtn, input[type="submit"] {
     width: 0px;
   height: 0px;
@@ -17,7 +18,10 @@ background-size: cover;
   border: 0px;
 }
 
-
+strong {
+  font-weight: bold;
+  font-size: 120%;
+}
 
 h1 {
   margin-bottom: 0;
@@ -102,7 +106,7 @@ a:focus {
 input,
 textarea,
 .uneditable-input {
-  width: 44.7em;
+  width: 10em;
 
 }
 
@@ -180,6 +184,20 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
   display: -webkit-box;
    -webkit-line-clamp: 3; 
    -webkit-box-orient: vertical;
+}
+
+.container-blog-photo {
+  width: auto;
+  height: auto;
+  background: #FFF68F;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: 0.3em;
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
 }
 
 
