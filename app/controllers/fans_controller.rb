@@ -1,18 +1,12 @@
 class FansController < ApplicationController
 
-
 before_filter :authenticate_fan!
 
 
   def index
-  @fans = Fan.all
-   @albums = Album.all
-   @tracks = Track.all
-  end
-
-  def show
-    @album = Albums.find(params[:id])
-    @track = Track.find(params[:id])
+    @documents = Document.all
+    @fans = Fan.all
+    @comments = FanComment.all
     @comment = FanComment.new 
   end
 
