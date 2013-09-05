@@ -74,10 +74,6 @@ padding-bottom: 0.2;
   text-color: #fff; 
 }
 
-h4 {
-  color: #191970;
-}
-
 .header-text li {
   list-style: none;
   display: inline-block;
@@ -157,7 +153,7 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
  .menu {
   font-family: 'IM Fell DW Pica', serif;
   text-shadow: 1px 1px #D8D8D8;
-  padding-left: 3em;
+  padding-left: 2em;
 }
 
 /*Blog*/
@@ -371,10 +367,17 @@ ul {
 
 /*Isotope*/
 
+.friends {
+  max-width: 1170px;
+  margin: auto;
+  padding: none;
+  border: none;
+}
+
 .isotopepage {
   min-width: 20em;
-  max-width: 58.75em;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 .item-isotope{
@@ -409,6 +412,7 @@ ul {
 .isotopesidebar {
 width: 23.404255319%;
   float: right;
+  padding-left: 0;
 }
 
 .isotope-item {
