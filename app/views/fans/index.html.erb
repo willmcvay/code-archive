@@ -4,7 +4,7 @@
 <div class="container">
   <div class="span9">
       <div class="span5">
-        <h4>Drop me a message in the box below: </h4>
+        <h4 id="treasure-header">Drop me a message in the box below: </h4>
           <%= form_for [ current_fan, @comment ],  :remote => true do |f| %>
           <%= f.hidden_field :fan_id, value: current_fan.id %>
             <p class="blog-footer"><%= f.text_field :content, :placeholder => "Leave your message here - hit return to submit" %></p>
@@ -12,24 +12,29 @@
 
             <% end %>
             <div id="fan_comments"><% @comments.each do |comment| %>
-                <p><%= comment.content %></p>
+                <h5 id="chat"><%= comment.content %></h5>
               <% end %> </div>  
       </div>
           
       <div class="span4">
-        <h4>Claim Your Free Download(s) Here:</h4>
+        <h4 id="treasure-header">Claim Your Free Download Here:</h4>
 
 
           <% @documents.each do |document| %>
 
-            <% unless document.live.nil? %><p><%= link_to "Download", document.attachment.url %></p>
+            <% unless document.live.nil? %><h5 id="treasure-header"><%= link_to "Download", document.attachment.url %> <%= document.name %> here!</h5>
+                <p><%= document.photo %></p>
+                <p><%= document.description %></p>
             <% end %>
           <% end %>
-
+        
         <% current_fan.documents.each do |document| %>
 
-          <p><%= link_to "Download", document.attachment.url %></p>
+          <h5 id="treasure-header"><%= link_to "Download", document.attachment.url %> <%= document.name %></h5>
+          <p><%= document.photo %></p>
+          <p><%= document.description %></p>
         <% end %>
+         
       </div>
       
     </div>
