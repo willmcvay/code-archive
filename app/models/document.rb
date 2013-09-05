@@ -1,6 +1,7 @@
 require 'carrierwave/mongoid'
 class Document
   include Mongoid::Document
+   include Mongoid::Timestamps
   field :name, type: String
   field :attachment, type: String
   field :live, type: String

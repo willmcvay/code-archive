@@ -1,6 +1,7 @@
 class Gig
-  include Mongoid::Timestamps
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   field :town, type: String
   field :gigdate, type: String
   field :venue, type: String
