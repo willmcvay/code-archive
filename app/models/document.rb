@@ -12,5 +12,5 @@ class Document
   field :description, type: String
   has_and_belongs_to_many :fans
   mount_uploader :attachment, TrackUploader
-  mount_uploader :attachment, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end
