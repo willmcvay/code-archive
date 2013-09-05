@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = Album.asc(:year)
-    @tracks = Track.desc(:created_at)
+    @tracks = Track.asc(:track_number)
   end
 
   def show
