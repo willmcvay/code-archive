@@ -1,4 +1,8 @@
 $('#fan_comments').append("<p><%=escape_javascript(@fan_comment.content)%></p>");  
 
+$('form').submit(function() {
+    $(this).addClass('chat');
+});
+
 $("#fan_comment_content").val("");
 

@@ -309,7 +309,7 @@ background-color: rgba(255, 255, 255, 0.7);
   font-family: 'Lora', serif;
 }
 
-#chat{
+.chat {
   background: #FFF68F;
   padding: 0.5em;
    border-radius: 0.5em;
@@ -326,6 +326,17 @@ background-color: rgba(255, 255, 255, 0.7);
   -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
   box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 }
+
+#treasure-text {
+   background: rgba(255, 255, 255, 0.7);
+  padding: 0.5em;
+   border-radius: 0.5em;
+   -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
+  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
+  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+  font-family: 'Lora', serif;
+}
+
 
 /*Social*/
 
