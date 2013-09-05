@@ -285,13 +285,13 @@ nav.pagination {
 }
 
 #accordion h3 {
- -webkit-margin-before: 0em;
--webkit-margin-after: 0em;
+ -webkit-margin-before: 0.7em;
+-webkit-margin-after: 0.7em;
 }
 
 #accordion h4 {
- -webkit-margin-before: 0em;
--webkit-margin-after: 0em;
+ -webkit-margin-before: 0.7em;
+-webkit-margin-after: 0.7em;
 }
 
 /*Treasure Chest*/
