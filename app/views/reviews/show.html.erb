@@ -5,13 +5,15 @@
     <div class="span9">
       <div class="container-blog-post">
           <h2><%= @review.title %></h2>
+          <div class="container-blog-photo">
             <p><%= image_tag @review.photo %></p>
-            <p><%= @review.created_at.strftime("%d-%m-%y") %></p>
+          </div>
+            <p><strong><%= @review.created_at.strftime("%d-%m-%y") %></strong></p>
             <p><%= @review.content %></p>
-            <p class="backpage">
+            <h4 class="backpage">
               <script>document.write('<a href="' + document.referrer + '">Back To Reviews</a>')
               </script>
-            </p>
+            </h4>
             <h4>Comments (be nice!)</h4>
             <div id='review_comments'>
               <% @review.comments.each do |comment| %>
