@@ -305,6 +305,10 @@ background-color: rgba(255, 255, 255, 0.7);
   box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
 }
 
+.container-treasure p {
+  font-family: 'Lora', serif;
+}
+
 #chat{
   background: #FFF68F;
   padding: 0.5em;
