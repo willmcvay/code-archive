@@ -8,6 +8,7 @@ class Album
   field :photo, type: String
   field :year, type: String
   field :tracklisting, type: String
+  field :credits, type: String
   
   has_many :tracks
   accepts_nested_attributes_for :tracks

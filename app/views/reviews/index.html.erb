@@ -7,8 +7,10 @@
       
           <% @reviews.each do |review| %>
             <h2><%= review.title %></h2>
+             <div class="container-blog-photo">
               <p><%= image_tag review.photo %></p>
-              <p><%= review.created_at.strftime("%d-%m-%y") %></p>
+              </div>
+              <p><strong><%= review.created_at.strftime("%d-%m-%y") %></strong></p>
               <p><%= review.content %></p>
               <h4><%= link_to "Read More", review %></h4>
               <% end %>

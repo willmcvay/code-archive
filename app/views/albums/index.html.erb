@@ -14,11 +14,19 @@
           <h3><%= album.name %></h3>
         </div>
         <div class="accoridion-divs">
-            <p><%= image_tag album.photo.url %></p>
-            <div></div>
-            <p>Year: <%= album.year %></p>
-            <p>Tracklisting: <%= album.tracklisting %></p>
-            <h4><%= link_to "Listen Here", album %></h4>
+            <div class="span3">
+              <div class="album-cover">
+                <%= image_tag album.photo.url %>
+              </div>
+            </div>
+            <div class="span3, offset1">
+              <strong>
+                <p>Year: <%= album.year %></p>
+                <p>Tracklisting: <%= album.tracklisting %></p>
+                <p>Credits: <%= album.credits %></p>
+              </strong>
+              <h4><%= link_to "Listen Here", album %></h4>
+            </div>
         </div>
         <% end %>
       </div>

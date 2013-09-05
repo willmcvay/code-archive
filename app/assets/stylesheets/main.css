@@ -103,10 +103,14 @@ a:focus {
   margin-left: 0 !important;
 }
 
+.span3 {
+  margin-left: 0 !important;
+}
+
 input,
 textarea,
 .uneditable-input {
-  width: 10em;
+  width: auto;
 
 }
 
@@ -153,6 +157,7 @@ box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
  .menu {
   font-family: 'IM Fell DW Pica', serif;
   text-shadow: 1px 1px #D8D8D8;
+  padding-left: 3em;
 }
 
 /*Blog*/
@@ -258,12 +263,25 @@ nav.pagination {
 
 }
 
+.album-cover {
+  background: #FFF68F; 
+  padding: 1em;
+  height: 12em;
+  width: 12em;
+  border-radius: 0.3em;
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
+}
+
+
 .container-album p {
   font-family: 'Lora', serif;
 }
 
 .container-album img {
   height: 12em;
+  width: 12em;
 }
 
 #accordion h3 {
@@ -307,7 +325,7 @@ ul {
 }
 
 .photo-container li {
-  width: 10em;
+  width: 14.1em;
   height: auto;
   list-style: none;
   display: inline-block;
