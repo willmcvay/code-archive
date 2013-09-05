@@ -285,13 +285,13 @@ nav.pagination {
 }
 
 #accordion h3 {
- -webkit-margin-before: 0.7em;
--webkit-margin-after: 0.7em;
+ -webkit-margin-before: 0.5em;
+-webkit-margin-after: 0.3em;
 }
 
 #accordion h4 {
- -webkit-margin-before: 0.7em;
--webkit-margin-after: 0.7em;
+ -webkit-margin-before: 0.5em;
+-webkit-margin-after: 0.3em;
 }
 
 /*Treasure Chest*/
@@ -364,6 +364,7 @@ ul {
   font-family: 'Lora', serif;
   list-style: none;
   display: inline-block;
+  margin-bottom: 0.7em;
 }
 
 .gigs h4 {
