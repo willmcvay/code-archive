@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.asc(:year)
+    @albums = Album.desc(:year)
     @tracks = Track.asc(:track_number)
   end
 
