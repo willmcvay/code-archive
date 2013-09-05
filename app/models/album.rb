@@ -3,15 +3,11 @@ require 'carrierwave/mongoid'
 class Album
  
   include Mongoid::Document
- 
+  include Mongoid::Timestamps
   field :name, type: String
   field :photo, type: String
   field :year, type: String
   field :tracklisting, type: String
-  
-  has_many :fans
-  accepts_nested_attributes_for :fans
-  validates_associated :fans
   
   has_many :tracks
   accepts_nested_attributes_for :tracks

@@ -1,4 +1,3 @@
-require 'carrierwave/mongoid'
 class Fan
   include Mongoid::Document
   # Include default devise modules. Others available are:
@@ -10,7 +9,7 @@ class Fan
   # :rememberable, :trackable,
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :documents_attributes, :photo_id, :song, :album_id, :track_id, :comments_attributes, :name
+  attr_accessible :email, :password, :password_confirmation, :documents_attributes, :comments_attributes, :name
   # :remember_me
 
   ## Database authenticatable
@@ -52,13 +51,10 @@ class Fan
   has_and_belongs_to_many :documents
   accepts_nested_attributes_for :documents
   validates_associated :documents
-  belongs_to :photo
-  belongs_to :track
-  belongs_to :album
   has_many :comments, class_name: "FanComment"
   accepts_nested_attributes_for :comments
   validates_associated :comments
-  mount_uploader :song, TrackUploader
+
 
   before_validation :set_default_role
 

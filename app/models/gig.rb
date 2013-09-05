@@ -1,4 +1,5 @@
 class Gig
+  include Mongoid::Timestamps
   include Mongoid::Document
   field :town, type: String
   field :gigdate, type: String
@@ -6,5 +7,5 @@ class Gig
   field :address, type: String
   field :price, type: String
   field :contactvenue, type: String
-  field :boxoffice, type: String
+  field :box_office_link, type: String
 end
