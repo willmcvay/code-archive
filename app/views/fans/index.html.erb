@@ -12,7 +12,7 @@
 
             <% end %>
             <div id="fan_comments"><% @comments.each do |comment| %>
-                <h5 id="chat"><%= comment.content %></h5>
+                <h5 class="chat"><%= comment.content %></h5>
               <% end %> </div>  
       </div>
           
@@ -23,18 +23,18 @@
           <% @documents.each do |document| %>
 
             <% unless document.live.nil? %><h5 id="treasure-header"><%= link_to "Download", document.attachment.url %> <%= document.name %> here!</h5>
-                <p><%= document.photo %></p>
-                <p><%= document.description %></p>
+                <p id="treasure-text"><%= image_tag document.photo %></p>
+                <p id="treasure-text"><%= document.description %></p>
             <% end %>
           <% end %>
         
         <% current_fan.documents.each do |document| %>
 
           <h5 id="treasure-header"><%= link_to "Download", document.attachment.url %> <%= document.name %></h5>
-          <p><%= document.photo %></p>
-          <p><%= document.description %></p>
+          <p id="treasure-text"><%= image_tag document.photo %></p>
+          <p id="treasure-text"><%= document.description %></p>
         <% end %>
-         
+        
       </div>
       
     </div>
