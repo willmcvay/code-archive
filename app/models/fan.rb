@@ -51,7 +51,9 @@ class Fan
   ROLES = ["standard", "premium", "turbo", "mega", "daddy"]
   has_and_belongs_to_many :documents
   accepts_nested_attributes_for :documents
-  validates_associated :documents
+
+  # validates_associated :documents
+
   has_many :comments, class_name: "FanComment"
   accepts_nested_attributes_for :comments
   validates_associated :comments

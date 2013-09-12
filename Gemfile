@@ -15,7 +15,9 @@ gem 'carrierwave'
 gem 'fog'
 gem 'nokogiri'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'mandrill-api'
+
+gem 'rich'
+
 
 group :development do
   gem 'guard-livereload'
