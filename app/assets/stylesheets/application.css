@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+@import url(http://fonts.googleapis.com/css?family=Fauna+One);
+
+body {
+  font-family: 'Fauna One', serif;
+  background: image-url('http://ichef.bbci.co.uk/images/ic/512xn/legacy/supporting/838260d25bb7b960f94b993acd5b1575d32b8c22.jpg?nodefault=true') repeat;
+}
