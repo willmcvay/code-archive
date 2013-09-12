@@ -1,7 +1,7 @@
 $('#fan_comments').append("<p><%=escape_javascript(@fan_comment.content)%></p>");  
 
 $('form').submit(function() {
-    $(this).addClass('.chat');
+    $("<h5 class="chat"><%=escape_javascript(@fan_comment.content)%></h5>").addClass('.chat');
 });
 
 $("#fan_comment_content").val("");
