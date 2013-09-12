@@ -1,25 +1,16 @@
 <h1>My Recipe Folder</h1>
-<h2>Yum, Yum, Yum!</h2>
 
 <div class="navbar">
   <div class="navbar-inner">
     <ul class="nav">
-      <li><%= link_to 'Enter New Recipe', new_recipe_path(method: :create) %>
-
+      <li><%= link_to 'Enter New Recipe', new_recipe_path(method: :create) %></li>
+      <li><%= link_to 'Edit Recipe', recipe_path %></li>
+      <li><%= link_to 'Delete Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
   </div>
 </div>
-<h2>All Recipes</h2>
 
-
-<table class="table table-hover">
-  <th>
-    <tr>
-      <td><%= link_to 'Edit Recipe', recipe_path(recipe) %></td>
-      <td><%= link_to 'Delete Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </th>
-
+<div>
     <ul>
         <% @recipes.each do |recipe| %>
       <li>Name</li>
@@ -29,9 +20,5 @@
       <li>Steps To Prepare</li>
       <li><%= recipe.steps %></li>
         <% end %>
-        <% @ingredients.each do |ingredients| %>
-      <li>Ingredients</li>
-      <li><%= ingredients.ingredients %></li>
-        <% end %>
     </ul>
-
+</div>
