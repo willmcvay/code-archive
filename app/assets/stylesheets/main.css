@@ -300,9 +300,9 @@ nav.pagination {
 background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0.5em;
   padding: 2em;
-  -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
-  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
-  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
 }
 
 .container-treasure p {
@@ -313,18 +313,18 @@ background-color: rgba(255, 255, 255, 0.7);
   background: #FFF68F;
   padding: 0.5em;
    border-radius: 0.5em;
-   -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
-  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
-  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
 }
 
 #treasure-header {
     background: rgba(255, 255, 255, 0.7);
   padding: 0.5em;
    border-radius: 0.5em;
-   -webkit-box-shadow: 8px 8px 30px rgba(93, 67, 81, 0.85);
-  -moz-box-shadow:    8px 8px 30px rgba(93, 67, 81, 0.85);
-  box-shadow:         8px 8px 30px rgba(93, 67, 81, 0.85);
+   -webkit-box-shadow: 4px 4px 7px rgba(50, 50, 104, 0.71);
+  -moz-box-shadow:    4px 4px 7px rgba(50, 50, 104, 0.71);
+  box-shadow:         4px 4px 7px rgba(50, 50, 104, 0.71);
 }
 
 #treasure-text {
