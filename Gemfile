@@ -5,7 +5,7 @@ ruby "1.9.3"
 gem 'rails', '3.2.14'
 
 gem 'jquery-rails'
-gem 'mongoid', "~> 3.0.0"
+gem 'mongoid'
 gem 'kaminari'
 gem 'rails_admin'
 gem 'cancan'
@@ -16,7 +16,7 @@ gem 'fog'
 gem 'nokogiri'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
-gem 'rich', github: "keithpops/rich"
+# gem 'rich', github: "keithpops/rich"
 
 
 group :development do
