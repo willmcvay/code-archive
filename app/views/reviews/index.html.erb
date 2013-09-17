@@ -11,7 +11,7 @@
               <p><%= image_tag review.photo %></p>
               </div>
               <p><strong><%= review.created_at.strftime("%d-%m-%y") %></strong></p>
-              <p><%= review.content %></p>
+              <p><%= raw review.content %></p>
               <h4><%= link_to "Read More", review %></h4>
               <% end %>
 

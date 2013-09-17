@@ -1,6 +1,7 @@
 # RailsAdmin config file. Generated on August 25, 2013 08:59
 # See github.com/sferik/rails_admin for more informations
 
+
 RailsAdmin.config do |config|
 
   Fan::ROLES

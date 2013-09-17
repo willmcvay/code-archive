@@ -11,7 +11,7 @@
                 <p><%= image_tag post.photo %></p>
               </div>
                 <p><strong><%= post.created_at.strftime("%d-%m-%y") %></strong></p>
-                <p><%= post.content %></p>
+                <p><%= raw post.content %></p>
                 <h4><%= link_to "Read More", post %></h4>
                 <% end %>
 
