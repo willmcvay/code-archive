@@ -87,7 +87,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.roles_path = "./roles"
       chef.data_bags_path = "./data_bags"
       chef.add_recipe "postgresql"
-      chef.add_role "web"
+      chef.add_recipe "will::web"
   
     # You may also specify custom JSON attributes:
     chef.json = { :mysql_password => "foo" }
