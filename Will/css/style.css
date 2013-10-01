@@ -1,0 +1,129 @@
+/*main*/
+
+ul, menu, dir {
+display: block;
+list-style-type: none;
+-webkit-margin-before: 0.4em;
+-webkit-margin-after: 0.4em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 0px;
+}
+
+.container {
+  max-width: 940px;
+  height: auto;
+}
+
+
+
+/*sidebar*/
+
+.sidebar {
+  margin-top: 200px;
+  height: 480px;
+  width: 300px;
+  background-color: #0092d0;
+  float: right;
+}
+
+.sidebar-inner {
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-weight: bold;
+  margin-top: none;
+ 
+  -webkit-margin-before: 0em;
+-webkit-margin-after: 0.5em;
+}
+
+.sidebar h5 {
+  font-family: 'Droid Sans', sans-serif;
+  color: #dfeff9;
+  -webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+
+}
+
+.sidebar h6 {
+  font-family: 'Droid Sans', sans-serif;
+  color: #dfeff9;
+  -webkit-margin-before: 0em;
+-webkit-margin-after: 0.5em;
+
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #dfeff9;
+
+}
+
+
+.sidebar li {
+  list-style: none;
+
+}
+
+.buttonSubmit {
+    background: url(../sign-btn.png) 0 0; 
+    height: 32px; 
+    width: 86px; 
+    float: right;
+    text-indent: -999px;
+} 
+
+.buttonSubmit:hover { 
+  background-position:0 -32px; 
+}
+
+input {
+  height: 32px;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-style: italic;
+  text-indent: 10px;
+  border-radius: 5px;
+
+}
+
+form {
+  margin-bottom: 0em;
+}
+
+#postcode {
+  width: 140px;
+  margin-right: 10px;
+}
+
+#checkbox-left {
+  height: 11px;
+  width: 11px;
+  padding-right: 11px;
+  padding-bottom: 22px;
+  padding-left: none;
+  float: left;
+}
+
+#checkbox-right {
+  width: 235px;
+  float: right;
+  height: 33px;
+  margin-top: 3px;
+}
+
+/*hacks*/
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
