@@ -1,0 +1,31 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+#container {
+	width: 100%;
+	height: 80%;
+}
+
+.card {
+	width: 7.692307692%;
+	display: inline-block;
+	text-align: center;
+	height: 25%;
+}
+
+.destroy-card {
+	display: none;
+}
+
+#controls {
+	height: 20%;
+	width: 100%;
+}
+
+button {
+	height: 30%;
+	width: 10%;
+}
+
