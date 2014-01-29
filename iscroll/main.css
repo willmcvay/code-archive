@@ -1,0 +1,132 @@
+body,ul,li {
+	padding:10px;
+	margin:0;
+}
+
+body {
+	font-size:12px;
+	-webkit-user-select:none;
+   	 -webkit-text-size-adjust:none;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+	width:100%;
+	max-height:90%;
+	float:left;
+	position:relative;
+	z-index:1;
+	overflow:hidden;
+	background:#aaa;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	background:#e3e3e3;
+}
+
+#scroller {
+	width:1000%;
+	height: 100%;
+	float:left;
+	padding:0;
+	overflow: hidden;
+}
+
+#scroller ul {
+	list-style:none;
+	display:block;
+	float:left;
+	width:100%;
+	max-height: 100%;
+	padding:0;
+	margin:0;
+	overflow: scroll;
+	text-align:left;
+}
+
+#scroller li {
+	-webkit-box-sizing:border-box;
+	display:block; 
+	float:left;
+	width:10%; 
+	height:auto;
+	text-align:center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 500%;
+	line-height:100%;
+	margin: 0 auto;
+}
+
+#nav {
+	width:50%;
+	float:left;
+	max-height: 10%;
+	height: auto;
+	margin-left: 25%;
+}
+
+#prev, #next {
+	float:left;
+	font-weight:bold;
+	font-size:200%;
+	padding:1%;
+	width:10%;
+}
+
+#next {
+	float:right;
+	text-align:right;
+}
+
+#indicator, #indicator > li {
+	display:block; 
+	float:left;
+	list-style:none;
+	padding:0; 
+	margin:0;
+}
+
+#indicator {
+	width:auto;
+	padding:1%;
+	margin-top: 1%;
+}
+
+ul#indicator {
+    width:auto;
+    padding:1%;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    float:left;
+    margin-left: 30%;
+    height: 50%;
+    margin-top: 2%;
+}
+
+
+#indicator > li {
+	text-indent:-9999em;
+	width:8px; height:8px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	background:#ddd;
+	overflow:hidden;
+	margin-right:4px;
+}
+
+#indicator > li.active {
+	background:#888;
+}
+
+#indicator > li:last-child {
+	margin:0;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+
+	margin: 0 auto;
+}
+
