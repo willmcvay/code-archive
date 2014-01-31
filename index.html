@@ -5,15 +5,21 @@
 		<script src="script.js"></script>
 	</head>
 	<body>
-		<div id="container">
-			
-		</div>	
-		<div id="controls">
-
-			<div  id="deal-deck">New Game</div>
+		<div id="loading-page">
+			<h1>Welcome To Pairs</h1>
+			<h2>Game Loading</h2>
+			<div id="pulse-circle"></div>
+		</div>
+		<div id="game-over" class="hide">
+			<h1>Game Over</h1>
+			<div id="play-again">Play Again</div>
+		</div>
+		<div id="container"></div>
+		<div id="controls" class="hide">
+			<div id="deal-deck">New Game</div>
 			<div id="display-card-one"></div>
 			<div id="display-card-two"></div>
-
+			<div id="duplicate-alert" class="hide">You need to select two unique cards - the game is pairs!</div>
 			<div id="player-wrapper">
 				<div id="turn">Player Turn</div>
 				<div id ="score">Score</div>
@@ -22,7 +28,6 @@
 				<div id="player-two">Player Two</div>
 				<div id="player-two-score">0</div>
 			</div>	
-			
 		</div>
 	</body>
 </html>
