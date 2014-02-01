@@ -162,6 +162,8 @@ function playGame () {
 
 	var scoreOne = document.getElementById("player-one-score");
 	var scoreTwo = document.getElementById("player-two-score");
+	var turnsOne = document.getElementById("player-one-turns");
+	var turnsTwo = document.getElementById("player-two-turns");
 
 	if (cardOne.selected === true && cardTwo.selected === true && cardOne.cardValue === cardTwo.cardValue) {
 		console.log("Cards will destroy");
@@ -189,10 +191,12 @@ function playGame () {
 		cardTwo.cardValue = undefined;
 
 		if (playerOne === true) {
+			turnsOne.innerHTML++;
 			playerOne = false;
 			playerTwo = true;
 
 		} else if (playerTwo === true) {
+			turnsTwo.innerHTML++;
 			playerTwo = false;
 			playerOne = true;
 		}
@@ -214,12 +218,14 @@ function playGame () {
 		}
 	}
 
-	var allCards = document.getElementsByClassName("card");
-// needed to test Game over screen
-	// var allCards = [];
+	var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
-	if (allCards.length > 0) {
+	// var allCardsDestroyed = [];
+	// allCardsDestroyed.length = 52;
+
+	if (allCardsDestroyed.length < 52 && scoreOne < 14 && scoreTwo < 14) {
 		console.log("Play On");
+
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
 
@@ -227,10 +233,10 @@ function playGame () {
 		var p2 = "Player 2";
 		var winner = document.createElement('h2');
 
-		if (scoreOne.innerHTML >= scoreTwo.innerHTML) {
-			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points!";
-		} else if (scoreOne.innerHTML < scoreTwo.innerHTML) {
-			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points!";
+		if (scoreOne.innerHTML > scoreTwo.innerHTML) {
+			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points in " + turnsOne + " turns!";
+		} else if (scoreTwo.innerHTML > scoreOne.innerHTML) {
+			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points in " + turnsTwo + " turns!";
 		}	
 		document.getElementById("game-over").appendChild(winner);
 

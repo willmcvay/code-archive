@@ -59,6 +59,7 @@ body {
 	background-size: 100% 100%;
 	-webkit-border-radius: 5px;
 	float: left;
+	position: relative;
 }
 
 .card p {
@@ -67,7 +68,14 @@ body {
 }
 
 .destroy-card {
-	display: none;
+	display: inline-block;
+	background: #398439 !important;
+	-webkit-box-shadow: none !important;
+	color: #398439 ;
+}
+
+.destroy-card p {
+	display: none !important;
 }
 	
 .flip-card {
@@ -109,7 +117,7 @@ body {
 }
 
 .flip-card p {
-	display: block !important;
+	display: block;
 	-webkit-transition: display 0.6s;
 	top: 30%;
 	position: absolute;
@@ -136,7 +144,7 @@ body {
 	float: left;
 	height: 31%;
 	padding: 1%;
-	width: 48%;
+	width: 31%;
 }
 
 #player-one-score, #player-two-score {
@@ -144,7 +152,15 @@ body {
 	float: right;
 	height: 31%;
 	padding: 1%;
-	width: 48%;
+	width: 31%;
+}
+
+#player-one-turns, #player-two-turns {
+	display: block;
+	float: right;
+	height: 31%;
+	padding: 1%;
+	width: 31%;
 }
 
 #turn {
@@ -152,7 +168,7 @@ body {
 	float: left;
 	height: 31%;
 	padding: 1%;
-	width: 48%;
+	width: 31%;
 }
 
 #score {
@@ -160,7 +176,15 @@ body {
 	float: right;
 	height: 31%;
 	padding: 1%;
-	width: 48%;	
+	width: 31%;	
+}
+
+#number-turns {
+	display: block;
+	float: right;
+	height: 31%;
+	padding: 1%;
+	width: 31%;	
 }
 
 .selected {
@@ -169,7 +193,7 @@ body {
 
 #player-wrapper {
 	display: block;
-	width: 20%;
+	width: 30%;
 	height: 100%;
 	float: right;
 	padding: 0.25%;
