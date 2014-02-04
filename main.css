@@ -24,6 +24,27 @@ body {
 	position: relative;
 }
 
+input, button {
+	width: 10%;
+	height: 5%;
+	left: 45%;
+	position: absolute;
+	text-align: center;
+	font-size: 120%;
+}
+
+#player-one-input {
+	top: 50%;
+}
+
+#player-two-input {
+	top: 56%;
+}
+
+button {
+	top: 62%;
+}
+
 @-webkit-keyframes spin {
 	to { 
 		-webkit-transform: rotate(1turn); 
@@ -107,6 +128,8 @@ body {
 	width: 0%;
 	overflow: hidden;
 	opacity: 0; 
+	font-family: 'Balthazar', serif;
+	font-size: 140%;
 }
 
 .destroy-card {
@@ -118,6 +141,8 @@ body {
 
 .destroy-card p {
 	display: none !important;
+	font-family: 'Balthazar', serif;
+	font-size: 140%;
 }
 	
 .flip-card {
@@ -168,10 +193,39 @@ body {
 	top: 30%;
 	position: absolute;
 	opacity: 1;
+	font-family: 'Balthazar', serif;
+	font-size: 140%;
+}
 
+/*Some work in progress: working on transitioning destroyed cards to burned cards pile*/
+
+/*#burned-cards {
+	width: 7.692307692%;
+	display: inline-block;
+	height: 25%;
+	background-image: url(cardback.jpg);
+	background-size: 100% 100%;
+	-webkit-border-radius: 5px;
+	float: right;
+	position: absolute;
+	z-index: 300;
+	-webkit-transition: all 0.5s;
 
 }
 
+.duplicate {
+	width: 7.692307692%;
+	height: 100%;
+	width: 100%;
+	background-image: url(cardback.jpg);
+	background-size: 100% 100%;
+	-webkit-border-radius: 5px;
+	float: left;
+	position: relative;
+	z-index: 300;
+	-webkit-transition: all 0.5s;
+}
+*/
 #controls {
 	height: 20%;
 	width: 100%;
@@ -180,10 +234,10 @@ body {
 
 #deal-deck {
 	height: 20%;
-	width: 10%;
+	width: 7.192307692%;
 	float: left;
 	color: #fff;
-	padding: 0.25%;
+	padding: 0.6%;
 	font-size: 150%;
 }
 
@@ -192,15 +246,15 @@ body {
 	float: left;
 	height: 23%;
 	padding: 1%;
-	width: 23%;
+	width: 17%;
 }
 
-#player-one-score, #player-two-score {
+#player-one-score, #player-two-score, #pairs-matched-one, #pairs-matched-two {
 	display: block;
 	float: right;
 	height: 23%;
 	padding: 1%;
-	width: 23%;
+	width: 17%;
 }
 
 #player-one-turns, #player-two-turns {
@@ -208,16 +262,15 @@ body {
 	float: right;
 	height: 23%;
 	padding: 1%;
-	width: 23%;
+	width: 17%;
 }
-
 
 #player-one-mins, #player-one-secs, #player-two-mins, #player-two-secs {
 	display: block;
 	float: left;
 	height: 23%;
 	padding: 1%;
-	width: 10%;
+	width: 8%;
 }
 
 #turn, #time {
@@ -225,15 +278,15 @@ body {
 	float: left;
 	height: 23%;
 	padding: 1%;
-	width: 23%;
+	width: 17%;
 }
 
-#score, #time {
+#score, #pairs-matched {
 	display: block;
 	float: right;
 	height: 23%;
 	padding: 1%;
-	width: 23%;	
+	width: 17%;	
 }
 
 #number-turns {
@@ -241,7 +294,7 @@ body {
 	float: right;
 	height: 23%;
 	padding: 1%;
-	width: 23%;	
+	width: 17%;	
 }
 
 .selected {
@@ -250,7 +303,7 @@ body {
 
 #player-wrapper {
 	display: block;
-	width: 40%;
+	width: 45.6%;
 	height: 100%;
 	float: right;
 	padding: 0.25%;
@@ -258,19 +311,19 @@ body {
 	font-size: 150%;
 }
 
-#duplicate-alert {
+#duplicate-alert, #selected-alert {
 	height: 20%;
-	width: 35%;
+	width: 20%;
 	float: left;
 	color: #fff;
-	padding: 0.25%;
+	padding: 0.6%;
 	font-size: 150%;
 }
 
 #game-over {
 	height: 100%;
 	width: 100%;
-	z-index: 100;
+	z-index: 400;
 	position: absolute;
 	background: #398439;
 }

@@ -17,6 +17,24 @@ var oneMinutesElapsed = 0;
 var twoSecondsElapsed =  0;
 var twoMinutesElapsed = 0;
 
+
+function getPlayers() {
+	var playerOneName = document.getElementById('player-one-input').value;
+	var playerTwoName = document.getElementById('player-two-input').value;
+	var playerOneLabel = document.getElementById('player-one');
+	var playerTwoLabel = document.getElementById('player-two');
+
+	playerOneLabel.innerHTML = playerOneName;
+	playerTwoLabel.innerHTML = playerTwoName;
+
+	console.log("Players are: " + playerOneName + " & " + playerTwoName);
+	makeDeck();
+	shuffleDeck();
+	dealDeck();
+	pressToDeal();
+	assignListener();
+}
+
 function hideLoadPage() {
 
 	var loadingPage = document.getElementById("loading-page");
@@ -70,11 +88,11 @@ function pressToDeal(){
 	var playAgain = document.getElementById("play-again");
 	
 	pressButton.addEventListener("click", function() {
-	window.location.reload();
+		window.location.reload();
 	}, false);
 
 	playAgain.addEventListener("click", function() {
-	window.location.reload();
+		window.location.reload();
 	}, false);
 }
 
@@ -144,6 +162,8 @@ function timer(){
 
 function pauseClock() {
 	clearInterval(time);
+
+	updateScores();
 	resetClock();
 }
 
@@ -193,25 +213,44 @@ function selectCards(clickedCard) {
 		}
 		console.log("Both Cards selected: " + cardOne.cardValue + " " + cardTwo.cardValue);
 	} 
-	checkCardsUnique();
+	checkCardsUnique(clickedCard);
 }
 
-function checkCardsUnique () {
+function checkCardsUnique (clickedCard) {
 
 	 if (cardOne.id === cardTwo.id){
 		cardTwo.cardValue = undefined;
 		cardTwo.id = undefined;
 		cardTwo.selected = undefined;
-		document.getElementById("duplicate-alert").classList.remove("hide");
+		
+		var duplicate = document.getElementById("duplicate-alert");
+
+		if (duplicate.className === "hide"){
+			duplicate.classList.remove("hide");
+		}
+
 		selectCards();
+
 		setTimeout(function(){
-			document.getElementById("duplicate-alert").className += "hide";	
+			if (duplicate.className !== "hide"){
+				duplicate.className += "hide";
+			}	
 		},2000)
 
 	} else if (cardOne.selected === true && cardTwo.selected === true && cardOne.id !== cardTwo.id ) {
+		
+		var selectedCards = document.getElementById("selected-alert");
+
+		if (selectedCards.className === "hide"){
+			selectedCards.classList.remove("hide");
+		}
+		
 		setTimeout(function(){
+			if (selectedCards.className !== "hide"){
+				selectedCards.className += "hide";
+			}
 			playGame();
-		},2000)
+		},2000)				
 	}
 }
 
@@ -221,16 +260,31 @@ function playGame () {
 	var scoreTwo = document.getElementById("player-two-score");
 	var turnsOne = document.getElementById("player-one-turns");
 	var turnsTwo = document.getElementById("player-two-turns");
+	var pairsMatchedOne = document.getElementById("pairs-matched-one");
+	var pairsMatchedTwo = document.getElementById("pairs-matched-two");
 
 	if (cardOne.selected === true && cardTwo.selected === true && cardOne.cardValue === cardTwo.cardValue) {
 		console.log("Cards will destroy");
 		cardOne.element.className += " destroy-card";
 		cardTwo.element.className += " destroy-card";
 
+// Some work in progress: working on transitioning destroyed cards to burned cards pile
 
-		// var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(true);
+		// var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(false);
 
-		// console.log(duplicateOne);
+		// duplicateOne.className += " duplicate";
+
+		// document.getElementById(cardOne.element.id).appendChild(duplicateOne);
+
+		// var allDuplicates = document.getElementsByClassName('duplicate');
+
+		// for (var i = 0; i < allDuplicates.length; i++) {
+		// 	allDuplicates[i].classList.remove("flip-card");
+		// 	allDuplicates[i].className += " burned-cards"
+		// 	document.getElementById('burned-cards').appendChild(allDuplicates[i]);
+
+		// };
+		// document.getElementsByClassName('burned-cards').classList.remove("duplicate");
 
 
 		cardOne.cardValue = undefined;
@@ -239,45 +293,14 @@ function playGame () {
 		cardTwo.selected = false;
 		
 		if (playerOne === true) {
-			scoreOne.innerHTML++;
+			pairsMatchedOne.innerHTML++;
 
 		} else if (playerTwo === true) {
-			scoreTwo.innerHTML++;
+			pairsMatchedTwo.innerHTML++;
 		}
 
 	} else {
 		console.log("Cards will do nothing");
-		
-		var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(false);
-
-		duplicateOne.className += " duplicate";
-
-		document.getElementById(cardOne.element.id).appendChild(duplicateOne);
-
-		console.log(duplicateOne);
-
-		// document.getElementById('image_1').offsetTop
-
-		var allDuplicates = document.getElementsByClassName('duplicate');
-
-		for (var i = 0; i < allDuplicates.length; i++) {
-			// var style = window.getComputedStyle(allDuplicates[i]);
-			// var top = style.getPropertyValue('top');
-
-			// allDuplicates[i].style.top = '100px'
-
-			console.log(top);
-		};
-		
-		
-
-		// style = window.getComputedStyle(element);
-
-		
-		// 
-
-		//     console.log(top);
-
 		
 		cardOne.selected = false;
 		cardTwo.selected = false;
@@ -314,49 +337,124 @@ function playGame () {
 		}
 	}
 
-	var allCardsDestroyed = document.getElementsByClassName("destroy-card");
+	// var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
 // necessary to test 'game over' screen
-	// var allCardsDestroyed = [];
-	// allCardsDestroyed.length = 52;
+	var allCardsDestroyed = [];
+	allCardsDestroyed.length = 52;
 
-	if (allCardsDestroyed.length < 52 && scoreOne.innerHTML < 14 && scoreTwo.innerHTML < 14) {
+	if (allCardsDestroyed.length < 52) {
 
 		if (playerOne === true) {
 			oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
 			oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
-		} else if (playerTwo === true)
+				
+			console.log("Play On");
+			pauseClock();
+
+		} else if (playerTwo === true) {
 			twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
 			twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
 		
-		console.log("Play On");
-		pauseClock();
+			console.log("Play On");
+			pauseClock();
+		}
 
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
 
-		var p1 = "Player 1";
-		var p2 = "Player 2";
+		var p1 = document.getElementById("player-one").innerHTML;
+		var p2 = document.getElementById("player-two").innerHTML;
 		var winner = document.createElement('h2');
+		var winningScore = null;
 
-		if (scoreOne.innerHTML > scoreTwo.innerHTML) {
-			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points in " + turnsOne + " turns!";
+		if (scoreOne.innerHTML <= scoreTwo.innerHTML) {
+			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points!";
+			winningScore = p1 + " " + scoreOne.innerHTML;
+			console.log(winningScore);
 		} else if (scoreTwo.innerHTML > scoreOne.innerHTML) {
-			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points in " + turnsTwo + " turns!";
+			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points!";
+			winningScore = p2 + " " + scoreTwo.innerHTML;
 		}	
 		document.getElementById("game-over").appendChild(winner);
-
+		
+		updateLeaderBoard(winningScore);
 		console.log("Game Over");
 	}
 }
 
+function updateScores(){
+
+	var scoreOne = document.getElementById("player-one-score");
+	var scoreTwo = document.getElementById("player-two-score");
+	var turnsOne = parseInt(document.getElementById("player-one-turns").innerHTML);
+	var turnsTwo = parseInt(document.getElementById("player-two-turns").innerHTML);
+	var pairsMatchedOne = parseInt(document.getElementById("pairs-matched-one").innerHTML);
+	var pairsMatchedTwo = parseInt(document.getElementById("pairs-matched-two").innerHTML);
+	var secsOne = parseInt(document.getElementById("player-one-secs").innerHTML);
+	var secsTwo = parseInt(document.getElementById("player-two-secs").innerHTML);
+	var minsOne = parseInt(document.getElementById("player-one-mins").innerHTML);
+	var minsTwo = parseInt(document.getElementById("player-two-mins").innerHTML);
+
+	scoreOne.innerHTML = (turnsOne * 10) + secsOne + (minsOne * 60) - (pairsMatchedOne * 20);
+	scoreTwo.innerHTML = (turnsTwo * 10) + secsTwo + (minsTwo * 60) - (pairsMatchedTwo * 20);
+}
+
+function updateLeaderBoard(winningScore){
+	
+	var winnerName = winningScore.split(' ')[0];
+	var winnerScore = winningScore.split(' ')[1];
+	console.log(winnerName);
+	console.log(winnerScore);
+
+	var leaderboardArray = [];
+
+	var winnersPairs = {}
+
+	winnersPairs.winnerNameStored = winnerName;
+	winnersPairs.winnerScoreStored = winnerScore;
+
+	leaderboardArray.push(winnersPairs);
+
+		var retrievedWinners = localStorage.getItem('leaderboardArray');
+		var parsedWinners = JSON.parse(retrievedWinners);
+		console.log(parsedWinners);
+
+		for (var i = 0; i < parsedWinners.length; i++) {
+			leaderboardArray.push(parsedWinners[i]);
+			console.log(leaderboardArray.length);
+		};
+
+
+	localStorage.setItem('leaderboardArray', JSON.stringify(leaderboardArray));
+
+
+
+	var retrievedData = localStorage.getItem('leaderboardArray');
+
+	console.log(retrievedData);
+
+	// for (var i = 0; i < retrievedData.length; i++) {
+	// 	console.log(retrievedData[i]); 
+	// };
+	
+
+	
+
+	// console.log(retrieveLocalStorage());
+
+	// var retrievedWinners = localStorage.getItem('leaderboardArray');
+	
+	// var parsedWinners = JSON.parse(retrievedWinners);
+
+	// console.log(parsedWinners);
+
+	// document.getElementById("leaderboard").innerHTML = parsedWinners;
+	// window.localStorage.clear()
+}
+
 window.addEventListener( 'load', function() {
 	console.log( 'window#load' );
-	makeDeck();
-	shuffleDeck();
-	dealDeck();
-	pressToDeal();
-	assignListener();
 });
 
 
