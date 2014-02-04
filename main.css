@@ -7,7 +7,7 @@ body {
 #loading-page {
 	height: 100%;
 	width: 100%;
-	z-index: 100;
+	z-index: 200;
 	position: absolute;
 	background: #398439;
 }
@@ -20,25 +20,63 @@ body {
 	text-align: center;
 }
 
-#pulse-circle {
-	border: 5px solid #999;
-	-webkit-border-radius: 50px;
-	height: 50px;
-	width: 50px;
-	-webkit-animation: pulsate 0.5s ease-out;
-	-webkit-animation-iteration-count: infinite; 
-	opacity: 0.0;
-	position: fixed;
-	float: left;
-	margin-left: 48%;
+#loader-wrapper {
+	position: relative;
 }
 
-@-webkit-keyframes pulsate {
-	0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-	50% {opacity: 1;}
-	100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+@-webkit-keyframes spin {
+	to { 
+		-webkit-transform: rotate(1turn); 
+	}
 }
 
+.progress {
+	left: calc(50% - 3em);
+	position: relative;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin: 0 .5em;
+	font-size: 12px;
+	text-indent: 999em;
+	overflow: hidden;
+	-webkit-animation: spin 1s infinite steps(8);
+}
+
+.progress:before,
+.progress:after,
+.progress > div:before,
+.progress > div:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 2.25em; 
+	width: .5em;
+	height: 1.5em;
+	border-radius: .2em;
+	background: #eee;
+	-webkit-box-shadow: 0 3.5em #eee; 
+	-webkit-transform-origin: 50% 2.5em; 
+}
+
+.progress:before {
+	background: #555;
+}
+
+.progress:after {
+	-webkit-transform: rotate(-45deg);
+	background: #777;
+}
+
+.progress > div:before {
+	-webkit-transform: rotate(-90deg);
+	background: #999;
+}
+
+.progress > div:after {
+	-webkit-transform: rotate(-135deg);
+	background: #bbb;
+}
 
 .hide {
 	display: none !important;
@@ -60,11 +98,15 @@ body {
 	-webkit-border-radius: 5px;
 	float: left;
 	position: relative;
+	z-index: 100;
 }
 
 .card p {
-	display: none;
-	-webkit-transform: scaleX(-1);
+	-webkit-transition: all 0.2s ease-in;
+	height: 0%;
+	width: 0%;
+	overflow: hidden;
+	opacity: 0; 
 }
 
 .destroy-card {
@@ -80,12 +122,14 @@ body {
 	
 .flip-card {
 	-webkit-transform: rotateY(180deg);
-	-webkit-transition: all 0.5s;
+	-webkit-transition: -webkit-border-radius, color, -webkit-box-shadow, background-image, background-size, -webkit-transform;
+	-webkit-transition-duration: 0.5s;
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition-timing-function: ease-in;
 	-webkit-border-radius: 10px;
 	-webkit-box-shadow: 17px 17px 4px 0px rgba(50, 50, 50, 0.2);
 	background: #fff;
+		
 }
 
 .flip-card.heart {
@@ -93,6 +137,7 @@ body {
 	background-image: url(heart.jpeg);
 	background-size: 100% 100%;
 	color: black !important;
+
 }
 
 .flip-card.spade {
@@ -117,11 +162,14 @@ body {
 }
 
 .flip-card p {
-	display: block;
-	-webkit-transition: display 0.6s;
+	height: 10%;
+	width: auto;
+	overflow: visible;
 	top: 30%;
 	position: absolute;
-	
+	opacity: 1;
+
+
 }
 
 #controls {
@@ -142,49 +190,58 @@ body {
 #player-one, #player-two {
 	display: block;
 	float: left;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;
+	width: 23%;
 }
 
 #player-one-score, #player-two-score {
 	display: block;
 	float: right;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;
+	width: 23%;
 }
 
 #player-one-turns, #player-two-turns {
 	display: block;
 	float: right;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;
+	width: 23%;
 }
 
-#turn {
+
+#player-one-mins, #player-one-secs, #player-two-mins, #player-two-secs {
 	display: block;
 	float: left;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;
+	width: 10%;
 }
 
-#score {
+#turn, #time {
+	display: block;
+	float: left;
+	height: 23%;
+	padding: 1%;
+	width: 23%;
+}
+
+#score, #time {
 	display: block;
 	float: right;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;	
+	width: 23%;	
 }
 
 #number-turns {
 	display: block;
 	float: right;
-	height: 31%;
+	height: 23%;
 	padding: 1%;
-	width: 31%;	
+	width: 23%;	
 }
 
 .selected {
@@ -193,7 +250,7 @@ body {
 
 #player-wrapper {
 	display: block;
-	width: 30%;
+	width: 40%;
 	height: 100%;
 	float: right;
 	padding: 0.25%;
@@ -203,13 +260,12 @@ body {
 
 #duplicate-alert {
 	height: 20%;
-	width: 50%;
+	width: 35%;
 	float: left;
 	color: #fff;
 	padding: 0.25%;
 	font-size: 150%;
 }
-
 
 #game-over {
 	height: 100%;

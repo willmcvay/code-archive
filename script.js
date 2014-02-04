@@ -9,6 +9,13 @@ var eventsAssigned = false;
 var playerOne = true;
 var playerTwo = false;
 var loadStatusCalls = 0;
+var seconds =-1.0;
+var mins = 0;
+var time;
+var oneSecondsElapsed =  0;
+var oneMinutesElapsed = 0;
+var twoSecondsElapsed =  0;
+var twoMinutesElapsed = 0;
 
 function hideLoadPage() {
 
@@ -80,7 +87,8 @@ function dealDeck () {
 		var deckToDeal = document.createElement('div');
 		deckToDeal.className = "card";
 		deckToDeal.id = "card" + i;
-		deckToDeal.innerHTML += "<p> " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
+		// deckToDeal.innerHTML += "<p>" + " " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
+		deckToDeal.innerHTML += "<p style =" + "-webkit-transform:scaleX(-1)" + ">" + " " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
 		domDivsParent.appendChild(deckToDeal);
 		domDivsParent.addEventListener("load", checkLoadStatus(deckToDeal), false);
 	};
@@ -98,11 +106,59 @@ function assignListener () {
 	}
 }
 
+function startClock(){
+	time = setInterval(timer, 1000);
+	timer();
+}
+
+function displayTimer(x) {
+	if (x<=9) { 
+		x = ("0"+x); 
+	}
+	return parseInt(x);
+}  
+
+function timer(){
+
+	if (playerOne === true) {
+
+		seconds++;       
+		if (seconds > 59) {
+			mins++;
+			document.getElementById("player-one-mins").innerHTML = displayTimer(mins) + oneMinutesElapsed + "m";
+			seconds = 0;
+		}
+		document.getElementById("player-one-secs").innerHTML = displayTimer(seconds) + oneSecondsElapsed + "s";  
+		
+	} else if (playerTwo === true) {
+
+		seconds++;       
+		if (seconds > 59) {
+			mins++;
+			document.getElementById("player-two-mins").innerHTML = displayTimer(mins) + twoMinutesElapsed + "m";
+			seconds = 0;
+		}
+		document.getElementById("player-two-secs").innerHTML = displayTimer(seconds) + twoSecondsElapsed + "s";  
+	}
+}
+
+function pauseClock() {
+	clearInterval(time);
+	resetClock();
+}
+
+function resetClock(){
+	seconds =-1.0;
+}
+
 function selectCards(clickedCard) {
 
 	if (cardOne.cardValue === undefined && clickedCard !== undefined) {
-		cardOne.cardValue = clickedCard.innerHTML.split(" ")[1];
-		cardOne.cardSuit = clickedCard.innerHTML.split(" ")[2];
+
+	startClock();
+
+		cardOne.cardValue = clickedCard.innerHTML.split(" ")[2];
+		cardOne.cardSuit = clickedCard.innerHTML.split(" ")[3];
 		cardOne.id = clickedCard.id;
 		cardOne.element = clickedCard;
 		cardOne.selected = true;
@@ -116,11 +172,12 @@ function selectCards(clickedCard) {
 		} else if (cardOne.cardSuit === "Spades</p>") {
 			cardOne.element.className += " spade flip-card";
 		}
+
 		console.log("First Card Selected: " + cardOne.cardValue);
 
 	} else if (cardTwo.cardValue === undefined && clickedCard !== undefined)  {
-		cardTwo.cardValue = clickedCard.innerHTML.split(" ")[1];
-		cardTwo.cardSuit = clickedCard.innerHTML.split(" ")[2];
+		cardTwo.cardValue = clickedCard.innerHTML.split(" ")[2];
+		cardTwo.cardSuit = clickedCard.innerHTML.split(" ")[3];
 		cardTwo.id = clickedCard.id;
 		cardTwo.selected = true;
 		cardTwo.element = clickedCard;
@@ -136,7 +193,7 @@ function selectCards(clickedCard) {
 		}
 		console.log("Both Cards selected: " + cardOne.cardValue + " " + cardTwo.cardValue);
 	} 
-checkCardsUnique();
+	checkCardsUnique();
 }
 
 function checkCardsUnique () {
@@ -169,6 +226,13 @@ function playGame () {
 		console.log("Cards will destroy");
 		cardOne.element.className += " destroy-card";
 		cardTwo.element.className += " destroy-card";
+
+
+		// var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(true);
+
+		// console.log(duplicateOne);
+
+
 		cardOne.cardValue = undefined;
 		cardTwo.cardValue = undefined;
 		cardOne.selected = false;
@@ -183,6 +247,38 @@ function playGame () {
 
 	} else {
 		console.log("Cards will do nothing");
+		
+		var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(false);
+
+		duplicateOne.className += " duplicate";
+
+		document.getElementById(cardOne.element.id).appendChild(duplicateOne);
+
+		console.log(duplicateOne);
+
+		// document.getElementById('image_1').offsetTop
+
+		var allDuplicates = document.getElementsByClassName('duplicate');
+
+		for (var i = 0; i < allDuplicates.length; i++) {
+			// var style = window.getComputedStyle(allDuplicates[i]);
+			// var top = style.getPropertyValue('top');
+
+			// allDuplicates[i].style.top = '100px'
+
+			console.log(top);
+		};
+		
+		
+
+		// style = window.getComputedStyle(element);
+
+		
+		// 
+
+		//     console.log(top);
+
+		
 		cardOne.selected = false;
 		cardTwo.selected = false;
 		cardOne.element.classList.remove("flip-card");
@@ -220,11 +316,21 @@ function playGame () {
 
 	var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
+// necessary to test 'game over' screen
 	// var allCardsDestroyed = [];
 	// allCardsDestroyed.length = 52;
 
-	if (allCardsDestroyed.length < 52 && scoreOne < 14 && scoreTwo < 14) {
+	if (allCardsDestroyed.length < 52 && scoreOne.innerHTML < 14 && scoreTwo.innerHTML < 14) {
+
+		if (playerOne === true) {
+			oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
+			oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
+		} else if (playerTwo === true)
+			twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
+			twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
+		
 		console.log("Play On");
+		pauseClock();
 
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
