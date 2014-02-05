@@ -328,19 +328,48 @@ button {
 	background: #398439;
 }
 
+
+
 #game-over h1, h2 {
 	color: #fff;
 	width: 60%;
-	height: 10%;
+	height: 5%;
+	margin-left: 20%;
+	text-align: center;
+}
+
+#game-over-winner h1, h2 {
+	color: #fff;
+	width: 60%;
+	height: 5%;
+	margin-left: 20%;
+	text-align: center;
+}
+
+#leaderboard h2 {
+	color: #fff;
+	width: 60%;
+	height: 5%;
 	margin-left: 20%;
 	text-align: center;
 }
 
 #play-again {
-	color: #fff;
+	color: red;
 	width: 60%;
-	height: 10%;
+	height: 5%;
 	margin-left: 20%;
 	font-size: 120%;
 	text-align: center;
 }
+
+.leaders {
+	color: #fff;
+	width: 60%;
+	height: 4%;
+	margin-left: 20%;
+	font-size: 120%;
+	text-align: center;
+}
+
+

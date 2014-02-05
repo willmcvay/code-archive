@@ -16,6 +16,8 @@ var oneSecondsElapsed =  0;
 var oneMinutesElapsed = 0;
 var twoSecondsElapsed =  0;
 var twoMinutesElapsed = 0;
+// below is a global required to test leaderboard - comment out in normal game
+var allCardsDestroyed = [];
 
 
 function getPlayers() {
@@ -340,10 +342,12 @@ function playGame () {
 	// var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
 // necessary to test 'game over' screen
-	var allCardsDestroyed = [];
-	allCardsDestroyed.length = 52;
+	
+	allCardsDestroyed.push("a card");
+	console.log(allCardsDestroyed.length);
+	if (allCardsDestroyed.length < 1) {
 
-	if (allCardsDestroyed.length < 52) {
+	// if (allCardsDestroyed.length < 52) {
 
 		if (playerOne === true) {
 			oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
@@ -366,6 +370,7 @@ function playGame () {
 		var p1 = document.getElementById("player-one").innerHTML;
 		var p2 = document.getElementById("player-two").innerHTML;
 		var winner = document.createElement('h2');
+		winner.id = "winner";
 		var winningScore = null;
 
 		if (scoreOne.innerHTML <= scoreTwo.innerHTML) {
@@ -376,7 +381,7 @@ function playGame () {
 			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points!";
 			winningScore = p2 + " " + scoreTwo.innerHTML;
 		}	
-		document.getElementById("game-over").appendChild(winner);
+		document.getElementById("game-over-winner").appendChild(winner);
 		
 		updateLeaderBoard(winningScore);
 		console.log("Game Over");
@@ -408,7 +413,6 @@ function updateLeaderBoard(winningScore){
 	console.log(winnerScore);
 
 	var leaderboardArray = [];
-
 	var winnersPairs = {}
 
 	winnersPairs.winnerNameStored = winnerName;
@@ -416,41 +420,42 @@ function updateLeaderBoard(winningScore){
 
 	leaderboardArray.push(winnersPairs);
 
-		var retrievedWinners = localStorage.getItem('leaderboardArray');
-		var parsedWinners = JSON.parse(retrievedWinners);
-		console.log(parsedWinners);
+	var retrievedWinners = localStorage.getItem('leaderboardArray');
+	var parsedWinners = JSON.parse(retrievedWinners);
 
+	if (parsedWinners !== null) {
 		for (var i = 0; i < parsedWinners.length; i++) {
 			leaderboardArray.push(parsedWinners[i]);
-			console.log(leaderboardArray.length);
 		};
-
+	};
 
 	localStorage.setItem('leaderboardArray', JSON.stringify(leaderboardArray));
-
-
-
 	var retrievedData = localStorage.getItem('leaderboardArray');
+	var displayData = JSON.parse(retrievedData);
 
-	console.log(retrievedData);
+	function compare(a,b) {
+		if (a.winnerScoreStored > b.winnerScoreStored) {
+			return -1;
+		} else if (a.winnerScoreStored  < b.winnerScoreStored)  {
+			return 1;
+			return 0;
+		}
+	}
 
-	// for (var i = 0; i < retrievedData.length; i++) {
-	// 	console.log(retrievedData[i]); 
-	// };
+	var sortedData = displayData.sort(compare);
+	var reversed = sortedData.reverse(); 
+	var sliced = reversed.slice(0, 10);
+
+	// below required to clear leaderboard - comment out in normal play
+	// localStorage.clear();
 	
+	for (var i = 0; i < sliced.length; i++) {
+		var leaderboardToDisplay = document.createElement('div');
+		leaderboardToDisplay.className = "leaders";
+		leaderboardToDisplay.innerHTML = "Name: " + sliced[i].winnerNameStored + "  -  " + sliced[i].winnerScoreStored + "points";
+		document.getElementById("leaderboard").appendChild(leaderboardToDisplay);
 
-	
-
-	// console.log(retrieveLocalStorage());
-
-	// var retrievedWinners = localStorage.getItem('leaderboardArray');
-	
-	// var parsedWinners = JSON.parse(retrievedWinners);
-
-	// console.log(parsedWinners);
-
-	// document.getElementById("leaderboard").innerHTML = parsedWinners;
-	// window.localStorage.clear()
+	};
 }
 
 window.addEventListener( 'load', function() {
