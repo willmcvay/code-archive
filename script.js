@@ -17,7 +17,7 @@ var oneMinutesElapsed = 0;
 var twoSecondsElapsed =  0;
 var twoMinutesElapsed = 0;
 // below is a global required to test leaderboard - comment out in normal game
-var allCardsDestroyed = [];
+var allCardsDestroyed = 0;
 
 
 function getPlayers() {
@@ -341,11 +341,9 @@ function playGame () {
 
 	// var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
-// necessary to test 'game over' screen
-	
-	allCardsDestroyed.push("a card");
-	console.log(allCardsDestroyed.length);
-	if (allCardsDestroyed.length < 1) {
+// necessary to test 'game over' screen - comment out in normal play
+	allCardsDestroyed++;
+	if (allCardsDestroyed < 4) {
 
 	// if (allCardsDestroyed.length < 52) {
 
@@ -366,21 +364,23 @@ function playGame () {
 
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
-
 		var p1 = document.getElementById("player-one").innerHTML;
 		var p2 = document.getElementById("player-two").innerHTML;
 		var winner = document.createElement('h2');
 		winner.id = "winner";
 		var winningScore = null;
 
-		if (scoreOne.innerHTML <= scoreTwo.innerHTML) {
+		if (scoreOne.innerHTML < scoreTwo.innerHTML) {
 			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points!";
 			winningScore = p1 + " " + scoreOne.innerHTML;
-			console.log(winningScore);
-		} else if (scoreTwo.innerHTML > scoreOne.innerHTML) {
+		} else if (scoreTwo.innerHTML < scoreOne.innerHTML) {
 			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points!";
 			winningScore = p2 + " " + scoreTwo.innerHTML;
-		}	
+		} else {
+			winner.innerHTML += "Game is a draw; both players have " + scoreOne.innerHTML + "points!";
+			winningScore = "Draw" + " " + scoreOne.innerHTML;
+		}
+
 		document.getElementById("game-over-winner").appendChild(winner);
 		
 		updateLeaderBoard(winningScore);
@@ -409,8 +409,6 @@ function updateLeaderBoard(winningScore){
 	
 	var winnerName = winningScore.split(' ')[0];
 	var winnerScore = winningScore.split(' ')[1];
-	console.log(winnerName);
-	console.log(winnerScore);
 
 	var leaderboardArray = [];
 	var winnersPairs = {}
@@ -452,9 +450,8 @@ function updateLeaderBoard(winningScore){
 	for (var i = 0; i < sliced.length; i++) {
 		var leaderboardToDisplay = document.createElement('div');
 		leaderboardToDisplay.className = "leaders";
-		leaderboardToDisplay.innerHTML = "Name: " + sliced[i].winnerNameStored + "  -  " + sliced[i].winnerScoreStored + "points";
+		leaderboardToDisplay.innerHTML = "Name: " + sliced[i].winnerNameStored + ",  Points: " + sliced[i].winnerScoreStored;
 		document.getElementById("leaderboard").appendChild(leaderboardToDisplay);
-
 	};
 }
 
