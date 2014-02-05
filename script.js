@@ -1,38 +1,36 @@
-var cardValuesArray = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
-var cardSuitsArray = ["Clubs", "Spades", "Hearts", "Diamonds"];
-var deck = [];
-var randomDeck = [];
-var domDivsParent = null;
-var cardOne = {};
-var cardTwo = {};
-var eventsAssigned = false;
-var playerOne = true;
-var playerTwo = false;
-var loadStatusCalls = 0;
-var seconds =-1.0;
-var mins = 0;
-var time;
-var oneSecondsElapsed =  0;
-var oneMinutesElapsed = 0;
-var twoSecondsElapsed =  0;
-var twoMinutesElapsed = 0;
+var GLOBALS = {};
+
+GLOBALS.cardOne = {};
+GLOBALS.cardTwo = {};
+GLOBALS.playerOne = {};
+GLOBALS.playerTwo = {};
+GLOBALS.loadStatusCalls = 0;
+GLOBALS.seconds =-1.0;
+GLOBALS.mins = 0;
+GLOBALS.time;
+GLOBALS.oneSecondsElapsed =  0;
+GLOBALS.oneMinutesElapsed = 0;
+GLOBALS.twoSecondsElapsed =  0;
+GLOBALS.twoMinutesElapsed = 0;
 // below is a global required to test leaderboard - comment out in normal game
-var allCardsDestroyed = 0;
+GLOBALS.allCardsDestroyed = 0;
 
 
 function getPlayers() {
-	var playerOneName = document.getElementById('player-one-input').value;
-	var playerTwoName = document.getElementById('player-two-input').value;
-	var playerOneLabel = document.getElementById('player-one');
-	var playerTwoLabel = document.getElementById('player-two');
 
-	playerOneLabel.innerHTML = playerOneName;
-	playerTwoLabel.innerHTML = playerTwoName;
+	GLOBALS.playerOne.selected = true;
+	GLOBALS.playerTwo.selected = false;
+	GLOBALS.playerOne.name = document.getElementById('player-one-input').value;
+	GLOBALS.playerTwo.name = document.getElementById('player-two-input').value;
+	GLOBALS.playerOne.label = document.getElementById('player-one');
+	GLOBALS.playerTwo.label = document.getElementById('player-two');
 
-	console.log("Players are: " + playerOneName + " & " + playerTwoName);
+	GLOBALS.playerOne.label.innerHTML = GLOBALS.playerOne.name;
+	GLOBALS.playerTwo.label.innerHTML = GLOBALS.playerTwo.name;
+
+	console.log("Players are: " + GLOBALS.playerOne.name + " & " + GLOBALS.playerTwo.name);
+
 	makeDeck();
-	shuffleDeck();
-	dealDeck();
 	pressToDeal();
 	assignListener();
 }
@@ -48,8 +46,8 @@ function hideLoadPage() {
 function checkLoadStatus (deckToDeal) {
 	var tempArray = [];
 	tempArray.push(deckToDeal);
-	loadStatusCalls++;
-	if (tempArray.length === loadStatusCalls)  {
+	GLOBALS.loadStatusCalls++;
+	if (tempArray.length === GLOBALS.loadStatusCalls)  {
 		setTimeout(function(){
 			hideLoadPage();
 			console.log("hiding load page");
@@ -58,6 +56,10 @@ function checkLoadStatus (deckToDeal) {
 }
 
 function makeDeck () {
+
+	var deck = [];
+	var cardValuesArray = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+	var cardSuitsArray = ["Clubs", "Spades", "Hearts", "Diamonds"];
 
 	for (var j = 0; j < cardSuitsArray.length; j++) {
 		var selectedSuit = cardSuitsArray[j]
@@ -71,9 +73,12 @@ function makeDeck () {
 			deck.push(card);		
 		};
 	};
+	shuffleDeck(deck)
 }
 
-function shuffleDeck() {
+function shuffleDeck(deck) {
+
+	var randomDeck = [];
 
 	var shuffled = deck.slice(0), i = deck.length, temp, index; while (i--) {
         		index = Math.floor((i + 1) * Math.random());
@@ -82,6 +87,7 @@ function shuffleDeck() {
         		shuffled[i] = temp;
         		randomDeck.push(shuffled[i]);
     	}
+    	dealDeck(randomDeck);
 }
 
 function pressToDeal(){
@@ -98,16 +104,15 @@ function pressToDeal(){
 	}, false);
 }
 
-function dealDeck () {
+function dealDeck (randomDeck) {
 
-	domDivsParent = document.createElement('div');
+	var domDivsParent = document.createElement('div');
 	domDivsParent.id = "inner-container";
 
 	for (var i = 0; i < randomDeck.length; i++) {
 		var deckToDeal = document.createElement('div');
 		deckToDeal.className = "card";
 		deckToDeal.id = "card" + i;
-		// deckToDeal.innerHTML += "<p>" + " " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
 		deckToDeal.innerHTML += "<p style =" + "-webkit-transform:scaleX(-1)" + ">" + " " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
 		domDivsParent.appendChild(deckToDeal);
 		domDivsParent.addEventListener("load", checkLoadStatus(deckToDeal), false);
@@ -127,7 +132,7 @@ function assignListener () {
 }
 
 function startClock(){
-	time = setInterval(timer, 1000);
+	GLOBALS.time = setInterval(timer, 1000);
 	timer();
 }
 
@@ -140,90 +145,90 @@ function displayTimer(x) {
 
 function timer(){
 
-	if (playerOne === true) {
+	if (GLOBALS.playerOne.selected === true) {
 
-		seconds++;       
-		if (seconds > 59) {
-			mins++;
-			document.getElementById("player-one-mins").innerHTML = displayTimer(mins) + oneMinutesElapsed + "m";
-			seconds = 0;
+		GLOBALS.seconds++;       
+		if (GLOBALS.seconds > 59) {
+			GLOBALS.mins++;
+			document.getElementById("player-one-mins").innerHTML = displayTimer(GLOBALS.mins) + GLOBALS.oneMinutesElapsed + "m";
+			GLOBALS.seconds = 0;
 		}
-		document.getElementById("player-one-secs").innerHTML = displayTimer(seconds) + oneSecondsElapsed + "s";  
+		document.getElementById("player-one-secs").innerHTML = displayTimer(GLOBALS.seconds) + GLOBALS.oneSecondsElapsed + "s";  
 		
-	} else if (playerTwo === true) {
+	} else if (GLOBALS.playerTwo.selected === true) {
 
-		seconds++;       
-		if (seconds > 59) {
-			mins++;
-			document.getElementById("player-two-mins").innerHTML = displayTimer(mins) + twoMinutesElapsed + "m";
-			seconds = 0;
+		GLOBALS.seconds++;       
+		if (GLOBALS.seconds > 59) {
+			GLOBALS.mins++;
+			document.getElementById("player-two-mins").innerHTML = displayTimer(GLOBALS.mins) + GLOBALS.twoMinutesElapsed + "m";
+			GLOBALS.seconds = 0;
 		}
-		document.getElementById("player-two-secs").innerHTML = displayTimer(seconds) + twoSecondsElapsed + "s";  
+		document.getElementById("player-two-secs").innerHTML = displayTimer(GLOBALS.seconds) + GLOBALS.twoSecondsElapsed + "s";  
 	}
 }
 
 function pauseClock() {
-	clearInterval(time);
+	clearInterval(GLOBALS.time);
 
 	updateScores();
 	resetClock();
 }
 
 function resetClock(){
-	seconds =-1.0;
+	GLOBALS.seconds =-1.0;
 }
 
 function selectCards(clickedCard) {
 
-	if (cardOne.cardValue === undefined && clickedCard !== undefined) {
+	if (GLOBALS.cardOne.cardValue === undefined && clickedCard !== undefined) {
 
 	startClock();
 
-		cardOne.cardValue = clickedCard.innerHTML.split(" ")[2];
-		cardOne.cardSuit = clickedCard.innerHTML.split(" ")[3];
-		cardOne.id = clickedCard.id;
-		cardOne.element = clickedCard;
-		cardOne.selected = true;
+		GLOBALS.cardOne.cardValue = clickedCard.innerHTML.split(" ")[2];
+		GLOBALS.cardOne.cardSuit = clickedCard.innerHTML.split(" ")[3];
+		GLOBALS.cardOne.id = clickedCard.id;
+		GLOBALS.cardOne.element = clickedCard;
+		GLOBALS.cardOne.selected = true;
 
-		if (cardOne.cardSuit === "Hearts</p>") {
-			cardOne.element.className += " heart flip-card";
-		} else if (cardOne.cardSuit === "Clubs</p>") {
-			cardOne.element.className += " club flip-card";
-		} else if (cardOne.cardSuit === "Diamonds</p>") {
-			cardOne.element.className += " diamond flip-card";
-		} else if (cardOne.cardSuit === "Spades</p>") {
-			cardOne.element.className += " spade flip-card";
+		if (GLOBALS.cardOne.cardSuit === "Hearts</p>") {
+			GLOBALS.cardOne.element.className += " heart flip-card";
+		} else if (GLOBALS.cardOne.cardSuit === "Clubs</p>") {
+			GLOBALS.cardOne.element.className += " club flip-card";
+		} else if (GLOBALS.cardOne.cardSuit === "Diamonds</p>") {
+			GLOBALS.cardOne.element.className += " diamond flip-card";
+		} else if (GLOBALS.cardOne.cardSuit === "Spades</p>") {
+			GLOBALS.cardOne.element.className += " spade flip-card";
 		}
 
-		console.log("First Card Selected: " + cardOne.cardValue);
+		console.log("First Card Selected: " + GLOBALS.cardOne.cardValue);
 
-	} else if (cardTwo.cardValue === undefined && clickedCard !== undefined)  {
-		cardTwo.cardValue = clickedCard.innerHTML.split(" ")[2];
-		cardTwo.cardSuit = clickedCard.innerHTML.split(" ")[3];
-		cardTwo.id = clickedCard.id;
-		cardTwo.selected = true;
-		cardTwo.element = clickedCard;
+	} else if (GLOBALS.cardTwo.cardValue === undefined && clickedCard !== undefined)  {
+		GLOBALS.cardTwo.cardValue = clickedCard.innerHTML.split(" ")[2];
+		GLOBALS.cardTwo.cardSuit = clickedCard.innerHTML.split(" ")[3];
+		GLOBALS.cardTwo.id = clickedCard.id;
+		GLOBALS.cardTwo.selected = true;
+		GLOBALS.cardTwo.element = clickedCard;
 
-		if (cardTwo.cardSuit === "Hearts</p>") {
-			cardTwo.element.className += " heart flip-card";
-		} else if (cardTwo.cardSuit === "Clubs</p>") {
-			cardTwo.element.className += " club flip-card";
-		} else if (cardTwo.cardSuit === "Diamonds</p>") {
-			cardTwo.element.className += " diamond flip-card";
-		} else if (cardTwo.cardSuit === "Spades</p>") {
-			cardTwo.element.className += " spade flip-card";
+		if (GLOBALS.cardTwo.cardSuit === "Hearts</p>") {
+			GLOBALS.cardTwo.element.className += " heart flip-card";
+		} else if (GLOBALS.cardTwo.cardSuit === "Clubs</p>") {
+			GLOBALS.cardTwo.element.className += " club flip-card";
+		} else if (GLOBALS.cardTwo.cardSuit === "Diamonds</p>") {
+			GLOBALS.cardTwo.element.className += " diamond flip-card";
+		} else if (GLOBALS.cardTwo.cardSuit === "Spades</p>") {
+			GLOBALS.cardTwo.element.className += " spade flip-card";
 		}
-		console.log("Both Cards selected: " + cardOne.cardValue + " " + cardTwo.cardValue);
+		console.log("Both Cards selected: " + GLOBALS.cardOne.cardValue + " " + GLOBALS.cardTwo.cardValue);
 	} 
 	checkCardsUnique(clickedCard);
 }
 
 function checkCardsUnique (clickedCard) {
 
-	 if (cardOne.id === cardTwo.id){
-		cardTwo.cardValue = undefined;
-		cardTwo.id = undefined;
-		cardTwo.selected = undefined;
+	 if (GLOBALS.cardOne.id === GLOBALS.cardTwo.id){
+		GLOBALS.cardTwo.cardValue = undefined;
+		GLOBALS.cardTwo.id = undefined;
+		GLOBALS.cardTwo.selected = undefined;
 		
 		var duplicate = document.getElementById("duplicate-alert");
 
@@ -239,7 +244,7 @@ function checkCardsUnique (clickedCard) {
 			}	
 		},2000)
 
-	} else if (cardOne.selected === true && cardTwo.selected === true && cardOne.id !== cardTwo.id ) {
+	} else if (GLOBALS.cardOne.selected === true && GLOBALS.cardTwo.selected === true && GLOBALS.cardOne.id !== GLOBALS.cardTwo.id ) {
 		
 		var selectedCards = document.getElementById("selected-alert");
 
@@ -265,18 +270,18 @@ function playGame () {
 	var pairsMatchedOne = document.getElementById("pairs-matched-one");
 	var pairsMatchedTwo = document.getElementById("pairs-matched-two");
 
-	if (cardOne.selected === true && cardTwo.selected === true && cardOne.cardValue === cardTwo.cardValue) {
+	if (GLOBALS.cardOne.selected === true && GLOBALS.cardTwo.selected === true && GLOBALS.cardOne.cardValue === GLOBALS.cardTwo.cardValue) {
 		console.log("Cards will destroy");
-		cardOne.element.className += " destroy-card";
-		cardTwo.element.className += " destroy-card";
+		GLOBALS.cardOne.element.className += " destroy-card";
+		GLOBALS.cardTwo.element.className += " destroy-card";
 
 // Some work in progress: working on transitioning destroyed cards to burned cards pile
 
-		// var duplicateOne = document.getElementById(cardOne.element.id).cloneNode(false);
+		// var duplicateOne = document.getElementById(GLOBALS.cardOne.element.id).cloneNode(false);
 
 		// duplicateOne.className += " duplicate";
 
-		// document.getElementById(cardOne.element.id).appendChild(duplicateOne);
+		// document.getElementById(GLOBALS.cardOne.element.id).appendChild(duplicateOne);
 
 		// var allDuplicates = document.getElementsByClassName('duplicate');
 
@@ -289,96 +294,110 @@ function playGame () {
 		// document.getElementsByClassName('burned-cards').classList.remove("duplicate");
 
 
-		cardOne.cardValue = undefined;
-		cardTwo.cardValue = undefined;
-		cardOne.selected = false;
-		cardTwo.selected = false;
+		GLOBALS.cardOne.cardValue = undefined;
+		GLOBALS.cardTwo.cardValue = undefined;
+		GLOBALS.cardOne.selected = false;
+		GLOBALS.cardTwo.selected = false;
 		
-		if (playerOne === true) {
+		if (GLOBALS.playerOne.selected === true) {
 			pairsMatchedOne.innerHTML++;
 
-		} else if (playerTwo === true) {
+		} else if (GLOBALS.playerTwo.selected === true) {
 			pairsMatchedTwo.innerHTML++;
 		}
 
 	} else {
 		console.log("Cards will do nothing");
 		
-		cardOne.selected = false;
-		cardTwo.selected = false;
-		cardOne.element.classList.remove("flip-card");
-		cardTwo.element.classList.remove("flip-card");
-		cardOne.cardValue = undefined;
-		cardTwo.cardValue = undefined;
+		GLOBALS.cardOne.selected = false;
+		GLOBALS.cardTwo.selected = false;
+		GLOBALS.cardOne.element.classList.remove("flip-card");
+		GLOBALS.cardTwo.element.classList.remove("flip-card");
+		GLOBALS.cardOne.cardValue = undefined;
+		GLOBALS.cardTwo.cardValue = undefined;
 
-		if (playerOne === true) {
+		if (GLOBALS.playerOne.selected === true) {
 			turnsOne.innerHTML++;
-			playerOne = false;
-			playerTwo = true;
+			GLOBALS.playerOne.selected = false;
+			GLOBALS.playerTwo.selected = true;
 
-		} else if (playerTwo === true) {
+		} else if (GLOBALS.playerTwo.selected === true) {
 			turnsTwo.innerHTML++;
-			playerTwo = false;
-			playerOne = true;
+			GLOBALS.playerTwo.selected = false;
+			GLOBALS.playerOne.selected = true;
 		}
 	}
 
 	var one = document.getElementById("player-one");
 	var two = document.getElementById("player-two");
 
-	if (playerOne === true && one.className !== "selected") {
+	if (GLOBALS.playerOne.selected === true && one.className !== "selected") {
 		one.className += "selected";
 		if (two.className === "selected"){
 			two.classList.remove("selected");
 		}
 
-	} else if (playerTwo === true && two.className !== "selected") {
+	} else if (GLOBALS.playerTwo.selected === true && two.className !== "selected") {
 		two.className += "selected";
 		if (one.className === "selected"){
-			one.classList.remove("selected");
+			one.classList.remove("selected");	
 		}
 	}
 
 	// var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
 // necessary to test 'game over' screen - comment out in normal play
-	allCardsDestroyed++;
-	if (allCardsDestroyed < 4) {
+	GLOBALS.allCardsDestroyed++;
+	if (GLOBALS.allCardsDestroyed < 4) {
 
 	// if (allCardsDestroyed.length < 52) {
 
-		if (playerOne === true) {
-			oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
-			oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
-				
-			console.log("Play On");
-			pauseClock();
+	if (GLOBALS.playerOne.selected === true) {
+		GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
+		GLOBALS.oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
+			
+		console.log("Play On");
+		pauseClock();
 
-		} else if (playerTwo === true) {
-			twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
-			twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
-		
-			console.log("Play On");
-			pauseClock();
-		}
+	} else if (GLOBALS.playerTwo.selected === true) {
+		GLOBALS.twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
+		GLOBALS.twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
+	
+		console.log("Play On");
+		pauseClock();
+	}
 
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
-		var p1 = document.getElementById("player-one").innerHTML;
-		var p2 = document.getElementById("player-two").innerHTML;
+
 		var winner = document.createElement('h2');
 		winner.id = "winner";
 		var winningScore = null;
 
 		if (scoreOne.innerHTML < scoreTwo.innerHTML) {
-			winner.innerHTML += p1 + " is the Winner, with " + scoreOne.innerHTML + " points!";
-			winningScore = p1 + " " + scoreOne.innerHTML;
+			winner.innerHTML += GLOBALS.playerOne.name + " is the Winner, with " + scoreOne.innerHTML + " points!";
+			
+			winningScore = {
+				name: GLOBALS.playerOne.name, 
+				points: scoreOne.innerHTML
+			}
+
 		} else if (scoreTwo.innerHTML < scoreOne.innerHTML) {
-			winner.innerHTML += p2 + " is the Winner, with " + scoreTwo.innerHTML + " points!";
-			winningScore = p2 + " " + scoreTwo.innerHTML;
+			winner.innerHTML += GLOBALS.playerTwo.name + " is the Winner, with " + scoreTwo.innerHTML + " points!";
+			
+			winningScore = {
+				name: GLOBALS.playerTwo.name, 
+				points: scoreTwo.innerHTML
+			}
+
 		} else {
 			winner.innerHTML += "Game is a draw; both players have " + scoreOne.innerHTML + "points!";
-			winningScore = "Draw" + " " + scoreOne.innerHTML;
+			
+			winningScore = {
+				name: "Draw", 
+				points: scoreOne.innerHTML
+			}
+
 		}
 
 		document.getElementById("game-over-winner").appendChild(winner);
@@ -406,15 +425,12 @@ function updateScores(){
 }
 
 function updateLeaderBoard(winningScore){
-	
-	var winnerName = winningScore.split(' ')[0];
-	var winnerScore = winningScore.split(' ')[1];
 
 	var leaderboardArray = [];
 	var winnersPairs = {}
 
-	winnersPairs.winnerNameStored = winnerName;
-	winnersPairs.winnerScoreStored = winnerScore;
+	winnersPairs.winnerNameStored = winningScore.name;
+	winnersPairs.winnerScoreStored = winningScore.points;
 
 	leaderboardArray.push(winnersPairs);
 
