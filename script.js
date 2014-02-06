@@ -12,9 +12,13 @@ GLOBALS.oneSecondsElapsed =  0;
 GLOBALS.oneMinutesElapsed = 0;
 GLOBALS.twoSecondsElapsed =  0;
 GLOBALS.twoMinutesElapsed = 0;
+GLOBALS.cardPostionsArray = [];
+GLOBALS.currentCardNo = -1;
+GLOBALS.transX = 0;
+GLOBALS.transY =0;
+// GLOBALS.cardPosition = {}
 // below is a global required to test leaderboard - comment out in normal game
 GLOBALS.allCardsDestroyed = 0;
-
 
 function getPlayers() {
 
@@ -60,19 +64,41 @@ function makeDeck () {
 	var deck = [];
 	var cardValuesArray = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 	var cardSuitsArray = ["Clubs", "Spades", "Hearts", "Diamonds"];
+	var mobileCardValuesArray = ["Ace","8", "9", "10", "Jack", "Queen", "King"];
 
-	for (var j = 0; j < cardSuitsArray.length; j++) {
-		var selectedSuit = cardSuitsArray[j]
-		for (var i = 0; i < cardValuesArray.length; i++) {
-			var selectedValue = cardValuesArray[i];
-			var card = {};
-			card.cardValue = selectedValue;
-			card.cardSuit = selectedSuit;
-			card.image = "";
-			card.isSelected = false;
-			deck.push(card);		
+	if (document.documentElement.clientWidth >= 600) {
+		
+		console.log("Desktop Game Selected, screen width: " +  document.documentElement.clientWidth);
+		
+		for (var j = 0; j < cardSuitsArray.length; j++) {
+			var selectedSuit = cardSuitsArray[j]
+			for (var i = 0; i < cardValuesArray.length; i++) {
+				var selectedValue = cardValuesArray[i];
+				var card = {};
+				card.cardValue = selectedValue;
+				card.cardSuit = selectedSuit;
+				card.image = "";
+				card.isSelected = false;
+				deck.push(card);		
+			};
 		};
-	};
+	} else if ( document.documentElement.clientWidth < 599) {
+		
+		console.log("Mobile Game Selected, screen width: " +  document.documentElement.clientWidth);
+
+		for (var j = 0; j < cardSuitsArray.length; j++) {
+			var selectedSuit = cardSuitsArray[j]
+			for (var i = 0; i < mobileCardValuesArray.length; i++) {
+				var selectedValue = mobileCardValuesArray[i];
+				var card = {};
+				card.cardValue = selectedValue;
+				card.cardSuit = selectedSuit;
+				card.image = "";
+				card.isSelected = false;
+				deck.push(card);		
+			};
+		};
+	}
 	shuffleDeck(deck)
 }
 
@@ -116,8 +142,60 @@ function dealDeck (randomDeck) {
 		deckToDeal.innerHTML += "<p style =" + "-webkit-transform:scaleX(-1)" + ">" + " " + randomDeck[i].cardValue + " " + randomDeck[i].cardSuit + "</p>";
 		domDivsParent.appendChild(deckToDeal);
 		domDivsParent.addEventListener("load", checkLoadStatus(deckToDeal), false);
+
 	};
 	document.getElementById("container").appendChild(domDivsParent);
+
+	var dealtCards = document.getElementsByClassName("card");
+
+
+	for (var i = 0; i < dealtCards.length; i++) {
+		var cardPosition = {};
+			cardPosition.element = dealtCards[i].id;
+			cardPosition.topPosition = dealtCards[i].offsetTop;
+			cardPosition.leftPosition = dealtCards[i].offsetLeft;
+
+			var y = -cardPosition.topPosition;
+			var x = -cardPosition.leftPosition;
+
+		dealtCards[i].style.webkitTransform = "translate3d(" + x + "px," + y + "px ,0)";
+
+		GLOBALS.cardPostionsArray.push(cardPosition);
+	};
+
+	setTimeout(function(){
+		dealACard();
+	},3000)
+	
+}
+
+function dealACard(){
+
+	GLOBALS.currentCardNo++;
+	var dealtCards = document.getElementsByClassName("card");
+	
+	if(GLOBALS.currentCardNo < dealtCards.length ){
+
+		console.log(dealtCards.length);
+		console.log(GLOBALS.currentCardNo);
+
+		var k = GLOBALS.currentCardNo;
+		
+		var leftFromArray = GLOBALS.cardPostionsArray[k].leftPosition;
+		var topFromArray = GLOBALS.cardPostionsArray[k].topPosition;
+		var idFromArray = GLOBALS.cardPostionsArray[k].element;
+
+		GLOBALS.transX = leftFromArray - leftFromArray;
+		GLOBALS.transY = topFromArray - topFromArray;
+
+		dealtCards[k].style.webkitTransform = "translate3d(" + GLOBALS.transX + "px," + GLOBALS.transY + "px, 0) rotate(180deg)";
+		dealtCards[k].style.webkitTransition = "all 0.5s ease-in-out";
+
+		setTimeout(dealACard, 100);
+
+	} else if (GLOBALS.currentCardNo >= dealtCards.length) {
+		console.log("Deck dealt!");
+	}
 }
 
 function assignListener () {
@@ -179,6 +257,12 @@ function resetClock(){
 }
 
 function selectCards(clickedCard) {
+
+	var allCards = document.getElementsByClassName('card');
+
+	for (var i = 0; i < allCards.length; i++) {
+		allCards[i].style.removeProperty('-webkit-transform');
+	};
 
 	if (GLOBALS.cardOne.cardValue === undefined && clickedCard !== undefined) {
 
@@ -294,6 +378,7 @@ function playGame () {
 		// document.getElementsByClassName('burned-cards').classList.remove("duplicate");
 
 
+
 		GLOBALS.cardOne.cardValue = undefined;
 		GLOBALS.cardTwo.cardValue = undefined;
 		GLOBALS.cardOne.selected = false;
@@ -308,6 +393,38 @@ function playGame () {
 
 	} else {
 		console.log("Cards will do nothing");
+
+		var allCards = document.getElementsByClassName('card');
+
+		for (var i = 0; i < allCards.length; i++) {
+			allCards[i].style.removeProperty('-webkit-transform');
+		};
+
+		var burnedY = document.getElementById('burned-cards').offsetTop;
+		var burnedX = document.getElementById('burned-cards').offsetLeft;
+
+		console.log(burnedX);
+		console.log(burnedY);
+
+
+		var duplicateOne = document.getElementById(GLOBALS.cardOne.element.id).cloneNode(false);
+
+		duplicateOne.className += " duplicate";
+
+		document.getElementById(GLOBALS.cardOne.element.id).appendChild(duplicateOne);
+
+		var allDuplicates = document.getElementsByClassName('duplicate');
+
+		for (var i = 0; i < allDuplicates.length; i++) {
+			allDuplicates[i].classList.remove("flip-card");
+			allDuplicates[i].className += " burned-cards"
+			allDuplicates[i].style.webkitTransform = "translate3d(" + burnedX + "px," + burnedY + "px, 0) rotate(180deg)";
+			allDuplicates[i].style.webkitTransition = "all 0.5s ease-in-out";
+			// document.getElementById('burned-cards').appendChild(allDuplicates[i]);
+		};
+
+		document.getElementsByClassName('burned-cards').classList.remove("duplicate");
+
 		
 		GLOBALS.cardOne.selected = false;
 		GLOBALS.cardTwo.selected = false;
@@ -473,6 +590,7 @@ function updateLeaderBoard(winningScore){
 
 window.addEventListener( 'load', function() {
 	console.log( 'window#load' );
+	console.log(document.documentElement.clientWidth);
 });
 
 

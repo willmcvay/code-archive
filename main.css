@@ -14,9 +14,9 @@ body {
 
 #loading-page h1, h2 {
 	color: #fff;
-	width: 20%;
-	height: 10%;
-	margin-left: 40%;
+	width: 90%;
+	height: 15%;
+	margin-left: 5%;
 	text-align: center;
 }
 
@@ -25,12 +25,25 @@ body {
 }
 
 input, button {
-	width: 10%;
-	height: 5%;
-	left: 45%;
+	width: 180px;
+	height: 35px;
+	left: calc(50% - 90px);
 	position: absolute;
 	text-align: center;
 	font-size: 120%;
+}
+
+@media screen and (max-height: 299px){
+	input, button {
+		height: 20px;
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-height: 400px) and (min-height: 300px){
+	input, button {
+		height: 25px;
+	}
 }
 
 #player-one-input {
@@ -38,11 +51,11 @@ input, button {
 }
 
 #player-two-input {
-	top: 56%;
+	top: 60%;
 }
 
 button {
-	top: 62%;
+	top: 70%;
 }
 
 @-webkit-keyframes spin {
@@ -99,6 +112,20 @@ button {
 	background: #bbb;
 }
 
+@media screen and (max-height: 400px) and (min-height: 300px) {
+	.progress {
+		font-size: 6px;
+		margin-top: 0.5%;
+		margin-bottom: 0.5%;
+	}
+}
+
+@media screen and (max-height: 299px) {
+	.progress {
+		display: none;
+	}
+}
+
 .hide {
 	display: none !important;
 }
@@ -106,6 +133,17 @@ button {
 #container {
 	width: 100%;
 	height: 80%;
+}
+
+/*#inner-container {
+	position: absolute;
+	 
+}*/
+
+@media screen and (max-width: 600px){
+	#container {
+		height: 66%;
+	}	
 }
 
 .card {
@@ -122,6 +160,13 @@ button {
 	z-index: 100;
 }
 
+@media screen and (max-width: 600px){
+	.card {
+		width: 14.285714286%;
+		height: 25%;
+		font-size: 100%;
+	}
+}
 .card p {
 	-webkit-transition: all 0.2s ease-in;
 	height: 0%;
@@ -143,6 +188,12 @@ button {
 	display: none !important;
 	font-family: 'Balthazar', serif;
 	font-size: 140%;
+}
+
+@media screen and (max-width: 600px){
+	.flip-card p {
+		font-size: 100%;
+	}
 }
 	
 .flip-card {
@@ -199,7 +250,7 @@ button {
 
 /*Some work in progress: working on transitioning destroyed cards to burned cards pile*/
 
-/*#burned-cards {
+#burned-cards {
 	width: 7.692307692%;
 	display: inline-block;
 	height: 25%;
@@ -220,16 +271,29 @@ button {
 	background-image: url(cardback.jpg);
 	background-size: 100% 100%;
 	-webkit-border-radius: 5px;
-	float: left;
+	float: right;
 	position: relative;
 	z-index: 300;
 	-webkit-transition: all 0.5s;
 }
-*/
+
 #controls {
 	height: 20%;
 	width: 100%;
 	display: block;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#controls {
+		height: 25%;
+		font-size: 100%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#controls {
+		height: 33%;
+	}
 }
 
 #deal-deck {
@@ -240,6 +304,17 @@ button {
 	padding: 0.6%;
 	font-size: 150%;
 }
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#deal-deck {
+		font-size: 120%;
+		width: 100%;
+		height: 30%;
+		float: left;
+
+	}
+}
+
 
 #player-one, #player-two {
 	display: block;
@@ -311,13 +386,61 @@ button {
 	font-size: 150%;
 }
 
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#player-wrapper {
+		font-size: 120%;
+		width: 60%;
+		float: right;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#player-wrapper {
+		height: 50%;
+		width: 100%;
+		font-size: 120%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#new-game-wrapper {
+		height: 50%;
+		width: 100%;
+
+	}
+}
+
 #duplicate-alert, #selected-alert {
 	height: 20%;
 	width: 20%;
 	float: left;
-	color: #fff;
+	color: yellow;
 	padding: 0.6%;
 	font-size: 150%;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#new-game-wrapper {
+		width: 30%;
+		height: 100%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#duplicate-alert, #selected-alert {
+		font-size: 120%;
+		width: 100%;
+		height: 30%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#duplicate-alert, #selected-alert, #deal-deck {
+		width: 100%;
+		font-size: 120%;
+	}
 }
 
 #game-over {
@@ -327,8 +450,6 @@ button {
 	position: absolute;
 	background: #398439;
 }
-
-
 
 #game-over h1, h2 {
 	color: #fff;
@@ -346,12 +467,26 @@ button {
 	text-align: center;
 }
 
+@media screen and (max-width: 600px){
+	#game-over-winner h1, h2 {
+		width: 98%;
+		margin-left: 2%;
+	}
+}
+
 #leaderboard h2 {
 	color: #fff;
 	width: 60%;
 	height: 5%;
 	margin-left: 20%;
 	text-align: center;
+}
+
+@media screen and (max-width: 600px){
+	#leaderboard h2 {
+		width: 98%;
+		margin-left: 2%;
+	}
 }
 
 #play-again {
@@ -371,5 +506,7 @@ button {
 	font-size: 120%;
 	text-align: center;
 }
+
+
 
 
