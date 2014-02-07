@@ -1,7 +1,8 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 24px;
 	background: #398439;
+	font-weight: bolder;
 }
 
 #loading-page {
@@ -18,6 +19,7 @@ body {
 	height: 15%;
 	margin-left: 5%;
 	text-align: center;
+	font-size: 120%;
 }
 
 #loader-wrapper {
@@ -25,12 +27,12 @@ body {
 }
 
 input, button {
-	width: 180px;
-	height: 35px;
-	left: calc(50% - 90px);
+	width: 60%;
+	height: 10%;
+	left: 20%;
 	position: absolute;
 	text-align: center;
-	font-size: 120%;
+	font-size: 150%;
 }
 
 #player-one-input {
@@ -105,11 +107,10 @@ button {
 
 #container {
 	width: 100%;
-	height: 80%;
+	height: 66%;
 }
 
 .card {
-	width: 7.692307692%;
 	display: inline-block;
 	text-align: center;
 	vertical-align: center;
@@ -120,6 +121,7 @@ button {
 	float: left;
 	position: relative;
 	z-index: 0;
+	width: 14.285714286%;
 }
 
 .card p {
@@ -153,8 +155,7 @@ button {
 	-webkit-transition-timing-function: ease-in;
 	-webkit-border-radius: 10px;
 	-webkit-box-shadow: 17px 17px 4px 0px rgba(50, 50, 50, 0.2);
-	background: #fff;
-		
+	background: #fff;	
 }
 
 .flip-card.heart {
@@ -198,14 +199,14 @@ button {
 }
 
 #controls {
-	height: 20%;
 	width: 100%;
 	display: block;
+	height: 33%;
 }
 
 #deal-deck {
 	height: 20%;
-	width: 7.192307692%;
+	width: 100%;
 	float: left;
 	color: #fff;
 	padding: 0.6%;
@@ -272,23 +273,28 @@ button {
 	color: red;
 }
 
+#new-game-wrapper {
+	height: 50%;
+	width: 100%;
+}
+
 #player-wrapper {
 	display: block;
-	width: 45.6%;
-	height: 100%;
 	float: right;
 	padding: 0.25%;
 	color: #fff;
 	font-size: 150%;
+	height: 50%;
+	width: 100%;
 }
 
 #duplicate-alert, #selected-alert {
 	height: 20%;
-	width: 20%;
 	float: left;
 	color: yellow;
 	padding: 0.6%;
 	font-size: 150%;
+	width: 100%;
 }
 
 #game-over {
@@ -317,10 +323,10 @@ button {
 
 #leaderboard h2 {
 	color: #fff;
-	width: 60%;
 	height: 5%;
-	margin-left: 20%;
 	text-align: center;
+	width: 98%;
+	margin-left: 1%;
 }
 
 #play-again {
@@ -342,34 +348,6 @@ button {
 	text-align: center;
 }
 
-/*Some work in progress: working on transitioning destroyed cards to burned cards pile*/
-
-/*#burned-cards {
-	width: 7.692307692%;
-	display: inline-block;
-	height: 25%;
-	background-image: url(cardback.jpg);
-	background-size: 100% 100%;
-	-webkit-border-radius: 5px;
-	float: right;
-	position: absolute;
-	z-index: 300;
-	-webkit-transition: all 0.5s;
-
-}
-
-.duplicate {
-	width: 7.692307692%;
-	height: 100%;
-	width: 100%;
-	background-image: url(cardback.jpg);
-	background-size: 100% 100%;
-	-webkit-border-radius: 5px;
-	float: right;
-	position: relative;
-	z-index: 300;
-	-webkit-transition: all 0.5s;
-}*/
 
 
 

@@ -16,9 +16,8 @@ GLOBALS.cardPostionsArray = [];
 GLOBALS.currentCardNo = -1;
 GLOBALS.transX = 0;
 GLOBALS.transY =0;
-// GLOBALS.cardPosition = {}
 // below is a global required to test leaderboard - comment out in normal game
-GLOBALS.allCardsDestroyed = 0;
+// GLOBALS.allCardsDestroyed = 0;
 
 function getPlayers() {
 
@@ -55,7 +54,7 @@ function checkLoadStatus (deckToDeal) {
 		setTimeout(function(){
 			hideLoadPage();
 			console.log("hiding load page");
-		},2000)	
+		},100)	
 	}
 }
 
@@ -63,10 +62,10 @@ function makeDeck () {
 
 	var deck = [];
 	var cardValuesArray = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
-	var cardSuitsArray = ["Clubs", "Spades", "Hearts", "Diamonds"];
+	var cardSuitsArray = ["Club", "Spade", "Heart", "Diamond"];
 	var mobileCardValuesArray = ["Ace","8", "9", "10", "Jack", "Queen", "King"];
 
-	if (document.documentElement.clientWidth >= 600) {
+	if (document.documentElement.clientWidth >= 600 && detectMob() === false) {
 		
 		console.log("Desktop Game Selected, screen width: " +  document.documentElement.clientWidth);
 		
@@ -82,7 +81,7 @@ function makeDeck () {
 				deck.push(card);		
 			};
 		};
-	} else if ( document.documentElement.clientWidth < 599) {
+	} else if ( document.documentElement.clientWidth < 599 || detectMob() === true) {
 		
 		console.log("Mobile Game Selected, screen width: " +  document.documentElement.clientWidth);
 
@@ -165,7 +164,7 @@ function dealDeck (randomDeck) {
 
 	setTimeout(function(){
 		dealACard();
-	},3000)
+	},1500)
 	
 }
 
@@ -176,9 +175,6 @@ function dealACard(){
 	
 	if(GLOBALS.currentCardNo < dealtCards.length ){
 
-		console.log(dealtCards.length);
-		console.log(GLOBALS.currentCardNo);
-
 		var k = GLOBALS.currentCardNo;
 		
 		var leftFromArray = GLOBALS.cardPostionsArray[k].leftPosition;
@@ -188,8 +184,10 @@ function dealACard(){
 		GLOBALS.transX = leftFromArray - leftFromArray;
 		GLOBALS.transY = topFromArray - topFromArray;
 
+
 		dealtCards[k].style.webkitTransform = "translate3d(" + GLOBALS.transX + "px," + GLOBALS.transY + "px, 0) rotate(180deg)";
 		dealtCards[k].style.webkitTransition = "all 0.5s ease-in-out";
+
 
 		setTimeout(dealACard, 100);
 
@@ -266,7 +264,7 @@ function selectCards(clickedCard) {
 
 	if (GLOBALS.cardOne.cardValue === undefined && clickedCard !== undefined) {
 
-	startClock();
+		startClock();
 
 		GLOBALS.cardOne.cardValue = clickedCard.innerHTML.split(" ")[2];
 		GLOBALS.cardOne.cardSuit = clickedCard.innerHTML.split(" ")[3];
@@ -274,32 +272,32 @@ function selectCards(clickedCard) {
 		GLOBALS.cardOne.element = clickedCard;
 		GLOBALS.cardOne.selected = true;
 
-		if (GLOBALS.cardOne.cardSuit === "Hearts</p>") {
+		if (GLOBALS.cardOne.cardSuit === "Heart</p>") {
 			GLOBALS.cardOne.element.className += " heart flip-card";
-		} else if (GLOBALS.cardOne.cardSuit === "Clubs</p>") {
+		} else if (GLOBALS.cardOne.cardSuit === "Club</p>") {
 			GLOBALS.cardOne.element.className += " club flip-card";
-		} else if (GLOBALS.cardOne.cardSuit === "Diamonds</p>") {
+		} else if (GLOBALS.cardOne.cardSuit === "Diamond</p>") {
 			GLOBALS.cardOne.element.className += " diamond flip-card";
-		} else if (GLOBALS.cardOne.cardSuit === "Spades</p>") {
+		} else if (GLOBALS.cardOne.cardSuit === "Spade</p>") {
 			GLOBALS.cardOne.element.className += " spade flip-card";
 		}
-
 		console.log("First Card Selected: " + GLOBALS.cardOne.cardValue);
 
 	} else if (GLOBALS.cardTwo.cardValue === undefined && clickedCard !== undefined)  {
+
 		GLOBALS.cardTwo.cardValue = clickedCard.innerHTML.split(" ")[2];
 		GLOBALS.cardTwo.cardSuit = clickedCard.innerHTML.split(" ")[3];
 		GLOBALS.cardTwo.id = clickedCard.id;
 		GLOBALS.cardTwo.selected = true;
 		GLOBALS.cardTwo.element = clickedCard;
 
-		if (GLOBALS.cardTwo.cardSuit === "Hearts</p>") {
+		if (GLOBALS.cardTwo.cardSuit === "Heart</p>") {
 			GLOBALS.cardTwo.element.className += " heart flip-card";
-		} else if (GLOBALS.cardTwo.cardSuit === "Clubs</p>") {
+		} else if (GLOBALS.cardTwo.cardSuit === "Club</p>") {
 			GLOBALS.cardTwo.element.className += " club flip-card";
-		} else if (GLOBALS.cardTwo.cardSuit === "Diamonds</p>") {
+		} else if (GLOBALS.cardTwo.cardSuit === "Diamond</p>") {
 			GLOBALS.cardTwo.element.className += " diamond flip-card";
-		} else if (GLOBALS.cardTwo.cardSuit === "Spades</p>") {
+		} else if (GLOBALS.cardTwo.cardSuit === "Spade</p>") {
 			GLOBALS.cardTwo.element.className += " spade flip-card";
 		}
 		console.log("Both Cards selected: " + GLOBALS.cardOne.cardValue + " " + GLOBALS.cardTwo.cardValue);
@@ -361,6 +359,13 @@ function playGame () {
 
 // Some work in progress: working on transitioning destroyed cards to burned cards pile
 
+		// var burnedY = document.getElementById('burned-cards').offsetTop;
+		// var burnedX = document.getElementById('burned-cards').offsetLeft;
+
+		// console.log(burnedX);
+		// console.log(burnedY);
+
+
 		// var duplicateOne = document.getElementById(GLOBALS.cardOne.element.id).cloneNode(false);
 
 		// duplicateOne.className += " duplicate";
@@ -372,11 +377,12 @@ function playGame () {
 		// for (var i = 0; i < allDuplicates.length; i++) {
 		// 	allDuplicates[i].classList.remove("flip-card");
 		// 	allDuplicates[i].className += " burned-cards"
-		// 	document.getElementById('burned-cards').appendChild(allDuplicates[i]);
-
+		// 	allDuplicates[i].style.webkitTransform = "translate3d(" + burnedX + "px," + burnedY + "px, 0) rotate(180deg)";
+		// 	allDuplicates[i].style.webkitTransition = "all 0.5s ease-in-out";
+		// 	// document.getElementById('burned-cards').appendChild(allDuplicates[i]);
 		// };
-		// document.getElementsByClassName('burned-cards').classList.remove("duplicate");
 
+		// document.getElementsByClassName('burned-cards').classList.remove("duplicate");
 
 
 		GLOBALS.cardOne.cardValue = undefined;
@@ -394,37 +400,11 @@ function playGame () {
 	} else {
 		console.log("Cards will do nothing");
 
-		var allCards = document.getElementsByClassName('card');
+		// var allCards = document.getElementsByClassName('card');
 
-		for (var i = 0; i < allCards.length; i++) {
-			allCards[i].style.removeProperty('-webkit-transform');
-		};
-
-		var burnedY = document.getElementById('burned-cards').offsetTop;
-		var burnedX = document.getElementById('burned-cards').offsetLeft;
-
-		console.log(burnedX);
-		console.log(burnedY);
-
-
-		var duplicateOne = document.getElementById(GLOBALS.cardOne.element.id).cloneNode(false);
-
-		duplicateOne.className += " duplicate";
-
-		document.getElementById(GLOBALS.cardOne.element.id).appendChild(duplicateOne);
-
-		var allDuplicates = document.getElementsByClassName('duplicate');
-
-		for (var i = 0; i < allDuplicates.length; i++) {
-			allDuplicates[i].classList.remove("flip-card");
-			allDuplicates[i].className += " burned-cards"
-			allDuplicates[i].style.webkitTransform = "translate3d(" + burnedX + "px," + burnedY + "px, 0) rotate(180deg)";
-			allDuplicates[i].style.webkitTransition = "all 0.5s ease-in-out";
-			// document.getElementById('burned-cards').appendChild(allDuplicates[i]);
-		};
-
-		document.getElementsByClassName('burned-cards').classList.remove("duplicate");
-
+		// for (var i = 0; i < allCards.length; i++) {
+		// 	allCards[i].style.removeProperty('-webkit-transform');
+		// };
 		
 		GLOBALS.cardOne.selected = false;
 		GLOBALS.cardTwo.selected = false;
@@ -461,13 +441,13 @@ function playGame () {
 		}
 	}
 
-	// var allCardsDestroyed = document.getElementsByClassName("destroy-card");
+	var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
 // necessary to test 'game over' screen - comment out in normal play
-	GLOBALS.allCardsDestroyed++;
-	if (GLOBALS.allCardsDestroyed < 4) {
+	// GLOBALS.allCardsDestroyed++;
+	// if (GLOBALS.allCardsDestroyed < 4) {
 
-	// if (allCardsDestroyed.length < 52) {
+	if (allCardsDestroyed.length < 52) {
 
 	if (GLOBALS.playerOne.selected === true) {
 		GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
