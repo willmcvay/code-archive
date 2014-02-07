@@ -17,23 +17,24 @@
 				}
 			}
 
-			if (detectMob() === false) {
-  				document.write('<link href="main.css" rel="stylesheet" type="text/css">');
-  				document.write('<link href="media.css" rel="stylesheet" type="text/css">');
-  				console.log("Deskop Detected");
-			} else if (detectMob() === true) {
-				document.write('<link href="mobile.css" rel="stylesheet" type="text/css">')
-				console.log("Mobile Detected");
-			}
+			// if (detectMob() === false) {
+  	// 			document.write('<link href="main.css" rel="stylesheet" type="text/css">');
+  	// 			document.write('<link href="media.css" rel="stylesheet" type="text/css">');
+  	// 			console.log("Deskop Detected");
+			// } else if (detectMob() === true) {
+			// 	document.write('<link href="mobile.css" rel="stylesheet" type="text/css">')
+			// 	console.log("Mobile Detected");
+			// }
 		</script>
-	
-<!-- 		<link href="main.css" rel="stylesheet" type="text/css">
-		<link href="media.css" rel="stylesheet" type="text/css"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densityDpi=medium-dpi" />
+		<link href="main.css" rel="stylesheet" type="text/css">
+		<link href="media.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet' type='text/css'>
 		<script src="script.js"></script>
 	</head>
 	<body>
+		<div id="orient">
 		<div id="loading-page">
 			<h1>Welcome To Pairs</h1>
 			<h2>Game Loading</h2>
@@ -42,7 +43,7 @@
 			</div>
 			<input type="text" id="player-one-input" placeholder="Player One" class="selected">
 			<input type="text" id="player-two-input" placeholder="Player Two" class="selected">
-			<button onclick="getPlayers();" href="javascript:;">Start Game</button>
+			<button onClick="getPlayers();" id="start-button" href="javascript:;">Start Game</button>
 
 		</div>
 		<div id="game-over" class="hide">
@@ -54,7 +55,9 @@
 		<div id="container"></div>
 		<div id="controls" class="hide">
 			<div id="new-game-wrapper">
-				<div id="deal-deck">New Game</div>
+				<div id="deal-deck">
+					<div id="new-game-inner">New Game</div>
+				</div>
 				<div id="duplicate-alert" class="hide">Please select two unique cards</div>
 				<div id="selected-alert" class="hide">Cards Selected</div>
 <!-- 				<div id="duplicate-alert" >Cards Must Be Unique</div>
@@ -80,6 +83,7 @@
 				<div id="player-two-secs">0</div>				
 			</div>	
 <!-- 			<div id="burned-cards"></div> -->
+		</div>
 		</div>
 	</body>
 </html>

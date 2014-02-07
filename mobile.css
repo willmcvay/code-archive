@@ -2,7 +2,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	background: #398439;
-	font-weight: bolder;
+	font-weight: bold;
 }
 
 #loading-page {
@@ -348,7 +348,12 @@ button {
 	text-align: center;
 }
 
+.orientleft #shell {
+	-webkit-transform: rotate(-90deg);
+	-webkit-transform-origin:160px 160px;
+}
 
-
-
-
+.orientright #shell {
+	-webkit-transform: rotate(90deg);
+	-webkit-transform-origin:230px 230px;
+} 

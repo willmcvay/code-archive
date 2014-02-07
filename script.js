@@ -21,21 +21,36 @@ GLOBALS.transY =0;
 
 function getPlayers() {
 
-	GLOBALS.playerOne.selected = true;
-	GLOBALS.playerTwo.selected = false;
-	GLOBALS.playerOne.name = document.getElementById('player-one-input').value;
-	GLOBALS.playerTwo.name = document.getElementById('player-two-input').value;
-	GLOBALS.playerOne.label = document.getElementById('player-one');
-	GLOBALS.playerTwo.label = document.getElementById('player-two');
+	var buttonClicked = document.getElementById("start-button");
+	
+	if (buttonClicked.className !== "disabled") {
 
-	GLOBALS.playerOne.label.innerHTML = GLOBALS.playerOne.name;
-	GLOBALS.playerTwo.label.innerHTML = GLOBALS.playerTwo.name;
+		GLOBALS.playerOne.selected = true;
+		GLOBALS.playerTwo.selected = false;
+		GLOBALS.playerOne.name = document.getElementById('player-one-input').value;
+		GLOBALS.playerTwo.name = document.getElementById('player-two-input').value;
+		GLOBALS.playerOne.label = document.getElementById('player-one');
+		GLOBALS.playerTwo.label = document.getElementById('player-two');
 
-	console.log("Players are: " + GLOBALS.playerOne.name + " & " + GLOBALS.playerTwo.name);
+		GLOBALS.playerOne.label.innerHTML = GLOBALS.playerOne.name;
+		GLOBALS.playerTwo.label.innerHTML = GLOBALS.playerTwo.name;
 
-	makeDeck();
-	pressToDeal();
-	assignListener();
+		console.log("Players are: " + GLOBALS.playerOne.name + " & " + GLOBALS.playerTwo.name);
+
+		buttonClicked.className += "disabled";
+
+		if (detectMob() === true) {
+			setTimeout(function(){
+				makeDeck();
+				pressToDeal();
+				assignListener();
+			},1000)	
+		} else if (detectMob() === false)  {
+			makeDeck();
+			pressToDeal();
+			assignListener();
+		}
+	}
 }
 
 function hideLoadPage() {
@@ -117,16 +132,26 @@ function shuffleDeck(deck) {
 
 function pressToDeal(){
 	
-	var pressButton = document.getElementById("deal-deck");
+	var pressButton = document.getElementById("new-game-inner");
 	var playAgain = document.getElementById("play-again");
 	
-	pressButton.addEventListener("click", function() {
-		window.location.reload();
-	}, false);
+	if (detectMob() === true) {
+		pressButton.addEventListener("touchstart", function() {
+			window.location.reload();
+		}, false);
 
-	playAgain.addEventListener("click", function() {
-		window.location.reload();
-	}, false);
+		playAgain.addEventListener("touchstart", function() {
+			window.location.reload();
+		}, false);
+	} else if (detectMob() === false) {
+		pressButton.addEventListener("click", function() {
+			window.location.reload();
+		}, false);
+
+		playAgain.addEventListener("click", function() {
+			window.location.reload();
+		}, false);
+	}
 }
 
 function dealDeck (randomDeck) {
@@ -200,10 +225,19 @@ function assignListener () {
 
 	var allCards = document.getElementsByClassName("card");
 
-	for (var i = 0; i < allCards.length; i++) {
-		allCards[i].addEventListener("click", function(event) {
-			selectCards(this);
-		},false);	
+	if (detectMob() === true) {
+		for (var i = 0; i < allCards.length; i++) {
+			allCards[i].addEventListener("touchstart", function(event) {
+				selectCards(this);
+			},false);	
+		}
+
+	} else if (detectMob() === false)  {
+		for (var i = 0; i < allCards.length; i++) {
+			allCards[i].addEventListener("click", function(event) {
+				selectCards(this);
+			},false);	
+		}
 	}
 }
 
@@ -447,22 +481,39 @@ function playGame () {
 	// GLOBALS.allCardsDestroyed++;
 	// if (GLOBALS.allCardsDestroyed < 4) {
 
-	if (allCardsDestroyed.length < 52) {
+	if (allCardsDestroyed.length < 52 && detectMob() === false) {
 
-	if (GLOBALS.playerOne.selected === true) {
-		GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
-		GLOBALS.oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
-			
-		console.log("Play On");
-		pauseClock();
+		if (GLOBALS.playerOne.selected === true) {
+			GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
+			GLOBALS.oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
+				
+			console.log("Play On");
+			pauseClock();
 
-	} else if (GLOBALS.playerTwo.selected === true) {
-		GLOBALS.twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
-		GLOBALS.twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
-	
-		console.log("Play On");
-		pauseClock();
-	}
+		} else if (GLOBALS.playerTwo.selected === true) {
+			GLOBALS.twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
+			GLOBALS.twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
+		
+			console.log("Play On");
+			pauseClock();
+		}
+
+	} else if (allCardsDestroyed.length < 28 && detectMob() === true) { 
+
+		if (GLOBALS.playerOne.selected === true) {
+			GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
+			GLOBALS.oneMinutesElapsed = parseInt(document.getElementById("player-one-mins").innerHTML);
+				
+			console.log("Play On");
+			pauseClock();
+
+		} else if (GLOBALS.playerTwo.selected === true) {
+			GLOBALS.twoSecondsElapsed =  parseInt(document.getElementById("player-two-secs").innerHTML);
+			GLOBALS.twoMinutesElapsed = parseInt(document.getElementById("player-two-mins").innerHTML);
+		
+			console.log("Play On");
+			pauseClock();
+		}	
 
 	} else {
 		document.getElementById("game-over").classList.remove("hide");
@@ -567,6 +618,18 @@ function updateLeaderBoard(winningScore){
 		document.getElementById("leaderboard").appendChild(leaderboardToDisplay);
 	};
 }
+
+window.addEventListener('onorientationchange', function () {
+	if (window.orientation == -90) {
+		document.getElementById('orient').className = 'orientright';
+	}
+	if (window.orientation == 90) {
+		document.getElementById('orient').className = 'orientleft';
+	}
+	if (window.orientation == 0) {
+		document.getElementById('orient').className = '';
+	}
+}, true);
 
 window.addEventListener( 'load', function() {
 	console.log( 'window#load' );
