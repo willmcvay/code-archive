@@ -1,0 +1,49 @@
+
+<div id="loading-page">
+	<h1>Welcome To Pairs</h1>
+	<h2>Game Loading</h2>
+	<div id="loader-wrapper">
+		<div class="progress"><div>Loading…</div></div>
+	</div>
+	<input type="text" id="player-one-input" placeholder="Player One" class="selected">
+	<input type="text" id="player-two-input" placeholder="Player Two" class="selected">
+	<button onClick="getPlayers(), playSound('\app\assets\images\shuffling-cards-1.mp3');" id="start-button" href="javascript:;">Start Game</button>
+
+</div>
+<div id="game-over" class="hide">
+	<h1>Game Over</h1>
+	<div id="play-again">Play Again</div>
+	<div id="game-over-winner"></div>
+	<div id="leaderboard"><h2>Leaderboard: Lowest Scores</h2></div>
+</div>
+<div id="container"></div>
+<div id="controls" class="hide">
+	<div id="new-game-wrapper">
+		<div id="deal-deck">
+			<div id="new-game-inner">New Game</div>
+		</div>
+		<div id="duplicate-alert" class="hide">Please select two unique cards</div>
+		<div id="selected-alert" class="hide">Cards Selected</div>
+	</div>
+	<div id="player-wrapper">
+		<div id="turn">Player</div>
+		<div id ="score">Score</div>
+		<div id="pairs-matched">Pairs</div>
+		<div id="number-turns">Turns</div>
+		<div id="time">Timer</div>
+		<div id="player-one" class="selected"></div>
+		<div id="player-one-score">0</div>
+		<div id="pairs-matched-one">0</div>
+		<div id="player-one-turns">0</div>
+		<div id="player-one-mins">0</div>
+		<div id="player-one-secs">0</div>
+		<div id="player-two"></div>
+		<div id="player-two-score">0</div>
+		<div id="pairs-matched-two">0</div>
+		<div id="player-two-turns">0</div>
+		<div id="player-two-mins">0</div>
+		<div id="player-two-secs">0</div>				
+	</div>	
+<!-- 			<div id="burned-cards"></div> -->
+	<span id="audio-span"></span>
+</div>
