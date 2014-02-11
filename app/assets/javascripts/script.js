@@ -17,7 +17,7 @@ GLOBALS.currentCardNo = -1;
 GLOBALS.transX = 0;
 GLOBALS.transY =0;
 // below is a global required to test leaderboard - comment out in normal game
-GLOBALS.allCardsDestroyed = 0;
+// GLOBALS.allCardsDestroyed = 0;
 
 function getPlayers() {
 
@@ -155,9 +155,9 @@ function pressToDeal(){
 }
 
  function playSound(soundfile) {
- 	document.getElementById("audio-span").innerHTML=  "<audio src=\""+soundfile+"\" hidden=\"true\"  type='audio/mpeg' autoplay=\"true\" />";
- 	console.log(document.getElementById("audio-span").innerHTML);
-
+ 	// document.getElementById("audio-span").innerHTML=  "<audio src=\""+soundfile+"\" hidden=\"true\"  type='audio/mpeg' autoplay=\"true\" />";
+ 	// document.getElementById("audio-span").innerHTML=  "<audio src=\"/app/assets/images/shuffling-cards-1.mp3\" hidden=\"true\"  type='audio/mpeg' autoplay=\"true\" />";
+ 	// console.log(document.getElementById("audio-span").innerHTML);
  }
 
 function dealDeck (randomDeck) {
@@ -222,7 +222,7 @@ function dealACard(){
 		dealtCards[k].style.webkitTransition = "all 0.5s ease-in-out";
 
 
-		setTimeout(dealACard, 0);
+		setTimeout(dealACard, 150);
 
 	} else if (GLOBALS.currentCardNo >= dealtCards.length) {
 		console.log("Deck dealt!");
@@ -486,10 +486,10 @@ function playGame () {
 	var allCardsDestroyed = document.getElementsByClassName("destroy-card");
 
 // necessary to test 'game over' screen - comment out in normal play
-	GLOBALS.allCardsDestroyed++;
-	if (GLOBALS.allCardsDestroyed < 2 && detectMob() === false) {
+	// GLOBALS.allCardsDestroyed++;
+	// if (GLOBALS.allCardsDestroyed < 2 && detectMob() === false) {
 
-	// if (allCardsDestroyed.length < 52 && detectMob() === false) {
+	if (allCardsDestroyed.length < 52 && detectMob() === false) {
 
 		if (GLOBALS.playerOne.selected === true) {
 			GLOBALS.oneSecondsElapsed =  parseInt(document.getElementById("player-one-secs").innerHTML);
@@ -505,6 +505,8 @@ function playGame () {
 			console.log("Play On");
 			pauseClock();
 		}
+
+	// } else if (GLOBALS.allCardsDestroyed < 2 && detectMob() === true) {
 
 	} else if (allCardsDestroyed.length < 28 && detectMob() === true) { 
 
@@ -587,37 +589,89 @@ function updateLeaderBoard(winningScore){
 	winnersPairs.winnerNameStored = winningScore.name;
 	winnersPairs.winnerScoreStored = winningScore.points;
 
-	$.ajax({
-		type: "POST",
-		dataType: "json",
-		url: "/scores",
-		data: { score: 
-			{
-			winnernamestored: winnersPairs.winnerNameStored,
-			winnerscorestored: winnersPairs.winnerScoreStored
-			}
-		},
-			success: function (data) {
-	    			console.log("Score posted");
-			},
-			error: function (error) {
-	   			 console.log("Score failed to post");
-			}	
-	});
+	// jQuery server request - have replicated in vanilla JS below
 
-	$.ajax({
-        		type: "GET",
-       		dataType: "json",
-       		url: '/scores',
-        		success: function(data){
-        			console.log("Score retrieved");
-        			// return data;
-			sortAndDisplay(data);
-        		},
-		error: function (error) {
-   			 console.log("Score failed to retrieve");
+	// $.ajax({
+	// 	type: "POST",
+	// 	dataType: "json",
+	// 	url: "/scores",
+	// 	data: { score: 
+	// 		{
+	// 		winnernamestored: "helloBob",
+	// 		winnerscorestored: 1098765
+	// 		}
+	// 	},
+	// 		success: function (data) {
+	//     			console.log("Score posted");
+	// 		},
+	// 		error: function (error) {
+	//    			 console.log("Score failed to post");
+	// 		}	
+	// });
+
+
+	var scoreToPost = "score[winnernamestored]=" + winnersPairs.winnerNameStored + "&score[winnerscorestored]=" + winnersPairs.winnerScoreStored;
+
+	var xhr = new XMLHttpRequest();
+	var postFlag = false;
+
+	xhr.onreadystatechange = function() {
+		console.log( "Connecting to server - ready state / status is: " + xhr.readyState, xhr.status );
+		if( xhr.readyState === 4 && xhr.status < 400 ) {
+			console.log( 'Connection Successful' );
+			postFlag = true;
+			getLeaderboard(postFlag);
 		}
-    	}); 
+	};
+
+	xhr.open( 'POST', '/scores', true );
+	xhr.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+	xhr.setRequestHeader( 'Accept', 'application/json' );
+	xhr.send( scoreToPost );
+	console.log("Posted Score");
+
+	
+
+
+// jQuery server request - have replicated in vanilla JS below
+
+	// $.ajax({
+ //        		type: "GET",
+ //       		dataType: "json",
+ //       		url: '/scores',
+ //        		success: function(data){
+ //        			console.log("Score retrieved");
+ //        			// return data;
+	// 		sortAndDisplay(data);
+ //        		},
+	// 	error: function (error) {
+ //   			 console.log("Score failed to retrieve");
+	// 	}
+ //    	}); 
+	var requestScore = null;
+
+	function getLeaderboard () {
+		if (postFlag === true) {
+		requestScore = new XMLHttpRequest;
+			requestScore.open('GET', '/scores', true)
+
+			requestScore.onload = function() {
+				if (requestScore.status >= 200 && requestScore.status < 400){
+					console.log("Score retrieved");
+					sortAndDisplay(requestScore.response);
+				} else {
+					console.log("Score failed to retrieve");
+				}
+			}
+			requestScore.onerror = function() {
+			 	console.log("Failed to connect to DB");
+			}
+		} else {
+			console.log("Awaiting post to DB");
+			getLeaderboard();
+		}
+		requestScore.send();
+	}
 
 	function compare(a,b) {
 		if (a.winnerscorestored > b.winnerscorestored) {
@@ -630,14 +684,20 @@ function updateLeaderBoard(winningScore){
 
 
 	function sortAndDisplay (data) {
-		var sortedData = data.sort(compare);
+		var parsedData = JSON.parse(data);
+		var sortedData = parsedData.sort(compare);
 		var reversed = sortedData.reverse(); 
 		var sliced = reversed.slice(0, 10);
 		
 		for (var i = 0; i < sliced.length; i++) {
 			var leaderboardToDisplay = document.createElement('div');
 			leaderboardToDisplay.className = "leaders";
-			leaderboardToDisplay.innerHTML = "Name: " + sliced[i].winnernamestored + ",  Points: " + sliced[i].winnerscorestored;
+			if (sliced[i].winnernamestored !== "") {
+				var winnerNameToDisplay = sliced[i].winnernamestored;
+			} else {
+				var winnerNameToDisplay = "Player";
+			} 
+			leaderboardToDisplay.innerHTML = "Name: " + winnerNameToDisplay + ",  Points: " + sliced[i].winnerscorestored;
 			document.getElementById("leaderboard").appendChild(leaderboardToDisplay);
 		};
 	}

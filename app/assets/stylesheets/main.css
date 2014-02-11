@@ -26,13 +26,14 @@ body {
 	position: relative;
 }
 
-input, button {
+button {
 	width: 180px;
 	height: 35px;
 	left: calc(50% - 90px);
 	position: absolute;
 	text-align: center;
 	font-size: 120%;
+	top: 70%;
 }
 
 #player-one-input {
@@ -43,8 +44,13 @@ input, button {
 	top: 60%;
 }
 
-button {
-	top: 70%;
+input { 
+	width: 174px;
+	height: 35px;
+	left: calc(50% - 90px);
+	position: absolute;
+	text-align: center;
+	font-size: 120%;
 }
 
 @-webkit-keyframes spin {
