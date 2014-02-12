@@ -217,7 +217,6 @@ function dealACard(){
 		GLOBALS.transX = leftFromArray - leftFromArray;
 		GLOBALS.transY = topFromArray - topFromArray;
 
-
 		dealtCards[k].style.webkitTransform = "translate3d(" + GLOBALS.transX + "px," + GLOBALS.transY + "px, 0) rotate(180deg)";
 		dealtCards[k].style.webkitTransition = "all 0.5s ease-in-out";
 
@@ -702,6 +701,7 @@ function updateLeaderBoard(winningScore){
 		};
 	}
 }
+
 
 window.addEventListener( 'load', function() {
 	console.log( 'window#load' );

@@ -5,7 +5,9 @@ class ScoresController < ApplicationController
     		@scores = Score.all
 
     		respond_to do |format|
-    			format.js { render :json => @scores}
+    			format.js 
+    			format.html
+    			format.json { render :json => @scores}
     		end
   	end
 
