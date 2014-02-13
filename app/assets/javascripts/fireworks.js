@@ -2,105 +2,115 @@ FIREWORKS = {};
 
 FIREWORKS.fireworksArray = [];
 FIREWORKS.explosionArray = [];
-FIREWORKS.pageWidth = document.documentElement.clientWidth;
-FIREWORKS.pageHeight = document.documentElement.clientHeight;
-FIREWORKS.firework = {};
+FIREWORKS.pageWidthCalc = document.documentElement.clientWidth / 2;
+FIREWORKS.pageHeightCalc = document.documentElement.clientHeight / 2;
+// FIREWORKS.firework = {};
 // FIREWORKS.singleExplosion = [];
 FIREWORKS.explosionElement = {};
 FIREWORKS.counter = 0;
 
-if (FIREWORKS.counter < 20) {
-
-	function bombsAway () {
-		FIREWORKS.counter++;
-		createFireWork();
-		// console.log("Boom");
-		setTimeout(bombsAway, 10000);
+function bombsAway () {
+	FIREWORKS.counter++;
+	createFireWork();
+	// console.log("Boom");
+	if (FIREWORKS.counter < 5) {
+		setTimeout(bombsAway, 1000);
+	} else { 
+		console.log("End of fun");
 	}
-
-	function getRandomInt(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-
-	function createFireWork () {
-		
-		FIREWORKS.firework.element = document.createElement('div');
-		FIREWORKS.firework.startPointX = getRandomInt(0, FIREWORKS.pageWidth);
-		// console.log(FIREWORKS.firework.startPointX);
-		FIREWORKS.firework.startPointY = 0;
-		// FIREWORKS.firework.element.style.webkitTransitionDuration = getRandomInt(1, 5) + "s";
-		FIREWORKS.firework.element.style.left = FIREWORKS.firework.startPointX + "px";
-		FIREWORKS.firework.element.style.bottom = FIREWORKS.firework.startPointY + "px";
-		// console.log(FIREWORKS.firework.element.style.left);
-		FIREWORKS.firework.element.style.width = "3px";
-		FIREWORKS.firework.element.style.height = "3px";
-		FIREWORKS.firework.element.style.background = "#fff";
-		FIREWORKS.firework.element.className = "firework-divs";
-		FIREWORKS.fireworksArray.push(FIREWORKS.firework);
-
-		document.getElementById('container-fireworks').appendChild(FIREWORKS.firework.element);
-
-		setTimeout(function(){
-			launchFireWork();	
-		},200)
-		
-	}
-
-	function launchFireWork () {
-		for (var i = 0; i < FIREWORKS.fireworksArray.length; i++) {
-			FIREWORKS.fireworksArray[i].element.style.left = getRandomInt(0, FIREWORKS.pageWidth) + "px";
-			FIREWORKS.fireworksArray[i].element.style.bottom = getRandomInt(0, FIREWORKS.pageHeight) + "px";
-			FIREWORKS.fireworksArray[i].element.style.webkitTransform = "translate3d(" + getRandomInt(0, FIREWORKS.pageWidth) + "px," + getRandomInt(0, FIREWORKS.pageHeight) + "px, 0px)";
-
-			// FIREWORKS.fireworksArray[i].element.style.webkitTransition = "all " + getRandomInt(1, 5) + "s ease-out;";
-			// console.log("all " + getRandomInt(1, 5) + "s ease-out;");
-		};
-	createExplosionElements();
-	}
-
-	function createExplosionElements () {
-		var singleExplosion = [];
-		for (var i=0; i<50; i++) {
-			FIREWORKS.explosionElement.element = document.createElement('div');
-			singleExplosion.push(FIREWORKS.explosionElement);
-		}
-	addExplosionElementsToDom(singleExplosion);
-	}
-
-	function addExplosionElementsToDom (singleExplosion) {
-		var explosionParent = document.createElement('div');
-		for (var i = 0; i < singleExplosion.length; i++) {
-			singleExplosion[i].element.style.left = FIREWORKS.fireworksArray[0].element.style.left;
-			singleExplosion[i].element.style.bottom = FIREWORKS.fireworksArray[0].element.style.bottom;
-			singleExplosion[i].element.style.width = "3px";
-			singleExplosion[i].element.style.height = "3px";
-			singleExplosion[i].element.style.background = "#fff";
-			singleExplosion[i].element.style.className = "explosion-divs";
-			// console.log(FIREWORKS.singleExplosion[i].element);
-			explosionParent.appendChild(singleExplosion[i].element)
-		};
-
-		FIREWORKS.fireworksArray.shift();
-				
-		document.getElementById('container-fireworks').appendChild(explosionParent);
-
-		// console.log(FIREWORKS.singleExplosion);
-		setTimeout(function(){
-			boom(singleExplosion);
-		},200)
-		
-	}
-
-	function boom (singleExplosion) {
-		for (var i = 0; i < singleExplosion.length; i++) {
-			console.log(i);
-			singleExplosion[i].element.style.webkitTransform = "translate3d(" + getRandomInt(0, FIREWORKS.pageWidth) + "px," + getRandomInt(0, FIREWORKS.pageHeight) + "px, 0px)"; 
-			// console.log(FIREWORKS.singleExplosion[i].element);
-		};
-	}	 
-} else { 
-	console.log("End of fun");
 }
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// function placeDiv(x_pos, y_pos) {
+// 	var d = document.getElementById('yourDivId');
+// 	d.style.position = "absolute";
+// 	d.style.left = x_pos+'px';
+// 	d.style.top = y_pos+'px';
+// }
+
+function createFireWork () {
+	firework = {};
+	firework.element = document.createElement('div');
+	console.log(firework.element);
+	// firework.startPointY = getRandomInt(0, FIREWORKS.pageWidthCalc);
+	// firework.startPointX = 0;
+	// firework.element.style.bottom = firework.startPointX + "px";
+	// firework.element.style.left = firework.startPointY + "px";
+	firework.element.style.width = "5px";
+	firework.element.style.height = "5px";
+	firework.element.style.background = "#fff";
+	firework.element.className = "firework-divs";
+	firework.element.id = 'firework-number-' + FIREWORKS.counter;
+	FIREWORKS.fireworksArray.push(firework);
+
+	if (FIREWORKS.counter % 2 === 0) {
+		document.getElementById('launch-position-a').appendChild(firework.element);
+	} else {
+		document.getElementById('launch-position-b').appendChild(firework.element);
+	}
+
+	setTimeout(function(){
+		launchFireWork();	
+	},100)	
+}
+
+function launchFireWork () {
+	for (var i = 0; i < FIREWORKS.fireworksArray.length; i++) {
+		FIREWORKS.fireworksArray[i].element.style.left = getRandomInt(0, FIREWORKS.pageWidthCalc) + "px";
+		FIREWORKS.fireworksArray[i].element.style.bottom = getRandomInt(0, FIREWORKS.pageHeightCalc) + "px";
+		FIREWORKS.fireworksArray[i].element.style.webkitTransform = "translate3d(" + -getRandomInt(FIREWORKS.pageHeightCalc, 0) + "px," + -getRandomInt(FIREWORKS.pageWidthCalc, 0) + "px, 0px)";
+	};
+	createExplosionElements();
+}
+
+function createExplosionElements () {
+	var singleExplosion = [];
+	for (var i=0; i<50; i++) {
+
+		explosionElement = {};
+		explosionElement.element = document.createElement('div');
+		explosionElement.element.id = 'particle' + i;
+		singleExplosion.push(explosionElement);
+	}
+	setTimeout(function(){
+		addExplosionElementsToDom(singleExplosion);
+	},200)
+	
+}
+
+function addExplosionElementsToDom (singleExplosion) {
+	var explosionParent = document.createElement('div');
+	explosionParent.style.height = "0";
+	explosionParent.style.width = "0";
+	document.getElementById(FIREWORKS.fireworksArray[0].element.id).appendChild(explosionParent);
+	for (var i = 0; i < singleExplosion.length; i++) {
+		// singleExplosion[i].element.style.left = FIREWORKS.fireworksArray[0].element.style.left;
+		// singleExplosion[i].element.style.bottom = FIREWORKS.fireworksArray[0].element.style.bottom;
+		singleExplosion[i].element.style.width = "3px";
+		singleExplosion[i].element.style.height = "3px";
+		singleExplosion[i].element.style.background = "#fff";
+		singleExplosion[i].element.className = "explosion-divs";
+		singleExplosion[i].element.style.position = "absolute";
+		explosionParent.appendChild(singleExplosion[i].element);
+	};
+
+	FIREWORKS.fireworksArray.shift();
+
+	setTimeout(function(){
+		boom(singleExplosion);
+	},200)
+	
+}
+
+function boom (singleExplosion) {
+	for (var i = 0; i < singleExplosion.length; i++) {
+		singleExplosion[i].element.style.webkitTransform = "translate3d(" + -getRandomInt(0, FIREWORKS.pageWidthCalc) + "px," + -getRandomInt(0, FIREWORKS.pageHeightCalc) + "px, 0px)"; 
+	};
+}	 
+
 
 window.addEventListener( 'load', function() {
 	console.log( 'window#load' );
@@ -115,10 +125,10 @@ window.addEventListener( 'load', function() {
 
 // FIREWORKS.domDivs = [];
 // FIREWORKS.domDivsParent = null;
-// FIREWORKS.pageWidth = document.documentElement.clientWidth;
-// FIREWORKS.pageHeight = document.documentElement.clientHeight;
-// FIREWORKS.randomX = Math.floor(Math.random() * (FIREWORKS.pageWidth / 4));
-// FIREWORKS.randomY = Math.floor(Math.random() * (FIREWORKS.pageHeight /4 ));
+// FIREWORKS.pageWidthCalc = document.documentElement.clientWidth;
+// FIREWORKS.pageHeightCalc = document.documentElement.clientHeight;
+// FIREWORKS.randomX = Math.floor(Math.random() * (FIREWORKS.pageWidthCalc / 4));
+// FIREWORKS.randomY = Math.floor(Math.random() * (FIREWORKS.pageHeightCalc /4 ));
 // FIREWORKS.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 // FIREWORKS.cycleCounter = 0;
 

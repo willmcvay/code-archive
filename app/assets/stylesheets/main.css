@@ -401,11 +401,11 @@ input {
 /*	left: 25%;*/
 
 /*	top: auto;*/
-	position: absolute;
+	position: relative;
 /*	background-color: #fff !important;*/
 }
 
-.firework-divs, .explosion-divs {
+.firework-divs  {
 	/*position: absolute;*/
 /*	top: 0;
 	left: 0;*/
@@ -415,4 +415,25 @@ input {
 /*	-webkit-transition-property: all;*/
 	-webkit-transition: all 0.5s ease-out;
 }
+
+.explosion-divs {
+	-webkit-transition: all 1s ease-out;
+}
+
+#launch-position-a {
+	top: 100%;
+	left: 66%;
+	height: 0px;
+	width: 0px;
+	position: relative;
+}
+
+#launch-position-b {
+	top: 100%;
+	left: 33%;
+	height: 0px;
+	width: 0px;
+	position: relative;
+}
+
 
