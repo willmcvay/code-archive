@@ -699,6 +699,7 @@ function updateLeaderBoard(winningScore){
 			leaderboardToDisplay.innerHTML = "Name: " + winnerNameToDisplay + ",  Points: " + sliced[i].winnerscorestored;
 			document.getElementById("leaderboard").appendChild(leaderboardToDisplay);
 		};
+		// bombsAway()
 	}
 }
 
