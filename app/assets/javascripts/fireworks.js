@@ -8,13 +8,11 @@ FIREWORKS.startXGlobal = 0;
 FIREWORKS.startYGlobal = 0;
 FIREWORKS.particles = [];
 FIREWORKS.explosions = [];
-FIREWORKS.numParticles = 50;
+FIREWORKS.numParticles = 100;
 FIREWORKS.counter = 0;
 FIREWORKS.currentTime = 0;
 FIREWORKS.deltaTime = 30;
 FIREWORKS.previousTime = 0;
-
-
 
 function drawCanvas (){
 	FIREWORKS.canvas = document.querySelector("canvas");
@@ -33,7 +31,7 @@ function loop () {
 }
 
 function constructParticles () {
-	for (var i = 0; i < 20; i++) {
+	for (var i = 0; i < 30; i++) {
 	var explosionArray = [];
 		for(var j = 0; j < FIREWORKS.numParticles; j++){
 			explosionArray.push(new createParticle());
@@ -82,7 +80,7 @@ function createParticle(x, y) {
 		age: 0,
 		alive: true,
 		color: "rgba("+r+", "+g+", "+b+", 1)",
-		radius: 5
+		radius: 8
 	}
 }
 
@@ -120,17 +118,21 @@ function drawFireworks( dt ) {
 	FIREWORKS.ctx.fillRect(0, 0,FIREWORKS.pageWidthCalc, FIREWORKS.pageHeightCalc);
 	// var newExplosionArray = [];
 	for (var i = 0; i < FIREWORKS.explosions.length; i++) {
-		var singleExplosion = FIREWORKS.explosions[i];
+		    (function(i){
+        			setTimeout(function(){
+				var singleExplosion = FIREWORKS.explosions[i];
 
-		for(var j = 0; j < singleExplosion.length; j++) {
+				for(var j = 0; j < singleExplosion.length; j++) {
 
-			var particle = singleExplosion[j];
-			
-			if( particle.alive ) {
-				updateSingleFirework( particle, dt );
-				drawSingleFirework( particle, dt );
-			}
-		}
+					var particle = singleExplosion[j];
+					
+					if( particle.alive ) {
+						updateSingleFirework( particle, dt );
+						drawSingleFirework( particle, dt );
+					}
+				}
+		        }, 1500 * i);
+   		 }(i));
 	}
 }
 
