@@ -1,0 +1,15 @@
+#container {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	color: #ddd;
+	width: 100%;
+	left: 100%;
+}
+
+.movies-to-display {
+	width: 80%;
+	left: 9%;
+	position: relative;
+	padding: 1%;
+
+}

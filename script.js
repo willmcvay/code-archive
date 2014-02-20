@@ -47,7 +47,7 @@ function getMovieRatings (movieNames, data) {
                     var matchedMovie = {}
                     matchedMovie.title = movieNames[j];
                     matchedMovie.rating = data.results[i].vote_average;
-                    matchedMovie.className = "movies-to-display";
+                    matchedMovie.class = "movies-to-display";
                     movieRatings.push(matchedMovie);
                 }
           };
@@ -59,7 +59,9 @@ function displayMovies(movieRatings){
      var container = document.getElementById('container');
      for (var i = 0; i < movieRatings.length; i++) {
           var movieToDisplay = document.createElement('div');
-          movieToDisplay.innerHTML = movieRatings[i].title + "  " + movieRatings[i].rating
+          var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+          movieToDisplay.innerHTML = "<div class='" + movieRatings[i].class + "'>Movie Name: " + movieRatings[i].title + ", Movie Rating: " + movieRatings[i].rating + "</div>";
+          movieToDisplay.style.background = randomColor;
           container.appendChild(movieToDisplay);
      };
 }
