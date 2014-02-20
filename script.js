@@ -6,13 +6,11 @@ function getBbcMovies () {
           success: function(data){
                console.log("Data retrieved from BBC");
                generateQuery(data);
-               console.log(data);
           },
           error: function (error) {
                console.log("data failed to retrieve from BBC");
           }
      });
-     
 }
 
 function generateQuery(data) {
@@ -32,15 +30,38 @@ function getMovieData (movieNames) {
                url: "https://api.themoviedb.org/3/search/movie?api_key=4348efe237b66507ed3b66922f496d7a&query=" + singleMovie,
                success: function(data){
                     console.log("Data retrieved from themoviedb");
-                    console.log(data);
-                    return data;
+                    getMovieRatings(movieNames, data);
                },
                error: function (error) {
                     console.log("data failed to retrieve from themoviedb");
                }
           }); 
      };
+}
 
+function getMovieRatings (movieNames, data) {
+     var movieRatings = [];
+     for (var i = 0; i < data.results.length; i++) {
+          for (var j = 0; j < movieNames.length; j++) {
+                if (data.results[i].title === movieNames[j]) {
+                    var matchedMovie = {}
+                    matchedMovie.title = movieNames[j];
+                    matchedMovie.rating = data.results[i].vote_average;
+                    matchedMovie.className = "movies-to-display";
+                    movieRatings.push(matchedMovie);
+                }
+          };
+     };
+     displayMovies(movieRatings);
+}
+
+function displayMovies(movieRatings){
+     var container = document.getElementById('container');
+     for (var i = 0; i < movieRatings.length; i++) {
+          var movieToDisplay = document.createElement('div');
+          movieToDisplay.innerHTML = movieRatings[i].title + "  " + movieRatings[i].rating
+          container.appendChild(movieToDisplay);
+     };
 }
 
 window.addEventListener( 'load', function() {
