@@ -16,6 +16,7 @@ function getBbcMovies () {
 function generateQuery(data) {
      var movieNames = [];
      for (var i = 0; i < data.episodes.length; i++) {
+          // console.log(data.episodes[i].programme);
           movieNames.push(data.episodes[i].programme.title);
      };
      getMovieData(movieNames);   
@@ -39,28 +40,48 @@ function getMovieData (movieNames) {
      };
 }
 
+// Below not happy with - wanted to sort the data so I took the most popular item from API - in the end have taken index one to avoid duplication.
+
 function getMovieRatings (movieNames, data) {
-     var movieRatings = [];
-     for (var i = 0; i < data.results.length; i++) {
-          for (var j = 0; j < movieNames.length; j++) {
-                if (data.results[i].title === movieNames[j]) {
+     var moviesToDisplay = [];
+     var newData = data.results[0];
+    
+     for (var i = 0; i < movieNames.length; i++) {
+          // for (var j = 0; j < data.results.length; j++) {
+                if (newData.title === movieNames[i]) {
+                // if (data.results[j].title === movieNames[i]) {
                     var matchedMovie = {}
-                    matchedMovie.title = movieNames[j];
-                    matchedMovie.rating = data.results[i].vote_average;
+                    matchedMovie.title = movieNames[i];
+                    // matchedMovie.popularity = data.results[j].popularity;
+                    matchedMovie.popularity = newData.popularity;
+                    // matchedMovie.rating = data.results[j].vote_average;
+                    matchedMovie.rating = newData.vote_average;
                     matchedMovie.class = "movies-to-display";
-                    movieRatings.push(matchedMovie);
+                    moviesToDisplay.push(matchedMovie);
                 }
-          };
+          // };
      };
-     displayMovies(movieRatings);
+     // selectUniqueMovies(moviesToDisplay)
+     displayMovies(moviesToDisplay);
 }
 
-function displayMovies(movieRatings){
+// some work in progress attempting to filter out duplicate named movies
+
+// function selectUniqueMovies (moviesToDisplay) {
+//      var uniqueMovies= [];
+//           $.each(moviesToDisplay, function(i, el){
+//      if($.inArray(el, uniqueMovies) === -2) uniqueMovies.push(el);
+//      });
+//      displayMovies(uniqueMovies);
+//      console.log(uniqueMovies);
+// }
+
+function displayMovies(moviesToDisplay){
      var container = document.getElementById('container');
-     for (var i = 0; i < movieRatings.length; i++) {
+     for (var i = 0; i < moviesToDisplay.length; i++) {
           var movieToDisplay = document.createElement('div');
           var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-          movieToDisplay.innerHTML = "<div class='" + movieRatings[i].class + "'>Movie Name: " + movieRatings[i].title + ", Movie Rating: " + movieRatings[i].rating + "</div>";
+          movieToDisplay.innerHTML = "<div class='" + moviesToDisplay[i].class + "'>Movie Name: " + moviesToDisplay[i].title + ", Movie Rating: " + moviesToDisplay[i].rating + "</div>";
           movieToDisplay.style.background = randomColor;
           container.appendChild(movieToDisplay);
      };
