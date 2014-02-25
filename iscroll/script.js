@@ -18,22 +18,6 @@ function loaded() {
 
 }
 
-
-// function ajaxCall() {
-// 	var xmlhttp;
-// 	xmlhttp = new XMLHttpRequest();
-// 	xmlhttp.onreadystatechange = function() {
-// 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-// 		document.getElementById("wrapper").innerHTML = xmlhttp.responseText;
-// 		}
-// 	}
-// 	xmlhttp.open("GET", "index.html", true);
-// 	xmlhttp.send();
-// 	console.log("Ajax Called ");
-// }
-
-
-
 // function onCompletion () {
 
 // 	setTimeout(function () {
