@@ -1,0 +1,36 @@
+body {
+	background: #2a0e2a;
+	color: #fff;
+}
+
+ul, dl, li, dd {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 0;
+}
+
+.roundabout-holder {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	left: 15%;
+	height: 70%;
+	width: 70%;
+/* 		-webkit-transition: all 1s ease;  */
+}
+.roundabout-moveable-item {
+	height: 70%;
+	width: 70%;
+	cursor: pointer;
+	background-color: #ccc;
+	border: 1px solid #999;
+/* 	-webkit-transition: all 1s ease;  */
+}
+.roundabout-in-focus {
+	cursor: auto;
+/* 		-webkit-transition: all 5s ease;  */
+}
+
+
