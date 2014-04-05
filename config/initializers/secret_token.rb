@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SquareRootsGardens::Application.config.secret_key_base = '78e7f0ee1ed45e141443b4793dcf5ec492ee62c568f364f6bbc6189da39e5b2f7c48a18698ce0fb06af8bef1b27da03e1e476d717d406c0142c5a2d634aea9ec'
+SquareRootsGardens::Application.config.secret_token = '57d54eaa565ee3ec4903b50a7f1c96b178c586c06a6fa365d615266ba51646b22dafb79e8709746f872881fa1b30b9c6401ec625ad5d2d1eda2343aa849df10b '
