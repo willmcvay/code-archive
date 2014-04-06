@@ -1,5 +1,5 @@
 class FanMailer < ActionMailer::Base
-  default from: "gwyneth@gwynethherbert.com"
+  default from: "ashley@squarerootsgardens.com"
 
   def registration_confirmation(fan)
     mail(:to => fan.email, :subject => "Registration Confirmation")

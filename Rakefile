@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bandsite::Application.load_tasks
+SquareRootsGardens::Application.load_tasks

@@ -12,10 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//=require bootstrap.js
-//=require jquery.isotope.min.js
 //=require jquery.fancybox.pack.js
-// =require jquery-ui-1.10.3.custom.js
+//=require jquery.roundabout.js
 
 //= require_tree .
 

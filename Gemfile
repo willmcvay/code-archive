@@ -6,7 +6,7 @@ gem 'rails', '3.2.14'
 
 gem 'jquery-rails'
 gem 'mongoid', '~> 3.1.5'
-gem 'kaminari'
+# gem 'kaminari'
 gem 'rails_admin'
 gem 'cancan'
 gem 'rmagick'

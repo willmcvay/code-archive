@@ -273,7 +273,6 @@ DEPENDENCIES
   fog
   guard-livereload
   jquery-rails
-  kaminari
   mongoid (~> 3.1.5)
   nokogiri
   pry-debugger

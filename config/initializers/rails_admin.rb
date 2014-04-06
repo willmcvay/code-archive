@@ -4,11 +4,11 @@
 
 RailsAdmin.config do |config|
 
-  Fan::ROLES
+
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
-  config.main_app_name = ['gwynethherbert.com', 'Admin']
+  config.main_app_name = ['Square Roots Gardens', 'Admin']
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -20,31 +20,6 @@ config.model Post do
     field :title
     field :photo
     field :content, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
-
-config.model Review do
-  edit do
-    field :title
-    field :photo
-    field :content, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
-
-config.model Track do
-  edit do
-    field :song
-    field :name
-    field :track_number
-    field :lyrics, :rich_editor do
       config({
         :insert_many => true
       })
