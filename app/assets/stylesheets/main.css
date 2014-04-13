@@ -1,12 +1,13 @@
 /*html elements*/
 
-body {
+body, html {
   background:url('background-texture.jpg') no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
+     height:100vh;
 }
 
 h1, h2, h3, h4, h5 {
@@ -23,24 +24,56 @@ ul, dl, li, dd {
 
 /*Main page elements*/
 
+#homepage {
+  width: 100%;
+  height:100%;
+}
+
 #container {
   width: 80%;
   margin-left: 10%;
+  height: 100%;
 }
 
-#header-text {
+#header-image {
   float: left;
-  left: 5%;
-  top: 5%;
-  width: 10%;
-  height: 10%;
-  background:url('logo-transparent.gif') no-repeat fixed;
+  left: 1%;
+  top: 3%;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  z-index: 10;
 }
 
 /*roundabout carousel*/
 
-#roundabout-main {
-/*  top: 10%;*/
+/*ul#roundabout-elements.roundabout-holder {
+  position: absolute;
+  top: 400px;
+}*/
+
+li#roundabout-li-one {
+  background: #82b8df;
+}
+
+li#roundabout-li-two {
+  background: #6f6aa7;
+}
+
+li#roundabout-li-three {
+  background: #8769b3;
+}
+
+li#roundabout-li-four {
+  background: #ec987b;
+}
+
+li#roundabout-li-five {
+  background: #eee465;
+}
+
+li#roundabout-li-six {
+  background: #6ec664;
 }
 
 .roundabout-holder {
@@ -69,4 +102,18 @@ ul, dl, li, dd {
 -webkit-border-radius: 50%;
 -moz-border-radius: 50%;
 border-radius: 50%;
+}
+
+#our-work-dropdown {
+  height: 40px;
+  width: 100%;
+  background: #a5b545;
+}
+
+#about-us-dropdown {
+  height: 40px;
+  width: 100%;
+  top: calc(100% - 40px);
+  position: absolute;
+  background: #5f4629;
 }

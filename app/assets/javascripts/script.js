@@ -3,7 +3,23 @@
 window.addEventListener( 'load', function() {
 	$('ul.roundabout-elements').roundabout();
 	$('ul.roundabout-elements').roundabout("setTilt",  -7.0);
+	dropdownMenu();
 });
+
+// dropdown 
+
+function dropdownMenu () {
+	var heightChange = $( window ).height() - 40;
+	console.log(heightChange);
+	$('#our-work-dropdown').click(function() {
+  		$( "#our-work-dropdown" ).animate({
+			opacity: 0.25,
+			height: heightChange + 'px;'
+			}, 3000)
+
+	});	
+}
+
 
 
  // Photogallery
