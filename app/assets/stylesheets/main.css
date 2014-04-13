@@ -1,6 +1,16 @@
+/*html elements*/
+
 body {
-  background: #2a0e2a;
+  background:url('background-texture.jpg') no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Mouse Memoirs', sans-serif;
 }
 
 ul, dl, li, dd {
@@ -9,6 +19,28 @@ ul, dl, li, dd {
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
+}
+
+/*Main page elements*/
+
+#container {
+  width: 80%;
+  margin-left: 10%;
+}
+
+#header-text {
+  float: left;
+  left: 5%;
+  top: 5%;
+  width: 10%;
+  height: 10%;
+  background:url('logo-transparent.gif') no-repeat fixed;
+}
+
+/*roundabout carousel*/
+
+#roundabout-main {
+/*  top: 10%;*/
 }
 
 .roundabout-holder {
@@ -21,8 +53,8 @@ ul, dl, li, dd {
 /*    -webkit-transition: all 1s ease;  */
 }
 .roundabout-moveable-item {
-  height: 200px;
-  width: 70%;
+  height: 100%;
+  width: 80%;
   cursor: pointer;
   background-color: #ccc;
   border: 1px solid #999;
@@ -31,4 +63,10 @@ ul, dl, li, dd {
 .roundabout-in-focus {
   cursor: auto;
 /*    -webkit-transition: all 5s ease;  */
+}
+
+#roundabout-li-one, #roundabout-li-two, #roundabout-li-three, #roundabout-li-four, #roundabout-li-five, #roundabout-li-six {
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
 }
