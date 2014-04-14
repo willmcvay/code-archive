@@ -1,4 +1,4 @@
-Bandsite::Application.routes.draw do
+SenseCamp::Application.routes.draw do
 
   mount Rich::Engine => '/rich', :as => 'rich'
 

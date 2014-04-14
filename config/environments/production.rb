@@ -1,5 +1,5 @@
 
-Bandsite::Application.configure do
+SenseCamp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -63,7 +63,7 @@ Bandsite::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.default_url_options = {
-    host: "gwynethherbert.herokuapp.com"
+    host: "<<herokuapp name here>>>"
   }
 
   #ActionMailerConfig 
