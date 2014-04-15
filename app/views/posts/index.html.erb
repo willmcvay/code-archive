@@ -1,29 +1,24 @@
   <div class="header-text">
-  <h2>Captain's Blog</h2>
+  <h2>Blog</h2>
   </div>
     <div class="container">        
       <div class="span9">
-          <div class="container-blog">
-
             <% @posts.each do |post| %>
               <h2><%= post.title %></h2>
-              <div class="container-blog-photo">
                 <p><%= image_tag post.photo %></p>
-              </div>
                 <p><strong><%= post.created_at.strftime("%d-%m-%y") %></strong></p>
                 <p><%= raw post.content %></p>
                 <h4><%= link_to "Read More", post %></h4>
                 <% end %>
 
                 <h4 class="paginate"><%= paginate @posts %></h4>
-              </div>    
+
           </div>
 
           <div class="span3">
             <%= render 'layouts/menu' %>
           </div>
 
-      </div>
+    
   </div>
-  <br>
-  <br>
+

@@ -4,7 +4,6 @@
 
 RailsAdmin.config do |config|
 
-  Fan::ROLES
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
@@ -27,7 +26,7 @@ config.model Post do
   end
 end
 
-config.model Review do
+config.model Event do
   edit do
     field :title
     field :photo
@@ -39,12 +38,22 @@ config.model Review do
   end
 end
 
-config.model Track do
+config.model SenseCamp do
   edit do
-    field :song
-    field :name
-    field :track_number
-    field :lyrics, :rich_editor do
+    field :info
+    field :detail, :rich_editor do
+      config({
+        :insert_many => true
+      })
+    end
+  end
+end
+
+config.model Speaker do
+  edit do
+    field :title
+    field :photo
+    field :content, :rich_editor do
       config({
         :insert_many => true
       })

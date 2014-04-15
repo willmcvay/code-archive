@@ -1,0 +1,24 @@
+<div class="header-text">
+  <h2>Events</h2>
+</div>
+<div class="container">
+  <div class="span9">
+      
+          <% @events.each do |event| %>
+            <h2><%= event.title %></h2>
+              <p><%= image_tag review.photo %></p>
+
+              <p><strong><%= review.created_at.strftime("%d-%m-%y") %></strong></p>
+              <p><%= raw review.content %></p>
+              <h4><%= link_to "Read More", event %></h4>
+              <% end %>
+
+              <h4 class="paginate"><%= paginate @events %></h4>
+        </div>
+
+        <div class="span3">
+          <%= render 'layouts/menu' %>
+        </div>
+
+    </div>
+

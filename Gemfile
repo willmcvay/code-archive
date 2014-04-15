@@ -19,7 +19,6 @@ gem 'rich', github: "keithpops/rich"
 
 
 group :development do
-  gem 'guard-livereload'
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
