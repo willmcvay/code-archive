@@ -97,11 +97,50 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*homepage slides*/
 
 
 
+.homepage-slide {
+    height:100%;
+    width: 100%;
+    position: absolute;
+    background: #ddd;
+}
 
+.nav-arrow {
+    height: 100px;
+    width: 200px;
+    bottom: 100px;
+    left: calc(50% - 100px);
+    background: #eee;
+    position: absolute;
+}
 
+#slide-0 {
+    top: 0%;
+}
+
+#slide-1 {
+    top: -100%;
+/*    background: blue;*/
+}
+
+#slide-2 {
+    top: -200%;
+}
+
+#slide-3 {
+    top: -300%;
+}
+
+#slide-4 {
+    top: -400%;
+}
+
+#slide-5 {
+    top: -500%;
+}
 
 
 
