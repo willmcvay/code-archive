@@ -99,9 +99,59 @@ textarea {
 
 /*homepage slides*/
 
-#homepage {
-   
+#menu {
+    width: 60%;
+    left: 20%;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    height: auto;
+
 }
+
+#menu li {
+    display: inline-block;
+    list-style: none;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    top: 0px;
+    width: 13.9%;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+    background-color: #b3d8dd;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-property: background-color, font-size, color, height;
+    -webkit-transition-timing-function: ease-in-out;
+
+}
+
+#menu h3 {
+    -webkit-margin-before: 0.2em;
+    -webkit-margin-after: 0em;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #54503f;
+}
+
+#menu a:hover {
+    color: #b3d8dd;   
+}
+
+#menu  ul {
+    width: 100%;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+}
+
+#menu li:hover {
+    background-color: #54503f;
+}
+
 
 .homepage-slide {
     height: calc(100% - 200px);
@@ -150,7 +200,6 @@ textarea {
     background: url('Main-Logo.jpg') center center no-repeat;
 
 }
-
 
 #slide-0 {
     top: 0%;
