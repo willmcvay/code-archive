@@ -16,9 +16,25 @@ $(document).ready(function(){
       		transition : "all 1s ease-in-out"
    	 };
 
+	var imageUrls = [
+		'<%= asset_path('london-skyline.jpg') %>',
+		'<%= asset_path('SenseCamp-Berlin-26-27-Apr-2014.jpg') %>',
+		'<%= asset_path('SenseCamp-Sciences-Po.jpg') %>',
+		'<%= asset_path('london-skyline.jpg') %>',
+		'<%= asset_path('SenseCamp-Berlin-26-27-Apr-2014.jpg') %>',
+		'<%= asset_path('SenseCamp-Sciences-Po.jpg') %>'
+	];
+
 	$('.nav-arrow').each(function(index, value){
 
 		$('#nav-arrow-' + index).click(function(){
+
+			$('#inner-border-brown-' + (index + 1)).css({
+				background : 'url(' + imageUrls[index] + ') center center no-repeat',
+				transitionDelay : "0.5s",
+				transition : "all 1s ease-in-out",
+				backgroundSize: "cover"
+			})
 
 			$('.homepage-slide').each(function(i, v){
 				console.log(i, v);
@@ -33,4 +49,3 @@ $(document).ready(function(){
 		})
 	})
 });
-

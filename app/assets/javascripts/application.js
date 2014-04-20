@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require script.js
+//= require script.js.erb
 
 //= require_tree .
 

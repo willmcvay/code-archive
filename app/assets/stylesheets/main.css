@@ -99,6 +99,10 @@ textarea {
 
 /*homepage slides*/
 
+#homepage {
+   
+}
+
 .homepage-slide {
     height: calc(100% - 200px);
     width: calc(100% - 200px);
@@ -143,6 +147,8 @@ textarea {
     -moz-border-radius: 10px;
     border-radius: 10px;
     z-index: 1;
+    background: url('Main-Logo.jpg') center center no-repeat;
+
 }
 
 
