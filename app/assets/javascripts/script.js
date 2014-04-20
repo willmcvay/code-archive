@@ -6,6 +6,7 @@ var pageWidth = window.innerWidth;
 var transform = "webkitTransform" || "mozTransform";
 var transition = "webkitTransition" || "mozTansition";
 var transEnd = "webkitTransitionEnd"
+var iterationCounter = 0;
 
 $(document).ready(function(){
 
@@ -14,7 +15,7 @@ $(document).ready(function(){
       		transform : "translate3d(0," + pageHeight + "px, 0)",
       		transition : "all 1s ease-in-out"
    	 };
-	
+
 	$('.nav-arrow').each(function(index, value){
 
 		$('#nav-arrow-' + index).click(function(){

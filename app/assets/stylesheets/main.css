@@ -99,23 +99,52 @@ textarea {
 
 /*homepage slides*/
 
-
-
 .homepage-slide {
-    height:100%;
-    width: 100%;
+    height: calc(100% - 200px);
+    width: calc(100% - 200px);
     position: absolute;
-    background: #ddd;
+    border: 100px solid #eee;
 }
 
 .nav-arrow {
-    height: 100px;
-    width: 200px;
-    bottom: 100px;
+
+    bottom: -100px;
     left: calc(50% - 100px);
-    background: #eee;
     position: absolute;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 100px 100px 0 100px;
+    z-index: 0;
+    border-color: #b3d8dd transparent transparent transparent;
 }
+
+.inner-border-blue {
+    border: 25px solid #b3d8dd;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: -25px;
+    top: -25px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.inner-border-brown {
+    border: 20px solid #54503f;
+    height: calc(100% - 30px);
+    width: calc(100% - 30px);
+    left: -5px;
+    top: -5px;
+    position: relative;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
 
 #slide-0 {
     top: 0%;
