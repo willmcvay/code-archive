@@ -1,7 +1,7 @@
 <div class="header-text">
   <h2>What They Say</h2>
 </div>
-  <div class="container">        
+  <div class="container">
     <div class="span9">
           <h2><%= @event.title %></h2>
             <p><%= image_tag @event.photo %></p>
@@ -14,16 +14,11 @@
             <h4>Comments</h4>
               <% @review.comments.each do |comment| %>
                 <p><%= comment.content %></p>
-              <% end %>             
+              <% end %>
             <%= form_for [ @review, @comment ],  :remote => true do |f| %>
               <%= f.hidden_field :review_id, value: @review.id %>
             <p class="blog-footer"><%= f.text_field :content, :placeholder => "Leave your comment here - hit return to submit" %></p>
             <div class="invisiblebtn"><%= f.submit %></div>
             <% end %>
-      </div>    
+      </div>
   </div>
-
-    <div class="span3">
-      <%= render 'layouts/menu' %>
-    </div>          
-    

@@ -3,7 +3,7 @@
 </div>
 <div class="container">
   <div class="span9">
-      
+
           <% @events.each do |event| %>
             <h2><%= event.title %></h2>
               <p><%= image_tag review.photo %></p>
@@ -14,10 +14,6 @@
               <% end %>
 
               <h4 class="paginate"><%= paginate @events %></h4>
-        </div>
-
-        <div class="span3">
-          <%= render 'layouts/menu' %>
         </div>
 
     </div>
