@@ -97,8 +97,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/*homepage slides*/
-
+/*menu bar*/
 #menu {
     width: 60%;
     left: 20%;
@@ -116,7 +115,7 @@ textarea {
     text-decoration: none;
     text-align: center;
     top: 0px;
-    width: 13.9%;
+    width: 19.6%;
     height: 30px;
     font-family: 'Roboto', sans-serif;
     font-size: 0.8em;
@@ -130,11 +129,16 @@ textarea {
 #menu h3 {
     -webkit-margin-before: 0.2em;
     -webkit-margin-after: 0em;
+    color: #54503f;
 }
 
 #menu a {
     text-decoration: none;
     color: #54503f;
+}
+
+#menu h3:hover {
+    color: #b3d8dd;   
 }
 
 #menu a:hover {
@@ -152,6 +156,11 @@ textarea {
     background-color: #54503f;
 }
 
+#social-menu-bar li#facebook-menu {
+    height: 0px;
+}
+
+/*homepage slides*/
 
 .homepage-slide {
     height: calc(100% - 200px);
@@ -198,7 +207,10 @@ textarea {
     border-radius: 10px;
     z-index: 1;
     background: url('Main-Logo.jpg') center center no-repeat;
+}
 
+.red {
+    border-color: #ff442d;
 }
 
 #slide-0 {
@@ -226,8 +238,10 @@ textarea {
     top: -500%;
 }
 
-
-
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
 
 
 

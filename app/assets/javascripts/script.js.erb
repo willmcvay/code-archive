@@ -1,14 +1,52 @@
 // Globals object
-
 var GLOBALS = {};
+GLOBALS.iterationCounter = 1;
+
+// unfortuately best laid plans have their chips pissed on by JQuery CSS function!
 var pageHeight = window.innerHeight;
 var pageWidth = window.innerWidth;
-var transform = "webkitTransform" || "mozTransform";
-var transition = "webkitTransition" || "mozTansition";
+var transform = "webkitTransform" || "transform";
+var transition = "webkitTransition" ||  "transition";
 var transEnd = "webkitTransitionEnd"
-var iterationCounter = 0;
+
+// call detectMob(); (function is in the application head), to detect a mobile device
 
 $(document).ready(function(){
+
+// adding prevent scroll function for desktop and mob devices for homepage. 
+// 	$('body').addClass('stop-scrolling');
+// 	$('body').bind('touchmove', function(e){
+// 		e.preventDefault()
+// 	}); 
+
+// // re-enable on nav away from homepage with click on menu items
+// 	$('li#menu').click(function(){
+// 		$('body').unbind('touchmove');
+// 		$('body').removeClass('stop-scrolling');
+// 	});
+
+// render social media partial in menu bar
+
+	$('li#menu-sharing').mouseenter(function(){
+		$('li#menu-sharing').css({
+			height : "auto"
+		})
+
+		$('li#menu-sharing').append("<div id='social-partial-mini'></div>")
+
+		$('#social-partial-mini').html(
+			'<a href="https://www.facebook.com/sharer/sharer.php?u=' + location.href + 'title="Share on Facebook"><img src="/assets/facebook.png"></a>' + 
+			'<a href="https://twitter.com/intent/tweet?text=' + location.href + ' title="Share on Twitter"><img src="/assets/twitter.png"></a>' +
+			'<a href="https://plus.google.com/share?url=' + location.href + ' title="Share on Google Plus"><img src="/assets/google+.png"></a>'
+			);
+	});
+
+	$('li#menu-sharing').mouseleave(function(){
+		$('#social-partial-mini').remove();
+		$('li#menu-sharing').css({
+			height : "30px"
+		})
+	});
 
 // homepage slides
 	var transStyles = {
@@ -16,6 +54,7 @@ $(document).ready(function(){
       		transition : "all 1s ease-in-out"
    	 };
 
+// update these for the sildes on homepage
 	var imageUrls = [
 		'<%= asset_path('london-skyline.jpg') %>',
 		'<%= asset_path('SenseCamp-Berlin-26-27-Apr-2014.jpg') %>',
@@ -25,27 +64,44 @@ $(document).ready(function(){
 		'<%= asset_path('SenseCamp-Sciences-Po.jpg') %>'
 	];
 
+// main transition function
 	$('.nav-arrow').each(function(index, value){
 
 		$('#nav-arrow-' + index).click(function(){
-
-			$('#inner-border-brown-' + (index + 1)).css({
-				background : 'url(' + imageUrls[index] + ') center center no-repeat',
-				transitionDelay : "0.5s",
-				transition : "all 1s ease-in-out",
-				backgroundSize: "cover"
-			})
-
-			$('.homepage-slide').each(function(i, v){
-				console.log(i, v);
+			// we want the transitions to stop after 6 slides or 5 iterations of the transition
+			if (GLOBALS.iterationCounter < 6) {				
 				
-				$('#slide-' + i).css( transStyles );			
-				$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-					$('#slide-' + i).css( "top", "+=" + pageHeight );
-					$('#slide-' + i).css( transform, "");
-					$('#slide-' + i).css( transition, "");
+				GLOBALS.iterationCounter++;
+				// transitioning images
+				$('#inner-border-brown-' + (index + 1)).css({
+					background : 'url(' + imageUrls[index] + ') center center no-repeat',
+					transitionDelay : "0.5s",
+					transition : "all 1s ease-in-out",
+					backgroundSize: "cover"
 				})
-			})
+				
+				// fine
+				$('#inner-border-blue-' + (index + 1)).css("border-color", "#0814a6");
+				// shits the bed!!
+				// $('.inner-border-brown').css("border-color", "#ff442d");
+				// $('.inner-border-brown').addClass('red');
+
+				$('.homepage-slide').each(function(i, v){
+					
+					// stupid timeout hack to stop transition end firing on first element before last one has finished transitioning
+	     				setTimeout(function(){
+
+	     					// transitioninng slides and reseting top value to new postion on page
+						$('#slide-' + i).css( transStyles );
+						
+						$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+							$('#slide-' + i).css( "top", "+=" + pageHeight );
+							$('#slide-' + i).css( transform, "");
+							$('#slide-' + i).css( transition, "");
+						})
+					},10)
+				}) 	
+			};
 		})
-	})
+	})	
 });

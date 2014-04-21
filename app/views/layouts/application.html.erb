@@ -2,18 +2,35 @@
 <html>
 <head>
   <title>Sense Camp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
- 
-  <link href='/' rel='icon' type='image/x-icon' />
- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+
+  	<script type="text/javascript">
+
+		function detectMob() { 
+			if( navigator.userAgent.match(/Android/i)
+				|| navigator.userAgent.match(/webOS/i)
+				|| navigator.userAgent.match(/iPhone/i)
+				|| navigator.userAgent.match(/iPad/i)
+				|| navigator.userAgent.match(/iPod/i)
+				|| navigator.userAgent.match(/BlackBerry/i)
+				|| navigator.userAgent.match(/Windows Phone/i)) {
+				
+				return true;
+			} else {
+				return false;
+			}
+		}
+	</script>
+
+ 	<%= javascript_include_tag "application" %>
+  	<%= csrf_meta_tags %>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densityDpi=medium-dpi" />
+  	<link href='/' rel='icon' type='image/x-icon' />
+<!--  	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
-<!-- <div class="header-text">
-  <h1>Sense Camp</h1>
-</div> -->
+
     <%= yield %>
 
 </body>
