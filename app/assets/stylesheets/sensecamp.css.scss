@@ -1,0 +1,37 @@
+/* Screen widths */
+$break-small: 320px;
+$break-device: 568px;
+$break-large: 1200px;
+
+#sensecamp {
+  .banner {
+    width: 100%;
+  }
+
+  #social-sidebar {
+    ul {
+      padding-left: 0px;
+
+      li {
+        background-color: red;
+        list-style-type: none;
+        padding: 10px 0px 10px 10px;
+        margin-bottom: 5px;
+
+        a {
+          text-decoration: none;
+        }
+
+      }
+    }
+  }
+
+  /* retina  iPhone styles*/
+  @media (max-width : $break-device) {
+    #social-sidebar {
+      display: none;
+    }
+  }
+
+}
+

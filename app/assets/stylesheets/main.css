@@ -299,6 +299,12 @@ textarea {
    Helper classes
    ========================================================================== */
 
+/* Hidden page title
+*/
+.hidden-title {
+  height: 0px;
+}
+
 /*
  * Image replacement
  */
