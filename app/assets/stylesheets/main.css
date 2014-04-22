@@ -165,7 +165,6 @@ textarea {
 }
 
 .nav-arrow {
-
     bottom: -100px;
     left: calc(50% - 100px);
     position: absolute;
@@ -175,6 +174,38 @@ textarea {
     border-width: 100px 100px 0 100px;
     z-index: 0;
     border-color: #b3d8dd transparent transparent transparent;
+}
+
+.nav-arrow-point {
+    bottom: -75px;
+    left: calc(50% - 50px);
+    position: absolute;
+    width: 0px;
+    height: 0px;
+/*z-index: 100;*/
+    border-style: solid;
+    border-width: 50px 50px 0 50px;
+    border-color: #eeeeee transparent transparent transparent;
+    opacity: 0.75; 
+    -webkit-animation-name: nav-arrow-point; 
+    -webkit-animation-duration: 0.75s; 
+    -webkit-animation-iteration-count: infinite;; 
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes nav-arrow-point{
+  from {
+    -webkit-transform: scale(1.0);
+    opacity: 0.75;
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    opacity: 1.0;
+  }
+  to { 
+    -webkit-transform: scale(1.0);
+    opacity: 0.75;
+  }
 }
 
 .inner-border-blue {
