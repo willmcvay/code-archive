@@ -1,13 +1,26 @@
 <div id='sensecamp'>
-  <div class="hidden-title">
-    <h1>Sense Camp</h1>
+  <div id="sensecamp-header">
+    <div class="hidden-title">
+      <h1>Sense Camp</h1>
+    </div>
+
+    <%= image_tag "sensecamp/banner.png", class: "banner" %>
+    <div id="sensecamp-nav-bar">
+      <div id='menu' class='menu'>
+        <ul>
+          <li>
+            <h3><%= link_to "Agenda", sense_camps_path(anchor: "agenda") %></h3>
+          </li>
+          <li>
+            <h3><%= link_to "Partners", sense_camps_path(anchor: "partners") %></h3>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <%= image_tag "sensecamp/banner.png", class: "banner" %>
-
-
   <div class="container">
-    <div class="row">
+    <div class='row'>
       <div class="span9" id="main-column">
         <div class="section">
           <div class="item">
@@ -35,14 +48,6 @@
       </div> <!-- Finish main column -->
 
       <div class="span3" id="social-sidebar">
-        <ul class: "sidebar-menu">
-          <li>
-            <%= link_to "Agenda", sense_camps_path(anchor: "agenda") %>
-          </li>
-          <li>
-            <%= link_to "Partners", sense_camps_path(anchor: "partners") %>
-          </li>
-        </ul>
         <h2>SideBar</h2>
       </div>
     </div>
