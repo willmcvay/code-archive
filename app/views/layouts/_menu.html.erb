@@ -12,8 +12,20 @@
     <li>
       <h3><%= link_to 'Contact - FIX', root_path %></h3>
     </li>
-    <li id="menu-sharing">
-      <h3>Share</h3>
-    </li>
-<!--  <%= render 'layouts/social' %> -->
+  </ul>
+  <div id='share-icons'>
+    <ul>
+      <li class="social-icon facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" title="Share on Facebook"><img class="social-icon" src="/assets/facebook.png"></a>
+      </li>
+      <li class="social-icon twitter">
+        <a href="https://twitter.com/intent/tweet?text=<%= request.url %>" title="Share on Twitter"><img class="social-icon" src="/assets/twitter.png"></a>
+      </li>
+      <li class="social-icon googleplus">
+        <a href="https://plus.google.com/share?url=<%= request.url %>" title="Share on Google Plus"><img class="social-icon" src="/assets/google+.png"></a>
+      </li>
+    </ul>
+  </div>
+
+  <!--     <%= render 'layouts/social' %> -->
 </div>

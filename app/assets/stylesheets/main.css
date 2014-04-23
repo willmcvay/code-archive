@@ -101,6 +101,7 @@ textarea {
 #main-nav-bar {
       width: 100%;
 }
+
 #menu {
     width: 100%;
     padding-left: 20px;
@@ -111,6 +112,17 @@ textarea {
     background-color: #ddd;
 }
 
+#menu #share-icons {
+    float: right;
+    margin-right: 20px;
+}
+
+@media  (max-width: 700px) {
+    #menu #share-icons {
+        display: none;
+    }
+}
+
 #menu  ul {
     width: 100%;
     vertical-align: middle;
@@ -119,21 +131,26 @@ textarea {
     -webkit-padding-start: 0;
 }
 
-
 #menu li {
-    display: inline-block;
+    float: left;
     list-style: none;
     text-decoration: none;
-    text-align: center;
-    top: 0px;
-    padding: 12px 10px 7px 10px;
+    padding: 16px 10px 7px 10px;
+    margin-right: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
     background-color: #b3d8dd;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-property: background-color, font-size, color, height;
     -webkit-transition-timing-function: ease-in-out;
+}
 
+#menu li.social-icon {
+    padding: 8px 10px 8px 10px;
+}
+
+#menu li img.social-icon {
+    height: 33px;
 }
 
 #menu,
@@ -154,6 +171,8 @@ textarea {
 #social-menu-bar li#facebook-menu {
     height: 0px;
 }
+
+
 
 /*homepage slides*/
 
@@ -186,10 +205,10 @@ textarea {
     border-style: solid;
     border-width: 50px 50px 0 50px;
     border-color: #eeeeee transparent transparent transparent;
-    opacity: 0.75; 
-    -webkit-animation-name: nav-arrow-point; 
-    -webkit-animation-duration: 0.75s; 
-    -webkit-animation-iteration-count: infinite;; 
+    opacity: 0.75;
+    -webkit-animation-name: nav-arrow-point;
+    -webkit-animation-duration: 0.75s;
+    -webkit-animation-iteration-count: infinite;;
     animation-iteration-count: infinite;
 }
 
@@ -202,7 +221,7 @@ textarea {
     -webkit-transform: scale(1.2);
     opacity: 1.0;
   }
-  to { 
+  to {
     -webkit-transform: scale(1.0);
     opacity: 0.75;
   }
