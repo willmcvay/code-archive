@@ -1,7 +1,11 @@
 /* Screen widths */
 $break-small: 320px;
-$break-device: 568px;
+$break-device: 765px;
 $break-large: 1200px;
+$red: rgb(221, 53, 48);
+$dark-red: rgb(147, 30, 31);
+$blue: rgb(19, 107, 157);
+$dark-blue: rgb(29, 41, 91);
 
 #sensecamp {
   .banner {
@@ -11,8 +15,14 @@ $break-large: 1200px;
   #sensecamp-nav-bar {
     width: 100%;
     float: left;
-    overflow-y: hidden;
+    overflow-x: hidden;
+
+
   }
+    .affix {
+      position: fixed;
+      top: 50px;
+    }
 
   #menu {
     width: 100%;
@@ -20,31 +30,36 @@ $break-large: 1200px;
     position: relative;
     height: auto;
     display: block;
-    background-color: #ddd;
-  }
+    z-index: 0;
+    float: left;
 
-  #social-sidebar {
     ul {
-      padding-left: 0px;
 
       li {
-        background-color: red;
+        background-color: $dark-blue;
         list-style-type: none;
-        padding: 10px 0px 10px 10px;
-        margin-bottom: 5px;
+        padding: 7px 10px 10px 10px;
 
         a {
+          color: white;
           text-decoration: none;
         }
       }
     }
   }
 
+  #main-column {
+  }
+
   /* retina  iPhone styles*/
   @media (max-width : $break-device) {
-    #social-sidebar {
+    #floating-sidebar {
       display: none;
     }
+    #main-column {
+      width: 100%;
+    }
+
   }
 
 }

@@ -97,6 +97,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    margin-top: 49px;
+}
+
 /*menu bar*/
 #main-nav-bar {
       width: 100%;
