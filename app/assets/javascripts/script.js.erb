@@ -13,11 +13,14 @@ var transEnd = "webkitTransitionEnd"
 
 $(document).ready(function(){
 
-// adding prevent scroll function for desktop and mob devices for homepage. 
+// adding prevent scroll function if #no-scrolling is present anywhere
+// this is for desktop and mob devices for homepage.
+if ($("#no-scrolling").length > 0) {
 	$('body').addClass('stop-scrolling');
 	$('body').bind('touchmove', function(e){
 		e.preventDefault()
-	}); 
+	});
+}
 
 // re-enable on nav away from homepage with click on menu items
 	$('li#menu').click(function(){
@@ -35,7 +38,7 @@ $(document).ready(function(){
 		$('li#menu-sharing').append("<div id='social-partial-mini'></div>")
 
 		$('#social-partial-mini').html(
-			'<a href="https://www.facebook.com/sharer/sharer.php?u=' + location.href + 'title="Share on Facebook"><img src="/assets/facebook.png"></a>' + 
+			'<a href="https://www.facebook.com/sharer/sharer.php?u=' + location.href + 'title="Share on Facebook"><img src="/assets/facebook.png"></a>' +
 			'<a href="https://twitter.com/intent/tweet?text=' + location.href + ' title="Share on Twitter"><img src="/assets/twitter.png"></a>' +
 			'<a href="https://plus.google.com/share?url=' + location.href + ' title="Share on Google Plus"><img src="/assets/google+.png"></a>'
 			);
@@ -72,8 +75,8 @@ $(document).ready(function(){
 		// $('#arrow-wrapper-' + 'index').click(function(){
 
 			// we want the transitions to stop after 6 slides or 5 iterations of the transition
-			if (GLOBALS.iterationCounter < 6) {				
-				
+			if (GLOBALS.iterationCounter < 6) {
+
 				GLOBALS.iterationCounter++;
 				// transitioning images
 				$('#inner-border-brown-' + (index + 1)).css({
@@ -82,7 +85,7 @@ $(document).ready(function(){
 					transition : "all 1s ease-in-out",
 					backgroundSize: "cover"
 				})
-				
+
 				// fine
 				// $('#inner-border-blue-' + (index + 1)).css("border-color", "#0814a6");
 				// shits the bed!!
@@ -91,21 +94,21 @@ $(document).ready(function(){
 				// $('.inner-border-brown').addClass('red');
 
 				$('.homepage-slide').each(function(i, v){
-					
+
 					// stupid timeout hack to stop transition end firing on first element before last one has finished transitioning
 	     				setTimeout(function(){
 
 	     					// transitioninng slides and reseting top value to new postion on page
 						$('#slide-' + i).css( transStyles );
-						
+
 						$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 							$('#slide-' + i).css( "top", "+=" + pageHeight );
 							$('#slide-' + i).css( transform, "");
 							$('#slide-' + i).css( transition, "");
 						})
 					},50)
-				}) 	
+				})
 			};
 		})
-	})	
+	})
 });
