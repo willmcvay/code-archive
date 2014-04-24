@@ -16,13 +16,12 @@ $dark-blue: rgb(29, 41, 91);
     width: 100%;
     float: left;
     overflow-x: hidden;
-
-
   }
-    .affix {
-      position: fixed;
-      top: 50px;
-    }
+
+  .affix {
+    position: fixed;
+    top: 50px;
+  }
 
   #menu {
     width: 100%;
@@ -59,8 +58,13 @@ $dark-blue: rgb(29, 41, 91);
     #main-column {
       width: 100%;
     }
-
   }
 
+  a.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+  }
 }
 

@@ -158,6 +158,24 @@ body {
     height: 33px;
 }
 
+#menu li.menu-button {
+    height: 26px;
+}
+
+#menu li.menu-button div {
+    border-radius: 3px;
+    height: 33px;
+    position: relative;
+    background-color: #54503f;
+    padding: 0px 8px;
+    top: -7px;
+}
+#menu li.menu-button div a {
+    font-size: 1.17em;
+    line-height: 30px;
+    color: white;
+}
+
 #menu,
 #menu a {
     text-decoration: none;
