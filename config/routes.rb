@@ -1,5 +1,7 @@
 SenseCamp::Application.routes.draw do
 
+  get "contact", to: 'static_pages#contact'
+
   mount Rich::Engine => '/rich', :as => 'rich'
 
   devise_for :users
@@ -7,8 +9,8 @@ SenseCamp::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root to: "home#home"
-  
-  resources :posts do 
+
+  resources :posts do
     get 'page/:page', action: :index, on: :collection
     get :photo, on: :member
     resources :post_comments
