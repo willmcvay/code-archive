@@ -185,31 +185,35 @@ textarea {
 
 .nav-arrow {
     bottom: -100px;
-    left: calc(50% - 100px);
+    left: calc(50% - 80px);
     position: absolute;
     width: 0px;
     height: 0px;
     border-style: solid;
-    border-width: 100px 100px 0 100px;
+    border-width: 80px 80px 0 80px;
     z-index: 0;
     border-color: #b3d8dd transparent transparent transparent;
+    -webkit-animation-name: nav-arrow-point;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;;
+    animation-iteration-count: infinite;
 }
 
 .nav-arrow-point {
-    bottom: -75px;
-    left: calc(50% - 50px);
+    bottom: -86px;
+    left: calc(50% - 74px);
     position: absolute;
     width: 0px;
     height: 0px;
 /*z-index: 100;*/
     border-style: solid;
-    border-width: 50px 50px 0 50px;
+    border-width: 74px 74px 0 74px;
     border-color: #eeeeee transparent transparent transparent;
     opacity: 0.75;
-    -webkit-animation-name: nav-arrow-point;
+    /*-webkit-animation-name: nav-arrow-point;
     -webkit-animation-duration: 0.75s;
     -webkit-animation-iteration-count: infinite;;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
 }
 
 @-webkit-keyframes nav-arrow-point{
@@ -228,28 +232,28 @@ textarea {
 }
 
 .inner-border-blue {
-    border: 25px solid #b3d8dd;
+    border: 10px solid #b3d8dd;
     height: 100%;
     width: 100%;
     position: relative;
-    left: -25px;
-    top: -25px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    left: -10px;
+    top: -10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     z-index: 2;
 }
 
 .inner-border-brown {
-    border: 20px solid #54503f;
-    height: calc(100% - 30px);
-    width: calc(100% - 30px);
+    border: 5px solid #54503f;
+    height: calc(100%);
+    width: calc(100%);
     left: -5px;
     top: -5px;
     position: relative;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     z-index: 1;
     background: url('Main-Logo.jpg') center center no-repeat;
 }
