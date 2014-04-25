@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 // adding prevent scroll function if #no-scrolling is present anywhere
 // this is for desktop and mob devices for homepage.
-if ($("#no-scrolling").length > 0) {
+if ($(".no-scrolling").length > 0) {
 	$('body').addClass('stop-scrolling');
 	$('body').bind('touchmove', function(e){
 		e.preventDefault()
