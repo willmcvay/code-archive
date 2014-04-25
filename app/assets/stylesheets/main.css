@@ -287,8 +287,8 @@ body {
 
 .inner-border-brown {
     border: 5px solid #54503f;
-    height: calc(100%);
-    width: calc(100%);
+    height: 100%;
+    width: 100%;
     left: -5px;
     top: -5px;
     position: relative;
@@ -296,6 +296,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     z-index: 1;
+    background: #fff;
 }
 
 .red {
