@@ -11,8 +11,8 @@
  *= require_self
  *= require_tree .
  *= require bootstrap
-*= require main.css
-*= require normalize.css
+ *= require main.css
+ *= require normalize.css
 
  */
 
