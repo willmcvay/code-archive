@@ -101,6 +101,11 @@ body {
     margin-top: 49px;
 }
 
+@media (max-width: 767px) {
+    body {
+        padding: 0px !important;
+    }
+}
 /*menu bar*/
 #main-nav-bar {
       width: 100%;
