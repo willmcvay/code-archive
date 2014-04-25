@@ -394,12 +394,13 @@ body {
 #slide-4 .content .text {
     position: absolute;
     top: 20px;
-    right: 20px;
-    width: 20%;
+    left: 20px;
+    width: 40%;
     min-width: 200px;
     background-color: rgba(31, 25, 25, 0.85);
-    padding: 10px 10px 10px 50px;
+    padding: 10px 10px 50px 50px;
 }
+
 
 @media only screen and (max-width: 450px) {
     #slide-4 .content .text {
@@ -543,6 +544,17 @@ body {
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (max-width: 450px) {
+    .hidden-xs {
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .hidden-sm {
+        display: none;
+    }
 }
 
 @media print,
