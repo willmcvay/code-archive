@@ -28,8 +28,8 @@ if ($("#no-scrolling").length > 0) {
 		$('body').removeClass('stop-scrolling');
 	});
 
+// TODO: check if this is being used at all
 // render social media partial in menu bar
-
 	$('li#menu-sharing').mouseenter(function(){
 		$('li#menu-sharing').css({
 			height : "auto"
@@ -51,6 +51,8 @@ if ($("#no-scrolling").length > 0) {
 		})
 	});
 
+
+
 // homepage slides
 	var transStyles = {
       		transform : "translate3d(0," + pageHeight + "px, 0)",
@@ -71,7 +73,7 @@ if ($("#no-scrolling").length > 0) {
 	// $('.arrow-wrapper').each(function(index, value){
 	$('.nav-arrow').each(function(index, value){
 
-		$('#nav-arrow-' + index).click(function(){
+		$('#nav-arrow-point-' + index).click(function(){
 		// $('#arrow-wrapper-' + 'index').click(function(){
 
 			// we want the transitions to stop after 6 slides or 5 iterations of the transition
@@ -112,6 +114,7 @@ if ($("#no-scrolling").length > 0) {
 		})
 	})
 
+
 setTimeout( function() {
 	if ($("#floating-sidebar").length > 0) {
 			var offset = document.getElementById("main-column").getBoundingClientRect().top - document.getElementsByTagName("body")[0].getBoundingClientRect().top
@@ -121,5 +124,6 @@ setTimeout( function() {
 
 	}
 }, 300);
+
 
 });
