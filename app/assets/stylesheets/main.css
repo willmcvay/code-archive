@@ -272,6 +272,23 @@ body {
   }
 }
 
+/*****Typography*****/
+
+.text-center {
+    text-align: center;
+}
+
+.blue-font {
+    color: #b3d8dd;
+}
+
+/***/
+
+
+.logo {
+    margin: 5%;
+}
+
 .inner-border-blue {
     border: 10px solid #b3d8dd;
     height: 100%;
@@ -298,6 +315,10 @@ body {
     z-index: 1;
     background: #fff;
     overflow: hidden;
+}
+
+.slider-img {
+    height: auto;
 }
 
 .red {
