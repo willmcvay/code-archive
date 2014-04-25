@@ -1,8 +1,59 @@
- <div class="header-text">
-  <h2>Sense Camp</h2>
-</div>
-<div class="container">
-  <div class="span9">
+<div id='sensecamp'>
+  <div id="sensecamp-header">
+    <div class="hidden-title">
+      <h1>Sense Camp</h1>
+    </div>
 
+    <%= image_tag "sensecamp/banner.png", class: "banner" %>
+    <div id="sensecamp-nav-bar">
+      <div id='menu' class='menu'>
+        <ul>
+          <li>
+            <h3><%= link_to "Agenda", sense_camps_path(anchor: "agenda") %></h3>
+          </li>
+          <li>
+            <h3><%= link_to "Partners", sense_camps_path(anchor: "partners") %></h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class='row'>
+      <div id="main-column" class="span9">
+        <div class="section">
+          <div class="item">
+            <p>On June 28th 2014, MakeSense London brings together 200 <emph>Sense Makers</emph> from around the UK for an inspiring bar-camp on social enterprise. It’s a chance to collaborate on ideas, share knowledge, solve challenges for social entrepreneurs and extend the MakeSense community around the UK and Beyond.</p>
+          </div>
+          <div class="item">
+            <p>SenseCamp is a bar camp dedicated to <emph>social business</emph>: It brings together social entrepreneurs, innovators, social business enthusiasts and the MakeSense gang for one full day of inspiring talks, interactive workshops and networking.</p>
+          </div>
+        </div>
+        <div class="section"><a class="anchor" id="agenda"></a>
+          <h2>Agenda</h2>
+          <div class="section">
+            <div class="item">
+              <p>We set the agenda in the morning. To host a session, anybody can pitch a topic to the crowd and we facilitate the decision. Some sessions, key-notes/pecha-kucha and Hold-Ups are planned in advance however.</p>
+            </div>
+            <div class="item">
+              <p>Sessions are generally participatory in nature, typically without powerpoint. SenseCampers vote with their feet and leave sessions they do not want to participate in. The format blurs traditional notions of speakers and listeners and creates a highly interactive experience of shared learning and development.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section"><a class="anchor" id="partners"></a>
+          <h2>Partners</h2>
+          <div>
+            <p>To be announced soon.</p>
+            <p>To apply to be a partner of SenseCamp please email the team.</p>
+          </div>
+        </div>
+
+      </div> <!-- Finish main column -->
+
+      <div id="floating-sidebar " class='span3'>
+        <h2>SideBar</h2>
+      </div>
+    </div>
   </div>
 </div>

@@ -115,6 +115,15 @@ if ($("#no-scrolling").length > 0) {
 	})
 
 
+setTimeout( function() {
+	if ($("#floating-sidebar").length > 0) {
+			var offset = document.getElementById("main-column").getBoundingClientRect().top - document.getElementsByTagName("body")[0].getBoundingClientRect().top
+			$("#floating-sidebar").affix({
+		      	offset: offset
+			});
+
+	}
+}, 300);
 
 
 });

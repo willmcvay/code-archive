@@ -4,17 +4,17 @@
       <h3><%= link_to 'MakeSense London', root_path %></h3>
     </li>
     <li>
-      <h3><%= link_to 'Sense Camp', sense_camps_path %></h3>
+      <h3><%= link_to 'Sensecamp', sense_camps_path %></h3>
     </li>
     <li>
-      <h3><%= link_to 'Tickets', tickets_path %></h3>
-    </li>
-    <li>
-      <h3><%= link_to 'Contact - FIX', root_path %></h3>
+      <h3><%= link_to 'Contact', contact_path %></h3>
     </li>
   </ul>
   <div id='share-icons'>
     <ul>
+      <li class='menu-button'>
+        <div><%= link_to 'Sensecamp Tickets', tickets_path %></div>
+      </li>
       <li class="social-icon facebook">
         <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" target="_blank" title="Share on Facebook"><img class="social-icon" src="/assets/facebook.png"></a>
       </li>
