@@ -378,24 +378,24 @@ h2,
 }
 
 #slide-1 {
-    top: -100%;
+    top: 100%;
 /*    background: blue;*/
 }
 
 #slide-2 {
-    top: -200%;
+    top: 200%;
 }
 
 #slide-3 {
-    top: -300%;
+    top: 300%;
 }
 
 #slide-4 {
-    top: -400%;
+    top: 400%;
 }
 
 #slide-5 {
-    top: -500%;
+    top: 500%;
 }
 
 .stop-scrolling {

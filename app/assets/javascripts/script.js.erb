@@ -57,10 +57,10 @@ function transitionSlides(pixels) {
 // main transition function
 var numberOfSlides = $('.nav-arrow-point').length;
 $('.nav-arrow-point').each(function(index, value){
-	var transitionHeight = pageHeight;
+	var transitionHeight = -pageHeight;
 	// we want the transitions to stop after 6 slides or 5 iterations of the transition
 	if (index == numberOfSlides - 1)  {
-		transitionHeight = -(pageHeight * ($('.homepage-slide').length - 1));
+		transitionHeight = (pageHeight * ($('.homepage-slide').length - 1));
 	}
 	$('#nav-arrow-point-' + index).click(function(){
 			// transitioning images
