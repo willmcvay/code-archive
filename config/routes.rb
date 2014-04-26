@@ -2,7 +2,7 @@ SenseCamp::Application.routes.draw do
 
   get "contact", to: 'static_pages#contact'
 
-  mount Rich::Engine => '/rich', :as => 'rich'
+  # mount Rich::Engine => '/rich', :as => 'rich'
 
   devise_for :users
 

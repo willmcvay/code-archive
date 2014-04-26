@@ -14,52 +14,52 @@ RailsAdmin.config do |config|
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
 
-config.model Post do
-  edit do
-    field :title
-    field :photo
-    field :content, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
+# config.model Post do
+#   edit do
+#     field :title
+#     field :photo
+#     field :content, :rich_editor do
+#       config({
+#         :insert_many => true
+#       })
+#     end
+#   end
+# end
 
-config.model Event do
-  edit do
-    field :title
-    field :photo
-    field :content, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
+# config.model Event do
+#   edit do
+#     field :title
+#     field :photo
+#     field :content, :rich_editor do
+#       config({
+#         :insert_many => true
+#       })
+#     end
+#   end
+# end
 
-config.model SenseCamp do
-  edit do
-    field :info
-    field :detail, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
+# config.model SenseCamp do
+#   edit do
+#     field :info
+#     field :detail, :rich_editor do
+#       config({
+#         :insert_many => true
+#       })
+#     end
+#   end
+# end
 
-config.model Speaker do
-  edit do
-    field :title
-    field :photo
-    field :content, :rich_editor do
-      config({
-        :insert_many => true
-      })
-    end
-  end
-end
+# config.model Speaker do
+#   edit do
+#     field :title
+#     field :photo
+#     field :content, :rich_editor do
+#       config({
+#         :insert_many => true
+#       })
+#     end
+#   end
+# end
 
 
 #   config.authorize_with do

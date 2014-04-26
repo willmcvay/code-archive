@@ -15,7 +15,9 @@ gem 'carrierwave'
 gem 'fog'
 gem 'nokogiri'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'rich', github: "keithpops/rich"
+# gem 'rich', github: "keithpops/rich"
+# gem "mongoid-paperclip", :require => "mongoid_paperclip"
+# gem 'delayed_job_active_record'
 
 
 group :development do
