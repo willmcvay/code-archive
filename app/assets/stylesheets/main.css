@@ -98,12 +98,12 @@ textarea {
    ========================================================================== */
 
 body {
-    margin-top: 49px;
+    padding-top: 49px;
 }
 
 @media (max-width: 767px) {
     body {
-        padding: 0px !important;
+        padding-left: 0px !important;
     }
 }
 /*menu bar*/
@@ -524,6 +524,7 @@ h2,
 */
 .hidden-title {
   height: 0px;
+  display: none;
 }
 
 /*
