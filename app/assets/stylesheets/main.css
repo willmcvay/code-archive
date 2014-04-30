@@ -204,7 +204,7 @@ padding: 15px 10px 0px 10px;}
 /*homepage slides*/
 
 .homepage-slide {
-    height: calc(100% - 200px);
+    height: 100%;
     width: 100%;
     position: absolute;
     /*border: 100px solid #eee;*/
@@ -212,7 +212,7 @@ padding: 15px 10px 0px 10px;}
 
 @media (max-width: 767px) {
     .homepage-slide {
-        height: calc(100% - 200px);
+    height: 100%;
         width: 100%;
         position: absolute;
         border-color: #eee;
@@ -228,36 +228,14 @@ padding: 15px 10px 0px 10px;}
 }
 
 .nav-arrow {
-    bottom: -90px;
-    left: calc(50% - 80px);
+    height:100px;
+    width:100px;
+    border: 5px solid blue;
+    z-index: 99;
     position: absolute;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 80px 80px 0 80px;
-    z-index: 0;
-    border-color: #b3d8dd transparent transparent transparent;
-    -webkit-animation-name: nav-arrow-point;
-    -webkit-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;;
-    animation-iteration-count: infinite;
-}
-
-.nav-arrow-point {
-    bottom: -85px;
-    left: calc(50% - 74px);
-    position: absolute;
-    width: 0px;
-    height: 0px;
-/*z-index: 100;*/
-    border-style: solid;
-    border-width: 74px 74px 0 74px;
-    border-color: #eeeeee transparent transparent transparent;
-    opacity: 0.75;
-    /*-webkit-animation-name: nav-arrow-point;
-    -webkit-animation-duration: 0.75s;
-    -webkit-animation-iteration-count: infinite;;
-    animation-iteration-count: infinite;*/
+    bottom: 50px;
+    margin: 0px calc(50% - 50px) 0px calc(50% - 50px);
+    background-color: white;
 }
 
 @-webkit-keyframes nav-arrow-point{
