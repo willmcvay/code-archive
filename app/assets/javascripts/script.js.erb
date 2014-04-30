@@ -1,25 +1,21 @@
 
 // unfortuately best laid plans have their chips pissed on by JQuery CSS function!
-var pageHeight = window.innerHeight,
-pageWidth = window.innerWidth,
-transform = "webkitTransform" || "transform",
-transition = "webkitTransition" ||  "transition",
-transEnd = "webkitTransitionEnd"
+function pageHeight() { return window.innerHeight };
+function pageWidth() { return window.innerWidth };
+var transform = "webkitTransform" || "transform",
+	transition = "webkitTransition" ||  "transition",
+	transEnd = "webkitTransitionEnd"
 
 // call detectMob(); (function is in the application head), to detect a mobile device
 
 $(document).ready(function(){
-	var GLOBALS = {};
+
+var GLOBALS = {};
 	GLOBALS.iterationCounter = 0;
 
 // adding prevent scroll function if #no-scrolling is present anywhere
 // this is for desktop and mob devices for homepage.
-if ($(".no-scrolling").length > 0) {
-	$('body').addClass('stop-scrolling');
-	$('body').bind('touchmove', function(e){
-		e.preventDefault()
-	});
-}
+if ($(".no-scrolling").length > 0) { preventScrolling(); }
 
 // TODO: check if this is being used at all
 // render social media partial in menu bar
@@ -46,42 +42,35 @@ $('li#menu-sharing').mouseleave(function(){
 
 
 
-// homepage slides
-function transitionSlides(pixels) {
-	return {
-		transform : "translate3d(0," + pixels + "px, 0)",
-		transition : "all 0.5s ease-in-out"
-	};
-}
-
 // main transition function
-var numberOfSlides = $('.nav-arrow-point').length;
+var numberOfArrows = $('.nav-arrow-point').length;
 $('.nav-arrow-point').each(function(index, value){
-	var transitionHeight = -pageHeight;
-	// we want the transitions to stop after 6 slides or 5 iterations of the transition
-	if (index == numberOfSlides - 1)  {
-		transitionHeight = (pageHeight * ($('.homepage-slide').length - 1));
+	var transitionHeight;
+	// we want the transitions to go back to the start on the last transition button
+	if (index == numberOfArrows - 1)  {
+		transitionHeight = (pageHeight() * ($('.homepage-slide').length - 1));
+	} else {
+		transitionHeight = -pageHeight();
 	}
+
 	$('#nav-arrow-point-' + index).click(function(){
-			// transitioning images
-			$('#inner-border-brown-' + index).css({
-				transitionDelay : "0.5s",
-				transition : "all 0.5s ease-in-out",
-				backgroundSize: "cover"
-			})
+		// transitioning images
+		$('#inner-border-brown-' + index).css({
+			transitionDelay : "0.5s",
+			transition : "all 0.5s ease-in-out",
+			backgroundSize: "cover"
+		})
 
-			$('.homepage-slide').each(function(i, v){
-				// stupid timeout hack to stop transition end firing on first element before last one has finished transitioning
-     					// transitioninng slides and reseting top value to new postion on page
-     					$('#slide-' + i).css( transitionSlides(transitionHeight) );
+		$('.homepage-slide').each(function(i, v){
+   			$('#slide-' + i).css( slideTransform(transitionHeight) );
 
-     					$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-     						$('#slide-' + i).css( "top", "+=" + transitionHeight );
-     						$('#slide-' + i).css( transform, "");
-     						$('#slide-' + i).css( transition, "");
-     					});
-     				});
+   			$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+ 				$('#slide-' + i).css( "top", "+=" + transitionHeight );
+   				$('#slide-' + i).css( transform, "");
+   				$('#slide-' + i).css( transition, "");
+   			});
 		});
+	});
 });
 
 
@@ -91,9 +80,24 @@ setTimeout( function() {
 		$("#floating-sidebar").affix({
 			offset: offset
 		});
-
 	}
 }, 300);
 
 
 });
+
+// homepage slides
+function slideTransform(pixels) {
+	return {
+		transform : "translate3d(0," + pixels + "px, 0)",
+		transition : "all 0.5s ease-in-out"
+	};
+}
+
+function preventScrolling() {
+	$('body').addClass('stop-scrolling');
+	$('body').bind('touchmove', function(e){
+		e.preventDefault()
+	});
+};
+
