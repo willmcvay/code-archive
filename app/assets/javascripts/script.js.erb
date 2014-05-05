@@ -57,12 +57,13 @@ if ($('.homepage-slide').length > 0) {
 		$('#nav-arrow-point-' + index).click(function(){
 
 			$('.homepage-slide').each(function(i, v){
+				var newTop = $('#slide-' + i).offset().top + transitionHeight;
 	   			$('#slide-' + i).css( slideTransform(transitionHeight) );
 
 	   			$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-	 				$('#slide-' + i).css( "top", "+=" + transitionHeight );
-	   				$('#slide-' + i).css( transform, "");
-	   				$('#slide-' + i).css( transition, "");
+	 				$('#slide-' + i).css( "top", newTop + "px" );
+	   				$('#slide-' + i).css( "transform", "");
+	   				$('#slide-' + i).css( "transition", "");
 	   			});
 			});
 		});
