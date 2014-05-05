@@ -406,6 +406,11 @@ h2,
     padding: 10px 30px;
 }
 
+#slide-1 .content img {
+    width: 100%;
+    float: left;
+}
+
 #slide-2 .content .text {
     position: absolute;
     top: 20px;
@@ -417,6 +422,16 @@ h2,
 }
 
 @media only screen and (max-width: 450px) {
+    #slide-1 .content .text {
+        position: absolute;
+        bottom: 49px;
+        left: 0px;
+        width: 100%;
+        background-color: rgba(31, 25, 25, 0.85);
+        padding: 5px 5px 5px 5px;
+        margin-top: calc(100% - 10px);
+    }
+
     #slide-2 .content .text {
         position: absolute;
         bottom: 0px;
@@ -697,7 +712,7 @@ h2,
 /* Flex Video */
 .flex-video {
     position: relative;
-    height: 100%;
+    height: calc(100% - 49px);
     margin-bottom: 1em;
     overflow: hidden;
 }
