@@ -13,3 +13,6 @@ SenseCamp::Application.initialize!
   :domain => 'heroku.com',
   :enable_starttls_auto => true
 }
+
+
+ENV['MONGOHQ_ENV'] = "mongodb://heroku:zC9baZEHGuTcvcV9y3KHk8b7TagYYgDXbf21kbMACE1c5bojsW7ihaz05su_pfidp-KK-dHZ0VuP-35JvZh6gA@lennon.mongohq.com:10072/app24493903"
