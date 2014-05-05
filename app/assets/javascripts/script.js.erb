@@ -11,7 +11,6 @@ var transform = "webkitTransform" || "transform",
 $(document).ready(function(){
 
 var GLOBALS = {};
-	GLOBALS.iterationCounter = 0;
 
 // adding prevent scroll function if #no-scrolling is present anywhere
 // this is for desktop and mob devices for homepage.
@@ -43,39 +42,39 @@ $('li#menu-sharing').mouseleave(function(){
 
 
 // main transition function
-var numberOfArrows = $('.nav-arrow').length;
-$('.nav-arrow').each(function(index, value){
-	var transitionHeight;
-	// we want the transitions to go back to the start on the last transition button
-	if (index == numberOfArrows - 1)  {
-		transitionHeight = (pageHeight() * ($('.homepage-slide').length - 1));
-	} else {
-		transitionHeight = -pageHeight();
-	}
+if ($('.homepage-slide').length > 0) {
+	var numberOfArrows = $('.nav-arrow').length,
+		numberOfSlides = $('.homepage-slide').length;
+	$('.nav-arrow').each(function(index, value){
+		var transitionHeight;
+		// we want the transitions to go back to the start on the last transition button
+		if (index == numberOfArrows - 1)  {
+			transitionHeight = (pageHeight() * (numberOfSlides - 1));
+		} else {
+			transitionHeight = -pageHeight();
+		}
 
-	$('#nav-arrow-point-' + index).click(function(){
+		$('#nav-arrow-point-' + index).click(function(){
 
-		$('.homepage-slide').each(function(i, v){
-   			$('#slide-' + i).css( slideTransform(transitionHeight) );
+			$('.homepage-slide').each(function(i, v){
+	   			$('#slide-' + i).css( slideTransform(transitionHeight) );
 
-   			$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
- 				$('#slide-' + i).css( "top", "+=" + transitionHeight );
-   				$('#slide-' + i).css( transform, "");
-   				$('#slide-' + i).css( transition, "");
-   			});
+	   			$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+	 				$('#slide-' + i).css( "top", "+=" + transitionHeight );
+	   				$('#slide-' + i).css( transform, "");
+	   				$('#slide-' + i).css( transition, "");
+	   			});
+			});
 		});
 	});
-});
+}
 
-
-setTimeout( function() {
-	if ($("#floating-sidebar").length > 0) {
-		var offset = document.getElementById("main-column").getBoundingClientRect().top - document.getElementsByTagName("body")[0].getBoundingClientRect().top
-		$("#floating-sidebar").affix({
-			offset: offset
-		});
-	}
-}, 300);
+if ($("#floating-sidebar").length > 0) {
+	var offset = document.getElementById("main-column").getBoundingClientRect().top - document.getElementsByTagName("body")[0].getBoundingClientRect().top
+	$("#floating-sidebar").affix({
+		offset: offset
+	});
+}
 
 
 });
