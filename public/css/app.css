@@ -1,18 +1,18 @@
 @import url("bootstrap.css");
 
 #playing-board {
-	max-width: 60%;
-	margin-left: 5%;
-	max-height: 90%;
+	max-width: 50%;
+	margin-left: 25%;
+	max-height: 50%;
 }
 
 .square-container {
 	position: relative;
-	width: 4.5%;
-	padding-bottom: 4.5%;
+	width: 6%;
+	padding-bottom: 6%;
 	float: left;
 	height: 0;
-	margin: 1%;
+	margin: 0.3%;
 }
 
 .square {
@@ -20,5 +20,11 @@
 	height: 100%;
 	position: absolute;
 	left: 0;
+	background: green;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 100%;
+	word-wrap: normal;
+	line-height: 100%;
 }
 
