@@ -1,5 +1,5 @@
-define(['App', 'backbone', 'marionette', 'views/gameView', 'views/HeaderView'],
-    function (App, Backbone, Marionette, gameView, HeaderView) {
+define(['App', 'backbone', 'marionette', 'views/gameView', 'views/HeaderView', 'views/sidebarView'],
+    function (App, Backbone, Marionette, gameView, HeaderView, sidebarView) {
     return Backbone.Marionette.Controller.extend({
         initialize: function (options) {
             App.headerRegion.show(new HeaderView());

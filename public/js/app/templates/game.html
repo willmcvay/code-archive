@@ -1,4 +1,5 @@
-<div id="playing-board">
+<div class="row">
+        <div id="playing-board" class="col-md-9">
             
             <div class="square-container">
                 <div class="square triple-word" id="001">Triple Word Score</div>
@@ -703,5 +704,15 @@
             <div class="square-container">
                 <div class="square triple-word" id="225">Triple Word Score</div>
             </div>
+            
+        </div>
+        <div class="col-md-3">
+            <button type="button" id="new-game" class="btn btn-success">New Game</button>
+            <div id="tile-rack">
+                {{#each tiles}}
+                    <div class="tile">{{tile}}</div>
+                {{/each}}
+            </div>
+        </div>
  </div>
     
