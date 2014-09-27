@@ -9,10 +9,12 @@ define(["jquery", "backbone"],
             // Default values for all of the Model attributes
             defaults:{
 		playerOne: {
-			score: 0
+			score: 0,
+			tileRack: []
 		},
 		playerTwo: {
-			score: 0
+			score: 0,
+			tileRack: []
 		},
 		tileBag: [],
 		availableSquares: [],

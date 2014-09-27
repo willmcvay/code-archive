@@ -18,7 +18,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             selectTile: function(e) {
-        
+                
             },
 
             shuffleTiles: function(tiles) {
@@ -31,6 +31,19 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return tiles;
             },
 
+            onRender: function() {
+                var self = this,
+                    availableSquares = [];
+                $(document).ready(function(){
+                     self.$('.square').each(function() {
+                        availableSquares.push(this.id)
+                    });
+                     self.model.set({
+                        availableSquares: availableSquares
+                     });
+                });
+            },
+
             initialize: function() {
                 var tiles = this.model.get('tiles'),
                     shuffledTiles = this.shuffleTiles(tiles);
@@ -38,8 +51,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 this.model.set({
                     tiles: shuffledTiles
                 });
-
-                console.log(this.model)
             }       
         });
         return GameView
