@@ -21,11 +21,26 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
         
             },
 
-            initialize: function() {
-                 
-            }
+            shuffleTiles: function(tiles) {
+                for (var i = tiles.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = tiles[i];
+                    tiles[i] = tiles[j];
+                    tiles[j] = temp;
+                }
+                return tiles;
+            },
 
-       
+            initialize: function() {
+                var tiles = this.model.get('tiles'),
+                    shuffledTiles = this.shuffleTiles(tiles);
+                
+                this.model.set({
+                    tiles: shuffledTiles
+                });
+
+                console.log(this.model)
+            }       
         });
         return GameView
     });
