@@ -11,8 +11,6 @@ define([ 'marionette', 'handlebars', 'text!templates/header.html', 'App'],
             newGame: function(e) {
                 e.preventDefault();
                App.trigger('loadGameView');
-
-                console.log(this)
             }
         });
         return HeaderView
