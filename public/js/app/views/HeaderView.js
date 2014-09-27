@@ -1,7 +1,19 @@
-define([ 'marionette', 'handlebars', 'text!templates/header.html'],
-    function (Marionette, Handlebars, template) {
+define([ 'marionette', 'handlebars', 'text!templates/header.html', 'App'],
+    function (Marionette, Handlebars, template, App) {
         //ItemView provides some default rendering logic
-        return Marionette.ItemView.extend({
-            template:Handlebars.compile(template)
+        var HeaderView = Marionette.ItemView.extend({
+            template:Handlebars.compile(template),
+
+            events: {
+            	'click #new-game' : 'newGame'
+            },
+
+            newGame: function(e) {
+                e.preventDefault();
+               App.trigger('loadGameView');
+
+                console.log(this)
+            }
         });
+        return HeaderView
     });

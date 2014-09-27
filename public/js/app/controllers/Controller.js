@@ -1,12 +1,14 @@
-define(['App', 'backbone', 'marionette', 'views/gameView', 'views/HeaderView', 'views/sidebarView'],
-    function (App, Backbone, Marionette, gameView, HeaderView, sidebarView) {
+define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/sidebarView'],
+    function (App, Backbone, Marionette, gameView, headerView, sidebarView) {
     return Backbone.Marionette.Controller.extend({
         initialize: function (options) {
-            App.headerRegion.show(new HeaderView());
+            App.headerRegion.show(new headerView());
         },
         //gets mapped to in AppRouter's appRoutes
         index: function () {
-            App.mainRegion.show(new gameView());
+            App.on('loadGameView', function(){
+                App.mainRegion.show(new gameView());
+            })   
         }
     });
 });

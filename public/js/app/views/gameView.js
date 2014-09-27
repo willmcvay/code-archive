@@ -1,15 +1,15 @@
-define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates/game.html', 'config/constants', 'config/game'],
-    function( App, Marionette, Handlebars, gameModel, template, constants, game) {
+define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates/game.html', 'config/constants'],
+    function( App, Marionette, Handlebars, gameModel, template, constants) {
 
         var GameView = Marionette.ItemView.extend( {
 
             template: Handlebars.compile(template),
-            model: new gameModel(),
+             model: new gameModel(),
 
             events: {
                 'click .square' : 'playerMove',
-                'click .tile' : 'selectTile',
-                'click #new-game' : 'newGame'
+                'click .tile' : 'selectTile'
+                
             },
 
             playerMove: function(e) {
@@ -21,9 +21,11 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
         
             },
 
-            newGame: function(e) {
-                console.log(this.model)
+            initialize: function() {
+                 
             }
+
+       
         });
         return GameView
     });
