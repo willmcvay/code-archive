@@ -1,12 +1,37 @@
 define(["jquery", "backbone"],
     function ($, Backbone) {
-        // Creates a new Backbone Model class object
+    	
         var gameModel = Backbone.Model.extend({
-            initialize:function () {
 
-            },
+            	initialize:function () {
 
-            // Default values for all of the Model attributes
+            	},
+
+            	idAttribute: "ID",
+
+	getCustomUrl: function (method) {
+		switch (method) {
+		case 'read':
+			return '/api/games/' + this.id;
+			break;
+		case 'create':
+			return '/api/games';
+			break;
+		case 'update':
+			return '/api/games/' + this.id;
+			break;
+		case 'delete':
+			return '/api/games/' + this.id;
+			break;
+		}
+	},
+
+	sync: function (method, model, options) {
+		options || (options = {});
+		options.url = this.getCustomUrl(method.toLowerCase());
+		return Backbone.sync.apply(this, arguments);
+	},
+
             defaults:{
 		playerOne: {
 			score: 0,
@@ -49,7 +74,6 @@ define(["jquery", "backbone"],
 		]
             },
 
-            // Get's called automatically by Backbone when the set and/or save methods are called (Add your own logic)
             validate:function (attrs) {
 
             }
