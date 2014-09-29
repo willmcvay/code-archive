@@ -23,7 +23,10 @@
     }
   ],
   "dependencies": {
-    "express": "3.x"
+    "express": "3.x",
+    "mongoose": "2.6.x",
+    "connect": "2.7.4",
+    "mongodb": "x"
   },
   "main": "./server/server",
   "keywords": ["Marionette.js", "Backbone.js", "Require.js", "Marionette and Require Boilerplate Lite"]
