@@ -5,7 +5,14 @@ define([ 'marionette', 'handlebars', 'text!templates/header.html', 'App'],
             template:Handlebars.compile(template),
 
             events: {
-            	'click #new-game' : 'newGame'
+            	'click #new-game' : 'newGame',
+            	'click #save-game' : 'saveGame'
+
+            },
+
+            saveGame: function(e) {
+            		e.preventDefault();
+            		App.trigger('saveGameModel');
             },
 
             newGame: function(e) {

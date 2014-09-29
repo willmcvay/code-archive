@@ -12,9 +12,19 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 
             },
 
+            modelEvents: {
+                'change' : 'render'
+            },
+
             playerMove: function(e) {
                 console.log($(e.currentTarget))
 
+            },
+
+            saveGame: function(e) {
+                e.preventDefault();
+
+                this.model.save();
             },
 
             selectTile: function(e) {
@@ -35,34 +45,43 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 var tiles = this.model.get('tiles'),
                     playerOneTiles = this.model.get('playerOne').tileRack,
                     playerTwoTiles = this.model.get('playerTwo').tileRack,
-                    tilesRequired,
-                    tilesToAdd;
+                    tilesRequiredOne,
+                    tilesToAddOne,
+                    flattenedTilesOne,
+                    tilesRequiredTwo,
+                    tilesToAddTwo,
+                    flattenedTiledTwo;
 
                 if (playerOneTiles.length < 8) {
-                    tilesRequired = 8 - playerOneTiles.length;
-                    tilesToAdd = tiles.slice(0, tilesRequired);
-                    playerOneTiles.push(tilesToAdd);
+                    tilesRequiredOne = 8 - playerOneTiles.length;
+                    tilesToAddOne = tiles.slice(0, tilesRequiredOne);
+                    playerOneTiles.push(tilesToAddOne);
+                    flattenedTilesOne = _.flatten(playerOneTiles);
 
                     this.model.set({
                         playerOne: {
                             score: this.model.get('playerOne').score,
-                            tileRack: playerOneTiles
+                            tileRack: flattenedTilesOne
                         }
                     });
+                    this.model.save();
                 }
 
                 if (playerTwoTiles.length < 8) {
-                    tilesRequired = 8 - playerTwoTiles.length;
-                    tilesToAdd = tiles.slice(0, tilesRequired);
-                    playerTwoTiles.push(tilesToAdd);
+                    tilesRequiredTwo = 8 - playerTwoTiles.length;
+                    tilesToAddTwo = tiles.slice(0, tilesRequiredTwo);
+                    playerTwoTiles.push(tilesToAddTwo);
+                    flattenedTilesTwo = _.flatten(playerTwoTiles);
 
                     this.model.set({
                         playerTwo: {
                             score: this.model.get('playerTwo').score,
-                            tileRack: playerTwoTiles
+                            tileRack: flattenedTilesTwo
                         }
                     });
+                    this.model.save();
                 }
+                
                 return
             },
 
@@ -78,17 +97,20 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                  });
 
                  this.fillTileRack();
-                 this.model.save();
-                 console.log(this.model)
             },
 
             initialize: function() {
                 var tiles = this.model.get('tiles'),
-                    shuffledTiles = this.shuffleTiles(tiles);
+                    shuffledTiles = this.shuffleTiles(tiles),
+                    self = this;
                 
                 this.model.set({
                     tiles: shuffledTiles
                 });
+
+                App.on('saveGameModel', function(){
+                    self.model.save();
+                })
             }       
         });
         return GameView
