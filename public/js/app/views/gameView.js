@@ -78,6 +78,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                  });
 
                  this.fillTileRack();
+                 this.model.save();
                  console.log(this.model)
             },
 
