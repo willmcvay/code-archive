@@ -33,14 +33,15 @@ define(["jquery", "backbone"],
 	},
 
             defaults:{
-		playerOne: {
+		player1: {
 			score: 0,
 			tileRack: []
 		},
-		playerTwo: {
+		player2: {
 			score: 0,
 			tileRack: []
 		},
+		numberPlayers: 2,
 		tileBag: [],
 		availableSquares: [],
 		tiles: [
@@ -181,7 +182,7 @@ define(["jquery", "backbone"],
 			square106: 'Triple Word Score',
 			square107: '',
 			square108: '',
-			square109: '',
+			square109: 'Double Letter Score',
 			square110: '',
 			square111: '',
 			square112: '',
@@ -189,7 +190,7 @@ define(["jquery", "backbone"],
 			square114: '',
 			square115: '',
 			square116: '',
-			square117: '',
+			square117: 'Double Letter Score',
 			square118: '',
 			square119: '',
 			square120: 'Triple Word Score',

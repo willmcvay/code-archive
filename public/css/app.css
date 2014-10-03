@@ -16,15 +16,33 @@
 }
 
 .square {
+	color: #707070;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	left: 0;
-	background: green;
+	background: #A2D39C;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
 	word-wrap: normal;
 	line-height: 100%;
 }
+
+.double-word, .start {
+	background: #F49AC2;
+}
+
+.double-letter {
+	background: #6ECFF6;
+}
+
+.triple-word {
+	background: #F6989D;
+}
+
+.triple-letter {
+	background: #8493CA;
+}
+
 
