@@ -59,12 +59,12 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         flattenedTiles = _.flatten(playerTiles);
 
 
-                        // this.model.set({
-                        //     : {
-                        //         score: this.model.get(playerName).score,
-                        //         tileRack: flattenedTiles
-                                
-                        // });
+                            // this.model.set({
+                            //     : {
+                            //         score: this.model.get(playerName).score,
+                            //         tileRack: flattenedTiles
+                                    
+                            // });
                         this.model.save();
                     }
                 };

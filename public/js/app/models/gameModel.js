@@ -7,7 +7,7 @@ define(["jquery", "backbone", 'collections/playerCollection'],
 
             	},
 
-            	idAttribute: "ID",
+            	idAttribute: "_id",
 
 	getCustomUrl: function (method) {
 		switch (method) {
