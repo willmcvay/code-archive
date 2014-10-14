@@ -1,5 +1,5 @@
-define(["jquery", "backbone"],
-    function ($, Backbone) {
+define(["jquery", "backbone", 'collections/playerCollection'],
+    function ($, Backbone, playerCollection) {
 
         var gameModel = Backbone.Model.extend({
 
@@ -33,15 +33,6 @@ define(["jquery", "backbone"],
 	},
 
             defaults:{
-		player1: {
-			score: 0,
-			tileRack: []
-		},
-		player2: {
-			score: 0,
-			tileRack: []
-		},
-		numberPlayers: 2,
 		tileBag: [],
 		availableSquares: [],
 		tiles: [
