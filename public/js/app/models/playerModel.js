@@ -9,5 +9,4 @@ define(["jquery", "backbone"],
             }
         });
     return playerModel;
-    }
-);
+ });

@@ -42,11 +42,11 @@ server.get('/api/games/:id', function(req, res){
 
 server.put('/api/games/:id', function(req, res){
 	return Game.findById(req.params.id, function(err, game) {
-		game.playerOne = req.body.playerOne;
-		game.playerTwo = req.body.playerTwo;
-		game.tileBag = req.body.tileBag;
-		game.availableSquares = req.body.availableSquares;
-		game.tiles = req.body.tiles;
+		// game.playerOne = req.body.playerOne;
+		// game.playerTwo = req.body.playerTwo;
+		// game.tileBag = req.body.tileBag;
+		// game.availableSquares = req.body.availableSquares;
+		// game.tiles = req.body.tiles;
 		return game.save(function(err) {
 		if (!err) {
 			console.log("updated");

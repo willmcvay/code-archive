@@ -1,17 +1,20 @@
-define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/sidebarView', 'models/gameModel'],
-    function (App, Backbone, Marionette, gameView, headerView, sidebarView, gameModel) {
+define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/welcomeView', 'views/sidebarView', 'models/gameModel', 'collections/playerCollection'],
+    function (App, Backbone, Marionette, gameView, headerView, welcomeView, sidebarView, gameModel, playerCollection) {
+    
     return Backbone.Marionette.Controller.extend({
+        
         initialize: function (options) {
-            App.mainRegion.show(new playerFormView());
+            App.mainRegion.show(new welcomeView({
+                model: new gameModel({
+                    players: new playerCollection()
+                })
+            }));
         },
-        //gets mapped to in AppRouter's appRoutes
-        index: function () {
 
-            App.on('loadGameView', function(playerCollection){
+        index: function () {
+            App.on('loadGameView', function(gameModel){
                 App.mainRegion.show(new gameView({
-                    model: new gameModel({
-                        players: playerCollection
-                    })
+                    model: gameModel
                 }));
                 App.headerRegion.show(new headerView());
             })   

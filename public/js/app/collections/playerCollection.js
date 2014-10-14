@@ -1,9 +1,7 @@
-define(["jquery","backbone","models/playerModel"],
-  function($, Backbone, playerModel) {
+define(["jquery","backbone"],
+  function($, Backbone) {
 
-    var playerCollection = Backbone.Collection.extend({
-      model: playerModel
-    });
+    var playerCollection = Backbone.Collection;
 
     return playerCollection;
   });
