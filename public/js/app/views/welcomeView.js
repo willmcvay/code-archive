@@ -1,9 +1,9 @@
-define([ 'marionette', 'handlebars', 'text!templates/playerForm.html', 'App', 'models/playerModel', 'collections/playerCollection'],
-    function (Marionette, Handlebars, template, App, playerModel, playerCollection) {
+define(['App', 'marionette', 'handlebars', 'text!templates/playerForm.html'],
+    function (App, Marionette, Handlebars, template) {
 
         var welcomeView = Marionette.ItemView.extend({
+            
             template:Handlebars.compile(template),
-            playerModel: new playerModel(),
             playerCount: 1,
 
             events: {
@@ -15,29 +15,34 @@ define([ 'marionette', 'handlebars', 'text!templates/playerForm.html', 'App', 'm
 
             newGame: function(e) {
                 e.preventDefault();
-
-               // App.trigger('loadGameView');
             },
 
             addPlayer: function(e) {
                 e.preventDefault();
-                var playerName = this.$('input#player-name').val(),
-                    players = this.model.get('players');
+                var self = this;
 
-                this.playerModel.set({
-                    playerName: playerName,
-                    playerNumber: this.playerCount
+                require(['models/playerModel'], function(playerModel){
+                    
+                    var playerName = this.$('input#player-name').val(),
+                        player = new playerModel(),
+                        players = self.model.get('players');
+
+                    player.set({
+                        playerName: playerName,
+                        playerNumber: self.playerCount
+                    });
+
+                    self.playerCount++;
+
+                    players.add(player);
+
+                    self.model.set({
+                        players: players
+                    });
+
+                    self.model.save();
+                    console.log(self.model)
                 });
-
-                players.add(this.playerModel)
-
-                this.model.set({
-                    players: players
-                })
-
-                this.model.save();
-                console.log(this.model)
-                
             },
 
             loadGame: function(e) {
@@ -46,7 +51,7 @@ define([ 'marionette', 'handlebars', 'text!templates/playerForm.html', 'App', 'm
 
             startGame: function(e) {
                 e.preventDefault();
-                App.trigger('saveGameModel');
+                App.trigger('loadGameView', this.model);
             }
         });
         return welcomeView
