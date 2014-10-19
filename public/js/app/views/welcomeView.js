@@ -7,8 +7,7 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
             playerCount: 1,
 
             regions: {
-                newGameRegion: '#new-game',
-                loadGameRegion: '#load-game'
+                newGameRegion: '#new-game'
             },
 
             events: {
@@ -32,7 +31,22 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
             loadGame: function(e) {
                 e.preventDefault();
 
-                App.trigger('loadGamesCollection');
+                var self = this,
+                    gettingGamesCollection,
+                    loadGamesView;
+
+                require(['views/loadGamesView'], function(loadGamesView){
+
+                    gettingGamesCollection = App.trigger('loadGamesCollection');
+
+                    $.when(gettingGamesCollection).done(function(gamesCollection){
+                        loadGamesView = new loadGamesView({
+                            collection: gamesCollection
+                        });
+                        console.log(self.collection)
+                        self.newGameRegion.show(loadGamesView)
+                    });
+                });
             }
         });
         return welcomeView

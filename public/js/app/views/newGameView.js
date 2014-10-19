@@ -32,7 +32,8 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
                     players.add(player);
 
                     self.model.set({
-                        players: players
+                        players: players,
+                        gameOpen: true
                     });
 
                     self.model.save({},{
@@ -41,7 +42,6 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
                             self.$('input#player-name').val('');
                         }
                     });
-
                 });
             },
 

@@ -27,6 +27,16 @@ server.configure(function () {
 	server.use(server.router);
 });
 
+
+server.get('/api/games', function(req, res){
+	return Game.find({'gameOpen': true},function(err, game) {
+		console.dir(game)
+		if (!err) {
+			return res.send(game);
+		}
+	});
+});
+
 server.get('/api/games/:id', function(req, res){
 	return Game.findById(req.params.id, function(err, game) {
 		if (!err) {

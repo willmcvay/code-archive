@@ -1,7 +1,8 @@
 define(["jquery","backbone"],
-  function($, Backbone) {
+    function($, Backbone) {
 
-    var playerCollection = Backbone.Collection;
+        var playerCollection = Backbone.Collection;
 
-    return playerCollection;
-  });
+        return playerCollection;
+    }
+);

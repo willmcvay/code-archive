@@ -3,10 +3,6 @@ define(["jquery", "backbone", 'collections/playerCollection', 'models/playerMode
 
         var gameModel = Backbone.Model.extend({
 
-        	initialize:function () {
-
-        	},
-
         	idAttribute: "_id",
 
 			getCustomUrl: function (method) {
@@ -298,10 +294,6 @@ define(["jquery", "backbone", 'collections/playerCollection', 'models/playerMode
             parse: function(response) {
             	response.players = new playerCollection(response.players)
             	return response
-            },
-
-            validate:function square(attrs) {
-
             }
         });
         return gameModel;
