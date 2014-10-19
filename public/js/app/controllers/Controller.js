@@ -1,13 +1,11 @@
 define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/welcomeView', 'views/sidebarView', 'models/gameModel', 'collections/playerCollection'],
     function (App, Backbone, Marionette, gameView, headerView, welcomeView, sidebarView, gameModel, playerCollection) {
-    
+
     return Backbone.Marionette.Controller.extend({
-        
+
         initialize: function (options) {
             App.mainRegion.show(new welcomeView({
-                model: new gameModel({
-                    players: new playerCollection()
-                })
+                model: new gameModel()
             }));
         },
 
@@ -17,7 +15,7 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                     model: gameModel
                 }));
                 App.headerRegion.show(new headerView());
-            })   
+            })
         }
     });
 });

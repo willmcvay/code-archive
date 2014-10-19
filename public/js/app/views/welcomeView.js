@@ -33,7 +33,7 @@ define(['App', 'marionette', 'handlebars', 'text!templates/playerForm.html'],
                     });
 
                     self.playerCount++;
-
+                    console.log(self.model)
                     players.add(player);
 
                     self.model.set({
@@ -41,7 +41,7 @@ define(['App', 'marionette', 'handlebars', 'text!templates/playerForm.html'],
                     });
 
                     self.model.save();
-                    console.log(self.model)
+
                 });
             },
 
