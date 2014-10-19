@@ -4,12 +4,10 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
         var GameView = Marionette.ItemView.extend( {
 
             template: Handlebars.compile(template),
-             model: new gameModel(),
 
             events: {
                 'click .square' : 'playerMove',
                 'click .tile' : 'selectTile'
-                
             },
 
             modelEvents: {
@@ -28,7 +26,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             selectTile: function(e) {
-                
+
             },
 
             shuffleTiles: function(tiles) {
@@ -58,47 +56,62 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         playerTiles.push(tilesToAdd);
                         flattenedTiles = _.flatten(playerTiles);
 
-
-                            // this.model.set({
-                            //     : {
-                            //         score: this.model.get(playerName).score,
-                            //         tileRack: flattenedTiles
-                                    
-                            // });
                         this.model.save();
                     }
                 };
                 return
             },
 
-            onRender: function() {
-                var availableSquares = [],
-                    players = [];
+            getAllSquares: function() {
+                var availableSquares = [];
 
-                 this.$('.square').each(function() {
+                this.$('.square').each(function() {
                     availableSquares.push(this.id)
                 });
 
-                 this.model.set({
-                    availableSquares: availableSquares
-                 });
+                this.model.set({
+                    availableSquares: availableSquares,
+                    gameCurrent: true,
+                    currentPlayer: 1
+                });
 
-                 this.fillTileRack();
+                this.model.save();
+                return
+            },
+
+            onRender: function() {
+
+                if (!this.model.get('gameCurrent')) {
+                    this.getAllSquares();
+                }
+                console.log(this.model)
             },
 
             initialize: function() {
                 var tiles = this.model.get('tiles'),
                     shuffledTiles = this.shuffleTiles(tiles),
+                    players = this.model.get('players'),
                     self = this;
-                
-                this.model.set({
-                    tiles: shuffledTiles
+
+                players.each(function(player){
+                    var tilesToAdd = self.model.get('tiles').splice(0, 8);
+
+                    player.set({
+                        tileRack: tilesToAdd
+                    });
                 });
+
+                this.model.set({
+                    tiles: shuffledTiles,
+                    players: players
+                });
+
+                self.model.save();
 
                 App.on('saveGameModel', function(){
                     self.model.save();
                 })
-            }       
+            }
         });
         return GameView
     });

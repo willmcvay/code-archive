@@ -8,12 +8,14 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
         },
 
         index: function () {
+
             App.on('loadGameView', function(gameModel){
                 App.mainRegion.show(new gameView({
                     model: gameModel
                 }));
                 App.headerRegion.show(new headerView());
             });
+
             App.on('loadGamesCollection', function(){
 
                 var games = new gamesCollection(),
@@ -27,7 +29,6 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                         console.log('problem getting games')
                     }
                 });
-
                 return defer.promise()
             });
         }

@@ -28,8 +28,8 @@ server.configure(function () {
 });
 
 
-server.get('/api/games', function(req, res){
-	return Game.find({'gameOpen': true},function(err, game) {
+server.get('/api/games/all', function(req, res){
+	return Game.find({'gameCurrent': true},function(err, game) {
 		console.dir(game)
 		if (!err) {
 			return res.send(game);
@@ -53,6 +53,8 @@ server.put('/api/games/:id', function(req, res){
 		game.availableSquares = req.body.availableSquares;
 		game.tiles = req.body.tiles;
 		game.gameName = req.body.gameName;
+		game.gameCurrent = req.body.gameCurrent;
+		game.currentPlayer = req.body.currentPlayer;
 
 		return game.save(function(err) {
 		if (!err) {
@@ -71,8 +73,11 @@ server.post('/api/games', function(req, res){
 		tileBag: req.body.tileBag,
 		availableSquares: req.body.availableSquares,
 		tiles: req.body.tiles,
-		gameName: req.body.gameName
+		gameName: req.body.gameName,
+		gameCurrent: req.body.gameCurrent,
+		currentPlayer: req.body.currentPlayer
 	});
+
 	game.save(function(err) {
 		if (!err) {
 			return console.log("created");

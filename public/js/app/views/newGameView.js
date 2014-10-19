@@ -33,7 +33,7 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
 
                     self.model.set({
                         players: players,
-                        gameOpen: true
+                        gameCurrent: false
                     });
 
                     self.model.save({},{
