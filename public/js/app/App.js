@@ -19,4 +19,5 @@ define(['jquery', 'backbone', 'marionette', 'underscore', 'handlebars'],
         });
 
         return App;
-    });
+    }
+);

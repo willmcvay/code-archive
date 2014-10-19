@@ -10,9 +10,9 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 'click .tile' : 'selectTile'
             },
 
-            modelEvents: {
-                'change' : 'render'
-            },
+            // modelEvents: {
+            //     'change' : 'render'
+            // },
 
             playerMove: function(e) {
                 console.log($(e.currentTarget))
@@ -79,11 +79,30 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return
             },
 
+            renderSideBar: function() {
+                var self = this;
+
+                require(['views/sidebarView'], function(sidebar){
+
+                    // $(document).ready(function(){
+                        var sidebarView = new sidebar({
+                            collection: self.model.get('players')
+                        });
+                        console.log(self.$('#sidebar'))
+                        self.$('#sidebar').html(sidebarView.render().$el);
+                    // });
+                });
+            },
+
             onRender: function() {
+
+                var self = this;
 
                 if (!this.model.get('gameCurrent')) {
                     this.getAllSquares();
                 }
+
+
                 console.log(this.model)
             },
 
@@ -106,7 +125,12 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     players: players
                 });
 
-                self.model.save();
+                self.model.save({},{
+                    success: function() {
+                        console.log('called')
+                        self.renderSideBar();
+                    }
+                });
 
                 App.on('saveGameModel', function(){
                     self.model.save();
