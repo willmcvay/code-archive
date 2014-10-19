@@ -296,7 +296,7 @@ define(["jquery", "backbone", 'collections/playerCollection', 'models/playerMode
             },
 
             parse: function(response) {
-            	console.log('here in parse')
+            	response.players = new playerCollection(response.players)
             	return response
             },
 
