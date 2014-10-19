@@ -7,19 +7,7 @@ var express = require("express"),
 
 mongoose.connect('mongodb://localhost/my_database');
 
-var Game = mongoose.model('Game', new mongoose.Schema({
-	playerOne: {
-		score: Number,
-		tileRack: Array
-	},
-	playerTwo: {
-		score: Number,
-		tileRack: Array
-	},
-	tileBag: Array,
-	availableSquares: Array,
-	tiles: Array
-}));
+var Game = mongoose.model('Game', new mongoose.Schema());
 
 server.configure(function () {
 
@@ -42,11 +30,6 @@ server.get('/api/games/:id', function(req, res){
 
 server.put('/api/games/:id', function(req, res){
 	return Game.findById(req.params.id, function(err, game) {
-		// game.playerOne = req.body.playerOne;
-		// game.playerTwo = req.body.playerTwo;
-		// game.tileBag = req.body.tileBag;
-		// game.availableSquares = req.body.availableSquares;
-		// game.tiles = req.body.tiles;
 		return game.save(function(err) {
 		if (!err) {
 			console.log("updated");
@@ -58,13 +41,7 @@ server.put('/api/games/:id', function(req, res){
 
 server.post('/api/games', function(req, res){
 	var game;
-	game = new Game({
-		playerOne: req.body.playerOne,
-		playerTwo: req.body.playerTwo,
-		tileBag: req.body.tileBag,
-		availableSquares: req.body.availableSquares,
-		tiles: req.body.tiles
-	});
+	game = new Game();
 	game.save(function(err) {
 		if (!err) {
 			return console.log("created");
