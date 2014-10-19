@@ -12,7 +12,8 @@ var Game = mongoose.model('Game', new mongoose.Schema({
 	tileValues: {},
 	tileBag: Array,
 	availableSquares: Array,
-	tiles: Array
+	tiles: Array,
+	gameName: String
 }));
 
 server.configure(function () {
@@ -41,6 +42,7 @@ server.put('/api/games/:id', function(req, res){
 		game.tileBag = req.body.tileBag;
 		game.availableSquares = req.body.availableSquares;
 		game.tiles = req.body.tiles;
+		game.gameName = req.body.gameName;
 
 		return game.save(function(err) {
 		if (!err) {
@@ -58,7 +60,8 @@ server.post('/api/games', function(req, res){
 		tileValues: req.body.tileValues,
 		tileBag: req.body.tileBag,
 		availableSquares: req.body.availableSquares,
-		tiles: req.body.tiles
+		tiles: req.body.tiles,
+		gameName: req.body.gameName
 	});
 	game.save(function(err) {
 		if (!err) {

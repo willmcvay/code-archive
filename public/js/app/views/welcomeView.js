@@ -1,59 +1,40 @@
-define(['App', 'marionette', 'handlebars', 'text!templates/playerForm.html'],
+define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
     function (App, Marionette, Handlebars, template) {
 
-        var welcomeView = Marionette.ItemView.extend({
+        var welcomeView = Marionette.Layout.extend({
 
             template:Handlebars.compile(template),
             playerCount: 1,
 
+            regions: {
+                newGameRegion: '#new-game',
+                loadGameRegion: '#load-game'
+            },
+
             events: {
-                'click #new-game' : 'newGame',
-                'click #start-game' : 'startGame',
-                'click #add-player' : 'addPlayer',
-                'click #load-game' : 'loadGame'
+                'click #new-game-btn' : 'newGame',
+                'click #load-game-btn' : 'loadGame'
             },
 
             newGame: function(e) {
                 e.preventDefault();
-            },
-
-            addPlayer: function(e) {
-                e.preventDefault();
                 var self = this;
+                require(['models/gameModel', 'views/newGameView'], function(gameModel, newGameView){
 
-                require(['models/playerModel'], function(playerModel){
-
-                    var playerName = this.$('input#player-name').val(),
-                        player = new playerModel(),
-                        players = self.model.get('players');
-
-                    player.set({
-                        playerName: playerName,
-                        playerNumber: self.playerCount
+                    var newGameView = new newGameView({
+                        model: new gameModel()
                     });
 
-                    self.playerCount++;
-
-                    players.add(player);
-
-                    self.model.set({
-                        players: players
-                    });
-
-                    self.model.save();
-                    console.log(self.model)
-
+                    self.newGameRegion.show(newGameView);
                 });
             },
 
             loadGame: function(e) {
-
-            },
-
-            startGame: function(e) {
                 e.preventDefault();
-                App.trigger('loadGameView', this.model);
+
+                App.trigger('loadGamesCollection');
             }
         });
         return welcomeView
-    });
+    }
+);

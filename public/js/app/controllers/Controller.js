@@ -4,9 +4,7 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
     return Backbone.Marionette.Controller.extend({
 
         initialize: function (options) {
-            App.mainRegion.show(new welcomeView({
-                model: new gameModel()
-            }));
+            App.mainRegion.show(new welcomeView());
         },
 
         index: function () {
