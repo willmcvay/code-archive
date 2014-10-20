@@ -1,18 +1,18 @@
-define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'config/constants'],
-    function( App, Marionette, Handlebars, template, constants) {
-
+define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'config/constants', 'views/playerView'],
+    function( App, Marionette, Handlebars, template, constants, playerView) {
 
         var sidebarView = Marionette.CompositeView.extend({
 
+            itemView: playerView,
+            itemViewContainer: '.tile-rack',
             template: Handlebars.compile(template),
+
             initialize: function() {
+                this.collection = this.model.get('players');
 
             },
             onRender: function() {
-                require(['views/playerView'], function(playerView) {
-                    this.itemView = new playerView();
-                    this.itemViewContainer = $('.tile-rack');
-                });
+
                 console.log('rendering', this.collection)
             }
 

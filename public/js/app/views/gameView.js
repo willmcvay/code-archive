@@ -79,20 +79,20 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return
             },
 
-            renderSideBar: function() {
-                var self = this;
+            // renderSideBar: function() {
+            //     var self = this;
 
-                require(['views/sidebarView'], function(sidebar){
+            //     require(['views/sidebarView'], function(sidebar){
 
-                    // $(document).ready(function(){
-                        var sidebarView = new sidebar({
-                            collection: self.model.get('players')
-                        });
-                        console.log(self.$('#sidebar'))
-                        self.$('#sidebar').html(sidebarView.render().$el);
-                    // });
-                });
-            },
+            //         // $(document).ready(function(){
+            //             var sidebarView = new sidebar({
+            //                 collection: self.model.get('players')
+            //             });
+            //             console.log(self.$('#sidebar'))
+            //             self.$('#sidebar').html(sidebarView.render().$el);
+            //         // });
+            //     });
+            // },
 
             onRender: function() {
 
@@ -125,10 +125,12 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     players: players
                 });
 
+
+
                 self.model.save({},{
                     success: function() {
-                        console.log('called')
-                        self.renderSideBar();
+                        App.trigger('load:sidebar:view', self.model);
+                        console.log('Model Saved')
                     }
                 });
 

@@ -4,7 +4,8 @@ define(['jquery', 'backbone', 'marionette', 'underscore', 'handlebars'],
 
         App.addRegions({
             headerRegion: "header",
-            mainRegion: "#main"
+            mainRegion: "#main",
+            sidebarRegion: '#sidebar'
         });
 
         function isMobile() {

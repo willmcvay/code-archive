@@ -1,687 +1,678 @@
-<div class="row">
-        <div id="playing-board" class="col-md-9">
+<div id="playing-board" class="col-md-9">
 
-<!--             {{#each squareValues}}
-                <div class="square-container">
-                    <div class="square" id="{{this}}">{{this}}</div>
-                </div>
-            {{/each}} -->
-
-            <div class="square-container">
-                <div class="square triple-word" id="001">{{squareValues.square001}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="002">{{squareValues.square002}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="003">{{squareValues.square003}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="004">{{squareValues.square004}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="005">{{squareValues.square005}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="006">{{squareValues.square006}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="007">{{squareValues.square007}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="008">{{squareValues.square008}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="009">{{squareValues.square009}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="010">{{squareValues.square010}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="011">{{squareValues.square011}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="012">{{squareValues.square012}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="013">{{squareValues.square013}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="014">{{squareValues.square014}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="015">{{squareValues.square015}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="016">{{squareValues.square016}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="017">{{squareValues.square017}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="018">{{squareValues.square018}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="019">{{squareValues.square019}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="020">{{squareValues.square020}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="021">{{squareValues.square021}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="022">{{squareValues.square022}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="023">{{squareValues.square023}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="024">{{squareValues.square024}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="025">{{squareValues.square025}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="026">{{squareValues.square026}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="027">{{squareValues.square027}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="028">{{squareValues.square028}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="029">{{squareValues.square029}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="030">{{squareValues.square030}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="031">{{squareValues.square031}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="032">{{squareValues.square032}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="033">{{squareValues.square033}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="034">{{squareValues.square034}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="035">{{squareValues.square035}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="036">{{squareValues.square036}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="037">{{squareValues.square037}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="038">{{squareValues.square038}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="039">{{squareValues.square039}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="040">{{squareValues.square040}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="041">{{squareValues.square041}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="042">{{squareValues.square042}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="043">{{squareValues.square043}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="044">{{squareValues.square044}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="045">{{squareValues.square045}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="046">{{squareValues.square046}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="047">{{squareValues.square047}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="048">{{squareValues.square048}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="049">{{squareValues.square049}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="050">{{squareValues.square050}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="051">{{squareValues.square051}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="052">{{squareValues.square052}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="053">{{squareValues.square053}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="054">{{squareValues.square054}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="055">{{squareValues.square055}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="056">{{squareValues.square056}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="057">{{squareValues.square057}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="058">{{squareValues.square058}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="059">{{squareValues.square059}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="060">{{squareValues.square060}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="061">{{squareValues.square061}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="062">{{squareValues.square062}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="063">{{squareValues.square063}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="064">{{squareValues.square064}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="065">{{squareValues.square065}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="066">{{squareValues.square066}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="067">{{squareValues.square067}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="068">{{squareValues.square068}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="069">{{squareValues.square069}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="070">{{squareValues.square070}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="071">{{squareValues.square071}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="072">{{squareValues.square072}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="073">{{squareValues.square073}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="074">{{squareValues.square074}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="075">{{squareValues.square075}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="076">{{squareValues.square076}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="077">{{squareValues.square077}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="078">{{squareValues.square078}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="079">{{squareValues.square079}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="080">{{squareValues.square080}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="081">{{squareValues.square081}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="082">{{squareValues.square082}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="083">{{squareValues.square083}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="084">{{squareValues.square084}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="085">{{squareValues.square085}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="086">{{squareValues.square086}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="087">{{squareValues.square087}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="088">{{squareValues.square088}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="089">{{squareValues.square089}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="090">{{squareValues.square090}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="091">{{squareValues.square091}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="092">{{squareValues.square092}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="093">{{squareValues.square093}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="094">{{squareValues.square094}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="095">{{squareValues.square095}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="096">{{squareValues.square096}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="097">{{squareValues.square097}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="098">{{squareValues.square098}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="099">{{squareValues.square099}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="100">{{squareValues.square100}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="101">{{squareValues.square101}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="102">{{squareValues.square102}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="103">{{squareValues.square103}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="104">{{squareValues.square104}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="105">{{squareValues.square105}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="106">{{squareValues.square106}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="107">{{squareValues.square107}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="108">{{squareValues.square108}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="109">{{squareValues.square109}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="110">{{squareValues.square110}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="111">{{squareValues.square111}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="112">{{squareValues.square112}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square start" id="113">{{squareValues.square113}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="114">{{squareValues.square114}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="115">{{squareValues.square115}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="116">{{squareValues.square116}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="117">{{squareValues.square117}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="118">{{squareValues.square118}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="119">{{squareValues.square119}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="120">{{squareValues.square120}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="121">{{squareValues.square121}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="122">{{squareValues.square122}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="123">{{squareValues.square123}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="124">{{squareValues.square124}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="125">{{squareValues.square125}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="126">{{squareValues.square126}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="127">{{squareValues.square127}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="128">{{squareValues.square128}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="129">{{squareValues.square129}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="130">{{squareValues.square130}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="131">{{squareValues.square131}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="132">{{squareValues.square132}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="133">{{squareValues.square133}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="134">{{squareValues.square134}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="135">{{squareValues.square135}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="136">{{squareValues.square136}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="137">{{squareValues.square137}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="138">{{squareValues.square138}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="139">{{squareValues.square139}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="140">{{squareValues.square140}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="141">{{squareValues.square141}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="142">{{squareValues.square142}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="143">{{squareValues.square143}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="144">{{squareValues.square144}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="145">{{squareValues.square145}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="146">{{squareValues.square146}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="147">{{squareValues.square147}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="148">{{squareValues.square148}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="149">{{squareValues.square149}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="150">{{squareValues.square150}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="151">{{squareValues.square151}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="152">{{squareValues.square152}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="153">{{squareValues.square153}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="154">{{squareValues.square154}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="155">{{squareValues.square155}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="156">{{squareValues.square156}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="157">{{squareValues.square157}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="158">{{squareValues.square158}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="159">{{squareValues.square159}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="160">{{squareValues.square160}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="161">{{squareValues.square161}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="162">{{squareValues.square162}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="163">{{squareValues.square163}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="164">{{squareValues.square164}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="165">{{squareValues.square165}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="166">{{squareValues.square166}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="167">{{squareValues.square167}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="168">{{squareValues.square168}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="169">{{squareValues.square169}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="170">{{squareValues.square170}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="171">{{squareValues.square171}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="172">{{squareValues.square172}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="173">{{squareValues.square173}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="174">{{squareValues.square174}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="175">{{squareValues.square175}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="176">{{squareValues.square176}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="177">{{squareValues.square177}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="178">{{squareValues.square178}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="179">{{squareValues.square179}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="180">{{squareValues.square180}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="181">{{squareValues.square181}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="182">{{squareValues.square182}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="183">{{squareValues.square183}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="184">{{squareValues.square184}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="185">{{squareValues.square185}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="186">{{squareValues.square186}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="187">{{squareValues.square187}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="188">{{squareValues.square188}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="189">{{squareValues.square189}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="190">{{squareValues.square190}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="191">{{squareValues.square191}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="192">{{squareValues.square192}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="193">{{squareValues.square193}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="194">{{squareValues.square194}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="195">{{squareValues.square195}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="196">{{squareValues.square196}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="197">{{squareValues.square197}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="198">{{squareValues.square198}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="199">{{squareValues.square199}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="200">{{squareValues.square200}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="201">{{squareValues.square201}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="202">{{squareValues.square202}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="203">{{squareValues.square203}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="204">{{squareValues.square204}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-letter" id="205">{{squareValues.square205}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="206">{{squareValues.square206}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="207">{{squareValues.square207}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="208">{{squareValues.square208}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-word" id="209">{{squareValues.square209}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="210">{{squareValues.square210}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="211">{{squareValues.square211}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="212">{{squareValues.square212}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="213">{{squareValues.square213}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="214">{{squareValues.square214}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="215">{{squareValues.square215}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="216">{{squareValues.square216}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="217">{{squareValues.square217}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="218">{{squareValues.square218}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="219">{{squareValues.square219}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="220">{{squareValues.square220}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="221">{{squareValues.square221}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square double-letter" id="222">{{squareValues.square222}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="223">{{squareValues.square223}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square" id="224">{{squareValues.square224}}</div>
-            </div>
-            <div class="square-container">
-                <div class="square triple-word" id="225">{{squareValues.square225}}</div>
-            </div>
-        </div>
-        <div id="sidebar" class="col-md-9"></div>
- </div>
+    <div class="square-container">
+        <div class="square triple-word" id="001">{{squareValues.square001}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="002">{{squareValues.square002}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="003">{{squareValues.square003}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="004">{{squareValues.square004}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="005">{{squareValues.square005}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="006">{{squareValues.square006}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="007">{{squareValues.square007}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="008">{{squareValues.square008}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="009">{{squareValues.square009}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="010">{{squareValues.square010}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="011">{{squareValues.square011}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="012">{{squareValues.square012}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="013">{{squareValues.square013}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="014">{{squareValues.square014}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="015">{{squareValues.square015}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="016">{{squareValues.square016}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="017">{{squareValues.square017}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="018">{{squareValues.square018}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="019">{{squareValues.square019}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="020">{{squareValues.square020}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="021">{{squareValues.square021}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="022">{{squareValues.square022}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="023">{{squareValues.square023}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="024">{{squareValues.square024}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="025">{{squareValues.square025}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="026">{{squareValues.square026}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="027">{{squareValues.square027}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="028">{{squareValues.square028}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="029">{{squareValues.square029}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="030">{{squareValues.square030}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="031">{{squareValues.square031}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="032">{{squareValues.square032}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="033">{{squareValues.square033}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="034">{{squareValues.square034}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="035">{{squareValues.square035}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="036">{{squareValues.square036}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="037">{{squareValues.square037}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="038">{{squareValues.square038}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="039">{{squareValues.square039}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="040">{{squareValues.square040}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="041">{{squareValues.square041}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="042">{{squareValues.square042}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="043">{{squareValues.square043}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="044">{{squareValues.square044}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="045">{{squareValues.square045}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="046">{{squareValues.square046}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="047">{{squareValues.square047}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="048">{{squareValues.square048}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="049">{{squareValues.square049}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="050">{{squareValues.square050}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="051">{{squareValues.square051}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="052">{{squareValues.square052}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="053">{{squareValues.square053}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="054">{{squareValues.square054}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="055">{{squareValues.square055}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="056">{{squareValues.square056}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="057">{{squareValues.square057}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="058">{{squareValues.square058}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="059">{{squareValues.square059}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="060">{{squareValues.square060}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="061">{{squareValues.square061}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="062">{{squareValues.square062}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="063">{{squareValues.square063}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="064">{{squareValues.square064}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="065">{{squareValues.square065}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="066">{{squareValues.square066}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="067">{{squareValues.square067}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="068">{{squareValues.square068}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="069">{{squareValues.square069}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="070">{{squareValues.square070}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="071">{{squareValues.square071}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="072">{{squareValues.square072}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="073">{{squareValues.square073}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="074">{{squareValues.square074}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="075">{{squareValues.square075}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="076">{{squareValues.square076}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="077">{{squareValues.square077}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="078">{{squareValues.square078}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="079">{{squareValues.square079}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="080">{{squareValues.square080}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="081">{{squareValues.square081}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="082">{{squareValues.square082}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="083">{{squareValues.square083}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="084">{{squareValues.square084}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="085">{{squareValues.square085}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="086">{{squareValues.square086}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="087">{{squareValues.square087}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="088">{{squareValues.square088}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="089">{{squareValues.square089}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="090">{{squareValues.square090}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="091">{{squareValues.square091}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="092">{{squareValues.square092}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="093">{{squareValues.square093}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="094">{{squareValues.square094}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="095">{{squareValues.square095}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="096">{{squareValues.square096}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="097">{{squareValues.square097}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="098">{{squareValues.square098}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="099">{{squareValues.square099}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="100">{{squareValues.square100}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="101">{{squareValues.square101}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="102">{{squareValues.square102}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="103">{{squareValues.square103}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="104">{{squareValues.square104}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="105">{{squareValues.square105}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="106">{{squareValues.square106}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="107">{{squareValues.square107}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="108">{{squareValues.square108}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="109">{{squareValues.square109}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="110">{{squareValues.square110}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="111">{{squareValues.square111}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="112">{{squareValues.square112}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square start" id="113">{{squareValues.square113}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="114">{{squareValues.square114}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="115">{{squareValues.square115}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="116">{{squareValues.square116}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="117">{{squareValues.square117}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="118">{{squareValues.square118}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="119">{{squareValues.square119}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="120">{{squareValues.square120}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="121">{{squareValues.square121}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="122">{{squareValues.square122}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="123">{{squareValues.square123}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="124">{{squareValues.square124}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="125">{{squareValues.square125}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="126">{{squareValues.square126}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="127">{{squareValues.square127}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="128">{{squareValues.square128}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="129">{{squareValues.square129}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="130">{{squareValues.square130}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="131">{{squareValues.square131}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="132">{{squareValues.square132}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="133">{{squareValues.square133}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="134">{{squareValues.square134}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="135">{{squareValues.square135}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="136">{{squareValues.square136}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="137">{{squareValues.square137}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="138">{{squareValues.square138}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="139">{{squareValues.square139}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="140">{{squareValues.square140}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="141">{{squareValues.square141}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="142">{{squareValues.square142}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="143">{{squareValues.square143}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="144">{{squareValues.square144}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="145">{{squareValues.square145}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="146">{{squareValues.square146}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="147">{{squareValues.square147}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="148">{{squareValues.square148}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="149">{{squareValues.square149}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="150">{{squareValues.square150}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="151">{{squareValues.square151}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="152">{{squareValues.square152}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="153">{{squareValues.square153}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="154">{{squareValues.square154}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="155">{{squareValues.square155}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="156">{{squareValues.square156}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="157">{{squareValues.square157}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="158">{{squareValues.square158}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="159">{{squareValues.square159}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="160">{{squareValues.square160}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="161">{{squareValues.square161}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="162">{{squareValues.square162}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="163">{{squareValues.square163}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="164">{{squareValues.square164}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="165">{{squareValues.square165}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="166">{{squareValues.square166}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="167">{{squareValues.square167}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="168">{{squareValues.square168}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="169">{{squareValues.square169}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="170">{{squareValues.square170}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="171">{{squareValues.square171}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="172">{{squareValues.square172}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="173">{{squareValues.square173}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="174">{{squareValues.square174}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="175">{{squareValues.square175}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="176">{{squareValues.square176}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="177">{{squareValues.square177}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="178">{{squareValues.square178}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="179">{{squareValues.square179}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="180">{{squareValues.square180}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="181">{{squareValues.square181}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="182">{{squareValues.square182}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="183">{{squareValues.square183}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="184">{{squareValues.square184}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="185">{{squareValues.square185}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="186">{{squareValues.square186}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="187">{{squareValues.square187}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="188">{{squareValues.square188}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="189">{{squareValues.square189}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="190">{{squareValues.square190}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="191">{{squareValues.square191}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="192">{{squareValues.square192}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="193">{{squareValues.square193}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="194">{{squareValues.square194}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="195">{{squareValues.square195}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="196">{{squareValues.square196}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="197">{{squareValues.square197}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="198">{{squareValues.square198}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="199">{{squareValues.square199}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="200">{{squareValues.square200}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="201">{{squareValues.square201}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="202">{{squareValues.square202}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="203">{{squareValues.square203}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="204">{{squareValues.square204}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-letter" id="205">{{squareValues.square205}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="206">{{squareValues.square206}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="207">{{squareValues.square207}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="208">{{squareValues.square208}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-word" id="209">{{squareValues.square209}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="210">{{squareValues.square210}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="211">{{squareValues.square211}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="212">{{squareValues.square212}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="213">{{squareValues.square213}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="214">{{squareValues.square214}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="215">{{squareValues.square215}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="216">{{squareValues.square216}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="217">{{squareValues.square217}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="218">{{squareValues.square218}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="219">{{squareValues.square219}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="220">{{squareValues.square220}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="221">{{squareValues.square221}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square double-letter" id="222">{{squareValues.square222}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="223">{{squareValues.square223}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square" id="224">{{squareValues.square224}}</div>
+    </div>
+    <div class="square-container">
+        <div class="square triple-word" id="225">{{squareValues.square225}}</div>
+    </div>
+</div>
