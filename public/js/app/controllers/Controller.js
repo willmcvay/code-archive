@@ -7,7 +7,10 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
             App.mainRegion.show(new welcomeView());
         },
 
+
+
         index: function () {
+
 
             App.on('loadGameView', function(gameModel){
                 App.mainRegion.show(new gameView({
@@ -16,13 +19,13 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                 App.headerRegion.show(new headerView());
             });
 
-            App.on('loadGamesCollection', function(){
-
+            App.reqres.setHandler('load:games:collection', function(){
                 var games = new gamesCollection(),
-                    defer = $.Deferred();
+                        defer = $.Deferred();
 
                 games.fetch({
                     success: function(data) {
+                        console.log(data)
                         defer.resolve(data);
                     },
                     error: function(data, response) {

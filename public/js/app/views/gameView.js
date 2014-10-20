@@ -79,20 +79,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return
             },
 
-            // renderSideBar: function() {
-            //     var self = this;
-
-            //     require(['views/sidebarView'], function(sidebar){
-
-            //         // $(document).ready(function(){
-            //             var sidebarView = new sidebar({
-            //                 collection: self.model.get('players')
-            //             });
-            //             console.log(self.$('#sidebar'))
-            //             self.$('#sidebar').html(sidebarView.render().$el);
-            //         // });
-            //     });
-            // },
 
             onRender: function() {
 
@@ -101,7 +87,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 if (!this.model.get('gameCurrent')) {
                     this.getAllSquares();
                 }
-
 
                 console.log(this.model)
             },
@@ -124,8 +109,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     tiles: shuffledTiles,
                     players: players
                 });
-
-
 
                 self.model.save({},{
                     success: function() {

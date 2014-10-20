@@ -37,14 +37,14 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
 
                 require(['views/loadGamesView'], function(loadGamesView){
 
-                    gettingGamesCollection = App.trigger('loadGamesCollection');
+                    gettingGamesCollection = App.request('load:games:collection')
 
                     $.when(gettingGamesCollection).done(function(gamesCollection){
-                        loadGamesView = new loadGamesView({
+                        gamesView = new loadGamesView({
                             collection: gamesCollection
                         });
-                        console.log(self.collection)
-                        self.newGameRegion.show(loadGamesView)
+                        console.log(gamesCollection)
+                        self.newGameRegion.show(gamesView)
                     });
                 });
             }
