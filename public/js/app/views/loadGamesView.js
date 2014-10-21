@@ -4,7 +4,10 @@ define(['App', 'marionette', 'handlebars', 'views/loadGameView', 'text!templates
         var loadGamesView = Marionette.CompositeView.extend({
 
             itemView: loadGameView,
-            template:Handlebars.compile(template)
+            template:Handlebars.compile(template),
+            onRender: function(){
+                console.log(this.collection);
+            }
         });
         return loadGamesView
     }

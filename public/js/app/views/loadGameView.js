@@ -9,9 +9,13 @@ define(['App', 'marionette', 'handlebars', 'text!templates/loadGame.html'],
                 'click #load-game' : 'loadGame'
             },
 
+            onRender: function() {
+                console.log(this.model)
+            },
+
             loadGame: function(e) {
                 e.preventDefault();
-                App.trigger('loadGameView', this.model);
+                // App.trigger('loadGameView', this.model);
             }
         });
         return loadGameView

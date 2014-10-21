@@ -30,7 +30,7 @@ server.configure(function () {
 
 server.get('/api/games/all', function(req, res){
 	return Game.find().limit(20).execFind(function(err, game) {
-		console.dir(game)
+		// console.log(game)
 		if (!err) {
 			return res.send(game);
 		}
