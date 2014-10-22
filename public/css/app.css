@@ -1,4 +1,11 @@
 @import url("bootstrap.css");
+@import url("flat-ui.css");
+
+body {
+	background: #34495E;
+	color: #ECF0F1;
+	font-size: 80%;
+}
 
 #playing-board {
 	max-width: 50%;
@@ -16,12 +23,12 @@
 }
 
 .square {
-	color: #707070;
+
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	left: 0;
-	background: #A2D39C;
+	background: #1ABC9C;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
@@ -30,19 +37,19 @@
 }
 
 .double-word, .start {
-	background: #F49AC2;
+	background: #E67E22;
 }
 
 .double-letter {
-	background: #6ECFF6;
+	background: #3498DB;
 }
 
 .triple-word {
-	background: #F6989D;
+	background: #E74C3C;
 }
 
 .triple-letter {
-	background: #8493CA;
+	background: #9B59B6;
 }
 
 
