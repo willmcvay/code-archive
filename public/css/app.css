@@ -29,7 +29,6 @@ body {
 	left: 0;
 	background: #1ABC9C;
 	text-align: center;
-	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
 	word-wrap: normal;
 	line-height: 100%;
@@ -50,5 +49,30 @@ body {
 .triple-letter {
 	background: #9B59B6;
 }
+
+.tile-container {
+	position: relative;
+	padding-bottom: 11%;
+	float: left;
+	height: 0;
+	margin: 0.6%;
+}
+.tile {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	background: #1ABC9C;
+	text-align: center;
+	font-size: 100%;
+	word-wrap: normal;
+	line-height: 100%;
+}
+
+.tile-rack {
+	list-style: none;
+
+}
+
 
 

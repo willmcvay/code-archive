@@ -112,7 +112,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                 self.model.save({},{
                     success: function() {
-                        App.trigger('load:sidebar:view', self.model);
+                        var squareWidth = self.$('.square-container').width(),
+                            squareMargin = self.$('.square-container').css('margin'),
+                            squareDimensions = {
+                                width: squareWidth,
+                                height: squareWidth,
+                                margin: squareMargin
+                            }
+                        App.trigger('load:sidebar:view', self.model, squareDimensions);
                         console.log('Model Saved')
                     }
                 });

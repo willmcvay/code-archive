@@ -12,7 +12,11 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'con
 
             },
             onRender: function() {
-
+                this.$('.tile-container').css({
+                    width: this.options.squareDimensions.width,
+                    height: this.options.squareDimensions.height,
+                    margin: this.options.squareDimensions.margin
+                });
                 console.log('rendering', this.collection)
             }
 

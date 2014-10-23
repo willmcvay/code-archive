@@ -33,9 +33,10 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                 return defer.promise()
             });
 
-            App.on('load:sidebar:view', function(gameModel){
+            App.on('load:sidebar:view', function(gameModel, squareDimensions){
                 App.sidebarRegion.show(new sidebarView({
-                    model: gameModel
+                    model: gameModel,
+                    squareDimensions: squareDimensions
                 }));
             });
         }
