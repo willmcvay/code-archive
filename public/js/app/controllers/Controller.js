@@ -5,9 +5,8 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
 
         initialize: function (options) {
             App.mainRegion.show(new welcomeView());
+            App.headerRegion.show(new headerView());
         },
-
-
 
         index: function () {
 

@@ -1,10 +1,9 @@
 @import url("bootstrap.css");
-@import url("flat-ui.css");
 
 body {
 	background: #34495E;
 	color: #ECF0F1;
-	font-size: 80%;
+	font-size: 100%;
 }
 
 #playing-board {
