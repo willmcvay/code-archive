@@ -140,7 +140,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     }
                 });
 
-                App.on('saveGameModel', function(){
+                App.on('save:game:model', function(playerModel){
+
+                    var players = self.model.get('players'),
+                        playerToUpdate = players.where({
+                            playerName: playerModel.get('playerName')
+                        })[0];
+
+                    playerToUpdate = playerModel;
                     self.model.save();
                 })
             }

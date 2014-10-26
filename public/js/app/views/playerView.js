@@ -37,7 +37,7 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
                     tileRack: tileRack
                 });
 
-                this.model.save();
+                App.trigger('save:game:model', this.model);
 
                 this.draggedElement = null;
             },
