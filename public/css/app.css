@@ -78,4 +78,10 @@ body {
 	background: #F1C40F;
 }
 
+.drag-enter {
+	margin: #F1C40F;
+}
 
+.dropped {
+	background: #F1C40F;
+}

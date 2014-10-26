@@ -6,10 +6,10 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             template: Handlebars.compile(template),
 
             events: {
-                'drop': 'drop',
+                'drop .square': 'drop',
                 'dragover': 'dragOver',
                 'dragenter': 'dragEnter',
-                'dragleave': 'dragLeave',
+                'dragleave': 'dragLeave'
             },
 
             // modelEvents: {
@@ -35,13 +35,9 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 e.stopPropagation();
                 e.preventDefault();
                 var self = this;
+                $(e.currentTarget).html(e.originalEvent.dataTransfer.getData('text'));
+                $(e.currentTarget).addClass('dropped')
                 $(document).trigger('dragend');
-            },
-
-
-            playerMove: function(e) {
-                console.log($(e.currentTarget))
-
             },
 
             saveGame: function(e) {
