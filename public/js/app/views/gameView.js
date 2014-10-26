@@ -35,6 +35,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 e.stopPropagation();
                 e.preventDefault();
                 var self = this;
+                console.log(this.model)
                 $(e.currentTarget).html(e.originalEvent.dataTransfer.getData('text'));
                 $(e.currentTarget).addClass('dropped')
                 $(document).trigger('dragend');
