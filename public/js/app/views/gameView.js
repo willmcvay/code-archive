@@ -4,6 +4,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
         var GameView = Marionette.ItemView.extend( {
 
             template: Handlebars.compile(template),
+            thisTurnMoves: [],
 
             events: {
                 'drop .square': 'drop',
@@ -34,10 +35,17 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             drop: function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                var self = this;
-                console.log(this.model)
-                $(e.currentTarget).html(e.originalEvent.dataTransfer.getData('text'));
-                $(e.currentTarget).addClass('dropped')
+                var self = this,
+                    currentMoveSquare = $(e.currentTarget),
+                    currentMoveMultiplier;
+
+
+
+                    // console.log(currentMoveMultiplier)
+
+                this.thisTurnMoves.push(currentMoveSquare);
+                currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
+                currentMoveSquare.addClass('dropped')
                 $(document).trigger('dragend');
             },
 
@@ -147,9 +155,61 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                             playerName: playerModel.get('playerName')
                         })[0];
 
-                    playerToUpdate = playerModel;
+                    playerToUpdate.set(playerModel);
                     self.model.save();
-                })
+                });
+
+                App.on('play:move', function(playerModel){
+                    var thisTurnScore = 0,
+                        wordMultipliers = 0,
+                        letter,
+                        finalScore,
+                        playerToUpdate;
+
+                    for (var i = 0; i < self.thisTurnMoves.length; i++) {
+
+                        console.log(self.thisTurnMoves[i])
+                        if (self.thisTurnMoves[i].hasClass('double-letter')) {
+                            letter = parseInt(self.thisTurnMoves[i].html()) * 2;
+                            thisTurnScore += letter;
+                            console.log(letter)
+                        } else if (self.thisTurnMoves[i].hasClass('triple-letter')) {
+                            letter = parseInt(self.thisTurnMoves[i].html()) * 3;
+                            thisTurnScore += letter;
+                        } else if (self.thisTurnMoves[i].hasClass('double-word') || self.thisTurnMoves[i].hasClass('start')) {
+                            letter = parseInt(self.thisTurnMoves[i].html());
+                            thisTurnScore += letter;
+                            wordMultipliers += 2;
+                        } else if (self.thisTurnMoves[i].hasClass('triple-word')) {
+                            letter = parseInt(self.thisTurnMoves[i].html());
+                            thisTurnScore += letter;
+                            wordMultipliers += 3;
+                        } else {
+                            letter = parseInt(self.thisTurnMoves[i].html());
+                            thisTurnScore += letter;
+                            console.log(letter)
+                        }
+                    };
+                    console.log(thisTurnScore)
+
+                    if (wordMultipliers !== 0) {
+                        finalScore = thisTurnScore * wordMultipliers;
+                    } else {
+                        finalScore = thisTurnScore;
+                    }
+
+                    playerToUpdate = players.where({
+                        playerName: playerModel.get('playerName')
+                    })[0];
+
+                    playerToUpdate.set({
+                        score: finalScore
+                    });
+
+                    console.log(self.model)
+                    self.model.save();
+                    self.thisTurnMoves = [];
+                });
             }
         });
         return GameView

@@ -10,7 +10,9 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
 
             events: {
                 'dragstart .tile-container': 'dragStart',
-                'dragend': 'dragEnd'
+                'dragend': 'dragEnd',
+                'click .play-move' : 'playMove'
+
             },
 
             modelEvents: {
@@ -26,20 +28,24 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             },
 
             dragEnd: function(e) {
-                // console.log(this.draggedElement)
-                // console.log(this.model.get('tileRack'))
                 var draggedTileIndex = _.indexOf(this.model.get('tileRack'), this.draggedElement.children().html()),
                     tileRack = this.model.get('tileRack');
 
-                tileRack.splice(draggedTileIndex, 8);
+                tileRack.splice(draggedTileIndex, 1);
 
                 this.model.set({
                     tileRack: tileRack
                 });
 
                 App.trigger('save:game:model', this.model);
-
+                this.draggedElement.html('');
+                this.draggedElement.draggable = false;
                 this.draggedElement = null;
+            },
+
+            playMove: function(e) {
+                e.preventDefault();
+                App.trigger('play:move', this.model);
             },
 
             onRender: function() {
