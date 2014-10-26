@@ -6,13 +6,38 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             template: Handlebars.compile(template),
 
             events: {
-                'click .square' : 'playerMove',
-                'click .tile' : 'selectTile'
+                'drop': 'drop',
+                'dragover': 'dragOver',
+                'dragenter': 'dragEnter',
+                'dragleave': 'dragLeave',
             },
 
             // modelEvents: {
             //     'change' : 'render'
             // },
+
+            dragOver: function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            },
+
+            dragEnter: function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            },
+
+            dragLeave: function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            },
+
+            drop: function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var self = this;
+                $(document).trigger('dragend');
+            },
+
 
             playerMove: function(e) {
                 console.log($(e.currentTarget))
@@ -23,10 +48,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 e.preventDefault();
 
                 this.model.save();
-            },
-
-            selectTile: function(e) {
-
             },
 
             shuffleTiles: function(tiles) {
@@ -41,8 +62,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
             fillTileRack: function() {
                 for (var i = 1; i < this.model.get('numberPlayers'); i++) {
-                    console.log(this.model)
-                    console.log(i)
                     var tiles = this.model.get('tiles'),
                         tilesRequired,
                         tilesToAdd,

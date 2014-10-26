@@ -62,7 +62,7 @@ body {
 	height: 100%;
 	position: absolute;
 	left: 0;
-	background: #1ABC9C;
+	background: #F1C40F;
 	text-align: center;
 	font-size: 100%;
 	word-wrap: normal;
@@ -74,5 +74,8 @@ body {
 
 }
 
+.dragging {
+	background: #F1C40F;
+}
 
 
