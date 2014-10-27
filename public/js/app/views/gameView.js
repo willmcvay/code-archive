@@ -163,34 +163,37 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     var thisTurnScore = 0,
                         wordMultipliers = 0,
                         letter,
+                        letterValue,
                         finalScore,
                         playerToUpdate;
 
                     for (var i = 0; i < self.thisTurnMoves.length; i++) {
 
-                        console.log(self.thisTurnMoves[i])
                         if (self.thisTurnMoves[i].hasClass('double-letter')) {
-                            letter = parseInt(self.thisTurnMoves[i].html()) * 2;
-                            thisTurnScore += letter;
-                            console.log(letter)
+                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                            letterValue = parseInt(letter) * 2;
+                            thisTurnScore += letterValue;
+                            console.log(thisTurnScore)
                         } else if (self.thisTurnMoves[i].hasClass('triple-letter')) {
-                            letter = parseInt(self.thisTurnMoves[i].html()) * 3;
-                            thisTurnScore += letter;
+                            letter = constants.tileValues[self.thisTurnMoves[i].html()]
+                            letterValue = parseInt(letter) * 3;
+                            thisTurnScore += letterValue;
                         } else if (self.thisTurnMoves[i].hasClass('double-word') || self.thisTurnMoves[i].hasClass('start')) {
-                            letter = parseInt(self.thisTurnMoves[i].html());
-                            thisTurnScore += letter;
+                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                            letterValue = parseInt(letter);
+                            thisTurnScore += letterValue;
                             wordMultipliers += 2;
                         } else if (self.thisTurnMoves[i].hasClass('triple-word')) {
-                            letter = parseInt(self.thisTurnMoves[i].html());
-                            thisTurnScore += letter;
+                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                            letterValue = parseInt(letter);
+                            thisTurnScore += letterValue;
                             wordMultipliers += 3;
                         } else {
-                            letter = parseInt(self.thisTurnMoves[i].html());
-                            thisTurnScore += letter;
-                            console.log(letter)
+                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                            letterValue = parseInt(letter);
+                            thisTurnScore += letterValue;
                         }
                     };
-                    console.log(thisTurnScore)
 
                     if (wordMultipliers !== 0) {
                         finalScore = thisTurnScore * wordMultipliers;
@@ -206,8 +209,12 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         score: finalScore
                     });
 
-                    console.log(self.model)
+                    self.model.set({
+                        players: players
+                    });
+
                     self.model.save();
+                    console.log(self.model)
                     self.thisTurnMoves = [];
                 });
             }
