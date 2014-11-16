@@ -173,7 +173,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                             letter = constants.tileValues[self.thisTurnMoves[i].html()];
                             letterValue = parseInt(letter) * 2;
                             thisTurnScore += letterValue;
-                            console.log(thisTurnScore)
                         } else if (self.thisTurnMoves[i].hasClass('triple-letter')) {
                             letter = constants.tileValues[self.thisTurnMoves[i].html()]
                             letterValue = parseInt(letter) * 3;
@@ -193,7 +192,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                             letterValue = parseInt(letter);
                             thisTurnScore += letterValue;
                         }
-                    };
+                    }
 
                     if (wordMultipliers !== 0) {
                         finalScore = thisTurnScore * wordMultipliers;
@@ -219,5 +218,5 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
             }
         });
-        return GameView
+        return GameView;
     });
