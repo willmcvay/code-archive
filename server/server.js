@@ -55,6 +55,7 @@ server.put('/api/games/:id', function(req, res){
 		game.gameName = req.body.gameName;
 		game.gameCurrent = req.body.gameCurrent;
 		game.currentPlayer = req.body.currentPlayer;
+		game.binaryBoard = req.body.binaryBoard;
 
 		return game.save(function(err) {
 		if (!err) {
@@ -75,7 +76,8 @@ server.post('/api/games', function(req, res){
 		tiles: req.body.tiles,
 		gameName: req.body.gameName,
 		gameCurrent: req.body.gameCurrent,
-		currentPlayer: req.body.currentPlayer
+		currentPlayer: req.body.currentPlayer,
+		binaryBoard: req.body.binaryBoard
 	});
 
 	game.save(function(err) {

@@ -46,7 +46,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 this.thisTurnMoves.push(currentMoveSquare);
                 currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
                 currentMoveSquare.addClass('dropped')
-                $(document).trigger('dragend');
+                $(document).trigger('dragend', currentMoveSquare.attr('id'));
             },
 
             saveGame: function(e) {
@@ -103,6 +103,70 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return
             },
 
+            moveScorer: function(playerModel) {
+                var thisTurnScore = 0,
+                        wordMultipliers = 0,
+                        letter,
+                        letterValue,
+                        finalScore,
+                        playerToUpdate;
+
+                for (var i = 0; i < self.thisTurnMoves.length; i++) {
+
+                    if (self.thisTurnMoves[i].hasClass('double-letter')) {
+                        letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                        letterValue = parseInt(letter) * 2;
+                        thisTurnScore += letterValue;
+                    } else if (self.thisTurnMoves[i].hasClass('triple-letter')) {
+                        letter = constants.tileValues[self.thisTurnMoves[i].html()]
+                        letterValue = parseInt(letter) * 3;
+                        thisTurnScore += letterValue;
+                    } else if (self.thisTurnMoves[i].hasClass('double-word') || self.thisTurnMoves[i].hasClass('start')) {
+                        letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                        letterValue = parseInt(letter);
+                        thisTurnScore += letterValue;
+                        wordMultipliers += 2;
+                    } else if (self.thisTurnMoves[i].hasClass('triple-word')) {
+                        letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                        letterValue = parseInt(letter);
+                        thisTurnScore += letterValue;
+                        wordMultipliers += 3;
+                    } else {
+                        letter = constants.tileValues[self.thisTurnMoves[i].html()];
+                        letterValue = parseInt(letter);
+                        thisTurnScore += letterValue;
+                    }
+                }
+
+                if (wordMultipliers !== 0) {
+                    finalScore = thisTurnScore * wordMultipliers;
+                } else {
+                    finalScore = thisTurnScore;
+                }
+
+                playerToUpdate = players.where({
+                    playerName: playerModel.get('playerName')
+                })[0];
+
+                playerToUpdate.set({
+                    score: finalScore
+                });
+
+                self.model.set({
+                    players: players
+                });
+
+                self.model.save();
+                self.thisTurnMoves = [];
+            },
+
+            gameEngine: function(playerModel) {
+                var self = this;
+
+
+
+                self.moveScorer(playerModel);
+            },
 
             onRender: function() {
 
@@ -160,61 +224,8 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 App.on('play:move', function(playerModel){
-                    var thisTurnScore = 0,
-                        wordMultipliers = 0,
-                        letter,
-                        letterValue,
-                        finalScore,
-                        playerToUpdate;
-
-                    for (var i = 0; i < self.thisTurnMoves.length; i++) {
-
-                        if (self.thisTurnMoves[i].hasClass('double-letter')) {
-                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
-                            letterValue = parseInt(letter) * 2;
-                            thisTurnScore += letterValue;
-                        } else if (self.thisTurnMoves[i].hasClass('triple-letter')) {
-                            letter = constants.tileValues[self.thisTurnMoves[i].html()]
-                            letterValue = parseInt(letter) * 3;
-                            thisTurnScore += letterValue;
-                        } else if (self.thisTurnMoves[i].hasClass('double-word') || self.thisTurnMoves[i].hasClass('start')) {
-                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
-                            letterValue = parseInt(letter);
-                            thisTurnScore += letterValue;
-                            wordMultipliers += 2;
-                        } else if (self.thisTurnMoves[i].hasClass('triple-word')) {
-                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
-                            letterValue = parseInt(letter);
-                            thisTurnScore += letterValue;
-                            wordMultipliers += 3;
-                        } else {
-                            letter = constants.tileValues[self.thisTurnMoves[i].html()];
-                            letterValue = parseInt(letter);
-                            thisTurnScore += letterValue;
-                        }
-                    }
-
-                    if (wordMultipliers !== 0) {
-                        finalScore = thisTurnScore * wordMultipliers;
-                    } else {
-                        finalScore = thisTurnScore;
-                    }
-
-                    playerToUpdate = players.where({
-                        playerName: playerModel.get('playerName')
-                    })[0];
-
-                    playerToUpdate.set({
-                        score: finalScore
-                    });
-
-                    self.model.set({
-                        players: players
-                    });
-
-                    self.model.save();
-                    console.log(self.model)
-                    self.thisTurnMoves = [];
+                    var self = this;
+                    self.gameEngine(playerModel);
                 });
             }
         });

@@ -27,14 +27,18 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
                 e.originalEvent.dataTransfer.dropEffect = 'move';
             },
 
-            dragEnd: function(e) {
+            dragEnd: function(e, droppedSquare) {
                 var draggedTileIndex = _.indexOf(this.model.get('tileRack'), this.draggedElement.children().html()),
-                    tileRack = this.model.get('tileRack');
+                    tileRack = this.model.get('tileRack'),
+                    droppedSquares = this.model.get('droppedSquares');
+
+                dropppedSquares.push(droppedSquare);
 
                 tileRack.splice(draggedTileIndex, 1);
 
                 this.model.set({
-                    tileRack: tileRack
+                    tileRack: tileRack,
+                    droppedSquares: droppedSquares
                 });
 
                 App.trigger('save:game:model', this.model);
