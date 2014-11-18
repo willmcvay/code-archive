@@ -7,6 +7,9 @@ define(['App', 'marionette', 'handlebars', 'views/loadGameView', 'text!templates
             template:Handlebars.compile(template),
             onRender: function(){
                 console.log(this.collection);
+            },
+            initialize: function() {
+                console.log('initializing')
             }
         });
         return loadGamesView

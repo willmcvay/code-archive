@@ -12,6 +12,7 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
 
 
             App.on('loadGameView', function(gameModel){
+                App.navigate('game/' + gameModel.get('id'))
                 App.mainRegion.show(new gameView({
                     model: gameModel
                 }));
@@ -25,6 +26,7 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                 games.fetch({
                     success: function(data) {
                         defer.resolve(data);
+                        console.log(data)
                     },
                     error: function(data, response) {
                         console.log('problem getting games')
@@ -39,6 +41,9 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                     squareDimensions: squareDimensions
                 }));
             });
+        },
+        loadGame: function() {
+            console.log('load game called')
         }
     });
 });

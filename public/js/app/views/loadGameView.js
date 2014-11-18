@@ -6,16 +6,16 @@ define(['App', 'marionette', 'handlebars', 'text!templates/loadGame.html'],
             template:Handlebars.compile(template),
 
             events: {
-                'click #load-game' : 'loadGame'
+                'click .load-game' : 'loadGame'
             },
 
             onRender: function() {
-                console.log(this.model)
+                console.log(this.model.toJSON())
             },
 
             loadGame: function(e) {
                 e.preventDefault();
-                // App.trigger('loadGameView', this.model);
+                App.trigger('loadGameView', this.model);
             }
         });
         return loadGameView
