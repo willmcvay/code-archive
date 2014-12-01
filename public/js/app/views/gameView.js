@@ -184,49 +184,50 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     shuffledTiles = this.shuffleTiles(tiles),
                     players = this.model.get('players'),
                     self = this;
+                if (!this.model) {
+                    players.each(function(player){
+                        var tilesToAdd = self.model.get('tiles').splice(0, 8);
 
-                players.each(function(player){
-                    var tilesToAdd = self.model.get('tiles').splice(0, 8);
-
-                    player.set({
-                        tileRack: tilesToAdd
+                        player.set({
+                            tileRack: tilesToAdd
+                        });
                     });
-                });
 
-                this.model.set({
-                    tiles: shuffledTiles,
-                    players: players
-                });
+                    this.model.set({
+                        tiles: shuffledTiles,
+                        players: players
+                    });
 
-                self.model.save({},{
-                    success: function() {
-                        var squareWidth = self.$('.square-container').width(),
-                            squareMargin = self.$('.square-container').css('margin'),
-                            squareDimensions = {
-                                width: squareWidth,
-                                height: squareWidth,
-                                margin: squareMargin
-                            }
-                        App.trigger('load:sidebar:view', self.model, squareDimensions);
-                        console.log('Model Saved')
-                    }
-                });
+                    self.model.save({},{
+                        success: function() {
+                            var squareWidth = self.$('.square-container').width(),
+                                squareMargin = self.$('.square-container').css('margin'),
+                                squareDimensions = {
+                                    width: squareWidth,
+                                    height: squareWidth,
+                                    margin: squareMargin
+                                }
+                            App.trigger('load:sidebar:view', self.model, squareDimensions);
+                            console.log('Model Saved')
+                        }
+                    });
 
-                App.on('save:game:model', function(playerModel){
+                    App.on('save:game:model', function(playerModel){
 
-                    var players = self.model.get('players'),
-                        playerToUpdate = players.where({
-                            playerName: playerModel.get('playerName')
-                        })[0];
+                        var players = self.model.get('players'),
+                            playerToUpdate = players.where({
+                                playerName: playerModel.get('playerName')
+                            })[0];
 
-                    playerToUpdate.set(playerModel);
-                    self.model.save();
-                });
+                        playerToUpdate.set(playerModel);
+                        self.model.save();
+                    });
 
-                App.on('play:move', function(playerModel){
-                    var self = this;
-                    self.gameEngine(playerModel);
-                });
+                    App.on('play:move', function(playerModel){
+                        var self = this;
+                        self.gameEngine(playerModel);
+                    });
+                }
             }
         });
         return GameView;

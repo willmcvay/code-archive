@@ -12,7 +12,9 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
 
 
             App.on('loadGameView', function(gameModel){
-                App.navigate('game/' + gameModel.get('id'))
+                console.log(gameModel)
+                Backbone.history.navigate('/game/' + gameModel.get('_id'));
+                // App.navigate('game/' + gameModel.get('id'))
                 App.mainRegion.show(new gameView({
                     model: gameModel
                 }));
@@ -25,8 +27,14 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
 
                 games.fetch({
                     success: function(data) {
+                        data.each(function(model){
+                            var players = new Backbone.Collection(model.get('players'));
+
+                            model.set({
+                                players: players
+                            });
+                        });
                         defer.resolve(data);
-                        console.log(data)
                     },
                     error: function(data, response) {
                         console.log('problem getting games')

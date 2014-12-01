@@ -3,7 +3,7 @@ define(['marionette', 'controllers/controller'], function(Marionette, Controller
        //"index" must be a method in AppRouter's controller
        appRoutes: {
            "": "index",
-           'game/:id': 'loadGame'
+           '/game/:id': 'loadGame'
        }
    });
 });
