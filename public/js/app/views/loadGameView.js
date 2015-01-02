@@ -9,12 +9,9 @@ define(['App', 'marionette', 'handlebars', 'text!templates/loadGame.html'],
                 'click .load-game' : 'loadGame'
             },
 
-            onRender: function() {
-                console.log(this.model.toJSON())
-            },
-
             loadGame: function(e) {
                 e.preventDefault();
+                this.model.id = this.model.get('_id');
                 App.trigger('loadGameView', this.model);
             }
         });

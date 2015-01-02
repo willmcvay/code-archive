@@ -41,13 +41,9 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
 
                     $.when(gettingGamesCollection).done(function(gamesCollection){
 
-                        
-
-                        console.log(gamesCollection)
                         gamesView = new loadGamesView({
                             collection: gamesCollection
                         });
-                        console.log(self.newGameRegion)
                         self.newGameRegion.show(gamesView)
                     });
                 });

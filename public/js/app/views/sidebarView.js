@@ -7,21 +7,17 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'con
             itemViewContainer: '.tile-rack',
             template: Handlebars.compile(template),
 
+            itemViewOptions: function() {
+                return {
+                    squareDimensions: this.options.squareDimensions
+                }
+            },
+
             initialize: function() {
                 this.collection = this.model.get('players');
 
-            },
-            onRender: function() {
-                this.$('.tile-container').css({
-                    width: this.options.squareDimensions.width,
-                    height: this.options.squareDimensions.height,
-                    margin: this.options.squareDimensions.margin
-                });
-                console.log('rendering', this.collection)
             }
-
         });
-
         return sidebarView
     }
 );

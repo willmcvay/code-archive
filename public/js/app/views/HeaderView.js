@@ -7,19 +7,18 @@ define([ 'marionette', 'handlebars', 'text!templates/header.html', 'App'],
             events: {
             	'click #new-game' : 'newGame',
             	'click #save-game' : 'saveGame'
-
             },
 
             saveGame: function(e) {
-            		e.preventDefault();
-            		App.trigger('saveGameModel');
-            },
+        		e.preventDefault();
+        		App.trigger('saveGameModel');
+            },  
 
             newGame: function(e) {
                 e.preventDefault();
-
-               // App.trigger('loadGameView');
+                App.trigger('loadGameView');
             }
         });
         return headerView
-    });
+    }
+);

@@ -10,7 +10,6 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
 
         index: function () {
             App.on('loadGameView', function(gameModel){
-                console.log(gameModel)
                 Backbone.history.navigate('/game/' + gameModel.get('_id'));
                 App.mainRegion.show(new gameView({
                     model: gameModel
@@ -48,7 +47,7 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
             });
         },
         loadGame: function() {
-            console.log('load game called')
+
         }
     });
 });
