@@ -9,11 +9,15 @@ mongoose.connect('mongodb://localhost/my_database');
 
 var Game = mongoose.model('Game', new mongoose.Schema({
 	players: {},
-	tileValues: {},
+	squareValues: {},
 	tileBag: Array,
 	availableSquares: Array,
 	tiles: Array,
-	gameName: String
+	gameName: String,
+	gameCurrent: Boolean,
+	currentPlayer: Number,
+	binaryBoard: Array,
+	gameInitialized: Boolean
 }));
 
 server.configure(function () {
@@ -28,9 +32,8 @@ server.configure(function () {
 });
 
 
-server.get('/api/games/all', function(req, res){
+server.get('/api/games', function(req, res){
 	return Game.find().limit(20).execFind(function(err, game) {
-		// console.log(game)
 		if (!err) {
 			return res.send(game);
 		}
@@ -48,7 +51,7 @@ server.get('/api/games/:id', function(req, res){
 server.put('/api/games/:id', function(req, res){
 	return Game.findById(req.params.id, function(err, game) {
 		game.players = req.body.players;
-		game.tileValues = req.body.tileValues;
+		game.squareValues = req.body.squareValues;
 		game.tileBag = req.body.tileBag;
 		game.availableSquares = req.body.availableSquares;
 		game.tiles = req.body.tiles;
@@ -56,6 +59,7 @@ server.put('/api/games/:id', function(req, res){
 		game.gameCurrent = req.body.gameCurrent;
 		game.currentPlayer = req.body.currentPlayer;
 		game.binaryBoard = req.body.binaryBoard;
+		game.gameInitialized = req.body.gameInitialized;
 
 		return game.save(function(err) {
 		if (!err) {
@@ -70,14 +74,15 @@ server.post('/api/games', function(req, res){
 	var game;
 	game = new Game({
 		players: req.body.players,
-		tileValues: req.body.tileValues,
+		squareValues: req.body.squareValues,
 		tileBag: req.body.tileBag,
 		availableSquares: req.body.availableSquares,
 		tiles: req.body.tiles,
 		gameName: req.body.gameName,
 		gameCurrent: req.body.gameCurrent,
 		currentPlayer: req.body.currentPlayer,
-		binaryBoard: req.body.binaryBoard
+		binaryBoard: req.body.binaryBoard,
+		gameInitialized: req.body.gameInitialized
 	});
 
 	game.save(function(err) {

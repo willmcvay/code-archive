@@ -168,6 +168,17 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 self.moveScorer(playerModel);
             },
 
+            loadSidebar: function() {
+                var squareWidth = self.$('.square-container').width(),
+                    squareMargin = self.$('.square-container').css('margin'),
+                    squareDimensions = {
+                        width: squareWidth,
+                        height: squareWidth,
+                        margin: squareMargin
+                    }
+                App.trigger('load:sidebar:view', this.model, squareDimensions);
+            },
+
             onRender: function() {
 
                 var self = this;
@@ -180,11 +191,17 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             initialize: function() {
-                var tiles = this.model.get('tiles'),
-                    shuffledTiles = this.shuffleTiles(tiles),
-                    players = this.model.get('players'),
+                var tiles,
+                    shuffledTiles,
+                    players,
                     self = this;
-                if (!this.model) {
+                    console.log(this.model)
+                if (!this.model.get('gameInitialized')) {
+
+                    tiles = this.model.get('tiles');
+                    shuffledTiles = this.shuffleTiles(tiles);
+                    players = this.model.get('players');
+
                     players.each(function(player){
                         var tilesToAdd = self.model.get('tiles').splice(0, 8);
 
@@ -195,39 +212,36 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                     this.model.set({
                         tiles: shuffledTiles,
-                        players: players
+                        players: players,
+                        gameInitialized: true
                     });
 
-                    self.model.save({},{
+                    this.model.save({},{
                         success: function() {
-                            var squareWidth = self.$('.square-container').width(),
-                                squareMargin = self.$('.square-container').css('margin'),
-                                squareDimensions = {
-                                    width: squareWidth,
-                                    height: squareWidth,
-                                    margin: squareMargin
-                                }
-                            App.trigger('load:sidebar:view', self.model, squareDimensions);
+                            self.loadSidebar();
                             console.log('Model Saved')
                         }
                     });
 
-                    App.on('save:game:model', function(playerModel){
-
-                        var players = self.model.get('players'),
-                            playerToUpdate = players.where({
-                                playerName: playerModel.get('playerName')
-                            })[0];
-
-                        playerToUpdate.set(playerModel);
-                        self.model.save();
-                    });
-
-                    App.on('play:move', function(playerModel){
-                        var self = this;
-                        self.gameEngine(playerModel);
-                    });
+                } else {
+                    this.loadSidebar();
                 }
+
+                App.on('save:game:model', function(playerModel){
+
+                    var players = self.model.get('players'),
+                        playerToUpdate = players.where({
+                            playerName: playerModel.get('playerName')
+                        })[0];
+
+                    playerToUpdate.set(playerModel);
+                    self.model.save();
+                });
+
+                App.on('play:move', function(playerModel){
+                    var self = this;
+                    self.gameEngine(playerModel);
+                });
             }
         });
         return GameView;

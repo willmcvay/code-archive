@@ -2,7 +2,7 @@ define(["jquery","backbone", 'models/gameModel'],
     function($, Backbone, gameModel) {
 
         var gamesCollection = Backbone.Collection.extend({
-            url: '/api/games/all',
+            url: '/api/games',
             parse: function(response) {
                 return response
             }

@@ -5,7 +5,8 @@ define(["jquery", "backbone"],
 
             defaults:{
                 score: 0,
-                tileRack: []
+                tileRack: [],
+                droppedSquares: []
             }
         });
     return playerModel;
