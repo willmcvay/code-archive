@@ -17,8 +17,11 @@ define(['jquery', 'backbone', 'marionette', 'underscore', 'handlebars'],
 
 
         App.addInitializer(function (options) {
-            Backbone.history.start();
-            App.navigate = Backbone.history.navigate();
+            Backbone.history.start({
+                trigger: true});
+            // var router = new AppRouter({
+            //   controller : controller
+            // });
         });
 
         return App;

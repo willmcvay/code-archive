@@ -57,6 +57,7 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             },
 
             onRender: function() {
+                console.log(this.options)
                 this.$('.tile-container').css({
                     width: this.options.squareDimensions.width,
                     height: this.options.squareDimensions.height,

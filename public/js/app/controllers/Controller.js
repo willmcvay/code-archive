@@ -4,18 +4,26 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
     return Backbone.Marionette.Controller.extend({
 
         initialize: function (options) {
-            App.mainRegion.show(new welcomeView());
             App.headerRegion.show(new headerView());
-        },
 
-        index: function () {
+            App.on('load:sidebar:view', function(gameModel, squareDimensions){
+                App.sidebarRegion.show(new sidebarView({
+                    model: gameModel,
+                    squareDimensions: squareDimensions
+                }));
+            });
+
             App.on('loadGameView', function(gameModel){
                 Backbone.history.navigate('/game/' + gameModel.get('_id'));
                 App.mainRegion.show(new gameView({
                     model: gameModel
                 }));
-                App.headerRegion.show(new headerView());
             });
+        },
+
+        index: function () {
+            
+            App.mainRegion.show(new welcomeView());
 
             App.reqres.addHandler('load:games:collection', function(){
                 var games = new gamesCollection(),
@@ -38,16 +46,42 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
                 });
                 return defer.promise()
             });
-
-            App.on('load:sidebar:view', function(gameModel, squareDimensions){
-                App.sidebarRegion.show(new sidebarView({
-                    model: gameModel,
-                    squareDimensions: squareDimensions
-                }));
-            });
         },
-        loadGame: function() {
 
+        loadGame: function(gameId) {
+            
+            var fetchingGame;
+
+            App.reqres.addHandler('load:game:model', function(gameId){
+                var game = new Backbone.Model(),
+                defer = $.Deferred();
+
+                game.fetch({
+                    url: 'api/games/' + gameId,
+                    success: function(data) {
+             
+                        var players = new Backbone.Collection(data.get('players'));
+
+                        data.set({
+                            players: players
+                        });
+        
+                        defer.resolve(data);
+                    },
+                    error: function(data, response) {
+                        console.log('problem getting game')
+                    }
+                });
+                return defer.promise()
+            });
+
+            fetchingGame = App.request('load:game:model', gameId);
+
+            $.when(fetchingGame).done(function(game){
+                App.mainRegion.show(new gameView({
+                    model: game
+                }));
+            });            
         }
     });
 });

@@ -1,9 +1,19 @@
 define(['marionette', 'controllers/controller'], function(Marionette, Controller) {
-   return Marionette.AppRouter.extend({
-       //"index" must be a method in AppRouter's controller
-       appRoutes: {
-           "": "index",
-           '/game/:id': 'loadGame'
-       }
-   });
+
+	var controller = new Controller();
+
+	return Marionette.AppRouter.extend({
+		
+		appRoutes: {
+			'': 'index'
+		},
+
+		routes: {
+			'game/:id': 'loadGame'
+		},
+
+       	loadGame: function(id) {
+       		controller.loadGame(id);
+    	}
+	});
 });

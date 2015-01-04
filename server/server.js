@@ -31,7 +31,6 @@ server.configure(function () {
 	server.use(server.router);
 });
 
-
 server.get('/api/games', function(req, res){
 	return Game.find().limit(20).execFind(function(err, game) {
 		if (!err) {
@@ -49,7 +48,6 @@ server.get('/api/games/:id', function(req, res){
 });
 
 server.put('/api/games/:id', function(req, res){
-	console.log('here')
 	return Game.findById(req.params.id, function(err, game) {
 		game.players = req.body.players;
 		game.squareValues = req.body.squareValues;

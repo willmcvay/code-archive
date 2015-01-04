@@ -171,13 +171,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             loadSidebar: function() {
-                var squareWidth = self.$('.square-container').width(),
-                    squareMargin = self.$('.square-container').css('margin'),
+                var squareWidth = this.$('.square-container').width(),
+                    squareMargin = this.$('.square-container').css('margin'),
                     squareDimensions = {
                         width: squareWidth,
                         height: squareWidth,
                         margin: squareMargin
                     }
+                    console.log(squareDimensions)
                 App.trigger('load:sidebar:view', this.model, squareDimensions);
             },
 
@@ -185,6 +186,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 if (!this.model.get('gameCurrent')) {
                     this.getAllSquares();
                 }
+                this.loadSidebar();
             },
 
             initialize: function() {
@@ -213,14 +215,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         gameInitialized: true
                     });
 
-                    this.model.save({},{
-                        success: function() {
-                            self.loadSidebar();
-                        }
-                    });
-
-                } else {
-                    this.loadSidebar();
+                    this.model.save();
                 }
 
                 App.on('save:game:model', function(playerModel){
