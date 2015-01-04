@@ -7,12 +7,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'con
             itemViewContainer: '.tile-rack',
             template: Handlebars.compile(template),
 
-            itemViewOptions: function() {
-                return {
-                    squareDimensions: this.options.squareDimensions
-                }
-            },
-
             initialize: function() {
                 this.collection = this.model.get('players');
 

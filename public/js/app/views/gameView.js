@@ -37,26 +37,25 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     })[0],
                     currentDropped = playerToUpdate.get('droppedSquares'),
                     tileRack = playerToUpdate.get('tileRack'),
-                    draggedTileIndex = _.indexOf(tileRack, e.originalEvent.dataTransfer.getData('text')),
-                    newTileRack = tileRack.splice(draggedTileIndex, 1);
+                    draggedTileIndex = _.indexOf(tileRack, e.originalEvent.dataTransfer.getData('text'));
+                
+                tileRack.splice(draggedTileIndex, 1);
 
                 currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
                 currentMoveSquare.addClass('dropped');
                 currentDropped.push(currentMoveSquare);
 
                 playerToUpdate.set({
-                    tileRack: newTileRack,
+                    tileRack: tileRack,
                     droppedSquares: currentDropped
                 });
 
-                // this.model.save();
-                console.log(this.model)
+                this.model.save();
                 $(document).trigger('dragend');
             },
 
             saveGame: function(e) {
                 e.preventDefault();
-
                 this.model.save();
             },
 
@@ -171,15 +170,9 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             loadSidebar: function() {
-                var squareWidth = this.$('.square-container').width(),
-                    squareMargin = this.$('.square-container').css('margin'),
-                    squareDimensions = {
-                        width: squareWidth,
-                        height: squareWidth,
-                        margin: squareMargin
-                    }
-                    console.log(squareDimensions)
-                App.trigger('load:sidebar:view', this.model, squareDimensions);
+                var self = this;
+                App.trigger('load:sidebar:view', this.model);
+                
             },
 
             onRender: function() {

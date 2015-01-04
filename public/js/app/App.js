@@ -15,13 +15,8 @@ define(['jquery', 'backbone', 'marionette', 'underscore', 'handlebars'],
 
         App.mobile = isMobile();
 
-
         App.addInitializer(function (options) {
-            Backbone.history.start({
-                trigger: true});
-            // var router = new AppRouter({
-            //   controller : controller
-            // });
+            Backbone.history.start({trigger: true});
         });
 
         return App;

@@ -53,19 +53,14 @@ define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', '
             var fetchingGame;
 
             App.reqres.addHandler('load:game:model', function(gameId){
-                var game = new Backbone.Model(),
+                var game = new gameModel({
+                    _id: gameId
+                }),
                 defer = $.Deferred();
 
                 game.fetch({
                     url: 'api/games/' + gameId,
                     success: function(data) {
-             
-                        var players = new Backbone.Collection(data.get('players'));
-
-                        data.set({
-                            players: players
-                        });
-        
                         defer.resolve(data);
                     },
                     error: function(data, response) {

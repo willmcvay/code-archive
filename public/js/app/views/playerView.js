@@ -57,12 +57,15 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             },
 
             onRender: function() {
-                console.log(this.options)
-                this.$('.tile-container').css({
-                    width: this.options.squareDimensions.width,
-                    height: this.options.squareDimensions.height,
-                    margin: this.options.squareDimensions.margin
-                });
+                var self = this;
+
+                setTimeout(function(){
+                    self.$('.tile-container').css({
+                        width: $('.square-container').width(),
+                        height: $('.square-container').width(),
+                        margin: $('.square-container').css('margin')
+                    });
+                }, 100);  
             }
         });
         return playerView
