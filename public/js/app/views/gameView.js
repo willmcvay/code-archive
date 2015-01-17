@@ -114,6 +114,27 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             updateBoard: function(playerModel) {
+                var squareValues = this.model.get('squareValues'),
+                    currentMove = playerModel.get('droppedSquares'),
+                    availableSquares = this.model.get('availableSquares');
+
+                for (var i = 0; i < currentMove.length; i++) {
+                    squareValues['square' + currentMove[i]] = this.$('#' + currentMove[i]).html();
+                    availableSquares.splice(availableSquares.indexOf(currentMove[i] + 1), 1);
+                };
+
+                this.model.set({
+                    squareValues: squareValues,
+                    availableSquares: availableSquares
+                });
+
+                currentMove = [];
+
+                playerModel.set({
+                    droppedSquares: currentMove
+                });
+
+                this.model.save();
             },
 
             moveScorer: function(playerModel) {
@@ -161,14 +182,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     finalScore = thisTurnScore;
                 }
 
+                console.log(players)
+                console.log(playerModel.get('playerName'))
                 playerToUpdate = players.where({
                     playerName: playerModel.get('playerName')
                 })[0];
 
-                console.log(finalScore)
                 playerToUpdate.set({
-                    score: finalScore,
-                    droppedSquares: []
+                    score: finalScore
                 });
 
                 this.model.set({

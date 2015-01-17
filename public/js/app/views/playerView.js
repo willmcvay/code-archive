@@ -28,24 +28,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             },
 
             dragEnd: function(e) {
-                // var draggedTileIndex = _.indexOf(this.model.get('tileRack'), this.draggedElement.children().html()),
-                //     tileRack = this.model.get('tileRack'),
-                //     droppedSquares = this.model.get('droppedSquares'),
-                //     newTileRack;
-                // // console.log($(e.currentTarget))
-                // droppedSquares.push(droppedSquare);
-
-                // newTileRack = tileRack.splice(draggedTileIndex, 1);
-
-                // this.model.set({
-                //     tileRack: newTileRack,
-                //     droppedSquares: droppedSquares
-                // });
-                // console.log(newTileRack)
-                // console.log(droppedSquares)
-                // console.log(droppedSquare)
-
-                // App.trigger('save:game:model', this.model);
                 this.draggedElement.html('');
                 this.draggedElement.draggable = false;
                 this.draggedElement = null;
