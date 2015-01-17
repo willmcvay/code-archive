@@ -43,7 +43,9 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                 currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
                 currentMoveSquare.addClass('dropped');
-                currentDropped.push(currentMoveSquare);
+                currentDropped.push(currentMoveSquare.attr('id'));
+
+                console.log(currentMoveSquare.attr('id'))
 
                 playerToUpdate.set({
                     tileRack: tileRack,
@@ -107,37 +109,47 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return
             },
 
+            moveValidator: function(playerModel) {
+                return true;  
+            },
+
+            updateBoard: function(playerModel) {
+            },
+
             moveScorer: function(playerModel) {
                 var thisTurnScore = 0,
-                        wordMultipliers = 0,
-                        letter,
-                        letterValue,
-                        finalScore,
-                        playerToUpdate,
-                        players = this.model.get('players'),
-                        thisTurnMoves = playerModel.get('droppedSquares');
+                    wordMultipliers = 0,
+                    letter,
+                    letterValue,
+                    finalScore,
+                    playerToUpdate,
+                    players = this.model.get('players'),
+                    thisTurnMoves = playerModel.get('droppedSquares'),
+                    currentSquare;
 
                 for (var i = 0; i < thisTurnMoves.length; i++) {
-                    if (thisTurnMoves[i].hasClass('double-letter')) {
-                        letter = constants.tileValues[thisTurnMoves[i].html()];
+                    currentSquare = this.$('#' + thisTurnMoves[i]);
+
+                    if (currentSquare.hasClass('double-letter')) {
+                        letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter) * 2;
                         thisTurnScore += letterValue;
-                    } else if (thisTurnMoves[i].hasClass('triple-letter')) {
-                        letter = constants.tileValues[thisTurnMoves[i].html()]
+                    } else if (currentSquare.hasClass('triple-letter')) {
+                        letter = constants.tileValues[currentSquare.html()]
                         letterValue = parseInt(letter) * 3;
                         thisTurnScore += letterValue;
-                    } else if (thisTurnMoves[i].hasClass('double-word') || thisTurnMoves[i].hasClass('start')) {
-                        letter = constants.tileValues[thisTurnMoves[i].html()];
+                    } else if (currentSquare.hasClass('double-word') || currentSquare.hasClass('start')) {
+                        letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
                         wordMultipliers += 2;
-                    } else if (thisTurnMoves[i].hasClass('triple-word')) {
-                        letter = constants.tileValues[thisTurnMoves[i].html()];
+                    } else if (currentSquare.hasClass('triple-word')) {
+                        letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
                         wordMultipliers += 3;
                     } else {
-                        letter = constants.tileValues[thisTurnMoves[i].html()];
+                        letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
                     }
@@ -153,6 +165,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     playerName: playerModel.get('playerName')
                 })[0];
 
+                console.log(finalScore)
                 playerToUpdate.set({
                     score: finalScore,
                     droppedSquares: []
@@ -166,7 +179,11 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             gameEngine: function(playerModel) {
-                this.moveScorer(playerModel);
+                if (this.moveValidator(playerModel)) {
+                    this.moveScorer(playerModel);
+                    this.fillTileRack();
+                    this.updateBoard(playerModel);
+                }
             },
 
             loadSidebar: function() {
