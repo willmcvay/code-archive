@@ -1,5 +1,5 @@
-define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates/game.html', 'config/constants'],
-    function( App, Marionette, Handlebars, gameModel, template, constants) {
+define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates/game.html', 'config/constants', 'views/sidebarView'],
+    function( App, Marionette, Handlebars, gameModel, template, constants, sidebarView) {
 
         var GameView = Marionette.ItemView.extend( {
 
@@ -44,8 +44,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
                 currentMoveSquare.addClass('dropped');
                 currentDropped.push(currentMoveSquare.attr('id'));
-
-                console.log(currentMoveSquare.attr('id'))
 
                 playerToUpdate.set({
                     tileRack: tileRack,
@@ -116,12 +114,23 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             updateBoard: function(playerModel) {
                 var squareValues = this.model.get('squareValues'),
                     currentMove = playerModel.get('droppedSquares'),
-                    availableSquares = this.model.get('availableSquares');
+                    availableSquares = this.model.get('availableSquares'),
+                    currentMoveIndex,
+                    currentTile;
 
                 for (var i = 0; i < currentMove.length; i++) {
-                    squareValues['square' + currentMove[i]] = this.$('#' + currentMove[i]).html();
-                    availableSquares.splice(availableSquares.indexOf(currentMove[i] + 1), 1);
+                    // realIn
+                    currentTile = this.$('#' + currentMove[i]).html();
+                    console.log(currentMove[i])
+                    console.log(currentTile)
+                    squareValues['square' + currentMove[i]] = currentTile;
+                    currentMoveIndex = currentMove[i].toString();
+                    console.log(currentMoveIndex)
+                    availableSquares.splice(availableSquares.indexOf(currentMoveIndex, 1));
                 };
+
+                // console.log(squareValues)
+                // console.log(availableSquares)
 
                 this.model.set({
                     squareValues: squareValues,
@@ -135,6 +144,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 this.model.save();
+                this.fillTileRack();
             },
 
             moveScorer: function(playerModel) {
@@ -182,8 +192,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     finalScore = thisTurnScore;
                 }
 
-                console.log(players)
-                console.log(playerModel.get('playerName'))
                 playerToUpdate = players.where({
                     playerName: playerModel.get('playerName')
                 })[0];
@@ -197,26 +205,42 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 this.model.save();
+                this.updateBoard(playerModel);
             },
 
             gameEngine: function(playerModel) {
                 if (this.moveValidator(playerModel)) {
                     this.moveScorer(playerModel);
-                    this.fillTileRack();
-                    this.updateBoard(playerModel);
                 }
             },
 
             loadSidebar: function() {
                 var self = this;
-                App.trigger('load:sidebar:view', this.model);
+
+                App.sidebarRegion.show(new sidebarView({
+                    model: this.model,
+                    gameView: this
+                }));
                 
             },
 
             onRender: function() {
+                var self = this;
+
                 if (!this.model.get('gameCurrent')) {
                     this.getAllSquares();
                 }
+
+                function isInAvailableSquares(value) {
+                    return self.model.get('availableSquares').indexOf(value) > -1;
+                }
+
+                this.$('.square').each(function(i, obj) {
+                    if (!isInAvailableSquares(obj.id) ) {
+                        self.$('#' + obj.id).addClass('yellow');
+                    }
+                });
+                
                 this.loadSidebar();
             },
 
@@ -260,9 +284,10 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     self.model.save();
                 });
 
-                App.on('play:move', function(playerModel){
-                    self.gameEngine(playerModel);
-                });
+                // App.on('play:move', function(playerModel){
+                //     console.log(playerModel)
+                //     self.gameEngine(playerModel);
+                // });
             }
         });
         return GameView;

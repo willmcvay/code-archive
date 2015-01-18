@@ -28,6 +28,7 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             },
 
             dragEnd: function(e) {
+                e.stopPropagation();
                 this.draggedElement.html('');
                 this.draggedElement.draggable = false;
                 this.draggedElement = null;
@@ -35,7 +36,8 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
 
             playMove: function(e) {
                 e.preventDefault();
-                App.trigger('play:move', this.model);
+                console.log('here')
+                this.options.gameView.gameEngine(this.model);
             },
 
             onRender: function() {

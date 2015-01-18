@@ -1,17 +1,10 @@
-define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/welcomeView', 'views/sidebarView', 'models/gameModel', 'collections/gamesCollection'],
-    function (App, Backbone, Marionette, gameView, headerView, welcomeView, sidebarView, gameModel, gamesCollection) {
+define(['App', 'backbone', 'marionette', 'views/gameView', 'views/headerView', 'views/welcomeView', 'models/gameModel', 'collections/gamesCollection'],
+    function (App, Backbone, Marionette, gameView, headerView, welcomeView, gameModel, gamesCollection) {
 
     return Backbone.Marionette.Controller.extend({
 
         initialize: function (options) {
             App.headerRegion.show(new headerView());
-
-            App.on('load:sidebar:view', function(gameModel, squareDimensions){
-                App.sidebarRegion.show(new sidebarView({
-                    model: gameModel,
-                    squareDimensions: squareDimensions
-                }));
-            });
 
             App.on('loadGameView', function(gameModel){
                 Backbone.history.navigate('/game/' + gameModel.get('_id'));
