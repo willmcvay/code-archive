@@ -38,6 +38,8 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     currentDropped = playerToUpdate.get('droppedSquares'),
                     tileRack = playerToUpdate.get('tileRack'),
                     draggedTileIndex = _.indexOf(tileRack, e.originalEvent.dataTransfer.getData('text'));
+
+                // console.log('current player', playerToUpdate, currentDropped)
                 
                 tileRack.splice(draggedTileIndex, 1);
 
@@ -50,13 +52,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     droppedSquares: currentDropped
                 });
 
-                this.model.save();
+                // this.model.save();
+                console.log(playerToUpdate)
                 $(document).trigger('dragend');
             },
 
             saveGame: function(e) {
                 e.preventDefault();
-                this.model.save();
+                // this.model.save();
             },
 
             shuffleTiles: function(tiles) {
@@ -70,24 +73,33 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             fillTileRack: function() {
-                for (var i = 1; i < this.model.get('numberPlayers'); i++) {
-                    var tiles = this.model.get('tiles'),
+
+                var players = this.model.get('players'),
+                    self = this;
+
+                players.each(function(player){
+                    var tiles = self.model.get('tiles'),
                         tilesRequired,
                         tilesToAdd,
                         flattenedTiles,
-                        playerName = 'player' + [i],
-                        playerTiles = this.model.get(playerName).tileRack;
+                        playerTiles = player.get('tileRack');
 
                     if (playerTiles.length < 8) {
                         tilesRequired = 8 - playerTiles.length;
                         tilesToAdd = tiles.slice(0, tilesRequired);
                         playerTiles.push(tilesToAdd);
-                        flattenedTiles = _.flatten(playerTiles);
+                        flattenedTiles = _.flatten(playerTiles);  
 
-                        this.model.save();
+                        player.set({
+                            tileRack: flattenedTiles
+                        });
+
+                        self.model.set({
+                            tiles: tiles
+                        });   
                     }
-                };
-                return
+                });
+                this.model.save();
             },
 
             getAllSquares: function() {
@@ -103,7 +115,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     currentPlayer: 1
                 });
 
-                this.model.save();
+                // this.model.save();
                 return
             },
 
@@ -112,20 +124,25 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             },
 
             updateBoard: function(playerModel) {
+
+                console.log("player model ", playerModel)
                 var squareValues = this.model.get('squareValues'),
                     currentMove = playerModel.get('droppedSquares'),
                     availableSquares = this.model.get('availableSquares'),
                     currentMoveIndex,
                     currentTile;
 
+                console.log('current move' + currentMove)
                 for (var i = 0; i < currentMove.length; i++) {
                     // realIn
                     currentTile = this.$('#' + currentMove[i]).html();
-                    console.log(currentMove[i])
-                    console.log(currentTile)
+                    console.log("current move " + currentMove[i])
+                    console.log("current tile " + currentTile)
+                    console.log('this square value ' + squareValues['square' + currentMove[i]])
                     squareValues['square' + currentMove[i]] = currentTile;
                     currentMoveIndex = currentMove[i].toString();
-                    console.log(currentMoveIndex)
+                    console.log('this square value ' + squareValues['square' + currentMove[i]])
+                    console.log("current move index " + currentMoveIndex)
                     availableSquares.splice(availableSquares.indexOf(currentMoveIndex, 1));
                 };
 
@@ -143,7 +160,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     droppedSquares: currentMove
                 });
 
-                this.model.save();
+                // this.model.save();
                 this.fillTileRack();
             },
 
@@ -204,7 +221,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     players: players
                 });
 
-                this.model.save();
+                // this.model.save();
                 this.updateBoard(playerModel);
             },
 
@@ -270,19 +287,19 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         gameInitialized: true
                     });
 
-                    this.model.save();
+                    // this.model.save();
                 }
 
-                App.on('save:game:model', function(playerModel){
+                // App.on('save:game:model', function(playerModel){
 
-                    var players = self.model.get('players'),
-                        playerToUpdate = players.where({
-                            playerName: playerModel.get('playerName')
-                        })[0];
+                //     var players = self.model.get('players'),
+                //         playerToUpdate = players.where({
+                //             playerName: playerModel.get('playerName')
+                //         })[0];
 
-                    playerToUpdate.set(playerModel);
-                    self.model.save();
-                });
+                //     playerToUpdate.set(playerModel);
+                //     // self.model.save();
+                // });
 
                 // App.on('play:move', function(playerModel){
                 //     console.log(playerModel)

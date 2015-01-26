@@ -36,7 +36,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
 
             playMove: function(e) {
                 e.preventDefault();
-                console.log('here')
                 this.options.gameView.gameEngine(this.model);
             },
 
