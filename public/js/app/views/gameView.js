@@ -38,8 +38,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     currentDropped = playerToUpdate.get('droppedSquares'),
                     tileRack = playerToUpdate.get('tileRack'),
                     draggedTileIndex = _.indexOf(tileRack, e.originalEvent.dataTransfer.getData('text'));
-
-                // console.log('current player', playerToUpdate, currentDropped)
                 
                 tileRack.splice(draggedTileIndex, 1);
 
@@ -53,7 +51,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 // this.model.save();
-                console.log(playerToUpdate)
                 $(document).trigger('dragend');
             },
 
@@ -86,7 +83,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                     if (playerTiles.length < 8) {
                         tilesRequired = 8 - playerTiles.length;
-                        tilesToAdd = tiles.slice(0, tilesRequired);
+                        tilesToAdd = tiles.splice(0, tilesRequired);
                         playerTiles.push(tilesToAdd);
                         flattenedTiles = _.flatten(playerTiles);  
 
@@ -125,29 +122,20 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
             updateBoard: function(playerModel) {
 
-                console.log("player model ", playerModel)
                 var squareValues = this.model.get('squareValues'),
                     currentMove = playerModel.get('droppedSquares'),
                     availableSquares = this.model.get('availableSquares'),
-                    currentMoveIndex,
-                    currentTile;
-
-                console.log('current move' + currentMove)
+                    moveToGetIndex,
+                    currentTile,
+                    squareValuesKey
+        
                 for (var i = 0; i < currentMove.length; i++) {
-                    // realIn
                     currentTile = this.$('#' + currentMove[i]).html();
-                    console.log("current move " + currentMove[i])
-                    console.log("current tile " + currentTile)
-                    console.log('this square value ' + squareValues['square' + currentMove[i]])
-                    squareValues['square' + currentMove[i]] = currentTile;
-                    currentMoveIndex = currentMove[i].toString();
-                    console.log('this square value ' + squareValues['square' + currentMove[i]])
-                    console.log("current move index " + currentMoveIndex)
-                    availableSquares.splice(availableSquares.indexOf(currentMoveIndex, 1));
+                    squareValuesKey = 'square' + currentMove[i];
+                    squareValues[squareValuesKey] = currentTile;
+                    moveToGetIndex = currentMove[i].toString();
+                    availableSquares.splice(availableSquares.indexOf(moveToGetIndex), 1);
                 };
-
-                // console.log(squareValues)
-                // console.log(availableSquares)
 
                 this.model.set({
                     squareValues: squareValues,
@@ -160,7 +148,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     droppedSquares: currentMove
                 });
 
-                // this.model.save();
+                this.model.save();
                 this.fillTileRack();
             },
 
@@ -286,25 +274,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         players: players,
                         gameInitialized: true
                     });
-
-                    // this.model.save();
                 }
-
-                // App.on('save:game:model', function(playerModel){
-
-                //     var players = self.model.get('players'),
-                //         playerToUpdate = players.where({
-                //             playerName: playerModel.get('playerName')
-                //         })[0];
-
-                //     playerToUpdate.set(playerModel);
-                //     // self.model.save();
-                // });
-
-                // App.on('play:move', function(playerModel){
-                //     console.log(playerModel)
-                //     self.gameEngine(playerModel);
-                // });
             }
         });
         return GameView;
