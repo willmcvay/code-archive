@@ -36,6 +36,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         playerNumber: this.model.get('currentPlayer')
                     })[0],
                     currentDropped = playerToUpdate.get('droppedSquares'),
+                    droppedLetters = playerToUpdate.get('droppedLetters'),
                     tileRack = playerToUpdate.get('tileRack'),
                     draggedTileIndex = _.indexOf(tileRack, e.originalEvent.dataTransfer.getData('text'));
                 
@@ -44,10 +45,15 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 currentMoveSquare.html(e.originalEvent.dataTransfer.getData('text'));
                 currentMoveSquare.addClass('dropped');
                 currentDropped.push(currentMoveSquare.attr('id'));
+                droppedLetters.push(e.originalEvent.dataTransfer.getData('text'));
+                // console.log(e.originalEvent.dataTransfer.getData('text'))
 
+                console.log(currentDropped)
+                console.log(droppedLetters)
                 playerToUpdate.set({
                     tileRack: tileRack,
-                    droppedSquares: currentDropped
+                    droppedSquares: currentDropped,
+                    droppedLetters: droppedLetters
                 });
 
                 $(document).trigger('dragend');
@@ -68,12 +74,13 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     players = this.model.get('players');
 
                 currentPlayer < players.length ? currentPlayer++ : currentPlayer = 1;
-                
+
                 this.model.set({
                     currentPlayer: currentPlayer
                 });
 
                 this.model.save();
+                App.sidebarView.render();
             },
 
             fillTileRack: function() {
@@ -119,8 +126,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     gameCurrent: true,
                     currentPlayer: 1
                 });
-
-                // this.model.save();
                 return;
             },
 
@@ -132,13 +137,14 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                 var squareValues = this.model.get('squareValues'),
                     currentMove = playerModel.get('droppedSquares'),
+                    currentMoveSquares = playerModel.get('droppedLetters'),
                     availableSquares = this.model.get('availableSquares'),
                     moveToGetIndex,
                     currentTile,
                     squareValuesKey;
         
                 for (var i = 0; i < currentMove.length; i++) {
-                    currentTile = this.$('#' + currentMove[i]).html();
+                    currentTile = currentMoveSquares[i];
                     squareValuesKey = 'square' + currentMove[i];
                     squareValues[squareValuesKey] = currentTile;
                     moveToGetIndex = currentMove[i].toString();
@@ -151,52 +157,74 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 currentMove = [];
+                currentMoveSquares = [];
 
                 playerModel.set({
+                    droppedLetters: currentMoveSquares,
                     droppedSquares: currentMove
                 });
 
-                this.model.save();
                 this.fillTileRack();
             },
 
             moveScorer: function(playerModel) {
+                console.log(playerModel)
                 var thisTurnScore = 0,
                     wordMultipliers = 0,
                     letter,
                     letterValue,
                     finalScore,
                     playerToUpdate,
+                    finalLetterValue,
                     players = this.model.get('players'),
                     thisTurnMoves = playerModel.get('droppedSquares'),
+                    thisTurnLetters = playerModel.get('droppedLetters'),
                     currentSquare;
 
+                    console.log('thisTurnMoves' + thisTurnMoves)
                 for (var i = 0; i < thisTurnMoves.length; i++) {
                     currentSquare = this.$('#' + thisTurnMoves[i]);
+                    // letter = this.$('#' + thisTurnMoves[i]).text();
+                    letter = thisTurnLetters[i];
+                    letterValue = constants.tileValues[letter];
+                    // console.log('currentSquare', currentSquare)
+                    console.log('letter', letter)
+                    console.log('letter value', letterValue)
 
+                    
+                    // console.log( this.$('#' + thisTurnMoves[i]).html())
+                    // console.log('currentSquare', currentSquare)
                     if (currentSquare.hasClass('double-letter')) {
-                        letter = constants.tileValues[currentSquare.html()];
-                        letterValue = parseInt(letter) * 2;
-                        thisTurnScore += letterValue;
+                        letter = currentSquare.html();
+                        letterValue = constants.tileValues[letter];
+                        finalLetterValue = parseInt(letterValue) * 2;
+                        thisTurnScore += finalLetterValue;
+                        // console.log(thisTurnMoves[i])
                     } else if (currentSquare.hasClass('triple-letter')) {
                         letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter) * 3;
                         thisTurnScore += letterValue;
+                        // console.log('2')
                     } else if (currentSquare.hasClass('double-word') || currentSquare.hasClass('start')) {
                         letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
                         wordMultipliers += 2;
+                        // console.log('3')
                     } else if (currentSquare.hasClass('triple-word')) {
                         letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
                         wordMultipliers += 3;
+                        // console.log('4')
                     } else {
                         letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter);
                         thisTurnScore += letterValue;
+                    
                     }
+                    // console.log('letter', letter)
+                    // console.log('letterValue', letterValue)
                 }
 
                 if (wordMultipliers !== 0) {
@@ -204,7 +232,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 } else {
                     finalScore = thisTurnScore;
                 }
-
+                // console.log(finalScore)
                 playerToUpdate = players.where({
                     playerName: playerModel.get('playerName')
                 })[0];
@@ -217,7 +245,6 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     players: players
                 });
 
-                // this.model.save();
                 this.updateBoard(playerModel);
             },
 
@@ -230,11 +257,12 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
             loadSidebar: function() {
                 var self = this;
 
-                App.sidebarRegion.show(new sidebarView({
+                App.sidebarView = new sidebarView({
                     model: this.model,
                     gameView: this
-                }));
-                
+                });
+
+                App.sidebarRegion.show(App.sidebarView);
             },
 
             onRender: function() {
@@ -254,7 +282,11 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     }
                 });
                 
-                this.loadSidebar();
+                if (!App.sidebarView) {
+                    this.loadSidebar();
+                } else {
+                   App.sidebarView.render(); 
+                }
             },
 
             initialize: function() {

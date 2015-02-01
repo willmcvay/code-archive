@@ -22,12 +22,14 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
                         player = new playerModel(),
                         players = self.model.get('players');
 
+                    if (self.playerCount > 1) {
+                        self.$('#start-game').removeClass('hidden');
+                    } 
+
                     player.set({
                         playerName: playerName,
                         playerNumber: self.playerCount
                     });
-
-                    self.playerCount++;
 
                     players.add(player);
 
@@ -38,8 +40,12 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
 
                     self.model.save({},{
                         success: function(response) {
-                            self.$('#current-players').append('<p>' + playerName + '</p>');
+                            self.playerCount++;
+                            self.$('#player-name-header').append('<h4>' + playerName + '</h4>');
                             self.$('input#player-name').val('');
+                            if (self.playerCount > 4) {
+                                self.$('#players-form, #max-warning').toggleClass('hidden');
+                            }
                         }
                     });
                 });
@@ -57,8 +63,8 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
 
                 this.model.save({},{
                     success: function(response) {
-                        self.$('#game-name').append('<p>' + gameName + '</p>');
-                        self.$('input#game-name').val('');
+                        self.$('#game-name-header').html(gameName);
+                        self.$('#name-form, #players-form, #player-name-header').toggleClass('hidden');
                     }
                 });
             },

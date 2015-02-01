@@ -12,7 +12,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
                 'dragstart .tile-container': 'dragStart',
                 'dragend': 'dragEnd',
                 'click .play-move' : 'playMove'
-
             },
 
             modelEvents: {
@@ -37,6 +36,7 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
             playMove: function(e) {
                 e.preventDefault();
                 this.options.gameView.gameEngine(this.model);
+                this.render();
             },
 
             onRender: function() {

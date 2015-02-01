@@ -16,6 +16,10 @@ h1, .main-header {
 	color: #34495E;
 }
 
+.hidden {
+	display: none;
+}
+
 .main-header {
 	width: 10%;
 	margin-left: auto;
