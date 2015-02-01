@@ -1,9 +1,24 @@
 @import url("bootstrap.css");
 
 body {
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
 	background: #34495E;
 	color: #ECF0F1;
 	font-size: 100%;
+}
+
+h3, h4 {
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+}
+
+h1, .main-header {
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	color: #34495E;
+}
+
+.main-header {
+	width: 10%;
+	margin-left: auto;
 }
 
 #playing-board {
@@ -88,4 +103,9 @@ body {
 
 .yellow {
 	background: #F1C40F;
+}
+
+.welcome-view-container {
+	width: 40%;
+	margin: 0 auto;
 }

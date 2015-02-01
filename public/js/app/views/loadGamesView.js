@@ -5,6 +5,6 @@ define(['App', 'marionette', 'handlebars', 'views/loadGameView', 'text!templates
             itemView: loadGameView,
             template:Handlebars.compile(template)
         });
-        return loadGamesView
+        return loadGamesView;
     }
 );

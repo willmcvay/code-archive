@@ -68,6 +68,6 @@ define(['App', 'marionette', 'handlebars','text!templates/new.html'],
                 App.trigger('loadGameView', this.model);
             }
         });
-        return newGameView
+        return newGameView;
     }
 );

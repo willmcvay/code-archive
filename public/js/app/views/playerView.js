@@ -51,6 +51,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/player.html', 'conf
                 }, 100);  
             }
         });
-        return playerView
+        return playerView;
     }
 );

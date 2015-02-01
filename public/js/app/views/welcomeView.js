@@ -3,6 +3,8 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
 
         var welcomeView = Marionette.Layout.extend({
 
+            className: 'welcome-view-container',
+
             template:Handlebars.compile(template),
             playerCount: 1,
 
@@ -20,11 +22,11 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
                 var self = this;
                 require(['models/gameModel', 'views/newGameView'], function(gameModel, newGameView){
 
-                    var newGameView = new newGameView({
+                    var gameView = new newGameView({
                         model: new gameModel()
                     });
 
-                    self.newGameRegion.show(newGameView);
+                    self.newGameRegion.show(gameView);
                 });
             },
 
@@ -37,18 +39,18 @@ define(['App', 'marionette', 'handlebars', 'text!templates/welcome.html'],
 
                 require(['views/loadGamesView'], function(loadGamesView){
 
-                    gettingGamesCollection = App.request('load:games:collection')
+                    gettingGamesCollection = App.request('load:games:collection');
 
                     $.when(gettingGamesCollection).done(function(gamesCollection){
 
                         gamesView = new loadGamesView({
                             collection: gamesCollection
                         });
-                        self.newGameRegion.show(gamesView)
+                        self.newGameRegion.show(gamesView);
                     });
                 });
             }
         });
-        return welcomeView
+        return welcomeView;
     }
 );

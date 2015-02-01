@@ -50,13 +50,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     droppedSquares: currentDropped
                 });
 
-                // this.model.save();
                 $(document).trigger('dragend');
-            },
-
-            saveGame: function(e) {
-                e.preventDefault();
-                // this.model.save();
             },
 
             shuffleTiles: function(tiles) {
@@ -67,6 +61,19 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     tiles[j] = temp;
                 }
                 return tiles;
+            },
+
+            switchPlayer: function() {
+                var currentPlayer = this.model.get('currentPlayer'),
+                    players = this.model.get('players');
+
+                currentPlayer < players.length ? currentPlayer++ : currentPlayer = 1;
+                
+                this.model.set({
+                    currentPlayer: currentPlayer
+                });
+
+                this.model.save();
             },
 
             fillTileRack: function() {
@@ -96,14 +103,15 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         });   
                     }
                 });
-                this.model.save();
+
+                this.switchPlayer(); 
             },
 
             getAllSquares: function() {
                 var availableSquares = [];
 
                 this.$('.square').each(function() {
-                    availableSquares.push(this.id)
+                    availableSquares.push(this.id);
                 });
 
                 this.model.set({
@@ -113,7 +121,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 });
 
                 // this.model.save();
-                return
+                return;
             },
 
             moveValidator: function(playerModel) {
@@ -127,7 +135,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     availableSquares = this.model.get('availableSquares'),
                     moveToGetIndex,
                     currentTile,
-                    squareValuesKey
+                    squareValuesKey;
         
                 for (var i = 0; i < currentMove.length; i++) {
                     currentTile = this.$('#' + currentMove[i]).html();
@@ -135,7 +143,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     squareValues[squareValuesKey] = currentTile;
                     moveToGetIndex = currentMove[i].toString();
                     availableSquares.splice(availableSquares.indexOf(moveToGetIndex), 1);
-                };
+                }
 
                 this.model.set({
                     squareValues: squareValues,
@@ -171,7 +179,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                         letterValue = parseInt(letter) * 2;
                         thisTurnScore += letterValue;
                     } else if (currentSquare.hasClass('triple-letter')) {
-                        letter = constants.tileValues[currentSquare.html()]
+                        letter = constants.tileValues[currentSquare.html()];
                         letterValue = parseInt(letter) * 3;
                         thisTurnScore += letterValue;
                     } else if (currentSquare.hasClass('double-word') || currentSquare.hasClass('start')) {

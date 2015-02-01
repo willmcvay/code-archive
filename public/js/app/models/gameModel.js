@@ -9,16 +9,12 @@ define(["jquery", "backbone", 'collections/playerCollection', 'models/playerMode
 				switch (method) {
 				case 'read':
 					return '/api/games/' + this.id;
-					break;
 				case 'create':
 					return '/api/games';
-					break;
 				case 'update':
 					return '/api/games/' + this.id;
-					break;
 				case 'delete':
 					return '/api/games/' + this.id;
-					break;
 				}
 			},
 

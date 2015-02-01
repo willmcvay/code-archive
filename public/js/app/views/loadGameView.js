@@ -15,6 +15,6 @@ define(['App', 'marionette', 'handlebars', 'text!templates/loadGame.html'],
                 App.trigger('loadGameView', this.model);
             }
         });
-        return loadGameView
+        return loadGameView;
     }
 );

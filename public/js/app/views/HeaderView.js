@@ -19,6 +19,6 @@ define([ 'marionette', 'handlebars', 'text!templates/header.html', 'App'],
                 App.trigger('loadGameView');
             }
         });
-        return headerView
+        return headerView;
     }
 );

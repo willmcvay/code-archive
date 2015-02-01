@@ -10,7 +10,7 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'con
             itemViewOptions: function() {
                 return {
                     gameView: this.options.gameView
-                }
+                };
             },
 
             initialize: function() {
@@ -18,6 +18,6 @@ define( [ 'App', 'marionette', 'handlebars', 'text!templates/sidebar.html', 'con
 
             }
         });
-        return sidebarView
+        return sidebarView;
     }
 );
