@@ -46,10 +46,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 currentMoveSquare.addClass('dropped');
                 currentDropped.push(currentMoveSquare.attr('id'));
                 droppedLetters.push(e.originalEvent.dataTransfer.getData('text'));
-                // console.log(e.originalEvent.dataTransfer.getData('text'))
 
-                console.log(currentDropped)
-                console.log(droppedLetters)
                 playerToUpdate.set({
                     tileRack: tileRack,
                     droppedSquares: currentDropped,
@@ -69,7 +66,7 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 return tiles;
             },
 
-            switchPlayer: function() {
+            switchPlayer: function(playerModel) {
                 var currentPlayer = this.model.get('currentPlayer'),
                     players = this.model.get('players');
 
@@ -79,39 +76,42 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                     currentPlayer: currentPlayer
                 });
 
-                this.model.save();
-                App.sidebarView.render();
-            },
-
-            fillTileRack: function() {
-
-                var players = this.model.get('players'),
-                    self = this;
-
-                players.each(function(player){
-                    var tiles = self.model.get('tiles'),
-                        tilesRequired,
-                        tilesToAdd,
-                        flattenedTiles,
-                        playerTiles = player.get('tileRack');
-
-                    if (playerTiles.length < 8) {
-                        tilesRequired = 8 - playerTiles.length;
-                        tilesToAdd = tiles.splice(0, tilesRequired);
-                        playerTiles.push(tilesToAdd);
-                        flattenedTiles = _.flatten(playerTiles);  
-
-                        player.set({
-                            tileRack: flattenedTiles
-                        });
-
-                        self.model.set({
-                            tiles: tiles
-                        });   
+                this.model.save({},{
+                    success: function() {
+                        App.sidebarView.render();
                     }
                 });
+            },
 
-                this.switchPlayer(); 
+            fillTileRack: function(playerModel) {
+    
+                var tiles = this.model.get('tiles'),
+                    tilesRequired,
+                    tilesToAdd,
+                    flattenedTiles,
+                    self = this,
+                    playerTiles = playerModel.get('tileRack');
+
+                if (playerTiles.length < 8) {
+                    tilesRequired = 8 - playerTiles.length;
+                    tilesToAdd = tiles.splice(0, tilesRequired);
+                    playerTiles.push(tilesToAdd);
+                    flattenedTiles = _.flatten(playerTiles);  
+
+                    playerModel.set({
+                        tileRack: flattenedTiles
+                    });
+
+                    this.model.set({
+                        tiles: tiles
+                    });   
+                }
+
+                this.model.save({}, {
+                    success: function () {
+                        self.switchPlayer(playerModel);  
+                    }
+                }); 
             },
 
             getAllSquares: function() {
@@ -158,73 +158,46 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
 
                 currentMove = [];
                 currentMoveSquares = [];
-
                 playerModel.set({
                     droppedLetters: currentMoveSquares,
                     droppedSquares: currentMove
                 });
 
-                this.fillTileRack();
+                this.fillTileRack(playerModel);
             },
 
             moveScorer: function(playerModel) {
-                console.log(playerModel)
                 var thisTurnScore = 0,
                     wordMultipliers = 0,
                     letter,
+                    currentScore = playerModel.get('score'),
                     letterValue,
                     finalScore,
                     playerToUpdate,
                     finalLetterValue,
-                    players = this.model.get('players'),
                     thisTurnMoves = playerModel.get('droppedSquares'),
                     thisTurnLetters = playerModel.get('droppedLetters'),
                     currentSquare;
 
-                    console.log('thisTurnMoves' + thisTurnMoves)
                 for (var i = 0; i < thisTurnMoves.length; i++) {
                     currentSquare = this.$('#' + thisTurnMoves[i]);
-                    // letter = this.$('#' + thisTurnMoves[i]).text();
                     letter = thisTurnLetters[i];
                     letterValue = constants.tileValues[letter];
-                    // console.log('currentSquare', currentSquare)
-                    console.log('letter', letter)
-                    console.log('letter value', letterValue)
-
-                    
-                    // console.log( this.$('#' + thisTurnMoves[i]).html())
-                    // console.log('currentSquare', currentSquare)
+    
                     if (currentSquare.hasClass('double-letter')) {
-                        letter = currentSquare.html();
-                        letterValue = constants.tileValues[letter];
                         finalLetterValue = parseInt(letterValue) * 2;
-                        thisTurnScore += finalLetterValue;
-                        // console.log(thisTurnMoves[i])
                     } else if (currentSquare.hasClass('triple-letter')) {
-                        letter = constants.tileValues[currentSquare.html()];
-                        letterValue = parseInt(letter) * 3;
-                        thisTurnScore += letterValue;
-                        // console.log('2')
+                        finalLetterValue = parseInt(letterValue) * 3;
                     } else if (currentSquare.hasClass('double-word') || currentSquare.hasClass('start')) {
-                        letter = constants.tileValues[currentSquare.html()];
-                        letterValue = parseInt(letter);
-                        thisTurnScore += letterValue;
+                        finalLetterValue = parseInt(letterValue);
                         wordMultipliers += 2;
-                        // console.log('3')
                     } else if (currentSquare.hasClass('triple-word')) {
-                        letter = constants.tileValues[currentSquare.html()];
-                        letterValue = parseInt(letter);
-                        thisTurnScore += letterValue;
+                        finalLetterValue = parseInt(letterValue);
                         wordMultipliers += 3;
-                        // console.log('4')
                     } else {
-                        letter = constants.tileValues[currentSquare.html()];
-                        letterValue = parseInt(letter);
-                        thisTurnScore += letterValue;
-                    
+                        finalLetterValue = parseInt(letterValue);
                     }
-                    // console.log('letter', letter)
-                    // console.log('letterValue', letterValue)
+                    thisTurnScore += finalLetterValue;
                 }
 
                 if (wordMultipliers !== 0) {
@@ -232,17 +205,11 @@ define( [ 'App', 'marionette', 'handlebars', 'models/gameModel', 'text!templates
                 } else {
                     finalScore = thisTurnScore;
                 }
-                // console.log(finalScore)
-                playerToUpdate = players.where({
-                    playerName: playerModel.get('playerName')
-                })[0];
 
-                playerToUpdate.set({
+                finalScore = finalScore + currentScore;
+
+                playerModel.set({
                     score: finalScore
-                });
-
-                this.model.set({
-                    players: players
                 });
 
                 this.updateBoard(playerModel);
