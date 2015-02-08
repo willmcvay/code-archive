@@ -1,0 +1,132 @@
+/* line 3, ../sass/main.scss */
+body {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  background: #34495E;
+  color: #ECF0F1;
+  font-size: 100%;
+}
+
+/* line 10, ../sass/main.scss */
+h3, h4 {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+}
+
+/* line 14, ../sass/main.scss */
+h1, .main-header {
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  color: #34495E;
+}
+
+/* line 19, ../sass/main.scss */
+.hidden {
+  display: none;
+}
+
+/* line 23, ../sass/main.scss */
+.main-header {
+  width: 10%;
+  margin-left: auto;
+}
+
+/* line 28, ../sass/main.scss */
+#playing-board {
+  max-width: 50%;
+  margin-left: 15%;
+  max-height: 50%;
+}
+
+/* line 34, ../sass/main.scss */
+.square-container {
+  position: relative;
+  width: 6%;
+  padding-bottom: 6%;
+  float: left;
+  height: 0;
+  margin: 0.3%;
+}
+
+/* line 43, ../sass/main.scss */
+.square {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background: #1ABC9C;
+  text-align: center;
+  font-size: 100%;
+  word-wrap: normal;
+  line-height: 100%;
+}
+
+/* line 56, ../sass/main.scss */
+.double-word, .start {
+  background: #E67E22;
+}
+
+/* line 60, ../sass/main.scss */
+.double-letter {
+  background: #3498DB;
+}
+
+/* line 64, ../sass/main.scss */
+.triple-word {
+  background: #E74C3C;
+}
+
+/* line 68, ../sass/main.scss */
+.triple-letter {
+  background: #9B59B6;
+}
+
+/* line 72, ../sass/main.scss */
+.tile-container {
+  position: relative;
+  padding-bottom: 11%;
+  float: left;
+  height: 0;
+  margin: 0.6%;
+}
+
+/* line 79, ../sass/main.scss */
+.tile {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background: #F1C40F;
+  text-align: center;
+  font-size: 100%;
+  word-wrap: normal;
+  line-height: 100%;
+}
+
+/* line 91, ../sass/main.scss */
+.tile-rack {
+  list-style: none;
+}
+
+/* line 96, ../sass/main.scss */
+.dragging {
+  background: #F1C40F;
+}
+
+/* line 100, ../sass/main.scss */
+.drag-enter {
+  margin: #F1C40F;
+}
+
+/* line 104, ../sass/main.scss */
+.dropped {
+  background: #F1C40F;
+}
+
+/* line 108, ../sass/main.scss */
+.yellow {
+  background: #F1C40F;
+}
+
+/* line 112, ../sass/main.scss */
+.welcome-view-container {
+  width: 40%;
+  margin: 0 auto;
+}
