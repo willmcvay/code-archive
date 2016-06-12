@@ -1,34 +1,44 @@
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
-const browserify = require('browserify');
-const fs = require('fs');
 const uglify = require('gulp-uglify');
-const mocha = require('gulp-mocha');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack-stream');
+const eslint = require('gulp-eslint');
 
-gulp.task('build', function () {
-  browserify('js/app/client.js')
-    .transform('babelify', {presets: ['es2015']})
-    .bundle()
-    .pipe(fs.createWriteStream('public/js/app.js'));
+gulp.task('lint', () => {
+	return gulp.src(['**/*.js', '**/*.jsx', '!node_modules/**', '!client/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
-gulp.task('sass', function () {
-  gulp.src('scss/style.scss')
+gulp.task('webpack', () => {
+	return gulp.src('client/app/client.js')
+    .pipe(webpack( require('./webpack.config.js') ))
+		.pipe(uglify())
+    .pipe(gulp.dest('dist/js/'));
+});
+
+gulp.task('sass', () => {
+	gulp.src('scss/style.scss')
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(postcss([autoprefixer({browsers: ['last 2 versions']})]))
-    .pipe(gulp.dest('public/css'));
+    .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('server', function () {
-  nodemon({
-    script: 'js/app/server.js',
-    ignore: ['public'],
-    ext: 'js html hbs scss',
-    tasks: ['build', 'sass']
-  });
+gulp.task('make', ['lint'], () => {
+	gulp.start(['webpack', 'sass']);
 });
 
+gulp.task('default', () => {
+	nodemon({
+		script: 'server.js',
+		ignore: ['dist/js/app.js', 'client/**/*.js', 'client/**/*.jsx'],
+		ext: 'js html',
+		tasks: ['sass']
+	});
+	gulp.watch('sass/**/*.scss',['sass']);
+});
