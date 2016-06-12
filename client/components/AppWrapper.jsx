@@ -3,7 +3,7 @@ const React = require('react');
 const AppWrapper = React.createClass({
   render () {
     return (
-      <main>Hello will</main>
+      <main>Hello world</main>
     );
   }
 });
