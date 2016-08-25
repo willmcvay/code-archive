@@ -1,7 +1,7 @@
-const React = require('react');
+const React = require( 'react' );
 
 const AppWrapper = React.createClass({
-  render () {
+  render() {
     return (
       <main>Hello world</main>
     );
