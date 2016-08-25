@@ -1,4 +1,6 @@
 module.exports = {
+
+  // config constants
   WEBPACK_DEV_ENTRY   : 'webpack-dev-server/client?http://localhost:8000/',
   WEBPACK_HOT_RELOADER: 'webpack/hot/only-dev-server',
   BUNDLE_PATH         : './client/app/client',

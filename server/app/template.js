@@ -1,4 +1,4 @@
-module.exports = ( markup, bundlePath ) => {
+module.exports = ( markup, bundlePath, appData ) => {
   return `
     <!doctype html>
     <html>
@@ -10,6 +10,7 @@ module.exports = ( markup, bundlePath ) => {
         <main id="container">
           ${markup}
         </main>
+        <script type="text/javascript">var appData = ${appData};</script>
         <script type="text/javascript" src="${bundlePath}"></script>
       </body>
     </html>
