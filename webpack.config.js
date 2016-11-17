@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack        = require( 'webpack' );
 const ProgressPlugin = require( 'progress-bar-webpack-plugin' );
 const constants      = require( './constants' );
@@ -44,21 +46,14 @@ module.exports = {
   },
   plugins: getPlugins(),
   resolve: {
-    extensions: [ '', '.js', '.jsx' ]
+    extensions: [ '', '.js', '.ts', 'tsx' ]
   },
   module: {
-    loaders: [ {
-      test   : /\.jsx?$/,
-      exclude: /node_modules/,
-      loaders: [ 'react-hot' ]
-    },
+    loaders: [
     {
-      test   : /.jsx?$/,
-      loader : 'babel-loader',
-      exclude: /node_modules/,
-      query  : {
-        presets: [ 'es2015', 'react', 'stage-0' ]
-      }
+      test   : /.tsx?$/,
+      loader : 'awesome-typescript-loader',
+      exclude: /node_modules/
     } ]
   }
 };

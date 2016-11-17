@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "debug": "registry:npm/debug#2.0.0+20160723033700",
+    "express": "registry:npm/express#4.14.0+20160925001530",
+    "history": "registry:npm/history#2.0.0+20160607172317",
+    "mongodb": "registry:npm/mongodb#2.1.0+20161108182714",
+    "mongoose": "registry:npm/mongoose#4.3.5+20160628072220",
+    "react": "registry:npm/react#15.0.1+20160601175240",
+    "react-dom": "registry:npm/react-dom#15.0.1+20160826174104",
+    "react-redux": "registry:npm/react-redux#4.4.0+20160614222153",
+    "react-router": "registry:npm/react-router#2.4.0+20160915183637",
+    "react-router-redux": "registry:npm/react-router-redux#4.0.0+20160602212457",
+    "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
+  }
+}

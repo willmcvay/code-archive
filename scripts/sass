@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./node_modules/node-sass/bin/node-sass -i --output-style nested --include-path sass/style.sass -o public/css
