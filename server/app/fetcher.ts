@@ -8,7 +8,6 @@ const getActionKeys = ( renderProps ) => {
   });
 };
 
-
 module.exports = ( renderProps ) => {
   const actionKeys = getActionKeys( renderProps );
   // const responses  = [];

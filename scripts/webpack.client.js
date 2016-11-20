@@ -40,8 +40,8 @@ module.exports = {
   entry  : getEntry(),
   devtool: 'source-map',
   output : {
-    path      : `${__dirname}/public/js/`,
-    publicPath: '/public/js/',
+    path      : `${__dirname}../public/js/`,
+    publicPath: '../public/js/',
     filename  : 'app.js'
   },
   plugins: getPlugins(),
@@ -51,7 +51,7 @@ module.exports = {
   module: {
     loaders: [
     {
-      test   : /.tsx?$/,
+      test   : /.ts[x]?$/,
       loader : 'awesome-typescript-loader',
       exclude: /node_modules/
     } ]

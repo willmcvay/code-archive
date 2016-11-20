@@ -2,12 +2,13 @@
   "name": "is-the-cricket-on",
   "version": "1.0.0",
   "description": "An application for cricket fans",
-  "main": "server.js",
+  "main": "server.ts",
   "repository": "https://github.com/willmcvay/isTheCricketOn",
   "scripts": {
-    "deploy": "NODE_ENV=PROD make && NODE_ENV=PROD node ./server.js",
+    "deploy": "NODE_ENV=PROD make && NODE_ENV=PROD node ./server.ts",
     "test": "./scripts/test",
-    "start": "./server.js",
+    "start": "node ./server.ts",
+    "watch": "node ./scripts/client.js && concurrently \"node ./scripts/server.js\" \"nodemon ./server/server --watch dist -e js\" --kill-others",
     "sass": "./scripts/sass",
     "sass-watch": "./scripts/sass-watch",
     "lint": "tslint './**/*.ts{,x}'"
@@ -16,23 +17,23 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.3",
-    "history": "^3.0.0",
+    "history": "^4.4.0",
     "mongodb": "^2.0.49",
     "mongoose": "^4.2.8",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
-    "react-router": "^2.0.1",
+    "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.5.2",
-    "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "socket.io": "^1.3.7",
-    "superagent": "^2.3.0"
+    "superagent": "^3.0.0"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^2.2.4",
-    "enzyme": "~2.4.1",
+    "awesome-typescript-loader": "^3.0.0-beta.3",
+    "concurrently": "^3.1.0",
+    "enzyme": "~2.6.0",
     "es6-shim": "^0.35.1",
     "jasmine-core": "^2.5.2",
     "karma": "^1.3.0",
@@ -45,11 +46,12 @@
     "phantomjs-prebuilt": "^2.1.13",
     "progress-bar-webpack-plugin": "~1.9.0",
     "promise-polyfill": "^6.0.2",
-    "react-hot-loader": "^1.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "redux-devtools": "^3.3.1",
-    "tslint": "^3.15.1",
+    "redux-logger": "^2.7.4",
+    "tslint": "^4.0.1",
     "typescript": "^2.0.10",
     "webpack": "~1.13.2",
-    "webpack-dev-server": "~1.15.0"
+    "webpack-dev-server": "~1.16.2"
   }
 }
