@@ -1,3 +1,3 @@
-module.exports = {
-  GET_MATCH: 'GET_MATCH'
-};
+// module.exports = {
+//   GET_MATCH: 'GET_MATCH'
+// };

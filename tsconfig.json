@@ -30,6 +30,11 @@
     "placeOpenBraceOnNewLineForFunctions": false,
     "placeOpenBraceOnNewLineForControlBlocks": false
   },
+  "include": [
+    "server/**/*",
+    "shared/**/*",
+    "client/**/*"
+  ],
   "exclude": [
     "node_modules"
   ]

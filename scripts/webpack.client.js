@@ -49,10 +49,13 @@ module.exports = {
     extensions: [ '', '.js', '.ts', 'tsx' ]
   },
   module: {
-    loaders: [
+    loaders: [{
+      test: /\.json$/, 
+      loader: 'json'
+    },
     {
       test   : /.ts[x]?$/,
-      loader : 'awesome-typescript-loader',
+      loaders : ['awesome-typescript-loader','react-hot-loader/webpack'],
       exclude: /node_modules/
     } ]
   }

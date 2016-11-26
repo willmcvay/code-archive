@@ -6,16 +6,18 @@
   "repository": "https://github.com/willmcvay/isTheCricketOn",
   "scripts": {
     "deploy": "NODE_ENV=PROD make && NODE_ENV=PROD node ./server.ts",
-    "test": "./scripts/test",
+    "test": "./node_modules/karma/bin/karma start",
+    "testWatch": "./node_modules/karma/bin/karma start --auto-watch --no-single-run",
     "start": "node ./server.ts",
-    "watch": "node ./scripts/client.js && concurrently \"node ./scripts/server.js\" \"nodemon ./server/server --watch dist -e js\" --kill-others",
-    "sass": "./scripts/sass",
-    "sass-watch": "./scripts/sass-watch",
+    "watch": "node ./scripts/compiler.js && concurrently \"node ./scripts/devServer.js\" \"nodemon ./server/server.js --watch dist -e js\"",
+    "sass": "./node_modules/node-sass/bin/node-sass -i --output-style nested --include-path sass/style.sass -o public/css",
+    "sassWatch": "./node_modules/nodemon/bin/nodemon.js --ext sass,scss -x sass",
     "lint": "tslint './**/*.ts{,x}'"
   },
   "author": "Will McVay",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.15.2",
     "express": "^4.13.3",
     "history": "^4.4.0",
     "mongodb": "^2.0.49",
@@ -27,8 +29,7 @@
     "react-router-redux": "^4.0.7",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
-    "socket.io": "^1.3.7",
-    "superagent": "^3.0.0"
+    "socket.io": "^1.3.7"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.0.0-beta.3",
@@ -36,6 +37,7 @@
     "enzyme": "~2.6.0",
     "es6-shim": "^0.35.1",
     "jasmine-core": "^2.5.2",
+    "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",

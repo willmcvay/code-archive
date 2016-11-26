@@ -12,8 +12,7 @@ const options = {
 const compiler = webpack( config );
 
 compiler.run(function(err, stats) {
-	if(err)
-		return console.error(err.message);
+	if(err) return console.error(err.message);
 
 	console.log(stats.toString(options));
 });
