@@ -1,14 +1,14 @@
-// 'use strict';
+'use strict';
 
-// const React = require( 'react' );
-// const Route = require( 'react-router' ).Route;
-// const IndexRoute = require( 'react-router' ).IndexRoute;
-// const AppWrapper = require( '../../client/components/AppWrapper.jsx' );
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { IndexRoute, Route } from 'react-router';
+import App from '../../client/components/App';
 
-// module.exports = () => {
-//   return (
-//     <Route path="/" component={AppWrapper}>
+export default (): JSX.Element => {
+  return (
+    <Route path="/" component={ App }>
 
-//     </Route>
-//   );
-// };
+    </Route>
+  );
+};

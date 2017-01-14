@@ -7,7 +7,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es6",
     "diagnostics": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
@@ -30,11 +30,6 @@
     "placeOpenBraceOnNewLineForFunctions": false,
     "placeOpenBraceOnNewLineForControlBlocks": false
   },
-  "include": [
-    "server/**/*",
-    "shared/**/*",
-    "client/**/*"
-  ],
   "exclude": [
     "node_modules"
   ]
