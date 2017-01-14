@@ -1,17 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "https://raw.githubusercontent.com/andrew-w-ross/typings-react-redux/21202533f75a73d4fa4c50e0357aaf23739fcabb/typings.json",
-    "raw": "registry:npm/react-redux#4.4.0+20160614222153",
-    "main": "react-redux.d.ts",
-    "dependencies": {
-      "redux": {
-        "src": "https://raw.githubusercontent.com/andrew-w-ross/typings-redux/master/typings.json",
-        "raw": "github:andrew-w-ross/typings-redux",
-        "main": "redux.d.ts",
-        "name": "redux"
-      }
-    },
-    "name": "react-redux"
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5e221bedd9ed166334bce857f23fac97df116ca4/react-redux/index.d.ts",
+    "raw": "registry:dt/react-redux#4.4.0+20161124155658",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5e221bedd9ed166334bce857f23fac97df116ca4/react-redux/index.d.ts"
   }
 }

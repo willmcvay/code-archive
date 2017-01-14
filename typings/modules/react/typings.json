@@ -1,9 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "https://raw.githubusercontent.com/cantide5ga/typed-react/42692d400db3c333394ec75bce9f6d09b5a0a769/typings.json",
-    "raw": "registry:npm/react#15.0.1+20160601175240",
-    "main": "react.d.ts",
-    "name": "react"
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5d8626c1d743d58e9c46c0a88d989cc51a1261ad/react/index.d.ts",
+    "raw": "registry:dt/react#15.0.0+20170111020654",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5d8626c1d743d58e9c46c0a88d989cc51a1261ad/react/index.d.ts"
   }
 }

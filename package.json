@@ -2,22 +2,41 @@
   "name": "is-the-cricket-on",
   "version": "1.0.0",
   "description": "An application for cricket fans",
-  "main": "server.ts",
   "repository": "https://github.com/willmcvay/isTheCricketOn",
   "scripts": {
-    "deploy": "NODE_ENV=PROD make && NODE_ENV=PROD node ./server.ts",
-    "test": "./node_modules/karma/bin/karma start",
-    "testWatch": "./node_modules/karma/bin/karma start --auto-watch --no-single-run",
-    "start": "node ./server.ts",
-    "watch": "node ./scripts/compiler.js && concurrently \"node ./scripts/devServer.js\" \"nodemon ./server/server.js --watch dist -e js\"",
-    "sass": "./node_modules/node-sass/bin/node-sass -i --output-style nested --include-path sass/style.sass -o public/css",
-    "sassWatch": "./node_modules/nodemon/bin/nodemon.js --ext sass,scss -x sass",
+    "deploy": "npm run build && npm run server",
+    "build": "npm run clean && node ./scripts/prodBundler.js",
+    "server": "node ./scripts/server.js",
+    "test": "jest — coverage — no-cache ${1}",
+    "test-watch": "jest ${1} — watch",
+    "clean": "node ./scripts/clean.js",
+    "install-utils": "typings install && yarn install -g && yarn install",
+    "start": "npm run clean && node ./scripts/devBundler.js && concurrently \"node ./scripts/hotReload.js\" \"nodemon ./scripts/server.js --watch public -e js\" --kill-others",
     "lint": "tslint './**/*.ts{,x}'"
   },
   "author": "Will McVay",
   "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "lib/.*\\.spec.(ts|js)$",
+    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+    "globals": {
+      "__TS_CONFIG__": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node"
+      }
+    }
+  },
   "dependencies": {
     "axios": "^0.15.2",
+    "compression": "^1.6.2",
     "express": "^4.13.3",
     "history": "^4.4.0",
     "mongodb": "^2.0.49",
@@ -32,27 +51,28 @@
     "socket.io": "^1.3.7"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.0.0-beta.3",
+    "awesome-typescript-loader": "^3.0.0-beta.18",
     "concurrently": "^3.1.0",
+    "css-loader": "^0.26.1",
+    "del": "^2.2.2",
     "enzyme": "~2.6.0",
-    "es6-shim": "^0.35.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "fs": "0.0.1-security",
     "jasmine-core": "^2.5.2",
-    "json-loader": "^0.5.4",
-    "karma": "^1.3.0",
-    "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "^1.8.0",
+    "jest": "^18.1.0",
     "node-sass": "^3.13.0",
     "nodemon": "^1.8.1",
-    "phantomjs-prebuilt": "^2.1.13",
     "progress-bar-webpack-plugin": "~1.9.0",
-    "promise-polyfill": "^6.0.2",
-    "react-hot-loader": "^3.0.0-beta.6",
+    "react-hot-loader": "^1.3.1",
     "redux-devtools": "^3.3.1",
     "redux-logger": "^2.7.4",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "ts-jest": "^18.0.1",
     "tslint": "^4.0.1",
-    "typescript": "^2.0.10",
+    "typescript": "^2.1.0",
+    "typings": "^2.1.0",
     "webpack": "~1.13.2",
     "webpack-dev-server": "~1.16.2"
   }
