@@ -98,6 +98,7 @@ export default () => {
     match({
       routes  : routes(),
       location: location.location,
+      location: req.path
     }, ( err, redirectLocation, renderProps ) => {
       if ( redirectLocation ) {
         return res.redirect( 301, `${redirectLocation.pathname}${redirectLocation.search}` );

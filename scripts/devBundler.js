@@ -6,7 +6,8 @@ const options = {
   chunkModules: false,
   modules     : false,
   source      : false,
-  chunkOrigins: false
+  chunkOrigins: false,
+  quiet       : true
 };
 const compiler = webpack(config);
 
