@@ -1,7 +1,7 @@
 const express             = require( 'express' );
 const compress            = require( 'compression' );
 const path                = require( 'path' );
-const serverSideRendering = require( '../public/js/server/server.bundle.js' );
+const serverSideRendering = require( '../public/server.bundle.js' );
 
 const server = express();
 const port   = process.env.PORT || 8080;

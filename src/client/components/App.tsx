@@ -1,15 +1,17 @@
 import * as React from 'react';
-// const actions   = require( '../../actions' );
 
 export default class App extends React.Component<{}, {}> {
 
-  // actionKeys: [
-  //   actions.GET_MATCH
-  // ],
+  clickHandler() {
+    console.log('clicking me');
+  };
 
   render() {
+    console.log('render App.tsx');
     return (
-      <main>Hello world</main>
+      <main>
+        <button onClick={this.clickHandler.bind(this)}>Click me</button>
+      </main>
     );
   }
 };

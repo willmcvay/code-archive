@@ -1,10 +1,9 @@
-export default ( markup: JSX.Element, bundlePath: string, appData: any ): string => {
+export default ( markup: string, bundlePath?: string, appData?: any ): string => {
   return `
     <!doctype html>
     <html>
       <head>
         <title>Is The Cricket On</title>
-        <link rel="stylesheet" type="text/css" href="/client/css/style.css">
       </head>
       <body>
         <main id="container">
@@ -16,3 +15,5 @@ export default ( markup: JSX.Element, bundlePath: string, appData: any ): string
     </html>
   `;
 };
+
+{/*<link rel="stylesheet" type="text/css" href="/public/css/style.css">*/}
