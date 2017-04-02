@@ -1,5 +1,4 @@
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-const shared            = require( './webpack.shared.js' );
+const shared = require( './webpack.shared.js' );
 
 const loaders = [{
   test: /\.ts[x]?$/,
@@ -7,21 +6,6 @@ const loaders = [{
     'react-hot-loader',
     'awesome-typescript-loader'
   ]
-}, {
-  test: /\.css$/,
-  loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&localIdentName=[path]-[name]_[local]-[hash:base64:5]' )
-}, {
-  test: /\.scss$/,
-  loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&localIdentName=[path]-[name]_[local]-[hash:base64:5]!sass-loader' )
-}, {
-  test: /\.(jp[e]?g|png|gif|svg)$/i,
-  loader: 'file-loader?name=img/[name].[ext]'
-}, {
-  test: /\.html$/,
-  loader: 'file-loader?name=[name].[ext]'
-}, {
-  test: /\.ico$/,
-  loader: 'file-loader?name=[name].[ext]'
 }];
 
 const server = {
@@ -46,10 +30,7 @@ const server = {
   },
   resolve: {
     extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ]
-  },
-  plugins: [
-    new ExtractTextPlugin( '[name].css' )
-  ]
+  }
 };
 
 module.exports = server;

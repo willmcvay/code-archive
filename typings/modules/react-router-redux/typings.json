@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/d4be58a7e8ed47dad29bc2a2af345f54c6b33099/react-router-redux/index.d.ts",
-    "raw": "registry:dt/react-router-redux#4.0.0+20170112173738",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/d4be58a7e8ed47dad29bc2a2af345f54c6b33099/react-router-redux/index.d.ts"
-  }
-}

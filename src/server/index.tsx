@@ -9,12 +9,10 @@ import routes from '../shared/routes/routes';
 
 export default (req: any, res: any, next: any) => {
   // router.use( ( req: any, res: any, next: any ) => {
-  console.log('hereIam', req.url)
   match({
     routes: routes(),
     location: req.url,
   }, (err, redirectLocation, renderProps) => {
-    console.log('hereIam')
     if (redirectLocation) {
       return res.redirect(301, `${redirectLocation.pathname}${redirectLocation.search}`);
     }
@@ -29,7 +27,7 @@ export default (req: any, res: any, next: any) => {
     }
 
     // const appData: any = fetcher( renderProps );
-    // const appData = {};
+    const appData: any = {};
     const bundlePath = process.env.NODE_ENV === 'production' ?
       '/public/client.js' :
       'http://localhost:4444/client.js';
@@ -39,8 +37,7 @@ export default (req: any, res: any, next: any) => {
     const markup = ReactDomServer.renderToString(<RouterContext {...renderProps} />);
     console.log('Rendering page on server');
     // return res.send( template( markup, bundlePath, JSON.stringify( responses ) ) );
-    console.log(markup, 'HEREIAM')
-    return res.send(template(markup, bundlePath, JSON.stringify({data: 'hi there'})));
+    return res.send(template(markup, bundlePath, JSON.stringify(appData)));
     // })
     // .catch( ( error ) => {
     //   console.error( `Failed to fetch appData: ${error}` );

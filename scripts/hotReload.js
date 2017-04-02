@@ -1,8 +1,6 @@
-const webpack          = require( 'webpack' );
-const WebpackDevServer = require( 'webpack-dev-server' );
-const configClient     = require( './webpack.dev.client.js' );
-const configServer     = require( './webpack.dev.server.js' );
-const fsbx = require('fuse-box');
+const webpack      = require( 'webpack' );
+const configServer = require( './webpack.dev.server.js' );
+const fsbx         = require('fuse-box');
 
 const options = {
   chunk       : false,
@@ -12,18 +10,6 @@ const options = {
   chunkOrigins: false,
   quiet       : true
 };
-
-// new WebpackDevServer( webpack( configClient ), {
-//   hot: true,
-//   historyApiFallback: true,
-//   stats: options
-// }).listen( 8000, 'localhost', ( err ) => {
-//   if(err) console.log( `Webpack client bundle error: ${ err }` );
-
-//   console.log( 'Webpack client server launched with at localhost:8000 [HMR] enabled)' );
-// });
-
-
 
 new fsbx.FuseBox({
   homeDir: "src/",

@@ -1,9 +1,9 @@
-import { Router, IndexRoute, Route, /* browserHistory */ } from 'react-router';
+import { Router /* browserHistory */ } from 'react-router';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 // import { Provider } from 'react-redux';
 // import ReduxThunk from 'redux-thunk';
-import App from './components/App';
+import routes from '../shared/routes/routes';
 // import { routerMiddleware } from "react-router-redux";
 // import { compose } from "redux";
 // import { createStore } from "redux";
@@ -22,10 +22,7 @@ import App from './components/App';
 ReactDOM.render(
 
     <Router>
-      <Route path='/' component={App}>
-        <IndexRoute />
-        <Route path='/app' />
-      </Route>
+      {routes()}
     </Router>
   ,
   document.getElementById( 'container' ) as Element
