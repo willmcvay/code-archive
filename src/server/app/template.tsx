@@ -3,7 +3,7 @@ export default (markup: string, bundlePath?: string, appData?: any): string => {
     <!doctype html>
     <html>
       <head>
-        <link rel="stylesheet" type="text/css" href="/public/style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
         <title>Is The Cricket On</title>
       </head>
       <body>

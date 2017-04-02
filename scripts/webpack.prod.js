@@ -15,7 +15,7 @@ const server = {
     }
   ],
   entry: {
-    'server.bundle': shared.APP_DIR + '/server'
+    'server': shared.APP_DIR + '/server'
   },
   output: {
     filename: '[name].js',

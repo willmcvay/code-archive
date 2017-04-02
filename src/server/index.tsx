@@ -29,7 +29,7 @@ export default (req: any, res: any, next: any) => {
     // const appData: any = fetcher( renderProps );
     const appData: any = {};
     const bundlePath = process.env.NODE_ENV === 'production' ?
-      '/public/client.js' :
+      '/client.js' :
       'http://localhost:4444/client.js';
 
     // Promise.all( appData )
