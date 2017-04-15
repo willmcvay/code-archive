@@ -1,18 +1,14 @@
-// const actions       = require( '../actions' );
-// const getActionKeys = ( renderProps ) => {
-//   // const actionKeys  = [];
+import actionMap from '../actions/actionMap';
 
-//   return renderProps.components.map( ( component ) => {
-//     return component.actionKeys || [];
-//     // return actionKeys.concat( component.actionKeys || [] );
-//   });
-// };
+const getActionKeys = (renderProps: any) => {
+  return renderProps.components.map((component: any) => {
+    return [].concat(component.actionKeys() || []);
+  });
+};
 
-// module.exports = ( renderProps ) => {
-//   const actionKeys = getActionKeys( renderProps );
-//   // const responses  = [];
-//   console.log( 'keys', actionKeys );
-//   return actionKeys.map( ( key ) => {
-//     return actions[ key ];
-//   });
-// };
+export default (renderProps: any) => {
+  return getActionKeys(renderProps).map((key: string) => {
+    console.log('here I am', actionMap[key]);
+    return actionMap[key]();
+  });
+};

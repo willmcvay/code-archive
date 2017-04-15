@@ -4,7 +4,7 @@ import App from '../../client/components/App';
 
 export default (): JSX.Element => {
   return (
-    <Route path='/' component={ App }>
+    <Route path='/' component={App}>
 
     </Route>
   );

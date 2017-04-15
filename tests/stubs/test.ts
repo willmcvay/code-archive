@@ -1,4 +1,5 @@
-{
+/* tslint:disable */
+export default {
   "meta": {
     "upcomingMatchCount": 18,
     "inProgressMatchCount": 0,
