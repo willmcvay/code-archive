@@ -1,29 +1,31 @@
-import { Router /* browserHistory */ } from 'react-router';
+import { browserHistory, Router } from 'react-router';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
 import routes from '../shared/routes/routes';
-// import { routerMiddleware } from "react-router-redux";
-// import { compose } from "redux";
-// import { createStore } from "redux";
-// import { combineReducers } from "redux";
-// import { applyMiddleware } from "redux";
+import MatchesUpcomingReducer from './reducers/MatchesUpcomingReducer';
 
-// const middlewares = [ReduxThunk, routerMiddleware(browserHistory)];
-// const reducers = combineReducers({});
-// const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = [ReduxThunk, routerMiddleware(browserHistory)];
+const reducers = combineReducers({
+  MatchesUpcomingState: MatchesUpcomingReducer,
+  routing: routerReducer
+});
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// export const store = createStore(reducers, composeEnhancers(
-//   applyMiddleware(...middlewares)
-// ));
-  // <Provider store={store}>
-// </Provider>
+export const store = createStore(reducers, composeEnhancers(
+  applyMiddleware(...middleware)
+));
+
+// export const history = syncHistoryWithStore(browserHistory, store);
+
 ReactDOM.render(
-
+  <Provider store={store}>
     <Router>
       {routes()}
     </Router>
-  ,
-  document.getElementById( 'container' ) as Element
+  </Provider>,
+  document.getElementById('container') as Element
 );

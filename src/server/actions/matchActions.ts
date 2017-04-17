@@ -1,7 +1,6 @@
 import testData from '../../../tests/stubs/test';
-import apiConstants from '../../shared/constants/apiConstants';
-import env from '../../shared/constants/env';
-import fetch from 'node-fetch';
+import apiConstants, {headers} from '../../shared/constants/apiConstants';
+import get from 'axios';
 
 export default {
   getMatch() {
@@ -10,13 +9,8 @@ export default {
     });
   },
   getUpcomingMatches() {
-    return fetch(`
-      ${apiConstants.BASE_API_URL}
-      ${apiConstants.MATCHES}
-    `, {
-      headers: {
-        'X-Mashape-Key': env.API_KEY
-      }
+    return get(`${apiConstants.BASE_API_URL}${apiConstants.MATCHES}`, {
+      headers
     });
   }
 };

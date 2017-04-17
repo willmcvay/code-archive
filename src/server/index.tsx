@@ -31,8 +31,10 @@ export default (req: any, res: any, next: any) => {
     Promise.all(appData)
       .then((responses: any) => {
         const markup = ReactDomServer.renderToString(<RouterContext {...renderProps} />);
-        console.log('Rendering page on server');
-        return res.send(template(markup, bundlePath, JSON.stringify(responses)));
+        const filteredData = responses.filter((response: any) => response.status < 400);
+        const mappedData = filteredData.map((response: any) => response.data);
+        console.log('Rendering page on server, appData: ', mappedData);
+        return res.send(template(markup, bundlePath, JSON.stringify(mappedData)));
       })
       .catch((error) => {
         console.error(`Failed to fetch appData: ${error}`);

@@ -8,7 +8,6 @@ const getActionKeys = (renderProps: any) => {
 
 export default (renderProps: any) => {
   return getActionKeys(renderProps).map((key: string) => {
-    console.log('here I am', actionMap[key]);
     return actionMap[key]();
   });
 };
