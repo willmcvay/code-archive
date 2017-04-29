@@ -1,11 +1,16 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import App from '../../client/components/App';
+import * as React from 'react'
+import { Route, Switch } from 'react-router'
+import App from '../../client/components/App'
 
 export default (): JSX.Element => {
   return (
-    <Route path='/' component={App}>
-
-    </Route>
-  );
-};
+    <Switch>
+      <Route exact path='/'>
+        <App />
+      </Route>
+      <Route exact path='/match' >
+        <App />
+      </Route>
+    </Switch>
+  )
+}

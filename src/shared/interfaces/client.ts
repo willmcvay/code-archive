@@ -1,4 +1,4 @@
 export interface IAction<T> {
-  type: string;
-  data: T;
-};
+  type: string
+  data: T
+}

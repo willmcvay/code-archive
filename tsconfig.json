@@ -7,7 +7,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
-    "target": "es6",
+    "target": "es5",
     "diagnostics": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,

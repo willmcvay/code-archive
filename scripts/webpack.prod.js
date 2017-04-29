@@ -1,36 +1,25 @@
-const webpack = require( 'webpack' );
-const shared  = require( './webpack.shared.js' );
+const webpack = require('webpack');
+const shared = require('./webpack.shared.js');
 
-const loaders = [{
-  test: /\.ts[x]?$/,
-  loader: 'awesome-typescript-loader'
-}];
-
-const server = {
-  name: 'prod.server',
-  target: 'node',
-  externals: [
-    /^[a-z\-0-9]+$/, {
-      'react-dom/server': true
-    }
-  ],
-  entry: {
-    'server': shared.APP_DIR + '/server'
+const client = {
+  name: 'client',
+  target: 'web',
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
+  entry: './src/client/index.tsx',
   output: {
-    filename: '[name].js',
-    path: shared.SERVER_BUILD_DIR,
-    publicPath: '/',
-    libraryTarget: 'commonjs2'
+    filename: 'client.js',
+    path: shared.CLIENT_BUILD_DIR,
+    publicPath: '/'
   },
   module: {
-    loaders: loaders
-  },
-  resolve: {
-    extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ]
+    rules: [{
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader'
+    }]
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -39,10 +28,49 @@ const server = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify( 'production' )
+        NODE_ENV: JSON.stringify('production')
       }
     })
   ]
 };
 
-module.exports = [ server ];
+const server = {
+  name: 'server',
+  target: 'node',
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  externals: [
+    /^[a-z\-0-9]+$/, {
+      'react-dom/server': true
+    }
+  ],
+  entry: './src/server/index.tsx',
+  output: {
+    filename: 'server.js',
+    path: shared.SERVER_BUILD_DIR,
+    publicPath: '/',
+    libraryTarget: 'commonjs2'
+  },
+  module: {
+    rules: [{
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader'
+    }]
+  },
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    })
+  ]
+};
+
+module.exports = [server, client];

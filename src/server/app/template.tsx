@@ -12,5 +12,5 @@ export default (markup: string, bundlePath?: string, appData?: any): string => {
         <script type="text/javascript" src="${bundlePath}"></script>
       </body>
     </html>
-  `;
-};
+  `
+}

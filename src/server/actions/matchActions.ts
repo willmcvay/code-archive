@@ -1,16 +1,16 @@
-import testData from '../../../tests/stubs/test';
-import apiConstants, {headers} from '../../shared/constants/apiConstants';
-import get from 'axios';
+import testData from '../../../tests/stubs/test'
+import apiConstants, { headers } from '../../shared/constants/apiConstants'
+import get from 'axios'
 
 export default {
-  getMatch() {
+  getMatch () {
     return new Promise((resolve) => {
-      return resolve(testData);
-    });
+      return resolve(testData)
+    })
   },
-  getUpcomingMatches() {
+  getUpcomingMatches () {
     return get(`${apiConstants.BASE_API_URL}${apiConstants.MATCHES}`, {
       headers
-    });
+    })
   }
-};
+}

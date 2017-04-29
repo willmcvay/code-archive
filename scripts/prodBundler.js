@@ -1,7 +1,6 @@
 const webpack        = require( 'webpack' );
 const ProgressPlugin = require( 'webpack/lib/ProgressPlugin' );
 const config         = require( './webpack.prod.js' );
-const fsbx           = require('fuse-box');
 const compiler       = webpack(config);
 
 compiler.apply( new ProgressPlugin( ( percentage, log ) => {
@@ -15,9 +14,3 @@ compiler.run( ( err, stats ) => {
 
   console.log( `Webpack production bundle error: ${ stats.toString( { colors: true } ) }`);
 });
-
-new fsbx.FuseBox({
-  homeDir: "src/",
-  outFile: "public/client.js",
-  sourceMaps: true
-}).bundle(">client/index.tsx");

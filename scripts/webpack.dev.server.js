@@ -1,36 +1,35 @@
-const shared = require( './webpack.shared.js' );
-
-const loaders = [{
-  test: /\.ts[x]?$/,
-  loaders: [
-    'react-hot-loader',
-    'awesome-typescript-loader'
-  ]
-}];
+const shared = require('./webpack.shared.js');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 const server = {
-  name: 'dev.server',
+  name: 'server',
   target: 'node',
   externals: [
     /^[a-z\-0-9]+$/, {
       'react-dom/server': true
     }
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
   entry: {
     'server': shared.APP_DIR + '/server'
   },
   output: {
-    filename: '[name].js',
+    filename: 'server.js',
     path: shared.SERVER_BUILD_DIR,
     publicPath: 'http://localhost:8000/',
     libraryTarget: 'commonjs2'
   },
   module: {
-    loaders: loaders
+    rules: [{
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader'
+    }]
   },
-  resolve: {
-    extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ]
-  }
-};
+  plugins: [
+    new ProgressBarPlugin()
+  ]
+}
 
 module.exports = server;
