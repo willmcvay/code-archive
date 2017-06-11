@@ -1,4 +1,8 @@
-export default (markup: string, bundlePath?: string, appData?: any): string => {
+const bundlePath = process.env.NODE_ENV === 'production'
+  ? '/client.js'
+  : 'http://localhost:8000/client.js'
+
+export const template = (markup: string, appData?: any): string => {
   return `
     <!doctype html>
     <html>

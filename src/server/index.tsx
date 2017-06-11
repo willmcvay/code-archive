@@ -1,36 +1,34 @@
 import * as React from 'react'
 import * as ReactDomServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
-import template from './app/template'
-import fetcher from './app/fetcher'
-import routes from '../shared/routes/routes'
-import App from '../client/components/App'
+import { template } from './app/template'
+import { initialState } from './app/initialState'
+import { Router } from '../shared/routes/router'
+import { setUpDb } from './app/database'
+import { matchRoute } from '../shared/routes/routes'
+import { Provider } from 'react-redux'
 
 export default (req: any, res: any, next: any) => {
-  const route = routes().props.children.find((route: any) => route.props.path === req.url)
 
-  if (!route) {
-    return res.status(404).send('This is not the page you\'re looking for... move along...')
+  if (!matchRoute(req.url)) {
+    return res.status(404).send(template(ReactDomServer.renderToString(<div>Route not found...</div>)))
   }
 
-  const appData: any = fetcher(route.props.children)
-  const bundlePath = process.env.NODE_ENV === 'production' ?
-    '/client.js' :
-    'http://localhost:8000/client.js'
+  setUpDb()
 
-  Promise.all(appData).then((responses: any) => {
+  initialState(req.url).then((store: any) => {
     const markup = ReactDomServer.renderToString(
-      <StaticRouter context={{}} location={req.url}>
-        <App />
-      </StaticRouter>
+      <Provider store={store}>
+        <StaticRouter context={{}} location={req.url}>
+          <Router />
+        </StaticRouter>
+      </Provider>
     )
-    const filteredData = responses.filter((response: any) => response.status < 400)
-    const mappedData = filteredData.map((response: any) => response.data)
-    console.log('Rendering page on server, appData: ', mappedData)
-    return res.send(template(markup, bundlePath, JSON.stringify(mappedData)))
+    console.log('Rendering page on server, initialState: ', store.getState())
+    return res.send(template(markup, JSON.stringify(store.getState())))
   })
   .catch((error: Error) => {
-    console.error(`Failed to fetch appData: ${error}`)
+    console.error(`Failed to fetch initialState: ${error}`)
     return res.send(template(ReactDomServer.renderToString(<div>Oops, something went wrong...</div>)))
   })
 }

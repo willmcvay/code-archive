@@ -1,9 +1,12 @@
 import matchActions from './matchActions'
-import { IStringMapToPromise } from '../../shared/interfaces/shared'
+import { IStringMapToPromiseList } from '../../shared/interfaces/server'
+import { routes } from '../../shared/routes/routes'
 
-const actionMap: IStringMapToPromise = {
-  GET_MATCH: () => matchActions.getMatch(),
-  GET_UPCOMING_MATCHES: () => matchActions.getUpcomingMatches()
+export const actionMap: IStringMapToPromiseList = {
+  [routes.DEFAULT as string]: () => [
+    matchActions.getUpcomingMatches()
+  ],
+  [routes.MATCHES_UPCOMING as string]: () => [
+    matchActions.getUpcomingMatches()
+  ]
 }
-
-export default actionMap
