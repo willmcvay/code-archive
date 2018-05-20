@@ -1,0 +1,438 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Panel",
+    "props": {
+      "children": {
+        "type": "Row",
+        "props": {
+          "children": [
+            {
+              "type": "Col",
+              "props": {
+                "md": "2",
+                "children": {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "accent",
+                    "children": "Continue Shopping",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                },
+                "className": ""
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "8",
+                "className": ""
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "1",
+                "className": "mui-",
+                "children": "Basket"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "1",
+                "className": "mui-",
+                "children": 0
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "_store": {}
+      },
+      "className": ""
+    },
+    "rendered": {
+      "nodeType": "class",
+      "type": "Row",
+      "props": {
+        "children": [
+          {
+            "type": "Col",
+            "props": {
+              "md": "2",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "accent",
+                  "children": "Continue Shopping",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "_store": {}
+          },
+          {
+            "type": "Col",
+            "props": {
+              "md": "8",
+              "className": ""
+            },
+            "_store": {}
+          },
+          {
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": "Basket"
+            },
+            "_store": {}
+          },
+          {
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": 0
+            },
+            "_store": {}
+          }
+        ],
+        "className": ""
+      },
+      "rendered": [
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "2",
+            "children": {
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "children": "Continue Shopping",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "rendered": {
+            "nodeType": "class",
+            "type": "Button",
+            "props": {
+              "onClick": "onClick",
+              "color": "accent",
+              "children": "Continue Shopping",
+              "className": "",
+              "size": "default",
+              "variant": "default"
+            },
+            "rendered": "Continue Shopping"
+          }
+        },
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "8",
+            "className": ""
+          }
+        },
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "1",
+            "className": "mui-",
+            "children": "Basket"
+          },
+          "rendered": "Basket"
+        },
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "1",
+            "className": "mui-",
+            "children": 0
+          },
+          "rendered": 0
+        }
+      ]
+    }
+  },
+  "type": "Panel",
+  "props": {
+    "className": ""
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Row",
+        "props": {
+          "children": [
+            {
+              "type": "Col",
+              "props": {
+                "md": "2",
+                "children": {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "accent",
+                    "children": "Continue Shopping",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                },
+                "className": ""
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "8",
+                "className": ""
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "1",
+                "className": "mui-",
+                "children": "Basket"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "1",
+                "className": "mui-",
+                "children": 0
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "rendered": [
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "2",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "accent",
+                  "children": "Continue Shopping",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "rendered": {
+              "nodeType": "class",
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "children": "Continue Shopping",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "rendered": "Continue Shopping"
+            }
+          },
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "8",
+              "className": ""
+            }
+          },
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": "Basket"
+            },
+            "rendered": "Basket"
+          },
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": 0
+            },
+            "rendered": 0
+          }
+        ]
+      },
+      "type": "Row",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "2",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "accent",
+                  "children": "Continue Shopping",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "rendered": {
+              "nodeType": "class",
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "children": "Continue Shopping",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "rendered": "Continue Shopping"
+            }
+          },
+          "type": "Col",
+          "props": {
+            "md": "2",
+            "className": ""
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "accent",
+                  "children": "Continue Shopping",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "rendered": "Continue Shopping"
+              },
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "children": [
+                "Continue Shopping"
+              ]
+            }
+          ]
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "8",
+              "className": ""
+            }
+          },
+          "type": "Col",
+          "props": {
+            "md": "8",
+            "className": ""
+          }
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": "Basket"
+            },
+            "rendered": "Basket"
+          },
+          "type": "Col",
+          "props": {
+            "md": "1",
+            "className": "mui-"
+          },
+          "children": [
+            "Basket"
+          ]
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "1",
+              "className": "mui-",
+              "children": 0
+            },
+            "rendered": 0
+          },
+          "type": "Col",
+          "props": {
+            "md": "1",
+            "className": "mui-"
+          },
+          "children": [
+            0
+          ]
+        }
+      ]
+    }
+  ]
+};
+

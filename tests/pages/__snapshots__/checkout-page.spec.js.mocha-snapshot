@@ -1,0 +1,366 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Container",
+    "props": {
+      "children": [
+        {
+          "type": "Connect",
+          "props": {},
+          "_store": {}
+        },
+        [],
+        {
+          "type": "Panel",
+          "props": {
+            "children": {
+              "type": "Row",
+              "props": {
+                "children": [
+                  {
+                    "type": "Col",
+                    "props": {
+                      "md": "6",
+                      "className": "mui-",
+                      "children": "Basket total"
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "Col",
+                    "props": {
+                      "md": "3",
+                      "className": "mui-",
+                      "children": "£0.00"
+                    },
+                    "_store": {}
+                  }
+                ],
+                "className": ""
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "_store": {}
+        },
+        {
+          "type": "Connect",
+          "props": {},
+          "_store": {}
+        }
+      ],
+      "className": "",
+      "fluid": false
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      },
+      {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "6",
+                    "className": "mui-",
+                    "children": "Basket total"
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "3",
+                    "className": "mui-",
+                    "children": "£0.00"
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Row",
+          "props": {
+            "children": [
+              {
+                "type": "Col",
+                "props": {
+                  "md": "6",
+                  "className": "mui-",
+                  "children": "Basket total"
+                },
+                "_store": {}
+              },
+              {
+                "type": "Col",
+                "props": {
+                  "md": "3",
+                  "className": "mui-",
+                  "children": "£0.00"
+                },
+                "_store": {}
+              }
+            ],
+            "className": ""
+          },
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "6",
+                "className": "mui-",
+                "children": "Basket total"
+              },
+              "rendered": "Basket total"
+            },
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "3",
+                "className": "mui-",
+                "children": "£0.00"
+              },
+              "rendered": "£0.00"
+            }
+          ]
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      }
+    ]
+  },
+  "type": "Container",
+  "props": {
+    "className": "",
+    "fluid": false
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      },
+      "type": "Connect(BasketCountComponent)",
+      "props": {}
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "6",
+                    "className": "mui-",
+                    "children": "Basket total"
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "3",
+                    "className": "mui-",
+                    "children": "£0.00"
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Row",
+          "props": {
+            "children": [
+              {
+                "type": "Col",
+                "props": {
+                  "md": "6",
+                  "className": "mui-",
+                  "children": "Basket total"
+                },
+                "_store": {}
+              },
+              {
+                "type": "Col",
+                "props": {
+                  "md": "3",
+                  "className": "mui-",
+                  "children": "£0.00"
+                },
+                "_store": {}
+              }
+            ],
+            "className": ""
+          },
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "6",
+                "className": "mui-",
+                "children": "Basket total"
+              },
+              "rendered": "Basket total"
+            },
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "3",
+                "className": "mui-",
+                "children": "£0.00"
+              },
+              "rendered": "£0.00"
+            }
+          ]
+        }
+      },
+      "type": "Panel",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "6",
+                    "className": "mui-",
+                    "children": "Basket total"
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "3",
+                    "className": "mui-",
+                    "children": "£0.00"
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "6",
+                  "className": "mui-",
+                  "children": "Basket total"
+                },
+                "rendered": "Basket total"
+              },
+              {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "3",
+                  "className": "mui-",
+                  "children": "£0.00"
+                },
+                "rendered": "£0.00"
+              }
+            ]
+          },
+          "type": "Row",
+          "props": {
+            "className": ""
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "6",
+                  "className": "mui-",
+                  "children": "Basket total"
+                },
+                "rendered": "Basket total"
+              },
+              "type": "Col",
+              "props": {
+                "md": "6",
+                "className": "mui-"
+              },
+              "children": [
+                "Basket total"
+              ]
+            },
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "3",
+                  "className": "mui-",
+                  "children": "£0.00"
+                },
+                "rendered": "£0.00"
+              },
+              "type": "Col",
+              "props": {
+                "md": "3",
+                "className": "mui-"
+              },
+              "children": [
+                "£0.00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      },
+      "type": "Connect(CheckoutFormComponent)",
+      "props": {}
+    }
+  ]
+};
+

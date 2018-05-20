@@ -1,0 +1,237 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Container",
+    "props": {
+      "children": {
+        "type": "Panel",
+        "props": {
+          "children": [
+            {
+              "type": "div",
+              "props": {
+                "className": "mui-",
+                "children": [
+                  "Checkout failure ",
+                  false
+                ]
+              },
+              "_store": {}
+            },
+            false,
+            {
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "children": "Return to checkout",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "_store": {}
+      },
+      "className": "",
+      "fluid": false
+    },
+    "rendered": {
+      "nodeType": "class",
+      "type": "Panel",
+      "props": {
+        "children": [
+          {
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": [
+                "Checkout failure ",
+                false
+              ]
+            },
+            "_store": {}
+          },
+          false,
+          {
+            "type": "Button",
+            "props": {
+              "onClick": "onClick",
+              "color": "accent",
+              "children": "Return to checkout",
+              "className": "",
+              "size": "default",
+              "variant": "default"
+            },
+            "_store": {}
+          }
+        ],
+        "className": ""
+      },
+      "rendered": [
+        {
+          "nodeType": "host",
+          "type": "div",
+          "props": {
+            "className": "mui-",
+            "children": [
+              "Checkout failure ",
+              false
+            ]
+          },
+          "rendered": [
+            "Checkout failure ",
+            false
+          ]
+        },
+        false,
+        {
+          "nodeType": "class",
+          "type": "Button",
+          "props": {
+            "onClick": "onClick",
+            "color": "accent",
+            "children": "Return to checkout",
+            "className": "",
+            "size": "default",
+            "variant": "default"
+          },
+          "rendered": "Return to checkout"
+        }
+      ]
+    }
+  },
+  "type": "Container",
+  "props": {
+    "className": "",
+    "fluid": false
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": [
+            {
+              "type": "div",
+              "props": {
+                "className": "mui-",
+                "children": [
+                  "Checkout failure ",
+                  false
+                ]
+              },
+              "_store": {}
+            },
+            false,
+            {
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "accent",
+                "children": "Return to checkout",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "rendered": [
+          {
+            "nodeType": "host",
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": [
+                "Checkout failure ",
+                false
+              ]
+            },
+            "rendered": [
+              "Checkout failure ",
+              false
+            ]
+          },
+          false,
+          {
+            "nodeType": "class",
+            "type": "Button",
+            "props": {
+              "onClick": "onClick",
+              "color": "accent",
+              "children": "Return to checkout",
+              "className": "",
+              "size": "default",
+              "variant": "default"
+            },
+            "rendered": "Return to checkout"
+          }
+        ]
+      },
+      "type": "Panel",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "host",
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": [
+                "Checkout failure ",
+                false
+              ]
+            },
+            "rendered": [
+              "Checkout failure ",
+              false
+            ]
+          },
+          "type": "div",
+          "props": {
+            "className": "mui-"
+          },
+          "children": [
+            "Checkout failure "
+          ]
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Button",
+            "props": {
+              "onClick": "onClick",
+              "color": "accent",
+              "children": "Return to checkout",
+              "className": "",
+              "size": "default",
+              "variant": "default"
+            },
+            "rendered": "Return to checkout"
+          },
+          "type": "Button",
+          "props": {
+            "onClick": "onClick",
+            "color": "accent",
+            "className": "",
+            "size": "default",
+            "variant": "default"
+          },
+          "children": [
+            "Return to checkout"
+          ]
+        }
+      ]
+    }
+  ]
+};
+

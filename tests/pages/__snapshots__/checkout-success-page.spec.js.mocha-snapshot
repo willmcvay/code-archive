@@ -1,0 +1,107 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Container",
+    "props": {
+      "children": {
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": "Checkout success"
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "_store": {}
+      },
+      "className": "",
+      "fluid": false
+    },
+    "rendered": {
+      "nodeType": "class",
+      "type": "Panel",
+      "props": {
+        "children": {
+          "type": "div",
+          "props": {
+            "className": "mui-",
+            "children": "Checkout success"
+          },
+          "_store": {}
+        },
+        "className": ""
+      },
+      "rendered": {
+        "nodeType": "host",
+        "type": "div",
+        "props": {
+          "className": "mui-",
+          "children": "Checkout success"
+        },
+        "rendered": "Checkout success"
+      }
+    }
+  },
+  "type": "Container",
+  "props": {
+    "className": "",
+    "fluid": false
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": "Checkout success"
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "host",
+          "type": "div",
+          "props": {
+            "className": "mui-",
+            "children": "Checkout success"
+          },
+          "rendered": "Checkout success"
+        }
+      },
+      "type": "Panel",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "host",
+            "type": "div",
+            "props": {
+              "className": "mui-",
+              "children": "Checkout success"
+            },
+            "rendered": "Checkout success"
+          },
+          "type": "div",
+          "props": {
+            "className": "mui-"
+          },
+          "children": [
+            "Checkout success"
+          ]
+        }
+      ]
+    }
+  ]
+};
+

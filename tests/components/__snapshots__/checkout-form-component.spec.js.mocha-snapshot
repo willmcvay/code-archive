@@ -1,0 +1,624 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Panel",
+    "props": {
+      "children": {
+        "type": "Row",
+        "props": {
+          "children": {
+            "type": "Col",
+            "props": {
+              "md": "12",
+              "children": {
+                "type": "Form",
+                "props": {
+                  "children": [
+                    {
+                      "type": "_class",
+                      "props": {
+                        "type": "text",
+                        "value": "",
+                        "onChange": "onChange",
+                        "placeholder": "Card Number",
+                        "className": "",
+                        "invalid": false,
+                        "floatingLabel": false
+                      },
+                      "_store": {}
+                    },
+                    {
+                      "type": "Button",
+                      "props": {
+                        "onClick": "onClick",
+                        "color": "primary",
+                        "children": "Checkout",
+                        "className": "",
+                        "size": "default",
+                        "variant": "default"
+                      },
+                      "_store": {}
+                    }
+                  ],
+                  "className": "",
+                  "inline": false
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "_store": {}
+      },
+      "className": ""
+    },
+    "rendered": {
+      "nodeType": "class",
+      "type": "Row",
+      "props": {
+        "children": {
+          "type": "Col",
+          "props": {
+            "md": "12",
+            "children": {
+              "type": "Form",
+              "props": {
+                "children": [
+                  {
+                    "type": "_class",
+                    "props": {
+                      "type": "text",
+                      "value": "",
+                      "onChange": "onChange",
+                      "placeholder": "Card Number",
+                      "className": "",
+                      "invalid": false,
+                      "floatingLabel": false
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "onClick": "onClick",
+                      "color": "primary",
+                      "children": "Checkout",
+                      "className": "",
+                      "size": "default",
+                      "variant": "default"
+                    },
+                    "_store": {}
+                  }
+                ],
+                "className": "",
+                "inline": false
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "_store": {}
+        },
+        "className": ""
+      },
+      "rendered": {
+        "nodeType": "class",
+        "type": "Col",
+        "props": {
+          "md": "12",
+          "children": {
+            "type": "Form",
+            "props": {
+              "children": [
+                {
+                  "type": "_class",
+                  "props": {
+                    "type": "text",
+                    "value": "",
+                    "onChange": "onChange",
+                    "placeholder": "Card Number",
+                    "className": "",
+                    "invalid": false,
+                    "floatingLabel": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "children": "Checkout",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": "",
+              "inline": false
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Form",
+          "props": {
+            "children": [
+              {
+                "type": "_class",
+                "props": {
+                  "type": "text",
+                  "value": "",
+                  "onChange": "onChange",
+                  "placeholder": "Card Number",
+                  "className": "",
+                  "invalid": false,
+                  "floatingLabel": false
+                },
+                "_store": {}
+              },
+              {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Checkout",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              }
+            ],
+            "className": "",
+            "inline": false
+          },
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "_class",
+              "props": {
+                "type": "text",
+                "value": "",
+                "onChange": "onChange",
+                "placeholder": "Card Number",
+                "className": "",
+                "invalid": false,
+                "floatingLabel": false
+              }
+            },
+            {
+              "nodeType": "class",
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "primary",
+                "children": "Checkout",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "rendered": "Checkout"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "Panel",
+  "props": {
+    "className": ""
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Row",
+        "props": {
+          "children": {
+            "type": "Col",
+            "props": {
+              "md": "12",
+              "children": {
+                "type": "Form",
+                "props": {
+                  "children": [
+                    {
+                      "type": "_class",
+                      "props": {
+                        "type": "text",
+                        "value": "",
+                        "onChange": "onChange",
+                        "placeholder": "Card Number",
+                        "className": "",
+                        "invalid": false,
+                        "floatingLabel": false
+                      },
+                      "_store": {}
+                    },
+                    {
+                      "type": "Button",
+                      "props": {
+                        "onClick": "onClick",
+                        "color": "primary",
+                        "children": "Checkout",
+                        "className": "",
+                        "size": "default",
+                        "variant": "default"
+                      },
+                      "_store": {}
+                    }
+                  ],
+                  "className": "",
+                  "inline": false
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "12",
+            "children": {
+              "type": "Form",
+              "props": {
+                "children": [
+                  {
+                    "type": "_class",
+                    "props": {
+                      "type": "text",
+                      "value": "",
+                      "onChange": "onChange",
+                      "placeholder": "Card Number",
+                      "className": "",
+                      "invalid": false,
+                      "floatingLabel": false
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "onClick": "onClick",
+                      "color": "primary",
+                      "children": "Checkout",
+                      "className": "",
+                      "size": "default",
+                      "variant": "default"
+                    },
+                    "_store": {}
+                  }
+                ],
+                "className": "",
+                "inline": false
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "rendered": {
+            "nodeType": "class",
+            "type": "Form",
+            "props": {
+              "children": [
+                {
+                  "type": "_class",
+                  "props": {
+                    "type": "text",
+                    "value": "",
+                    "onChange": "onChange",
+                    "placeholder": "Card Number",
+                    "className": "",
+                    "invalid": false,
+                    "floatingLabel": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "children": "Checkout",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": "",
+              "inline": false
+            },
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "_class",
+                "props": {
+                  "type": "text",
+                  "value": "",
+                  "onChange": "onChange",
+                  "placeholder": "Card Number",
+                  "className": "",
+                  "invalid": false,
+                  "floatingLabel": false
+                }
+              },
+              {
+                "nodeType": "class",
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Checkout",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "rendered": "Checkout"
+              }
+            ]
+          }
+        }
+      },
+      "type": "Row",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "12",
+              "children": {
+                "type": "Form",
+                "props": {
+                  "children": [
+                    {
+                      "type": "_class",
+                      "props": {
+                        "type": "text",
+                        "value": "",
+                        "onChange": "onChange",
+                        "placeholder": "Card Number",
+                        "className": "",
+                        "invalid": false,
+                        "floatingLabel": false
+                      },
+                      "_store": {}
+                    },
+                    {
+                      "type": "Button",
+                      "props": {
+                        "onClick": "onClick",
+                        "color": "primary",
+                        "children": "Checkout",
+                        "className": "",
+                        "size": "default",
+                        "variant": "default"
+                      },
+                      "_store": {}
+                    }
+                  ],
+                  "className": "",
+                  "inline": false
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "rendered": {
+              "nodeType": "class",
+              "type": "Form",
+              "props": {
+                "children": [
+                  {
+                    "type": "_class",
+                    "props": {
+                      "type": "text",
+                      "value": "",
+                      "onChange": "onChange",
+                      "placeholder": "Card Number",
+                      "className": "",
+                      "invalid": false,
+                      "floatingLabel": false
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "onClick": "onClick",
+                      "color": "primary",
+                      "children": "Checkout",
+                      "className": "",
+                      "size": "default",
+                      "variant": "default"
+                    },
+                    "_store": {}
+                  }
+                ],
+                "className": "",
+                "inline": false
+              },
+              "rendered": [
+                {
+                  "nodeType": "class",
+                  "type": "_class",
+                  "props": {
+                    "type": "text",
+                    "value": "",
+                    "onChange": "onChange",
+                    "placeholder": "Card Number",
+                    "className": "",
+                    "invalid": false,
+                    "floatingLabel": false
+                  }
+                },
+                {
+                  "nodeType": "class",
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "children": "Checkout",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "rendered": "Checkout"
+                }
+              ]
+            }
+          },
+          "type": "Col",
+          "props": {
+            "md": "12",
+            "className": ""
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Form",
+                "props": {
+                  "children": [
+                    {
+                      "type": "_class",
+                      "props": {
+                        "type": "text",
+                        "value": "",
+                        "onChange": "onChange",
+                        "placeholder": "Card Number",
+                        "className": "",
+                        "invalid": false,
+                        "floatingLabel": false
+                      },
+                      "_store": {}
+                    },
+                    {
+                      "type": "Button",
+                      "props": {
+                        "onClick": "onClick",
+                        "color": "primary",
+                        "children": "Checkout",
+                        "className": "",
+                        "size": "default",
+                        "variant": "default"
+                      },
+                      "_store": {}
+                    }
+                  ],
+                  "className": "",
+                  "inline": false
+                },
+                "rendered": [
+                  {
+                    "nodeType": "class",
+                    "type": "_class",
+                    "props": {
+                      "type": "text",
+                      "value": "",
+                      "onChange": "onChange",
+                      "placeholder": "Card Number",
+                      "className": "",
+                      "invalid": false,
+                      "floatingLabel": false
+                    }
+                  },
+                  {
+                    "nodeType": "class",
+                    "type": "Button",
+                    "props": {
+                      "onClick": "onClick",
+                      "color": "primary",
+                      "children": "Checkout",
+                      "className": "",
+                      "size": "default",
+                      "variant": "default"
+                    },
+                    "rendered": "Checkout"
+                  }
+                ]
+              },
+              "type": "Form",
+              "props": {
+                "className": "",
+                "inline": false
+              },
+              "children": [
+                {
+                  "node": {
+                    "nodeType": "class",
+                    "type": "_class",
+                    "props": {
+                      "type": "text",
+                      "value": "",
+                      "onChange": "onChange",
+                      "placeholder": "Card Number",
+                      "className": "",
+                      "invalid": false,
+                      "floatingLabel": false
+                    }
+                  },
+                  "type": "_class",
+                  "props": {
+                    "type": "text",
+                    "value": "",
+                    "onChange": "onChange",
+                    "placeholder": "Card Number",
+                    "className": "",
+                    "invalid": false,
+                    "floatingLabel": false
+                  }
+                },
+                {
+                  "node": {
+                    "nodeType": "class",
+                    "type": "Button",
+                    "props": {
+                      "onClick": "onClick",
+                      "color": "primary",
+                      "children": "Checkout",
+                      "className": "",
+                      "size": "default",
+                      "variant": "default"
+                    },
+                    "rendered": "Checkout"
+                  },
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "children": [
+                    "Checkout"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
