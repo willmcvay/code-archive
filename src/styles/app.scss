@@ -1,3 +1,88 @@
-html {
-  background-color: white;
-}  
+$background-color: #fff;
+$pinpad-color: #212121;
+$dot-size: 1em;
+$number-size: 2.5em;
+
+body {
+	height: 100vh;
+	background: $background-color;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Open Sans;
+}
+
+.pin-pad {
+	background: $pinpad-color;
+	width: 20em; min-width: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 1em;
+	border-radius: .3em;
+	box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+	margin: auto;
+  color: rgba(255,255,255,.2);
+  p {
+    font-size: .8em;
+  }
+}
+
+.dots {
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+	padding: 1em;
+	padding-top: 3em;
+}
+
+.dot {
+	position: relative;
+	// background: rgba(255,255,255,.2);
+	// border-radius: $dot-size;
+	width: $dot-size;
+	height: $dot-size;
+	transform: scale3d(.7,.7,.7);
+}
+
+.numbers {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+	align-content: flex-end;
+	margin: 2em 0;
+}
+
+.number {
+	position: relative;
+	width: $number-size;
+	height: $number-size;
+	margin: $number-size/5;
+	border-radius: $number-size;
+	border: 2px solid rgba(255,255,255, 0);
+	text-align: center;
+	line-height: $number-size;
+	font-weight: 400;
+	font-size: 1.8em;
+	cursor: pointer;
+	user-select: none;
+	transition: all .5s ease;
+	&:hover {
+		color: rgba(255,255,255, .5);
+		&:before {
+		  border: 2px solid rgba(255,255,255, .5);
+		}
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		left: -2px;
+		width: $number-size;
+		height: $number-size;
+		border: 2px solid rgba(255,255,255, .1);
+		border-radius: $number-size;
+		transition: all .5s ease;
+	}
+}
