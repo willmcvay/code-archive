@@ -1,4 +1,4 @@
-$background-color: #fff;
+$background-color: #b2b2b2;
 $pinpad-color: #212121;
 $dot-size: 1em;
 $number-size: 2.5em;
@@ -35,15 +35,11 @@ body {
 	justify-content: space-around;
 	padding: 1em;
 	padding-top: 3em;
+	color: rgba(255,255,255,.5);
 }
 
 .dot {
-	position: relative;
-	// background: rgba(255,255,255,.2);
-	// border-radius: $dot-size;
-	width: $dot-size;
-	height: $dot-size;
-	transform: scale3d(.7,.7,.7);
+	font-size: 1.8em;
 }
 
 .numbers {
@@ -69,12 +65,14 @@ body {
 	cursor: pointer;
 	user-select: none;
 	transition: all .5s ease;
+
 	&:hover {
 		color: rgba(255,255,255, .5);
 		&:before {
 		  border: 2px solid rgba(255,255,255, .5);
 		}
 	}
+
 	&:before {
 		content: "";
 		position: absolute;

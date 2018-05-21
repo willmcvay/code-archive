@@ -1,7 +1,8 @@
 // @flow
 export type AppState = {
   currentPin: number[],
-  lastSelected: number | null
+  displayText: string[],
+  numberAttempts: number
 }
 
 export type AppActions = {

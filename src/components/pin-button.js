@@ -7,13 +7,10 @@ type Props = AppActions & {
   value: number
 }
 
-const PinButton: React.StatelessFunctionalComponent<Props> = props => {
-  console.log(props)
-  return (
-    <div className="number" onClick={() => props.numberTapped(props.value)}>
-      {props.value}
-    </div>
-  )
-}
+const PinButton: React.StatelessFunctionalComponent<Props> = props => (
+  <div className="number" onClick={() => props.numberTapped(props.value)}>
+    {props.value}
+  </div>
+)
 
 export default PinButton

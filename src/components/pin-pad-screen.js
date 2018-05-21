@@ -5,15 +5,10 @@ import * as pinConstants from '../constants/pin-constants'
 
 type Props = AppState
 
-const PinPadScreen: React.StatelessFunctionalComponent<Props> = props => {
-  return (
-    <div className="dots">
-      <div className="dot">{props.currentPin[0] || '*'}</div>
-      <div className="dot">{props.currentPin[1] || '*'}</div>
-      <div className="dot">{props.currentPin[2] || '*'}</div>
-      <div className="dot">{props.currentPin[3] || '*'}</div>
-    </div>
-  )
-}
+const PinPadScreen: React.StatelessFunctionalComponent<Props> = props => (
+  <div className="dots">
+    {props.displayText.map(text => <div className="dot">{text}</div>)}
+  </div>
+)
 
 export default PinPadScreen
