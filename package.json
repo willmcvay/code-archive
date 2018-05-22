@@ -10,7 +10,7 @@
     "dev": "webpack-serve --port 8000 --config *.dev.js",
     "lint": "chmod +x ./prettier.sh && ./prettier.sh && eslint src --fix",
     "prettier": "prettier --write './src/**/*.js'",
-    "test": "jest",
+    "test": "jest --verbose --coverage",
     "test-dev": "jest --watch",
     "validate": "npm ls"
   },

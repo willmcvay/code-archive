@@ -22,9 +22,7 @@ const getIsDisabled = (state: AppState): boolean =>
 const getCurrentPin = (state: AppState, numberTapped: number): number[] =>
   state.currentPin.length < PIN_LENGTH
     ? [...state.currentPin, numberTapped]
-    : state.currentPin.length === PIN_LENGTH
-      ? [numberTapped]
-      : state.currentPin
+    : [numberTapped]
 
 const getNumberAttempts = (state: AppState, numberTapped: number): number =>
   !checkPinCorrect(getCurrentPin(state, numberTapped))
@@ -55,6 +53,7 @@ const getDisplayText = (state: AppState, numberTapped: number): string[] =>
 
 export {
   getCurrentPin,
+  isCorrectPin,
   getDisplayText,
   getIsDisabled,
   getNumberAttempts,
