@@ -1,0 +1,119 @@
+/*html elements*/
+
+body, html {
+  background:url('background-texture.jpg') no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+     height:100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+
+ul, dl, li, dd {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}
+
+/*Main page elements*/
+
+#homepage {
+  width: 100%;
+  height:100%;
+}
+
+#container {
+  width: 80%;
+  margin-left: 10%;
+  height: 100%;
+}
+
+#header-image {
+  float: left;
+  left: 1%;
+  top: 3%;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  z-index: 10;
+}
+
+/*roundabout carousel*/
+
+/*ul#roundabout-elements.roundabout-holder {
+  position: absolute;
+  top: 400px;
+}*/
+
+li#roundabout-li-one {
+  background: #82b8df;
+}
+
+li#roundabout-li-two {
+  background: #6f6aa7;
+}
+
+li#roundabout-li-three {
+  background: #8769b3;
+}
+
+li#roundabout-li-four {
+  background: #ec987b;
+}
+
+li#roundabout-li-five {
+  background: #eee465;
+}
+
+li#roundabout-li-six {
+  background: #6ec664;
+}
+
+.roundabout-holder {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  left: 15%;
+  height: 500px;
+  width: 70%;
+/*    -webkit-transition: all 1s ease;  */
+}
+.roundabout-moveable-item {
+  height: 100%;
+  width: 80%;
+  cursor: pointer;
+  background-color: #ccc;
+  border: 1px solid #999;
+/*  -webkit-transition: all 1s ease;  */
+}
+.roundabout-in-focus {
+  cursor: auto;
+/*    -webkit-transition: all 5s ease;  */
+}
+
+#roundabout-li-one, #roundabout-li-two, #roundabout-li-three, #roundabout-li-four, #roundabout-li-five, #roundabout-li-six {
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+}
+
+#our-work-dropdown {
+  height: 40px;
+  width: 100%;
+  background: #a5b545;
+}
+
+#about-us-dropdown {
+  height: 40px;
+  width: 100%;
+  top: calc(100% - 40px);
+  position: absolute;
+  background: #5f4629;
+}

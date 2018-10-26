@@ -1,0 +1,25 @@
+<div class="header-text">
+  <ul>
+    <li><h2>Photo Gallery</h2></li>
+    <li><h4>...click to expand</h4></li>
+  </ul>
+</div>
+<div class="container">
+  <div class="span9">
+    <div class="container-blog">
+      <div class="photo-container">
+        <ul>
+          <% @photos.each do |photo| %>
+          <li class="darken">
+            <%= link_to image_tag(photo.photo.url), photo.photo.url, class: 'fancybox', rel: 'group', alt: 'Photo' %>
+          </li>
+            <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="span3">
+    <%= render 'layouts/social' %>
+  </div>
+</div>
