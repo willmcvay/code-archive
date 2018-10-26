@@ -1,0 +1,153 @@
+/*
+//= require_tree .
+*/
+
+body {
+font-family: 'Pathway Gothic One', sans-serif;
+background: url('background.jpg') no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+font-size: 16px;
+}
+
+.container {
+ background-color: #FFFFF0;
+ border-radius: 5px;
+ padding: 10px;
+}
+
+ul {
+ list-style-type: none;
+ }
+
+ div.row {
+  margin:
+ }
+
+
+
+ .list {
+  float: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: auto;
+
+ }
+
+
+ .thumb {
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  height: auto;
+ }
+
+.welcome {
+  text-decoration: none;
+  display: block;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.homepage {
+
+}
+
+.header {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  font-size: 75px;
+  background-color: #FFFFF0;
+}
+
+{
+position:absolute;
+clip: rect(0px,60px,200px,0px);
+}
+
+ .home1 {
+  padding-top: 10px;
+  width: 230px;
+  height: 230px;
+  vertical-align: center;
+  background: #DC143C;
+  font-size: 50px;
+  text-align: center;
+}
+
+ .home2 {
+  padding-top: 10px;
+  width: 230px;
+  height: 230px;
+  background: #FFA07A;
+  font-size: 50px;
+  text-align: center;
+  color: #000000;
+}
+
+ .home3 {
+  padding-top: 10px;
+  width: 230px;
+  height: 230px;;
+  background: #1E90FF;
+  font-size: 50px;
+  text-align: center;
+}
+
+  .home4 {
+  padding-top: 10px;
+  width: 230px;
+  height: 230px;
+  background: #7B68EE;
+  font-size: 50px;
+  text-align: center;
+}
+
+
+
+ul.nav {
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+    background: #F0F8FF;
+    color: #fff;
+    border-radius: 2px;
+    width: 940px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+
+li {
+   list-style-type: none;
+}
+
+
+
+  li.dj {
+    font-size: 20px;
+    list-style-type: none;
+  }
+
+li.thumb {
+  list-style-type: none;
+}
+
+input[type="submit"] {
+  font-family: arial narrow;
+  background-color: #fff;
+  font-size: 10px;
+}
+
+textarea {
+  width: 926px;
+  height: 50px;
+  font-family: font-family: 'Pathway Gothic One', sans-serif;
+}
+

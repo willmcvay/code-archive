@@ -1,0 +1,8 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true]
+	"Artist" [shape=Mrecord, label="{Artist|id :integer\ldjname :string\limage :string\lbiog :text\llocation :string\lwallpaper :string\ltwitter :string\lsoundcloud :string\lfacebook :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Comment" [shape=Mrecord, label="{Comment|id :integer\ldjname :string\lcomment :text\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Mix" [shape=Mrecord, label="{Mix|id :integer\ldjname :string\lmix :string\lgenre :string\ldescription :string\limage :string\lcreated_at :datetime\lupdated_at :datetime\l}"]
+	"Artist" -> "Comment" [arrowtail=odot, arrowhead=crow, dir=both color="#EEB764"]
+	"Artist" -> "Mix" [arrowtail=odot, arrowhead=crow, dir=both color="#11B6D0"]
+}

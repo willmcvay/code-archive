@@ -1,0 +1,15 @@
+<%= form_for(@mix) do |f| %>
+  <div class="field">
+      <ul>
+        <li><%= f.label :genre %><%= f.select(:genre, Artist.all.map {|artist| artist.genre}.uniq.delete_if(&:blank?) ) %></li>
+        <li><%= f.label :mixname %><%= f.text_field :mixname %></li>
+        <li><%= f.label :image %><%= f.file_field :image %></li>
+        <li><%= f.label :mix %><%= f.file_field :mix %></li>
+        <li><%= f.label :description %><%= f.text_field :description %></li>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="actions">
+      <li><%= f.submit :class => 'button' %></li>
+    </ul>
+  </div>
+</div>
+<% end %>
