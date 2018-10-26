@@ -1,0 +1,10 @@
+<h1>Users & Commits</h1>
+
+<% form_tag root_path do %>
+  <%= text_field_tag :search, @gitapi.search = button_tag "search" %>
+<% end %>
+
+<% @gitapi.users.each do |user| %>
+  <%= user.login %>
+  <%= user.c %>
+<% end %>
