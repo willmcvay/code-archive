@@ -1,0 +1,131 @@
+@media screen and (max-height: 299px){
+	input, button {
+		height: 20px;
+		font-size: 12px;
+	}
+	.progress {
+		display: none;
+	}
+}
+
+@media screen and (max-height: 400px) and (min-height: 300px){
+	
+	input, button {
+		height: 25px;
+	}
+
+	.progress {
+		font-size: 6px;
+		margin-top: 0.5%;
+		margin-bottom: 0.5%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	
+	#container {
+		height: 66%;
+	}
+
+	.card {
+		width: 14.285714286%;
+		height: 25%;
+		font-size: 100%;
+	}
+
+	.flip-card p {
+		font-size: 100%;
+	}
+	
+	#controls {
+		height: 33%;
+	}
+
+	#player-wrapper {
+		height: 50%;
+		width: 100%;
+		font-size: 120%;
+	}
+	
+	#new-game-wrapper {
+		height: 50%;
+		width: 100%;
+	}
+
+	#deal-deck {
+		width: 33%;
+		font-size: 120%;
+	}
+
+	#duplicate-alert, #selected-alert {
+		width: 100%;
+		font-size: 120%;
+	}
+
+	#leaderboard h2 {
+		width: 98%;
+		margin-left: 1%;
+	}	
+}
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+	#controls {
+		height: 25%;
+		font-size: 100%;
+	}
+	
+	#deal-deck {
+		font-size: 120%;
+		width: 100%;
+		height: 30%;
+		float: left;
+
+	}
+
+	.flip-card p {
+		font-size: 120%;
+	}
+
+	#player-wrapper {
+		font-size: 120%;
+		width: 60%;
+		float: right;
+	}
+	
+	#new-game-wrapper {
+		width: 30%;
+		height: 100%;
+		float: left;
+	}
+
+	#duplicate-alert, #selected-alert {
+		font-size: 120%;
+		width: 100%;
+		height: 30%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 850px) and (min-width: 601px) {
+	.flip-card p {
+		font-size: 95%;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.flip-card p {
+		font-size: 90%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	#game-over-winner h1, h2 {
+		height: 10%;
+	}
+}
+
+@media screen and (max-height: 400px) {
+	.leaders {
+		padding-bottom: 0.5%;
+	}
+}
