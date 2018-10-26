@@ -1,0 +1,43 @@
+<div class="header-text">
+  <ul>
+    <li><h2>My Music</h2></li>
+    <li><h4>(...click to view tracks!)</h4></li>
+  </ul>
+</div>
+<div class="container">
+  <div class="span9">
+    <div class="container-album">
+
+      <div id="accordion">
+        <% @albums.each do |album| %>
+        <div>
+          <h3><%= album.name %></h3>
+        </div>
+        <div class="accoridion-divs">
+            <div class="span3">
+              <div class="album-cover">
+                <%= image_tag album.photo.url %>
+              </div>
+            </div>
+            <div class="span3, offset1">
+              <strong>
+                <p>Year: <%= album.year %></p>
+                <p>Tracklisting: <%= album.tracklisting %></p>
+                <p>Credits: <%= album.credits %></p>
+              </strong>
+              <h4><%= link_to "Listen Here", album %></h4>
+            </div>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="span3">
+    <%= render 'layouts/menu' %>
+  </div>
+</div>
+
+ 
+         

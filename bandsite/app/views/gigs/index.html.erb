@@ -1,0 +1,28 @@
+<div class="header-text">
+  <h2>Gigs</h2>
+</div>
+<div class="container">
+  <div class="span9">
+    <div class="container-blog">
+      <div class="gigs">
+        <% @gigs.each do |gig| %>
+        <ul>
+          <li><h4><%= gig.gigdate %> | </h4></li>
+          <li><h4><%= gig.town %> | </h4></li>
+          <li><h4><%= gig.venue %></h4></li>
+        </ul>
+          <h4></h4>
+            <ul>
+                <li><%= gig.address %> | </li>
+                <li>t. <%= gig.contactvenue %> | </li>
+                <li><%= gig.price %> | </li>
+                <li><%= link_to "Visit Box Office", gig.box_office_link %></li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="span3">
+    <%= render 'layouts/menu' %>
+  </div>
+</div>
