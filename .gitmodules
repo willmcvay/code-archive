@@ -1,0 +1,72 @@
+[submodule "coffeeCards"]
+	path = coffeeCards
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/coffeeCards
+[submodule "Cookbook"]
+	path = Cookbook
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/Cookbook
+[submodule "djapp"]
+	path = djapp
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/djapp
+[submodule "djappnew"]
+	path = djappnew
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/djappnew
+[submodule "fireWorks"]
+	path = fireWorks
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/fireWorks
+[submodule "FirstCookbook"]
+	path = FirstCookbook
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/FirstCookbook
+[submodule "GAFridays"]
+	path = GAFridays
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/GAFridays
+[submodule "gameOfPairs"]
+	path = gameOfPairs
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/gameOfPairs
+[submodule "gitapi"]
+	path = gitapi
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/gitapi
+[submodule "iplayerCodeTest"]
+	path = iplayerCodeTest
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/iplayerCodeTest
+[submodule "isTheCricketOn"]
+	path = isTheCricketOn
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/isTheCricketOn
+[submodule "javascript-koans-completed"]
+	path = javascript-koans-completed
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/javascript-koans-completed
+[submodule "javaScriptConcepts"]
+	path = javaScriptConcepts
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/javaScriptConcepts
+[submodule "markuptest"]
+	path = markuptest
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/markuptest
+[submodule "pairsOnRails"]
+	path = pairsOnRails
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/pairsOnRails
+[submodule "pin-code-test"]
+	path = pin-code-test
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/pin-code-test
+[submodule "rssfeedreader"]
+	path = rssfeedreader
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/rssfeedreader
+[submodule "SenseCamp"]
+	path = SenseCamp
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/SenseCamp
+[submodule "shopping-cart"]
+	path = shopping-cart
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/shopping-cart
+[submodule "squareRootsGardens"]
+	path = squareRootsGardens
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/squareRootsGardens
+[submodule "vagrant"]
+	path = vagrant
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/vagrant
+[submodule "wdi-koans"]
+	path = wdi-koans
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/wdi-koans
+[submodule "willsWords"]
+	path = willsWords
+	url = /Users/willmcvay/Dropbox/Work/personal/code-archive-old/willsWords
+[submodule "bandsite"]
+	path = bandsite
+	url = /Users/willmcvay/Dropbox/Work/project-archive/bandsite
