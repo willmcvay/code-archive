@@ -1,0 +1,10 @@
+dist
+node_modules
+npm-debug.log
+coverage
+.DS_Store
+.vscode
+.yarnclean
+.next
+.jshintignore
+.jshintrc

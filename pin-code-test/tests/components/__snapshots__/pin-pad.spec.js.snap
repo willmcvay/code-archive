@@ -1,0 +1,581 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PinPad should match a DOM snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PinPad
+    actions={
+      Object {
+        "numberTapped": [MockFunction],
+      }
+    }
+    state={
+      Object {
+        "currentPin": Array [
+          1,
+        ],
+        "displayText": Array [
+          1,
+          "*",
+          "*",
+          "*",
+        ],
+        "numberAttempts": 1,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <PinPadScreen
+          currentPin={
+            Array [
+              1,
+            ]
+          }
+          displayText={
+            Array [
+              1,
+              "*",
+              "*",
+              "*",
+            ]
+          }
+          numberAttempts={1}
+        />,
+        <div
+          className="numbers"
+        >
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={7}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={8}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={9}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={4}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={5}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={6}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={1}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={2}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={3}
+          />
+          <PinButton
+            numberTapped={[MockFunction]}
+            value={0}
+          />
+        </div>,
+      ],
+      "className": "pin-pad",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "currentPin": Array [
+            1,
+          ],
+          "displayText": Array [
+            1,
+            "*",
+            "*",
+            "*",
+          ],
+          "numberAttempts": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={7}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={8}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={9}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={4}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={5}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={6}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={1}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={2}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={3}
+            />,
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={0}
+            />,
+          ],
+          "className": "numbers",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "7",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 7,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "8",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 8,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "9",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 9,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "4",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 4,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "5",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 5,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "6",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 6,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 2,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 3,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "function",
+            "props": Object {
+              "numberTapped": [MockFunction],
+              "value": 0,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <PinPadScreen
+            currentPin={
+              Array [
+                1,
+              ]
+            }
+            displayText={
+              Array [
+                1,
+                "*",
+                "*",
+                "*",
+              ]
+            }
+            numberAttempts={1}
+          />,
+          <div
+            className="numbers"
+          >
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={7}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={8}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={9}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={4}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={5}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={6}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={1}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={2}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={3}
+            />
+            <PinButton
+              numberTapped={[MockFunction]}
+              value={0}
+            />
+          </div>,
+        ],
+        "className": "pin-pad",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "currentPin": Array [
+              1,
+            ],
+            "displayText": Array [
+              1,
+              "*",
+              "*",
+              "*",
+            ],
+            "numberAttempts": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={7}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={8}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={9}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={4}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={5}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={6}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={1}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={2}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={3}
+              />,
+              <PinButton
+                numberTapped={[MockFunction]}
+                value={0}
+              />,
+            ],
+            "className": "numbers",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "7",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 7,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "8",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 8,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "9",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 9,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "4",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 4,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "5",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 5,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "6",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 6,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 2,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 3,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "function",
+              "props": Object {
+                "numberTapped": [MockFunction],
+                "value": 0,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
