@@ -1,0 +1,97 @@
+<html>
+	<head>
+		 <link href="main.css" rel="stylesheet" type="text/css">
+		 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="menu-bar">
+			<ul>
+				<li>Main</li>
+				<li>Area One</li>
+				<li>Area Two</li>
+				<li>Gallery</li>
+				<li>Map</li>
+				<li>Contact Info</li>
+				
+			</ul>			
+		</div>
+
+		<div id="container">
+			<div class="animated-box">
+				
+			</div>
+		</div>
+		<div class="container-two">
+			<div id="growing-box">
+			</div>
+			<div id="growing-circle">
+			</div>
+			<div id="pulse-circle">
+			</div>
+			<div id="bounce-box">
+			</div>
+		</div>
+
+<script type="text/javascript">
+
+
+var domDivs = [];
+var domDivsParent = null;
+
+function createManyDivs () {
+	for (var i=0; i<200; i++) {
+		var newDiv = document.createElement('div');
+		domDivs.push(newDiv);
+	}
+}
+
+
+function addDivsToDom () {
+	domDivsParent = document.createElement( 'div' );
+
+	for (var i = 0; i < domDivs.length; i++) {
+		var d = domDivs[i];
+		d.className = "animated-box";
+		// d.id = "animated-box";
+
+		// Will cause a DOM repaint if using document.body or 
+		// an element already in the DOM.
+		domDivsParent.appendChild( d );
+	};
+
+	document.getElementById("container").appendChild( domDivsParent );
+}
+
+function animateBox () {
+	domDivsParent.style.display = 'none';
+
+	for (var i = 0; i < domDivs.length; i++) {
+		var leftPos = Math.floor(Math.random() * 800);
+		var topPos = Math.floor(Math.random() * 800);
+
+		domDivs[i].style.webkitTransform = "translate3d(" + leftPos+ "px, " + topPos + "px,"+"0"+"px)";
+
+	        	var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+	        	domDivs[i].style.background = randomColor;
+
+	};
+
+	domDivsParent.style.display = 'block';
+
+	setTimeout(animateBox, 2000);
+}
+
+
+window.addEventListener( 'load', function() {
+	console.log( 'window#load' );
+	createManyDivs();
+	addDivsToDom();
+	animateBox();
+
+});
+
+</script>
+
+	</body>
+</html>

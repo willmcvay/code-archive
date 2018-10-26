@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			* { margin: 0; }
+
+			body { overflow: hidden; }
+		</style>
+	</head>
+	<body>
+
+		<canvas></canvas>
+		<script type="text/javascript" src="Vector2.js"></script>
+		<script type="text/javascript">
+			var canvas = document.querySelector( 'canvas' ),
+				ctx = canvas.getContext( '2d' ),
+				fireworks = [],
+				numFireworks = 10000,
+				currentTime = 0,
+				previousTime = 0,
+				dt = 16;
+
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+
+
+
+
+
+			function createSingleFirework() {
+				var w = window.innerWidth,
+					h = window.innerHeight,
+
+					x = Math.random() * w,
+					y = Math.random() * h,
+					endX = Math.random() * w,
+					endY = Math.random() * h;
+
+				return {
+					startPosition: new Vector2( x, y ),
+					endPosition: new Vector2( endX, endY ),
+					currentPosition: new Vector2( x, y ),
+					duration: Math.random() * 5000,
+					age: 0,
+					alive: true
+				};
+			}
+
+
+			function createFireworks() {
+				for( var i = 0; i < numFireworks; ++i ) {
+					fireworks.push( createSingleFirework() );
+				}
+			}
+
+
+
+
+			function updateSingleFirework( firework, dt ) {
+				// Calculate current position between start and end (between 0 and 1)
+				var positionInTime = firework.age / firework.duration;
+
+				// Linearly interpolate between start and end position, based on positionInTime.
+				firework.currentPosition.lerpVectors( firework.startPosition, firework.endPosition, positionInTime );
+
+				// Age.
+				firework.age += dt;
+
+				if( firework.age > firework.duration ) {
+					firework.alive = false;
+				}
+			}
+
+
+
+			function drawSingleFirework( firework, dt ) {
+				ctx.fillRect( firework.currentPosition.x, firework.currentPosition.y, 2, 2 );
+			}
+
+			function drawFireworks( dt ) {
+				ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+				ctx.fillRect( 0, 0, window.innerWidth, window.innerHeight );
+				ctx.fillStyle = '#000';
+
+
+				for( var i = 0; i < numFireworks; ++i ) {
+					if( fireworks[ i ].alive ) {
+						updateSingleFirework( fireworks[ i ], dt );
+						drawSingleFirework( fireworks[ i ], dt );
+					}
+				}
+			}
+
+
+			function animate() {
+				currentTime = Date.now();
+				dt = currentTime - previousTime;
+				previousTime = currentTime;
+
+				requestAnimationFrame( animate );
+
+				drawFireworks( dt );
+			}
+
+
+			createFireworks();
+
+
+
+			// START!!
+			previousTime = Date.now();
+			requestAnimationFrame( animate );
+
+		</script>
+
+	</body>
+</html>
