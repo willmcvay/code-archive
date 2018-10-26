@@ -1,0 +1,23 @@
+<h1>Ingredients</h1>
+
+ <div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= ('Enter New Ingredients Here', new_ingredient_path(method: :create)) %></li>
+      <li><%= link_to ('Ingredients', ingredient_path) %></li>
+      <li><%= link_to 'Edit Ingredients', edit_ingredient_path(ingredients) %></li>
+      <li><%= link_to 'Delete Recipe', ingredient_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+</div>
+
+<h2>See All Ingredients Below</h2>
+<div>
+  <ul>
+    <li>Ingredients</li>
+    <li><%= ingredient.ingredient %></li>
+      <% end %>
+  </ul>
+</div>
+
+

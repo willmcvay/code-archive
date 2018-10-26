@@ -1,0 +1,14 @@
+<form.form-vertical>
+<%= form_for(@recipe) do |f| %>
+Name:
+  <%= f.text_field :name %>
+  <br>
+Steps:
+  <%= f.text_field :steps %>
+  <br>
+Food Type:
+ <%= f.text_field :food_type %>
+  <br>
+<%= f.submit 'Submit' %>
+<% end %>
+</form>

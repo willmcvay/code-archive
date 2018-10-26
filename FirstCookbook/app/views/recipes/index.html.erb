@@ -1,0 +1,24 @@
+<h1>My Recipe Folder</h1>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= link_to 'Enter New Recipe', new_recipe_path(method: :create) %></li>
+      <li><%= link_to 'Edit Recipe', recipe_path %></li>
+      <li><%= link_to 'Delete Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+</div>
+
+<div>
+    <ul>
+        <% @recipes.each do |recipe| %>
+      <li>Name</li>
+      <li><%= recipe.name %></li>
+      <li>Type Recipe</li>
+      <li><%= recipe.food_type %></li>
+      <li>Steps To Prepare</li>
+      <li><%= recipe.steps %></li>
+        <% end %>
+    </ul>
+</div>
