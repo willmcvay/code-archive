@@ -1,0 +1,383 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Panel",
+    "props": {
+      "children": {
+        "type": "Row",
+        "props": {
+          "children": [
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "className": "mui-",
+                "children": "Name"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "className": "mui-",
+                "children": "£1"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "children": {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "children": "Add to basket",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                },
+                "className": ""
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "_store": {}
+      },
+      "className": ""
+    },
+    "rendered": {
+      "nodeType": "class",
+      "type": "Row",
+      "props": {
+        "children": [
+          {
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "Name"
+            },
+            "_store": {}
+          },
+          {
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "£1"
+            },
+            "_store": {}
+          },
+          {
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Add to basket",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "_store": {}
+          }
+        ],
+        "className": ""
+      },
+      "rendered": [
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "className": "mui-",
+            "children": "Name"
+          },
+          "rendered": "Name"
+        },
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "className": "mui-",
+            "children": "£1"
+          },
+          "rendered": "£1"
+        },
+        {
+          "nodeType": "class",
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "children": {
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "primary",
+                "children": "Add to basket",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "rendered": {
+            "nodeType": "class",
+            "type": "Button",
+            "props": {
+              "onClick": "onClick",
+              "color": "primary",
+              "children": "Add to basket",
+              "className": "",
+              "size": "default",
+              "variant": "default"
+            },
+            "rendered": "Add to basket"
+          }
+        }
+      ]
+    }
+  },
+  "type": "Panel",
+  "props": {
+    "className": ""
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Row",
+        "props": {
+          "children": [
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "className": "mui-",
+                "children": "Name"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "className": "mui-",
+                "children": "£1"
+              },
+              "_store": {}
+            },
+            {
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "children": {
+                  "type": "Button",
+                  "props": {
+                    "onClick": "onClick",
+                    "color": "primary",
+                    "children": "Add to basket",
+                    "className": "",
+                    "size": "default",
+                    "variant": "default"
+                  },
+                  "_store": {}
+                },
+                "className": ""
+              },
+              "_store": {}
+            }
+          ],
+          "className": ""
+        },
+        "rendered": [
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "Name"
+            },
+            "rendered": "Name"
+          },
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "£1"
+            },
+            "rendered": "£1"
+          },
+          {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Add to basket",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "rendered": {
+              "nodeType": "class",
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "primary",
+                "children": "Add to basket",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "rendered": "Add to basket"
+            }
+          }
+        ]
+      },
+      "type": "Row",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "Name"
+            },
+            "rendered": "Name"
+          },
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "className": "mui-"
+          },
+          "children": [
+            "Name"
+          ]
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "className": "mui-",
+              "children": "£1"
+            },
+            "rendered": "£1"
+          },
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "className": "mui-"
+          },
+          "children": [
+            "£1"
+          ]
+        },
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Col",
+            "props": {
+              "md": "4",
+              "children": {
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Add to basket",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "_store": {}
+              },
+              "className": ""
+            },
+            "rendered": {
+              "nodeType": "class",
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "primary",
+                "children": "Add to basket",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "rendered": "Add to basket"
+            }
+          },
+          "type": "Col",
+          "props": {
+            "md": "4",
+            "className": ""
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Button",
+                "props": {
+                  "onClick": "onClick",
+                  "color": "primary",
+                  "children": "Add to basket",
+                  "className": "",
+                  "size": "default",
+                  "variant": "default"
+                },
+                "rendered": "Add to basket"
+              },
+              "type": "Button",
+              "props": {
+                "onClick": "onClick",
+                "color": "primary",
+                "className": "",
+                "size": "default",
+                "variant": "default"
+              },
+              "children": [
+                "Add to basket"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+

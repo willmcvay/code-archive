@@ -1,0 +1,327 @@
+exports["should match a correct DOM snapshot(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "Container",
+    "props": {
+      "children": [
+        {
+          "type": "Connect",
+          "props": {},
+          "_store": {}
+        },
+        [],
+        {
+          "type": "Panel",
+          "props": {
+            "children": {
+              "type": "Row",
+              "props": {
+                "children": [
+                  {
+                    "type": "Col",
+                    "props": {
+                      "md": "8",
+                      "className": ""
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "Col",
+                    "props": {
+                      "md": "4",
+                      "children": false,
+                      "className": ""
+                    },
+                    "_store": {}
+                  }
+                ],
+                "className": ""
+              },
+              "_store": {}
+            },
+            "className": ""
+          },
+          "_store": {}
+        }
+      ],
+      "className": "",
+      "fluid": false
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      },
+      {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "8",
+                    "className": ""
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "4",
+                    "children": false,
+                    "className": ""
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Row",
+          "props": {
+            "children": [
+              {
+                "type": "Col",
+                "props": {
+                  "md": "8",
+                  "className": ""
+                },
+                "_store": {}
+              },
+              {
+                "type": "Col",
+                "props": {
+                  "md": "4",
+                  "children": false,
+                  "className": ""
+                },
+                "_store": {}
+              }
+            ],
+            "className": ""
+          },
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "8",
+                "className": ""
+              }
+            },
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "children": false,
+                "className": ""
+              },
+              "rendered": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "type": "Container",
+  "props": {
+    "className": "",
+    "fluid": false
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Connect",
+        "props": {}
+      },
+      "type": "Connect(BasketCountComponent)",
+      "props": {}
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "Panel",
+        "props": {
+          "children": {
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "8",
+                    "className": ""
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "4",
+                    "children": false,
+                    "className": ""
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "_store": {}
+          },
+          "className": ""
+        },
+        "rendered": {
+          "nodeType": "class",
+          "type": "Row",
+          "props": {
+            "children": [
+              {
+                "type": "Col",
+                "props": {
+                  "md": "8",
+                  "className": ""
+                },
+                "_store": {}
+              },
+              {
+                "type": "Col",
+                "props": {
+                  "md": "4",
+                  "children": false,
+                  "className": ""
+                },
+                "_store": {}
+              }
+            ],
+            "className": ""
+          },
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "8",
+                "className": ""
+              }
+            },
+            {
+              "nodeType": "class",
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "children": false,
+                "className": ""
+              },
+              "rendered": false
+            }
+          ]
+        }
+      },
+      "type": "Panel",
+      "props": {
+        "className": ""
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Row",
+            "props": {
+              "children": [
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "8",
+                    "className": ""
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "Col",
+                  "props": {
+                    "md": "4",
+                    "children": false,
+                    "className": ""
+                  },
+                  "_store": {}
+                }
+              ],
+              "className": ""
+            },
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "8",
+                  "className": ""
+                }
+              },
+              {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "4",
+                  "children": false,
+                  "className": ""
+                },
+                "rendered": false
+              }
+            ]
+          },
+          "type": "Row",
+          "props": {
+            "className": ""
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "8",
+                  "className": ""
+                }
+              },
+              "type": "Col",
+              "props": {
+                "md": "8",
+                "className": ""
+              }
+            },
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "Col",
+                "props": {
+                  "md": "4",
+                  "children": false,
+                  "className": ""
+                },
+                "rendered": false
+              },
+              "type": "Col",
+              "props": {
+                "md": "4",
+                "className": ""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
