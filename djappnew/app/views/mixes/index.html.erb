@@ -1,0 +1,31 @@
+   <h2>Mixes</h2>
+    <% @mixes.each do |mix| %>
+  <div class="row">
+    <div class="span10 list">
+      <ul>
+        <li class="dj">Mix Name: <%= mix.mixname %></li>
+        <li>Genre: <%= mix.genre %></li>
+        <li>Description: <%= mix.description %></li>
+        <li>
+          <audio controls="controls">
+            Your browser does not support the <code>audio</code> element.
+          <source src="<%= mix.mix.url %>">
+          </audio>
+        </li>
+         <li>
+          <% mix.comments.each do |comment| %>
+            <%= comment.djname %> said
+            <%= comment.comment %>
+          <% end %>
+        </li>
+        <li><%= link_to "View Mix", mix %> | <%= link_to "Delete Mix", mix, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Edit Mix Details", edit_mix_path(mix) %></li>
+      </ul>
+    </div>
+     <div class="span2 thumb">
+      <li class='dj'>Artist: <%= mix.artist.djname %></li>
+      <li class='thumb'><%= image_tag mix.image.thumb.url  %></li>
+    </div>
+  </div>
+
+    <%end %>
+<%= paginate @mixes, theme: 'twitter-bootstrap' %>

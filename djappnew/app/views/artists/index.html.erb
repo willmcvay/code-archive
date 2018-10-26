@@ -1,0 +1,19 @@
+<h2>DJ Profiles</h2>
+    <% @artists.each do |artist| %>
+<div class="row-fluid">
+   <div class="span3 thumb">
+    <a><%= image_tag artist.image.thumb.url  %></a>
+  </div>
+  <div class="span9 list">
+    <ul>
+      <li class='dj'><%= link_to artist.djname, artist %></li>
+      <li>location: <%= artist.location %></li>
+      <li>Genre: <%= artist.genre %></li>
+      <li><%= link_to 'View Profile', artist %></li>
+    </ul>
+  </div>
+</div>
+
+ <% end %>
+<%= paginate @artists, theme: 'twitter-bootstrap' %>
+

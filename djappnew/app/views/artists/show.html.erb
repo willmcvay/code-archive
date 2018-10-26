@@ -1,0 +1,50 @@
+<h2><%= @artist.djname %></h2>
+<div class="row">
+    <div class="span7 list">
+      <ul>
+        <li class='dj'><%= link_to @artist.djname, @artist %> Profile</li>
+        <li>Location: <%= @artist.location %></li>
+        <li>Biog: <%= @artist.biog %></li>
+        <li>@Twitter: <%= @artist.twitter %></li>
+        <li>Facebook: <%= @artist.facebook %></li>
+        <li>Soundcloud: <%= @artist.soundcloud %></li><br>
+        <li><%= link_to "Delete Profile", @artist, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Edit Profile Details", edit_artist_path(@artist) %></li><br>
+            <% @artist.mixes.each do |mix| %>
+        <li><%= mix.mixname %></li>
+         <li>
+            <audio controls="controls">
+              Your browser does not support the <code>audio</code> element.
+            <source src="<%= mix.mix.url %>">
+          </audio>
+        </li><br>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="span5 thumb">
+      <a><%= image_tag @artist.image.url %></a>
+      <a><%=image_tag @artist.wallpaper.url %></a>
+    </div>
+  </div>
+
+  <div class="wallpaper"></div>
+<div>
+  <h3>Comments</h3>
+    <p>
+      <% @artist.comments.each do |comment| %>
+        <%= comment.djname %> said |
+        <%= comment.comment %> <%= link_to "| Delete Comment", comment, method: :delete %><br>
+      <% end %>
+    </p>
+</div>
+
+<div class="comment_form">
+    <%= form_for @comment do |f| %>
+      <%= f.label :Yourname %>
+      <%= f.text_field :djname %>
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+      <%= f.hidden_field :artist_id, value: @artist.id %>
+      <%= f.submit %>
+    <% end %>
+</div>
