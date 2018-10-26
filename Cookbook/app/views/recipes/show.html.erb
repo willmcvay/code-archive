@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @recipe.recipe_image.url %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <b>Steps:</b>
+  <%= @recipe.steps %>
+</p>
+
+<p>
+  <b>Cuisine:</b>
+  <%= @recipe.cuisine %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <% @recipe.ingredients_recipes.each do |ingredients_recipe| %>
+    <%= ingredients_recipe.quantity %> of <%= ingredients_recipe.ingredient.name %>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
+

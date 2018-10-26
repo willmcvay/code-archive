@@ -1,0 +1,6 @@
+<h1> Login </h1>
+
+<% @users.each do |user|%>
+ <%= user.username %>
+ <%= user.password_digest %>
+<% end %>
