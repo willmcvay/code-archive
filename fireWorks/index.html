@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fireworks</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densityDpi=medium-dpi" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<script src="fireworks.js"></script>
+	<script src="vanilla.js"></script>
+	<script src="clickBoom.js"></script>
+	<link rel="stylesheet" href="main.css">
+
+</head>
+	<body>
+		<button id="launch-fireworks-canvas" onclick="return launchFireworksOne()" />Click Me For Canvas Fireworks</button>
+		<button id="launch-fireworks-vanilla" onclick="return launchFireworksTwo()" />Click Me For Vanilla JS Fireworks</button>
+		<button id="launch-fireworks-reset" onclick="return launchClickBoom()" />Click Me To Reset</button>
+		...or click the main body for more explosions!
+		<div id="container">
+			<div id="container-fireworks">
+				<div id="launch-position-a"></div>
+				<div id="launch-position-b"></div>
+				<canvas></canvas>
+			</div>
+		</div>
+
+		<script>
+			var pressButton = document.getElementById("launch-fireworks-reset");
+
+			pressButton.addEventListener("click", function() {
+				window.location.reload();
+			}, false);
+		</script>
+	</body>
+</html>
+
