@@ -1,0 +1,31 @@
+<div id='menu' class='menu'>
+  <ul>
+    <li>
+      <h3><%= link_to 'MakeSenseUK', root_path %></h3>
+    </li>
+    <li>
+      <h3><%= link_to 'Sensecamp', sense_camps_path %></h3>
+    </li>
+    <li>
+      <h3><%= link_to 'Contact', contact_path %></h3>
+    </li>
+  </ul>
+  <div id='share-icons'>
+    <ul>
+<!--       <li class='menu-button'>
+        <div><%= link_to 'Sensecamp Tickets', tickets_path %></div>
+      </li> -->
+      <li class="social-icon facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" target="_blank" title="Share on Facebook"><img class="social-icon" src="/assets/facebook.png"></a>
+      </li>
+      <li class="social-icon twitter">
+        <a href="https://twitter.com/intent/tweet?text=<%= request.url %>" target="_blank" title="Share on Twitter"><img class="social-icon" src="/assets/twitter.png"></a>
+      </li>
+      <li class="social-icon googleplus">
+        <a href="https://plus.google.com/share?url=<%= request.url %>" target="_blank" title="Share on Google Plus"><img class="social-icon" src="/assets/google+.png"></a>
+      </li>
+    </ul>
+  </div>
+
+  <!--     <%= render 'layouts/social' %> -->
+</div>

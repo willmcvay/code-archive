@@ -1,0 +1,97 @@
+
+// unfortuately best laid plans have their chips pissed on by JQuery CSS function!
+function pageHeight() { return window.innerHeight };
+function pageWidth() { return window.innerWidth };
+var transform = "webkitTransform" || "transform";
+var transition = "webkitTransition" ||  "transition";
+var transEnd = "webkitTransitionEnd";
+
+// call detectMob(); (function is in the application head), to detect a mobile device
+
+$(document).ready(function(){
+
+var GLOBALS = {};
+
+// adding prevent scroll function if #no-scrolling is present anywhere
+// this is for desktop and mob devices for homepage.
+if ($(".no-scrolling").length > 0) { preventScrolling(); }
+
+// TODO: check if this is being used at all
+// render social media partial in menu bar
+$('li#menu-sharing').mouseenter(function(){
+	$('li#menu-sharing').css({
+		height : "auto"
+	})
+
+	$('li#menu-sharing').append("<div id='social-partial-mini'></div>")
+
+	$('#social-partial-mini').html(
+		'<a href="https://www.facebook.com/sharer/sharer.php?u=' + location.href + 'title="Share on Facebook"><img src="/assets/facebook.png"></a>' +
+		'<a href="https://twitter.com/intent/tweet?text=' + location.href + ' title="Share on Twitter"><img src="/assets/twitter.png"></a>' +
+		'<a href="https://plus.google.com/share?url=' + location.href + ' title="Share on Google Plus"><img src="/assets/google+.png"></a>'
+		);
+});
+
+$('li#menu-sharing').mouseleave(function(){
+	$('#social-partial-mini').remove();
+	$('li#menu-sharing').css({
+		height : "30px"
+	})
+});
+
+
+
+// main transition function
+if ($('.homepage-slide').length > 0) {
+	var numberOfArrows = $('.nav-arrow').length,
+		numberOfSlides = $('.homepage-slide').length;
+	$('.nav-arrow').each(function(index, value){
+		var transitionHeight;
+		// we want the transitions to go back to the start on the last transition button
+		if (index == numberOfArrows - 1)  {
+			transitionHeight = (pageHeight() * (numberOfSlides - 1));
+		} else {
+			transitionHeight = -pageHeight();
+		}
+
+		$('#nav-arrow-point-' + index).click(function(){
+
+			$('.homepage-slide').each(function(i, v){
+				var newTop = $('#slide-' + i).offset().top + transitionHeight;
+	   			$('#slide-' + i).css( slideTransform(transitionHeight) );
+
+	   			$('#slide-' + i).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+	 				$('#slide-' + i).css( "top", newTop + "px" );
+	   				$('#slide-' + i).css( "transform", "");
+	   				$('#slide-' + i).css( "transition", "");
+	   			});
+			});
+		});
+	});
+}
+
+if ($("#floating-sidebar").length > 0) {
+	var offset = document.getElementById("main-column").getBoundingClientRect().top - document.getElementsByTagName("body")[0].getBoundingClientRect().top
+	$("#floating-sidebar").affix({
+		offset: offset
+	});
+}
+
+
+});
+
+// homepage slides
+function slideTransform(pixels) {
+	return {
+		transform : "translate3d(0," + pixels + "px, 0)",
+		transition : "all 0.5s ease-in-out"
+	};
+}
+
+function preventScrolling() {
+	$('body').addClass('stop-scrolling');
+	$('body').bind('touchmove', function(e){
+		e.preventDefault()
+	});
+};
+

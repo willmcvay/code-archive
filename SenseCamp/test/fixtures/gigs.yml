@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyText
+  gigdate: 2013-08-29 17:05:04
+  venue: MyText
+  address: MyText
+  price: MyText
+
+two:
+  title: MyText
+  gigdate: 2013-08-29 17:05:04
+  venue: MyText
+  address: MyText
+  price: MyText
